@@ -1,5 +1,5 @@
 title: Godot algkursus
-description: Eestikeelne Godot algkursus
+description: Eestikeelne Godot mängumootori kursus
 theme: just-the-docs
 
 url: https://taavippp.github.io/godot
@@ -7,7 +7,7 @@ url: https://taavippp.github.io/godot
 aux_links:
   Koduleht: https://taavippp.github.io/
 
-logo: "/assets/logo.png"
+logo: "assets/logo.png"
 color_scheme: dark
 markdown: kramdown
 

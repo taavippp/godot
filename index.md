@@ -4,6 +4,7 @@ layout: default
 ---
 
 Tere tulemast Godot algkursusele!
+
 Selle kursuse eesmärgiks on õpetada selgeks Godot mängumootori põhitõed ja selle iseseisev kasutamine.
 
 ```gdscript
