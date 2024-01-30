@@ -4,7 +4,7 @@ layout: default
 ---
 
 Tere tulemast Godot algkursusele!
-Selle kursuse eesmärgiks on õpetada selgeks Godot mängumootori erinevateks otstarveteks kasutamine.
+Selle kursuse eesmärgiks on õpetada selgeks Godot mängumootori põhitõed ja selle iseseisev kasutamine.
 
 ```gdscript
 extends Node
@@ -16,7 +16,5 @@ var number: int = 5
 func _ready() -> void:
     pass
 ```
-
-uus
 
 ----
