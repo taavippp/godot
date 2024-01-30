@@ -1,10 +1,15 @@
 ---
-title: Godot mängumootorist
+title: Godot tutvustus
 layout: default
 nav_order: 2
 ---
 
-# Godot mängumootorist
+# Godot tutvustus
+
+Godot mängumootor on vabavaraline programm, millega on võimalik mugavalt luua videomänge ja rakendusi.
+
+![Dome Keeper](https://godotengine.org/assets/showcase/dome-keeper.jpg)
+Pilt videomängust Dome Keeper, mis on loodud Godot'ga.
 
 ## Mida pakub Godot?
 

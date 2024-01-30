@@ -1,5 +1,5 @@
 ---
-title: Kursusest
+title: Kursus
 layout: default
 nav_order: 1
 ---
@@ -18,3 +18,5 @@ Kasutaja peaks oskama enne kursuse alustamist:
     -   nii kood kui ka Godot programm/redaktor on inglise keeles
 -   programmeerimist
     -   pead teadma, mis on funktsioon, muutuja ja muud algteadmised
+
+Edasi saad navigeerida küljeribalt, mis on arvutis vasakul või telefonis üleval peidus.
