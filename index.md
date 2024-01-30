@@ -1,7 +1,9 @@
 ---
-title: Godot algkursus
+title: Kursus
 layout: default
 ---
+
+# Godot algkursus
 
 Tere tulemast Godot algkursusele!
 
