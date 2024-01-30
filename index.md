@@ -1,6 +1,7 @@
 ---
-title: Kursus
+title: Kursusest
 layout: default
+nav_order: 1
 ---
 
 # Godot algkursus
@@ -9,15 +10,11 @@ Tere tulemast Godot algkursusele!
 
 Selle kursuse eesmärgiks on õpetada selgeks Godot mängumootori põhitõed ja selle iseseisev kasutamine.
 
-```gdscript
-extends Node
+Kasutaja peaks oskama enne kursuse alustamist:
 
-class_name Example
-
-var number: int = 5
-
-func _ready() -> void:
-    pass
-```
-
-----
+-   eesti keelt
+    -   kursuse materjal on kirjutatud eesti keeles
+-   inglise keelt
+    -   nii kood kui ka Godot programm/redaktor on inglise keeles
+-   programmeerimist
+    -   pead teadma, mis on funktsioon, muutuja ja muud algteadmised

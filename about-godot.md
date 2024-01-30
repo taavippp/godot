@@ -1,6 +1,7 @@
 ---
 title: Godot mängumootorist
 layout: default
+nav_order: 2
 ---
 
 # Godot mängumootorist
@@ -18,8 +19,8 @@ Nende hulka kuuluvad:
 -   iOS (redaktorit ei saa kasutada)
 -   mängukonsoolid (redaktorit ei saa kasutada)
 
+{: .todo }
 Rewrite lines with \*
-{: .label .label-red }
 
 Godot'ga saab luua nii 2D (kahemõõtmelisi) kui ka 3D (kolmemõõtmelisi) rakendusi.
 Saadaval on

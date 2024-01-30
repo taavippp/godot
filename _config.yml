@@ -7,10 +7,15 @@ url: https://taavippp.github.io/godot
 aux_links:
   Koduleht: https://taavippp.github.io/
 
-logo: "https://taavippp.github.io/godot/assets/logo.png"
-color_scheme: dark
 markdown: kramdown
-
 search_enabled: true
 enable_copy_code_button: true
 heading_anchors: true
+
+logo: "https://taavippp.github.io/godot/assets/logo.png"
+color_scheme: dark
+
+callouts:
+  todo:
+    title: Incomplete content
+    color: red
