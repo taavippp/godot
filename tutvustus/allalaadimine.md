@@ -9,7 +9,7 @@ nav_order: 2
 
 On aeg Godot redaktor alla laadida. Järgnev link viib lehele, kus kõik olulisemad programmi versioonid on olemas.
 
-https://godotengine.org/download/archive/
+<https://godotengine.org/download/archive/>
 
 Sellel kursusel kasutatakse versiooni 4.2.1, sest see on kirjutamise ajal uusim stabiilne versioon. Sellele järgnevad versioonid võivad potentiaalselt sisaldada bugisid.
 Kui on uuemaid versioone olemas, siis otsi suurelt kirjutatud versiooni nimele kaasnevat teksti **Current state: stable**.
