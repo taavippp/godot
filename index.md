@@ -17,6 +17,9 @@ Kasutaja peaks oskama enne kursuse alustamist:
 -   inglise keelt
     -   nii kood kui ka Godot programm/redaktor on inglise keeles
 -   programmeerimist
-    -   pead teadma, mis on funktsioon, muutuja ja muud algteadmised
+    -   omad algteadmisi nagu mis on muutuja, funktsioon jne
 
-Edasi saad navigeerida küljeribalt, mis on arvutis vasakul või telefonis üleval peidus.
+Järgmisele lehele saad navigeerida teksti all olevale lingile vajutades.
+Kui soovid muus järjekorras navigeerida, saad seda teha küljeribalt, mis on arvutis vasakul või telefonis üleval peidus.
+
+[Godot tutvustus](https://taavippp.github.io/tutvustus/)

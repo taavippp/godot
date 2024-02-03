@@ -9,6 +9,7 @@ nav_order: 2
 Godot mängumootor on vabavaraline programm, millega on võimalik mugavalt luua videomänge ja rakendusi.
 
 ![Dome Keeper](https://godotengine.org/assets/showcase/dome-keeper.jpg)
+{: .text-center }
 Pilt videomängust Dome Keeper, mis on loodud Godot'ga.
 
 ## Mida pakub Godot?
@@ -54,3 +55,5 @@ Seda muutust ei viidud läbi tänu suurele vastukajale, kuid kasutajad nägid, m
 Godot on vabavaraline, mis tähendab, et tema lähtekood on avalik.
 Seda on võimalik leida [Github'ist](https://github.com/godotengine/godot) ja tahte korral saab kasutaja programmi ise kokku ehitada ja isegi muutusi teha.
 See tähendab, et nii kaua, kui Godot on vabavaraline programm, ei pea selle kasutaja muretsema ootamatute hinnapoliitikate üle.
+
+[Põhilised mõisted](https://taavippp.github.io/tutvustus/pohilised-moisted)
