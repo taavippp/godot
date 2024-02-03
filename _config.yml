@@ -7,6 +7,7 @@ url: https://taavippp.github.io/godot
 aux_links:
   Koduleht: https://taavippp.github.io/
   Godot: https://godotengine.org/
+aux_links_new_tab: true
 
 markdown: kramdown
 search_enabled: true
