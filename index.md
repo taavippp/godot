@@ -22,4 +22,4 @@ Kasutaja peaks oskama enne kursuse alustamist:
 Järgmisele lehele saad navigeerida teksti all olevale lingile vajutades.
 Kui soovid muus järjekorras navigeerida, saad seda teha küljeribalt, mis on arvutis vasakul või telefonis üleval peidus.
 
-[Godot tutvustus](https://taavippp.github.io/tutvustus/)
+[Godot tutvustus](https://taavippp.github.io/godot/tutvustus/)
