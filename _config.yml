@@ -13,6 +13,8 @@ markdown: kramdown
 search_enabled: true
 enable_copy_code_button: true
 heading_anchors: true
+mermaid:
+  version: "10.8.0"
 
 logo: "https://taavippp.github.io/godot/assets/logo.png"
 color_scheme: dark
