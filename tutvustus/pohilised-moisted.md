@@ -11,18 +11,23 @@ Leidub kolm tähtsat mõistet, mis kaasnevad ükskõik mis Godot osaga.
 
 Need on:
 
-1. sõlm (*node*)
-2. stseen (*scene*)
+1. stseen (*scene*)
+2. sõlm (*node*)
 3. signaal (*signal*)
 
 ```mermaid
+%%{init: {'theme':'neutral'}}%%
 flowchart TD;
-    scene["Stseen"];
-    node1["Sõlm X"];
-    node2["Sõlm Y"];
+    scene["stseen"];
+    node1["sõlm X"];
+    node2["sõlm Y"];
+    node3["sõlm Z"];
+    signal["signaal"];
     scene --> node1;
-    scene --> node2;
-    node2 -- "Signaal" --> scene;
+    node1 --> node2;
+    node1 --> node3;
+    node2 --- signal;
+    signal --> node1;
 ```
 
 Stseen koosneb sõlmedest. Iga sõlm, mis stseenis on, täidab oma unikaalset rolli. Näiteks sõlme nimega *Sprite2D* kasutatakse kahemõõtmeliste piltide kuvamiseks, aga sõlm nimega *Button* on graafilise kasutajaliidese loomise jaoks. Sõlmed on stseenis puustruktuuris. See tähendab, et on üks vanem-sõlm/peasõlm ja sellel sõlmel võib olla nii palju laps-sõlmi, kui vaja. Üht valminud stseeni võid kasutada ka teises stseenis sõlmena.
