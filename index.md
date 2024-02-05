@@ -4,7 +4,7 @@ layout: default
 nav_order: 1
 ---
 
-# Godot algkursus
+![Godot algkursuse logo](./assets/logo.png)
 
 Tere tulemast Godot algkursusele!
 

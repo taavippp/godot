@@ -47,7 +47,10 @@ Saadaval on
     -   on võimalik luua mitme mängijaga (*multiplayer*) videomänge
 -   graafiline kasutajaliidese süsteem
 
-## Godot eelised
+{: .todo }
+Compare with many engines
+
+## Godot eelised Unity üle
 
 2023\. aastal tegi Unity Technologies oma Unity mängumootoriga vastuolulisi muutuseid seoses hinnapoliitikaga.
 Nimelt pakuti välja idee, et kui Unity'ga loodud rakendust laeb alla küllalt inimesi, hakatakse arendajalt tema teenitud tuludest lõivu küsima.
