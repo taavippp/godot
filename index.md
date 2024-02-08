@@ -13,11 +13,12 @@ Selle kursuse eesmärgiks on õpetada selgeks Godot mängumootori põhitõed ja 
 Kasutaja peaks oskama enne kursuse alustamist:
 
 -   eesti keelt
-    -   kursuse materjal on kirjutatud eesti keeles
+    -   kursuse tekst on kirjutatud eesti keeles
 -   inglise keelt
     -   nii kood kui ka Godot programm/redaktor on inglise keeles
 -   programmeerimist
-    -   omad algteadmisi nagu mis on muutuja, funktsioon jne
+    -   tead algteadmisi nagu mis on muutuja, konstant, funktsioon, tsükkel
+    -   tead objektorienteeritud programmeerimisest, mis on klassid ja pärimine
 
 Järgmisele lehele saad navigeerida teksti all olevale lingile vajutades.
 Kui soovid muus järjekorras navigeerida, saad seda teha küljeribalt, mis on arvutis vasakul või telefonis üleval peidus.

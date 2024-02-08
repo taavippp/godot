@@ -27,7 +27,7 @@ Nende hulka kuuluvad:
 -   mängukonsoolid (redaktorit ei saa kasutada)
 
 {: .todo }
-Rewrite lines with \*
+Kirjuta ümber read märgistatud \*-ga
 
 Godot'ga saab luua nii 2D (kahemõõtmelisi) kui ka 3D (kolmemõõtmelisi) rakendusi.
 Saadaval on
@@ -48,7 +48,7 @@ Saadaval on
 -   graafiline kasutajaliidese süsteem
 
 {: .todo }
-Compare with many engines
+Võrdle mitme mootoriga
 
 ## Godot eelised Unity üle
 
