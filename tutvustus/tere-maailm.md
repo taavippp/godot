@@ -65,7 +65,7 @@ flowchart TD;
     node2d --> tere;
 ```
 
-Võtmesõna `func` kuulutab funktsiooni algust. Funktsiooni nimi `_ready` on Node klassi sisseehitatud funktsioon, mis käivitub siis, kui sõlm stseenide puusse sisestatakse. Tal on ees alakriips, et märgistada seda funktsiooni privaatsena. Muidu tegelikult GDScript-is **ei ole** võtmesõnu `private` ega `public`.
+Võtmesõna `func` kuulutab funktsiooni algust. Funktsiooni nimi `_ready` on Node klassi sisseehitatud funktsioon, mis käivitub siis, kui sõlm stseenide puusse sisestatakse. Tal on ees alakriips, et märgistada seda funktsiooni privaatsena. Muidu tegelikult GDScript-is **ei ole** võtmesõnu `private` ega `public` ehk kõik funktsioonid on avalikud.
 
 Käsk `pass` tähendab, et see koodirida ei tee mitte midagi.
 
@@ -81,7 +81,7 @@ Avaneb uus aken halli taustaga. Maailma tervitust siin ei ole. Selle leiad hoopi
 
 ![Output'i all on kirjutatud sõnum.](../assets/introduction/hello-world/hello-world-in-console.png)
 
-Tahaks ikka oma projekti aknas oma sõnumit näha. Pane see praeguseks kinni.
+Tahaks ikka oma rakenduse aknas sõnumit näha. Praeguseks sulge see.
 
 ## Label sõlm
 
