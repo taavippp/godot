@@ -13,6 +13,7 @@ Selles osas on eesmärk eelnevas osas tutvustatud Label sõlm panna tervitama ka
 Kustuta praegune Label sõlm ja määra juursõlmeks hoopis Control. Lisa Control laps-sõlmedeks Label, TextEdit ja Button.
 
 ![Stseeni struktuur.](../assets/introduction/gui/scene-structure.png)
+
 Stseen peaks olema sedasi üles ehitatud.
 {: .text-center .fs-3}
 
@@ -77,7 +78,7 @@ Kohe esimesel real on viga. Kuna nüüd on juursõlm Control tüüpi, siis peaks
 2.	`@onready` annotatsiooniga muutujad
 
 Esiteks tutvume sellega, kuidas deklareerida muutujaid.
-Üldine muutuja süntaks on järgmine: `var muutuja_nimi: muutuja_klass = väärtus`. Muutujatel ei pea klassi kirja panema, aga seda tehakse sellel kursusel, kuna see on hea praktika. Muutujatel ei pea ka väärtuseid kohe määrama. Lisaks on olemas võtmesõna `const` konstandi deklareerimiseks samal viisil. Konstantidel peab olema väärtus koodis kohe olemas.
+Üldine muutuja süntaks on järgmine: `var muutuja_nimi: muutuja_klass = väärtus`. Muutujatel ei pea klassi kirja panema, aga seda tehakse sellel kursusel, kuna see on hea praktika. Muutujatel ei pea ka väärtuseid kohe määrama. Lisaks on olemas võtmesõna `const` konstandi deklareerimiseks samal viisil. Konstantidel peab olema väärtus koodis kohe olemas. Funktsiooni tagastatava väärtuse andmetüüpi on ka mõistlik deklareerida järgneva süntaksiga: `func funktsiooni_nimi(argument: argumendi_klass) -> tagastatav_klass:`.
 
 Annotatsioonid on @-märgiga algavad märgistused. Need eelnevad muutuja deklaratsioonile ja annavad sellele muutujale erinevaid omadusi juurde. Näiteks `@export` annotatsioon teeb muutuja inspektoris nähtavaks ja saad sealt talle väärtuse määrata. `@onready` annotatsioon määrab muutujale väärtuse alles siis, kui skriptiga ühendatud sõlme `_ready` funktsioon on käivitunud ehk tema ja ta laps-sõlmed on stseenide puusse sisestatud.
 
@@ -102,18 +103,19 @@ Parem praktika on kasutada `@export` annotatsiooni, kuna selleks ei pea kirjutam
 @export var button: Button
 ```
 
-Lisaks on inspektori dokis ilmunud sektsioon nimega Tere.gd, kus on skripti `@export` annotatsiooniga avalikustatud muutujad. Pane tähele, et kuigi kirjutasid koodis `text_edit`, kuvatakse seda inspektoris kui Text Edit. Redadktor üritab muutuja nimed inspektoris loetavamaks teha. Vajutades nupule `Assign...` avaneb uus aken, kus on kujutatud kõik sinu stseenis sobivad sõlmed, mis selle muutuja väärtuseks võivad sobida. Meil on sobivaid sõlmi iga muutuja jaoks vaid üks. Vali õige sõlm ja kas topelt-kliki selle peal või vajuta all olevat `OK` nuppu.
+Lisaks on inspektori dokis ilmunud sektsioon nimega Tere.gd, kus on skripti `@export` annotatsiooniga avalikustatud muutujad. Pane tähele, et kuigi kirjutasid koodis `text_edit`, kuvatakse seda inspektoris kui Text Edit. Redaktor üritab muutuja nimed inspektoris loetavamaks teha. Vajutades nupule `Assign...` avaneb uus aken, kus on kujutatud kõik sinu stseenis sobivad sõlmed, mis selle muutuja väärtuseks võivad sobida. Meil on sobivaid sõlmi iga muutuja jaoks vaid üks. Vali õige sõlm ja kas topelt-kliki selle peal või vajuta all olevat `OK` nuppu.
 
 ![@export annotatsiooniga muutujad on inspektoris nähtavad.](../assets/introduction/gui/export-variables.png)
 
 Muutuja erinevate omadustega saad toimetada kasutades järgnevat süntaksi: `muutuja.omadus` Näiteks Label sõlme muutujale Text saad ligi kirjutades `label.text`. Proovi nüüd `_ready` funktsioonis `print` käsu asemel Labeli kuvatavaks tekstiks panna "Tere Godot!". Tulemus peaks olema selline:
 
 ```gdscript
-func _ready():
+func _ready() -> void:
 	label.text = "Tere Godot!"
 ```
 
-Kui nüüd rakenduse käivitad, kuvatakse teksti "Tere Godot!". See tähendab, et oled kogu koodi korrektselt kirjutanud.
+Kui nüüd rakenduse käivitad, kuvatakse teksti "Tere Godot!". See tähendab, et oled kogu koodi korrektselt kirjutanud. Lisasime `_ready` funktsioonile ka tagastava andmetüübi, milleks on `void`, sest see funktsioon ei tagasta midagi.
+
 Siinkohal ei pidanud palju arutlema Text muutuja andmetüübi üle, aga mis siis, kui sa ei tea, milline muutuja väärtus võib olla? Kasutada saaksid redaktoriga kaasnevat sõlmede dokumentatsiooni. Sellele saad ligi skripti kirjutamise alast üleval paremal olevast nupust `Search Help`. Siin saad otsida erinevate sõlmede ja nende muutujate järgi endale vajalikku informatsiooni. Enamikel sõlmedel on ingliskeelsed selgitused head ja aitavad iseseisvalt hakkama saada.
 Lisaks järgmises osas võtame täpsemalt GDScripti, tema andmetüübid ja muud detailid läbi.
 
@@ -131,11 +133,11 @@ Kohe peaks näha olema Button sõlme erinevad signaalid, mida ta välja saadab. 
 Kursuse autori isiklik eelistus on esimene variant, kuna niikuinii peab signaaliga toimetamiseks koodi kirjutama. Õpime mõlemat tegema, aga edaspidi koodinäidetes on esimest varianti kasutatud. Esimese meetodiga näeks `_ready` funktsioon välja selline:
 
 ```gdscript
-func _ready():
+func _ready() -> void:
 	button.pressed.connect(_on_button_pressed) # uus rida
 	label.text = "Tere Godot!"
 
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	pass
 ```
 
@@ -157,11 +159,11 @@ extends Control
 @export var button: Button
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	button.pressed.connect(_on_button_pressed)
 	label.text = "Tere Godot!"
 
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	label.text = "Tere " + text_edit.text
 	text_edit.text = ""
 ```

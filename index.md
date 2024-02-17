@@ -2,6 +2,7 @@
 title: Kursus
 layout: default
 nav_order: 1
+has_children: false
 ---
 
 ![Godot algkursuse logo](./assets/logo.png)
