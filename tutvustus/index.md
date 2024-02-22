@@ -9,7 +9,7 @@ has_children: true
 
 Godot mängumootor on vabavaraline programm, millega on võimalik mugavalt luua videomänge ja rakendusi.
 
-![Dome Keeper](https://godotengine.org/assets/showcase/dome-keeper.jpg)
+![Dome Keeper](./pildid/index/dome-keeper.png)
 
 Pilt videomängust Dome Keeper, mis on loodud Godot'ga.
 {: .text-center .fs-3}
