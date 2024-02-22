@@ -28,3 +28,12 @@ Loo selle projekti esimeses stseenis juursõlmeks `CharacterBody2D`. Selle sõlm
 Peale CharacterBody2D loomist panid äkki tähele stseeni dokis, et kollane hoiatusmärk on selle sõlme juures. Kui vajutad hiirega selle peale, teavitab Godot, et sellel sõlmel on vaja laps-sõlme, mis on kas CollisionShape2D või CollisionPolygon2D tüüpi. Teeme siis nii, et lisamegi juurde `CollisionShape2D` sõlme. Nüüd on aga sellel sõlmel mingi mure, taas märgitud kollase hoiatusmärgiga.
 
 ![Kollane hoiatusmärk, tähistatud punasega.](./pildid/ronija/kollane-hoiatusmark.png)
+
+CollisionShape sõlme `shape` omadusel on vaja kindlat väärtust. Füüsilisel kehal on loomulikult vaja kuju, et ta saaks ülejäänud maailmaga suhelda ja selle kuju puudumist Godot näitabki nende kahe hoiatusega välja. Leia inspektori dokist siis Shape omaduse koht ja tekita talle `New RectangleShape2D`.
+
+![Pildil on täpsustatud, kust CollisionShape2D sõlmele kuju luua.](./pildid/ronija/fuusiline-kuju.png)
+
+Nüüd on see CharacterBody2D ristküliku kujuline.
+
+{: .todo }
+AnimatedSprite2D ja kood?
