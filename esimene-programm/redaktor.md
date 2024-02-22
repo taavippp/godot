@@ -13,9 +13,6 @@ Ava Godot programm. Esimesena kuvatakse projektide haldamise lehekülge. Ülemis
 
 ![Uue projekti loomise nupp on pildil välja toodud punasega.](./pildid/redaktor/projekti-loomise-nupp.png)
 
-{: .todo }
-Algul loob "Hello world" programmi "Ronija" asemel
-
 Avaneb uus aken, kus saad kirja panna oma uue projekti nime, valida kus kaustas/kataloogis ta asub, valida mis renderdajat ta kasutab ja kas soovid, et Godot looks ka Git versioonihaldusega seotud failid. Esimene projekt, mille loome sellel kursusel, on sõlmede süsteemi tutvustav "Tere maailm!" rakendus.
 
 Mõistlik nimi sellisele projektile oleks "Tere Maailm". Järgnevalt vali/loo tühi kaust, kus su projekt asub. Saad seda teha läbi `Browse` nupu. Võid luua näiteks Godot-le oma töölauale eraldi kausta, kuhu paned redaktori failid ja lood veel ühe kausta sinna sisse, mis hakkab su projektide faile hoidma. Nii on tehtud ka alumisel pildil. Kuna tegu on 2D rakendusega, siis kõige sobivam renderdaja on `Compatibility` - see sobib sellise lihtsa 2D projekti jaoks väga hästi. Git Versioonihaldust soovitan kasutada, kui oskad.
