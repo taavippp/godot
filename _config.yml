@@ -17,7 +17,7 @@ heading_anchors: true
 mermaid:
   version: "10.8.0"
 
-logo: "https://taavippp.github.io/godot/assets/logo.png"
+logo: "https://taavippp.github.io/godot/logo.png"
 color_scheme: dark
 
 callouts:

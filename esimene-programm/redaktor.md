@@ -1,17 +1,17 @@
 ---
 title: Redaktor
 layout: default
-parent: Godot tutvustus
-nav_order: 3
+parent: Esimene programm
+nav_order: 1
 ---
 
 # Redaktor
 
 ## Projekti loomine
 
-Eelmise osa lõpus avasid Godot programmi, mis esimesena kuvab projektide haldamise lehekülge. Ülemiselt ribalt on näha, et vaatad praegu `Local Projects` ehk enda arvutis olemasolevaid Godot projekte. Selle kõrval on ka valik `Asset Library Projects`. Sealt võid hiljem omal tahtel leida erinevaid näidiseid ja malle, mida teised Godot kasutajad on loonud. Praegu aga suundu tagasi enda projektide lehele ning vajuta nuppu `New`, et hakata uut projekti looma.
+Ava Godot programm. Esimesena kuvatakse projektide haldamise lehekülge. Ülemiselt ribalt on näha, et vaatad praegu `Local Projects` ehk enda arvutis olemasolevaid Godot projekte. Selle kõrval on ka valik `Asset Library Projects`. Sealt võid hiljem omal tahtel leida erinevaid näidiseid ja malle, mida teised Godot kasutajad on loonud. Praegu aga suundu tagasi enda projektide lehele ning vajuta nuppu `New`, et hakata uut projekti looma.
 
-![Uue projekti loomise nupp on pildil välja toodud punasega.](../assets/introduction/editor/new-project-button.png)
+![Uue projekti loomise nupp on pildil välja toodud punasega.](./pildid/redaktor/projekti-loomise-nupp.png)
 
 {: .todo }
 Algul loob "Hello world" programmi "Ronija" asemel
@@ -20,13 +20,13 @@ Avaneb uus aken, kus saad kirja panna oma uue projekti nime, valida kus kaustas/
 
 Mõistlik nimi sellisele projektile oleks "Tere Maailm". Järgnevalt vali/loo tühi kaust, kus su projekt asub. Saad seda teha läbi `Browse` nupu. Võid luua näiteks Godot-le oma töölauale eraldi kausta, kuhu paned redaktori failid ja lood veel ühe kausta sinna sisse, mis hakkab su projektide faile hoidma. Nii on tehtud ka alumisel pildil. Kuna tegu on 2D rakendusega, siis kõige sobivam renderdaja on `Compatibility` - see sobib sellise lihtsa 2D projekti jaoks väga hästi. Git Versioonihaldust soovitan kasutada, kui oskad.
 
-![Kuidas projekti loomise aken lõpuks peaks välja nägema.](../assets/introduction/editor/create-hello-world-project.png)
+![Kuidas projekti loomise aken lõpuks peaks välja nägema.](./pildid/redaktor/tere-maailm-projekti-loomine.png)
 
 Lõpuks vajuta nuppu `Create & Edit`. Seejärel loob Godot mängu algsed failid ja lõpuks avaneb projekti redaktori aken.
 
 ## Redaktori aken
 
-![Projekti redaktori aken.](../assets/introduction/editor/project-editor-window.png)
+![Projekti redaktori aken.](./pildid/redaktor/projekti-redaktori-aken.png)
 
 Esimesel pilgul võib redaktor tunduda väga kirju. Sellepärast on ülemisel pildil ta jagatud 6 osaks, minnes vasakult paremale, ülevalt alla:
 
@@ -53,6 +53,6 @@ Esimesel pilgul võib redaktor tunduda väga kirju. Sellepärast on ülemisel pi
 
 Külgedel leiduvaid dokkide asukohti saad ka muuta, vajutades doki üleval paremal nurgas asuvale kolmele täpile. Selle kursuse piltidel on aga dokid oma vaikimisi paikades.
 
-![Doki asukohta muutmine](../assets/introduction/editor/change-docks-location.png)
+![Doki asukoha muutmine](./pildid/redaktor/doki-asukoha-muutmine.png)
 
 Loodetavasti ei tundu redaktor nüüd nii hirmus ja saad tööle hakata!

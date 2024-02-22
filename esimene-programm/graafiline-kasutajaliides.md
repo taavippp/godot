@@ -1,8 +1,8 @@
 ---
 title: Graafiline kasutajaliides
 layout: default
-parent: Godot tutvustus
-nav_order: 5
+parent: Esimene programm
+nav_order: 3
 ---
 
 # Graafiline kasutajaliides
@@ -12,7 +12,7 @@ nav_order: 5
 Selles osas on eesmärk eelnevas osas tutvustatud Label sõlm panna tervitama kasutaja sisestatud nime. Selleks kasutame paari uut sõlme ja õpime veidi Godot graafilise kasutajaliidese süsteemi.
 Kustuta praegune Label sõlm ja määra juursõlmeks hoopis Control. Lisa Control laps-sõlmedeks Label, TextEdit ja Button.
 
-![Stseeni struktuur.](../assets/introduction/gui/scene-structure.png)
+![Stseeni struktuur.](./pildid/graafiline-kasutajaliides/stseeni-struktuur.png)
 
 Stseen peaks olema sedasi üles ehitatud.
 {: .text-center .fs-3}
@@ -48,7 +48,7 @@ TextEdit sõlmel pane muutuja Placeholder Text väärtuseks `Keda tahad tervitad
 
 Meie asendusteksti pole aga näha. Selleks pead Anchor Offsets -> Top väärtuseks panema näiteks -35 pikslit. Põhivaade peaks nüüd selline välja nägema:
 
-![Stseeni lõplik välimus.](../assets/introduction/gui/scene-visual.png)
+![Stseeni lõplik välimus.](./pildid/graafiline-kasutajaliides/stseeni-visuaal.png)
 
 ## Kood
 
@@ -56,7 +56,7 @@ Meie asendusteksti pole aga näha. Selleks pead Anchor Offsets -> Top väärtuse
 
 Vali Control juursõlm ja ühenda talle taas Tere.gd külge. Skripti ühendamise aken peaks mainima, et fail juba eksisteerib ning et seda taaskasutatakse. Vajuta nupu `Load` peale.
 
-![Skripti ühendamise aken kirjutab, et skriptifail on juba olemas.](../assets/introduction/gui/file-exists.png)
+![Skripti ühendamise aken kirjutab, et skriptifail on juba olemas.](./pildid/graafiline-kasutajaliides/fail-eksisteerib.png)
 
 Praegu peaks skriptifail olema selline:
 
@@ -105,7 +105,7 @@ Parem praktika on kasutada `@export` annotatsiooni, kuna selleks ei pea kirjutam
 
 Lisaks on inspektori dokis ilmunud sektsioon nimega Tere.gd, kus on skripti `@export` annotatsiooniga avalikustatud muutujad. Pane tähele, et kuigi kirjutasid koodis `text_edit`, kuvatakse seda inspektoris kui Text Edit. Redaktor üritab muutuja nimed inspektoris loetavamaks teha. Vajutades nupule `Assign...` avaneb uus aken, kus on kujutatud kõik sinu stseenis sobivad sõlmed, mis selle muutuja väärtuseks võivad sobida. Meil on sobivaid sõlmi iga muutuja jaoks vaid üks. Vali õige sõlm ja kas topelt-kliki selle peal või vajuta all olevat `OK` nuppu.
 
-![@export annotatsiooniga muutujad on inspektoris nähtavad.](../assets/introduction/gui/export-variables.png)
+![@export annotatsiooniga muutujad on inspektoris nähtavad.](./pildid/graafiline-kasutajaliides/eksport-muutujad.png)
 
 Muutuja erinevate omadustega saad toimetada kasutades järgnevat süntaksi: `muutuja.omadus` Näiteks Label sõlme muutujale Text saad ligi kirjutades `label.text`. Proovi nüüd `_ready` funktsioonis `print` käsu asemel Labeli kuvatavaks tekstiks panna "Tere Godot!". Tulemus peaks olema selline:
 
@@ -123,7 +123,7 @@ Lisaks järgmises osas võtame täpsemalt GDScripti, tema andmetüübid ja muud 
 
 Nüüd peame välja nuputama, kuidas skriptis teha nii, et Buttoni nupuvajutuse peale läheb TextEditisse kirjutatud tekst Label sõlme. Vali inspektoris Button sõlm ja seejärel liigu inspektori dokist sõlme/`Node` dokki.
 
-![Sõlme doki nupu asukoht.](../assets/introduction/gui/node-dock.png)
+![Sõlme doki nupu asukoht.](./pildid/graafiline-kasutajaliides/solme-dokk.png)
 
 Kohe peaks näha olema Button sõlme erinevad signaalid, mida ta välja saadab. Meid huvitab signaal `pressed`, mis reageeribki Buttoni vajutuse peale. Signaali mingi sõlme skriptiga ühendamiseks on ka kaks viisi:
 
@@ -170,6 +170,6 @@ func _on_button_pressed() -> void:
 
 Nüüd on esimene projekt valmis. Käivita see, sisesta teksti ja vajuta nupule. Kui akna keskel kuvatav sõnum muutub, oled hakkama saanud! Lisaks peaks akna suurust muutes kõik sõlmed ilusti kaasa liikuma. Button on TextEditi sõlmest eespool, aga nende alad kattuvad väga väikse aknaga, sest Buttoni teksti suurus ei muutu.
 
-![Akna suuruse muutmine töötab, kui ta selline saab välja näha.](../assets/introduction/gui/window-resizing-works.png)
+![Akna suuruse muutmine töötab, kui ta selline saab välja näha.](./pildid/graafiline-kasutajaliides/akna-suuruse-muutmine-tootab.png)
 
 Järgnevas peatükis lood 2D mängu ja õpid Godot 2D füüsika sõlmi ja paljut muud kasutama.

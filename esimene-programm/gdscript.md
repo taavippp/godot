@@ -1,15 +1,15 @@
 ---
 title: GDScript
 layout: default
-nav_order: 3
-has_children: false
+parent: Esimene programm
+nav_order: 4
 ---
 
 # GDScript
 
 ## Tühikud
 
-Selles osas tutvume lähemalt GDScripti erinevate osadega. [Tutvustuse peatükis](./tutvustus/index.md) natuke õppisid juba seda Godot'le loodud keelt, aga nüüd saad teada, mida täpsemalt GDScriptiga teha saab.
+Selles osas tutvume lähemalt GDScripti erinevate osadega. Selles peatükis oled juba natuke õppinud seda Godot'le loodud keelt, aga nüüd saad teada, mida täpsemalt GDScriptiga teha saab.
 
 GDScript on süntaksi poolest kohati sarnane Python keelele - mõlemal keelel on iga rea taane oluline.
 Esimene funktsioon siin koodiplokis viskaks veateate, teine mitte.
@@ -246,6 +246,6 @@ Kui leiad, et skriptifail peaks olema teistest skriptifailidest globaalselt juur
 
 Autoloadi saab luua Godot redaktoris ülaribalt nupult Project -> Project Settings. Siis avaneb sinu projekti konfigureerimise aken, kus on vaheleht `Autoload`. Siin on võimalik teha olemasolev skript autoloadiks või luua uus, mis on koheselt autoload.
 
-![Autoloadi loomine](./assets/autoload.png)
+![Autoloadi loomine](./pildid/gdscript/autoload.png)
 
 Järgmises osas alustame uue peatükiga, kus loome Godot 2D füüsika mootoriga mängu.

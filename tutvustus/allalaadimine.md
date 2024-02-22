@@ -15,7 +15,7 @@ Sellel kursusel kasutatakse versiooni 4.2.1, sest see on kirjutamise ajal uusim 
 Kui on uuemaid versioone olemas, siis otsi suurelt kirjutatud versiooni nimele kaasnevat teksti `Current state: stable`.
 Saad arvatavasti kursusega kaasa ikka töötada, kui kasutad ükskõik mis 4. versiooni.
 
-![Suures tekstis kirjutatud versiooni nimele kaasneb väiksemas tekstis selle seisund](../assets/introduction/download/what-to-download.png)
+![Suures tekstis kirjutatud versiooni nimele kaasneb väiksemas tekstis selle seisund](./pildid/allalaadimine/mida-alla-laadida.png)
 
 Vajutades nupule `Download`, satud lehele, mis pakub erinevate operatsioonisüsteemide jaoks neile vastavaid redaktori ehitusi.
 Leia oma operatsioonisüsteem ja vajuta kas nupule `Standard` või `.NET`.
@@ -26,6 +26,6 @@ Kui oled vajutanud vastava versiooni nupule, hakkab veebibrauser laadima alla ZI
 
 Allalaetud ZIP faili on pakendatud kaks faili. Need mõlemad avavad Godot redaktori (mingit muud allalaadimist ei olegi), üks neist avab ka eraldi terminali akna, kuhu tulevad kõik veateated, mille otsa satud. Neid on tavalises programmis ka võimalik näha, aga mõni võib-olla eelistab näha eraldi terminali akent.
 
-![Projektide haldamise kuva](../assets/introduction/download/project-manager.png)
+![Projektide haldamise kuva](./pildid/allalaadimine/projektihaldur.png)
 
-Ava Godot programm. Algul kuvatakse projektide haldamise ekraan. Konto loomist, sisselogimist ega muud tülikat protsessi polegi. Nüüd on sul võimalik tööle hakata!
+Godot'ga pole konto loomist, sisselogimist ega muud tülikat protsessi. See tähendab, et nüüd saad tööle hakata!

@@ -2,7 +2,7 @@
 title: Tere maailm
 layout: default
 parent: Godot tutvustus
-nav_order: 4
+nav_order: 2
 ---
 
 # Tere maailm
@@ -14,7 +14,7 @@ Selles osas tutvume lähemalt sõlmede ja signaalide süsteemiga ning kirjutame 
 Kui oled vahepeal redaktori sulgenud, ava uuesti Godot programm. Avaneb taas projektide halduse leht ja nüüd peaksid sealt leidma lahtri, kus on sinu eelmises osas loodud "Tere Maailm" projekt.
 Kliki enda projekti peal ja vajuta paremal olevas menüüs nuppu `Edit`. Saad edaspidi sama asja teha projekti peal lihtsalt topelt klikkides.
 
-![Leia oma loodud projekt avalehelt ja vajuta nuppu `Edit`.](../assets/introduction/hello-world/project-manager-find-your-project.png)
+![Leia oma loodud projekt avalehelt ja vajuta nuppu `Edit`.](./pildid/tere-maailm/projektihalduris-projekti-leidmine.png)
 
 Leia üles koht stseeni dokis, kus on kirjas *Create Root Node* ehk loo juursõlm. Selle all on 4 nuppu. Vajuta nupule `2D Scene`. See loob sinu stseeni Node2D sõlme, millel on algelised 2D funktsionaalsused ja mõned muud asjad olemas. Põhivaade lülitus ka automaatselt 2D režiimi. Heida pilk inspektori dokki.
 Näed, et see jaguneb kolmeks osaks:
@@ -25,15 +25,15 @@ Näed, et see jaguneb kolmeks osaks:
 
 Sellest struktuurist loed hiljem täpsemalt. Vajuta inspektoris Node2D all olevale `Transform` nupule, et näha Node2D unikaalseid omadusi. Näed, et sellel sõlmel on omadused nagu *position* ehk positsioon ja *rotation* ehk rotatsioon.
 
-![Node2D omadused, nähtavad inspektori dokist.](../assets/introduction/hello-world/inspector-node2d.png)
+![Node2D omadused, nähtavad inspektori dokist.](./pildid/tere-maailm/node2d-inspektoris.png)
 
 Liigu tagasi stseeni dokki ja vajuta oma loodud Node2D sõlme peal. Tema kohale tekkis paberilehe disainiga nupp, mis loob ja ühendab selle sõlme külge uue skriptifaili. Vajuta selle peale.
 
-![Kuidas luua skriptifaili.](../assets/introduction/hello-world/create-or-edit-script.png)
+![Kuidas luua skriptifaili.](./pildid/tere-maailm/loo-voi-muuda-skripti.png)
 
 Avaneb uus aken. Programm küsib tähtsaid asju nagu mis keeles tahad oma skriptifaili kirjutada, mis **klassi** pärija see skriptifail on ja kuhu failisüsteemis Godot skriptifaili salvestab. Kasutame ikka GDScript keelt ja skriptifail on Node2D pärija. Võid skriptifaili nime muuta näiteks Tere.gd-ks. Vajuta `Create`, et see fail luua ja skripti kirjutamise vaatesse minna.
 
-![Skriptifaili loomise detailid.](../assets/introduction/hello-world/create-script.png)
+![Skriptifaili loomise detailid.](./pildid/tere-maailm/loo-skript.png)
 
 ## Esimesed koodiread
 
@@ -75,11 +75,11 @@ Kirjuta funktsioonis `_ready` käsu `pass` asemele `print("Tere maailm!")`. Vaju
 
 Nüüd käivitame oma projekti, sest tahame näha, kuidas "Tere maailm!" väljastatakse. Tööriistariba paremal pool on kolmnurga kujuline nupp `Run Project`. Sellele vajutades palub redaktor meil peastseen valida. Vajuta nupu `Select Current` peale.
 
-![Vali praegune stseen oma projekti peastseeniks.](../assets/introduction/hello-world/select-main-scene.png)
+![Vali praegune stseen oma projekti peastseeniks.](./pildid/tere-maailm/vali-peastseen.png)
 
 Avaneb uus aken halli taustaga. Maailma tervitust siin ei ole. Selle leiad hoopis redaktori alumiselt ribalt `Output` osast.
 
-![Output'i all on kirjutatud sõnum.](../assets/introduction/hello-world/hello-world-in-console.png)
+![Output'i all on kirjutatud sõnum.](./pildid/tere-maailm/tere-maailm-konsoolis.png)
 
 Tahaks ikka oma rakenduse aknas sõnumit näha. Praeguseks sulge see.
 
@@ -89,7 +89,7 @@ Selleks, et oma kirjutatud teksti projektis näha, peame ühte teist sõlme kasu
 
 Vajuta tööriistaribal nupu 2D peale, et tagasi liikuda 2D vaatesse. Uuel Label sõlmel pole enam Tere.gd skriptifaili küljes. Seda teeme hiljem. Vali oma loodud sõlm stseeni dokis ja heida pilk taas inspektorisse ja näed kohe, et Label sõlmel on omadus Text, kuhu saad oma sõnumi kirjutada. Kirjuta tühja tekstikonteinerisse oma sõnum.
 
-![Label sõlm näitab teksti redaktoris.](../assets/introduction/hello-world/label-displays-text.png)
+![Label sõlm näitab teksti redaktoris.](./pildid/tere-maailm/label-kuvab-teksti.png)
 
 Kui nüüd projekti uuesti tööle paned, siis avanevas aknas ongi üleval vasakul nurgas näha sinu kirjutatud sõnum. Pane tähele, et kuna Tere.gd pole Label-i külge ühendatud, siis Output-i ei saadetud enam sinu sõnum.
 
