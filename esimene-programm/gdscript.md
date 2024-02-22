@@ -110,9 +110,6 @@ GDScriptis on erinevad konteinerid mitme ühte andmetüüpi muutuja hoidmiseks.
 
 ### Võtmesõnad
 
-{: .todo }
-Kontrolli breakpoint võtmesõna üle, preload
-
 Lisaks teistele siin lehel mainitud võtmesõnadele eksisteerivad veel:
 
 -   `break` & `continue`
@@ -131,20 +128,23 @@ Lisaks teistele siin lehel mainitud võtmesõnadele eksisteerivad veel:
 -   `signal`
     -   signaali deklareerimiseks
     -   näide: `signal liikus_paremale`
--   breakpoint
-    -   peatab programmi seal real, kus see on kirjas*
--   preload
+-   `breakpoint`
+    -   peatab programmi seal real, kus see on kirjas
+    -   pead redaktorist nupule vajutama, kui tahad programmi tööd jätkata
+-   `preload`
     -   laeb faile konstantidena
--   await
+    -   käivitub siis, kui skriptifaili laetakse
+    -   kasulik näiteks siis, kui tahad skriptist ühest valmis stseenist mitmeid koopiaid luua
+-   `await`
     -   peatab skripti töö kuni saab signaali või kaasrutiin lõpeb
--   assert
+-   `assert`
     -   kui talle antud tingimus on vale, siis programm viskab veateate
 -   konstandid
-    -   PI
-    -   TAU
-    -   INF
+    -   `PI`
+    -   `TAU`
+    -   `INF`
         -   lõpmatus
-    -   NAN
+    -   `NAN`
         -   võimatu number
 
 ### Operaatorid
@@ -206,8 +206,9 @@ enum {
 }
 
 enum Nimega {
-    VAARTUS_4,
-    VAARTUS_5,
+    VAARTUS_4 = 4,
+    VAARTUS_5 = 5,
+    VAARTUS_MIINUS_1 = -1
 }
 
 func _ready() -> void:

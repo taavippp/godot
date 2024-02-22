@@ -1,7 +1,7 @@
 ---
 title: Tere maailm
 layout: default
-parent: Godot tutvustus
+parent: Esimene programm
 nav_order: 2
 ---
 
