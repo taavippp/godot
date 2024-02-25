@@ -99,7 +99,7 @@ Kui lähedalt vaadata, siis tegelane liigub küll, kui paremat ja vasakut noolek
 
 `@export var kiirus: int = 100`
 
-See laseb meil aga panna tegelase kiiruseks ükskõik mis täisarvu. Kirjuta `@export` asemele hoopis `@export_range(100, 300, 10)`. Nüüd on inspektoris nupp, mida saad 10-100 vahel libistada 5 kaupa.
+See laseb meil aga panna tegelase kiiruseks ükskõik mis täisarvu. Kirjuta `@export` asemele hoopis `@export_range(100, 300, 10)`. Nüüd on inspektoris nupp, mida saad 100-300 vahel libistada 10 kaupa.
 
 Lisaks on lühem viis kontrollida, kas vajutatakse vasakut või paremat nooleklahvi. Funktsioon `Input.get_axis(negatiivne_sisend, positiivne_sisend)` tagastab ujuvkomaarvu -1 ja 1 vahel. See arv tähistaks suunda, -1 oleks vasak ja 1 oleks parem. Seega `_physics_process` funktsioon saab selline olema:
 
