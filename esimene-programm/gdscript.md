@@ -12,7 +12,7 @@ nav_order: 4
 Selles osas tutvume lähemalt GDScripti erinevate osadega. Selles peatükis oled juba natuke õppinud seda Godot'le loodud keelt, aga nüüd saad teada, mida täpsemalt GDScriptiga teha saab.
 
 GDScript on süntaksi poolest kohati sarnane Python keelele - mõlemal keelel on iga rea taane oluline.
-Esimene funktsioon siin koodiplokis viskaks veateate, teine mitte.
+Esimene funktsioon siin koodiplokis annaks veateate, teine mitte.
 
 ```gdscript
 # Valesti taandatud kood
@@ -121,8 +121,9 @@ Lisaks teistele siin lehel mainitud võtmesõnadele eksisteerivad veel:
 -   `in`
     -   tingimuslauses kontrollimiseks, kas väärtus on stringis/massiivis/sõnastikus/sõlmes
 -   `as`
-    -   muuda väärtuse andmetüüpi
-    -   näide: `var y: int = x as int`
+    -   määra tundmatule väärtusele andmetüüp
+    -   näide: `var tegelane := tegelase_stseen.instantiate() as CharacterBody2D`
+    -   kui tundmatule väärtusele see andmetüüp ei sobi, on väärtus null
 -   `self`
     -   viide praegusele klassi instantsile
 -   `signal`
@@ -138,7 +139,7 @@ Lisaks teistele siin lehel mainitud võtmesõnadele eksisteerivad veel:
 -   `await`
     -   peatab skripti töö kuni saab signaali või kaasrutiin lõpeb
 -   `assert`
-    -   kui talle antud tingimus on vale, siis programm viskab veateate
+    -   kui talle antud tingimus on vale, siis programm annab veateate
 -   konstandid
     -   `PI`
     -   `TAU`
@@ -184,7 +185,7 @@ var minu_klass: MinuKlass = MinuKlass.new()
 var klass_minu_klassis: MinuKlass.KlassMinuKlassis = MinuKlass.KlassMinuKlassis.new()
 ```
 
-Tegelikult, kui klassi instantsi alles lood, siis võid lasta kompileerijal ka andmetüüpi lihtsalt järeldada. Sedasi kirjutad vähem koodi.
+Tegelikult, kui klassi instantsi alles lood, siis võid lasta kompilaatoril ka andmetüüpi lihtsalt järeldada. Sedasi kirjutad vähem koodi.
 
 ```
 var minu_klass:= MinuKlass.new()
@@ -195,7 +196,7 @@ Pane tähele, et on kasutatud nii : (koolon) kui ka = (võrdusmärk) kirjamärke
 
 ### Enumeraator ehk loenditüüp
 
-Võtmesõnaga `enum` on võimalik deklareerida sõnastiku moodi konstantsete väärtustega klass, kus võtmetel on automaatselt väärtused antud. Saad ka ise väärtuse lisada.
+Võtmesõnaga `enum` on võimalik deklareerida konstantsete väärtustega struktuur, kus konstantidel on automaatselt väärtused antud.  Vajadusel saad ka ise väärtuse lisada.
 
 ```gdscript
 # Nimetu enumeraator

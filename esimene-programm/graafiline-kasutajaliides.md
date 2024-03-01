@@ -46,7 +46,7 @@ TextEdit sõlmel pane muutuja Placeholder Text väärtuseks `Keda tahad tervitad
 -   Anchor Points -> Right: 0.9 (parem ankur)
 -   Anchor Points -> Bottom: 1 (alumine ankur)
 
-Meie asendusteksti pole aga näha. Selleks pead Anchor Offsets -> Top väärtuseks panema näiteks -35 pikslit. Põhivaade peaks nüüd selline välja nägema:
+Meie asendusteksti pole aga näha. Selleks pead Anchor Offsets -> Top ehk ülemise ankru nihke väärtuseks panema näiteks -35 pikslit. Põhivaade peaks nüüd selline välja nägema:
 
 ![Stseeni lõplik välimus.](./pildid/graafiline-kasutajaliides/stseeni-visuaal.png)
 

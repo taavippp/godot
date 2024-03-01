@@ -23,7 +23,7 @@ Näed, et see jaguneb kolmeks osaks:
 2.  CanvasItem
 3.  Node
 
-Sellest struktuurist loed hiljem täpsemalt. Vajuta inspektoris Node2D all olevale `Transform` nupule, et näha Node2D unikaalseid omadusi. Näed, et sellel sõlmel on omadused nagu *position* ehk positsioon ja *rotation* ehk rotatsioon.
+Sellest struktuurist loed hiljem täpsemalt. Vajuta inspektoris Node2D all olevale `Transform` nupule, et näha Node2D unikaalseid omadusi. Näed, et sellel sõlmel on omadused nagu *position* ehk positsioon ja *rotation* ehk pööre.
 
 ![Node2D omadused, nähtavad inspektori dokist.](./pildid/tere-maailm/node2d-inspektoris.png)
 
