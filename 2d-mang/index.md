@@ -9,6 +9,8 @@ has_children: true
 
 Selles peatükis lood prototüübi 2D videomängu jaoks. Tegu on platvormimänguga, kus tegelane saab ringi liikuda, hüpata ja ronida. Tegelase eesmärk on münte kokku koguda.
 
+Kuna nüüd oskad natuke GDScripti kirjutada, siis nüüdsest on kood, failinimed jne sujuvamaks lugemiseks kirjutatud inglise keeles.
+
 Õpid järgnevaid asju:
 -   Godot 2D füüsikamootor
 -   Tegelase animeerimine

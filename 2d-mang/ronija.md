@@ -33,18 +33,21 @@ CollisionShape sõlme `shape` omadusel on vaja kindlat väärtust. Füüsilisel 
 
 ![Pildil on täpsustatud, kust CollisionShape2D sõlmele kuju luua.](./pildid/ronija/fuusiline-kuju.png)
 
-Nüüd on see CharacterBody2D ristküliku kujuline. Kuid tegelane pole ainult sinine ristkülik - ta peaks ju robot olema, nagu failides. Esiteks salvesta stseen nimega `Tegelane.tscn` ja siis loo `AnimatedSprite2D` nimeline sõlm. See sõlm võimaldab lihtsaid, juba spraidi failis erinevate kaadritega 2D animatsioonid ellu tuua. Sprait tähendab mingit pilti, mida arvutiekraanil saab ringi liigutada. Äsja loodud sõlm hoiatab, et tema "Sprite Frames"-nimelisel omadusel on kindlasti väärtust vaja, muidu on see sõlm kasutu. Ehk leia ja vajuta inspektoris AnimatedSprite2D -> Animation -> Sprite Frames -> New SpriteFrames. Ennem oli muutuja väärtust kuvavas kastis sõna `<empty>`, nüüd on `SpriteFrames`. Vajuta selle peale uuesti ja alumisel ribal avaneb sellele sõlmele omane moodul, millega saame oma animatsioone luua.
+Nüüd on see CharacterBody2D ristküliku kujuline. Kuid tegelane pole ainult sinine ristkülik - ta peaks ju robot olema, nagu failides. Esiteks salvesta stseen nimega `Player.tscn` ja siis loo `AnimatedSprite2D` nimeline sõlm. See sõlm võimaldab lihtsaid, juba spraidi failis erinevate kaadritega 2D animatsioonid ellu tuua. Sprait tähendab mingit pilti, mida arvutiekraanil saab ringi liigutada. Äsja loodud sõlm hoiatab, et tema "Sprite Frames"-nimelisel omadusel on kindlasti väärtust vaja, muidu on see sõlm kasutu. Ehk leia ja vajuta inspektoris AnimatedSprite2D -> Animation -> Sprite Frames -> New SpriteFrames. Ennem oli muutuja väärtust kuvavas kastis sõna `<empty>`, nüüd on `SpriteFrames`. Vajuta selle peale uuesti ja alumisel ribal avaneb sellele sõlmele omane moodul, millega saame oma animatsioone luua.
 
 ![AnimatedSprite2D SpriteFrames moodul peaks algul selline välja nägema.](./pildid/ronija/animated-sprite-2d-moodul.png)
 
 Saame oma animatsioonid luua päris lihtsalt - loome uue animatsiooni, paneme talle sobiva nime ja valime spraidi pildilt, milliseid kaadreid see animatsioon kasutab. Looma pead järgnevate nimedega animatsioonid:
 
--   `seisab`
--   `hüppab`
--   `jookseb`
--   `ronib`
+-   `idle`
+-   `jump`
+-   `run`
+-   `climb`
 
-Kuna üks animatsioon nimega `default` on juba olemas, siis võid alustada sellega, et annad talle uue nime `seisab`. Seda saad teha nime peale ühe korra hiirega vajutades ja siis kirjutades. Järgmisena otsi üles Animation Frames sektsioonis ruudukujuline 9 osaks jagatud nupp. Hiirt selle nupu peal hoides näidatakse vihjet "Add frames from sprite sheet (CTRL+Shift+O)". Vajuta sellele nupule.
+Kuna üks animatsioon nimega `default` on juba olemas, siis võid alustada sellega, et annad talle uue nime `idle`. Seda saad teha nime peale ühe korra hiirega vajutades ja siis kirjutades. Järgmisena otsi üles Animation Frames sektsioonis ruudukujuline 9 osaks jagatud nupp. Hiirt selle nupu peal hoides näidatakse vihjet "Add frames from sprite sheet (CTRL+Shift+O)". Vajuta sellele nupule.
+
+{: .todo }
+Vana pilt
 
 ![Pilt tähistamas kõiki nuppe, mida AnimatedSprite2D-ga animatsioonide loomiseks vaja on.](./pildid/ronija/animatsiooni-loomine.png)
 
@@ -52,29 +55,29 @@ Avaneb uus aken, mis palub sul spraidi faili valida. Leia üles tegelase fail (n
 
 ![Kaadrite valimine animatsiooni jaoks.](./pildid/ronija/kaadrite-valimine.png)
 
-Nüüd loome animatsiooni nimega `jookseb`. Animatsiooni loomiseks leia mooduli Animations sektsioonis paberilehe disainiga nupp, kus on juures roheline plussmärk (see on märgitud ka üleeelmisel pildil punasega) ja vajuta sellele. Peaks ilmuma uus animatsioon nimega `new_animation`. Nüüd juba tead, mida teha: muuda ära nimi, leia spraidi fail ja märgi ära animatsiooni kaadrid. Kaadreid saab valida ka hiire vasakut nuppu all hoides ja seda kaadrite üle liigutades. Selle animatsiooni jaoks on tarvis **ülemise rea parempoolseid** kaadreid.
+Nüüd loome animatsiooni nimega `run`. Animatsiooni loomiseks leia mooduli Animations sektsioonis paberilehe disainiga nupp, kus on juures roheline plussmärk (see on märgitud ka üleeelmisel pildil punasega) ja vajuta sellele. Peaks ilmuma uus animatsioon nimega `new_animation`. Nüüd juba tead, mida teha: muuda ära nimi, leia spraidi fail ja märgi ära animatsiooni kaadrid. Kaadreid saab valida ka hiire vasakut nuppu all hoides ja seda kaadrite üle liigutades. Selle animatsiooni jaoks on tarvis **ülemise rea parempoolseid** kaadreid.
 
-Loo `hüppab` animatsioon, kasutades **ülemise rea vasakult teist** kaadrit ning `ronib` animatsioon kasutab neid **alumise rea** kaadreid, kus tegelane on seljaga. Nüüd on tegelase animatsioonid valmis! Nüüd on aeg lahendada üks probleem, nimelt tegelase füüsiline kuju on liiga väike. Tegelane ise on ka enam-vähem ristküliku kujuline, aga füüsilist kujundit pole näha. Esmalt lohista hiirega stseeni dokis CollisionShape2D sõlm AnimatedSprite2D-st allapoole, et see tegelase ees ilmuks. Seejärel leia inspektoris taas `Shape` omadus ja vajuta väärtuse peale. Selle alla peaks ilmuma nüüd alamenüü, kuhu saad kujundi suurust kirjutada. X väärtus peaks olema 52 ja Y väärtus 66. Lisaks pead kujundi positsiooni natuke allapoole viima - pane seal Y väärtuseks 15.
+Loo `jump` animatsioon, kasutades **ülemise rea vasakult teist** kaadrit ning `climb` animatsioon kasutab neid **alumise rea** kaadreid, kus tegelane on seljaga. Nüüd on tegelase animatsioonid valmis! Nüüd on aeg lahendada üks probleem, nimelt tegelase füüsiline kuju on liiga väike. Tegelane ise on ka enam-vähem ristküliku kujuline, aga füüsilist kujundit pole näha. Esmalt lohista hiirega stseeni dokis CollisionShape2D sõlm AnimatedSprite2D-st allapoole, et see tegelase ees ilmuks. Seejärel leia inspektoris taas `Shape` omadus ja vajuta väärtuse peale. Selle alla peaks ilmuma nüüd alamenüü, kuhu saad kujundi suurust kirjutada. X väärtus peaks olema 52 ja Y väärtus 66. Lisaks pead kujundi positsiooni natuke allapoole viima - pane seal Y väärtuseks 15.
 
 ![Tegelase füüsilise kuju vajalikud parandused.](./pildid/ronija/fuusilise-kuju-parandamine.png)
 
 ## Tegelase liikuma panemine
 
-Tegelase liikuma saamiseks on esiteks vaja tekitada võimalused mängijal sisendeid saata. Selleks ava tööriistaribalt projekti seaded (Project -> Project Settings...). Projekti seadete aknas vaheta ülevalt vaade `Input Map` peale. Siin saad deklareerida erinevaid tegevusi, mida mängija saab teha, näiteks vasakule liikumine, hüppamine jms. Lahtrisse `Add New Action` kirjuta `liikumine_parem` ja lisa see kas `Add` nupust või `Enter` klahvile vajutades. Tahame, et tegelane liiguks nooleklahvidega. Leia tegevuste loetelust enda vast loodud tegevus ja vajuta paremal olevalt plussmärki. Avaneb aken, kus saad ära märkida, mis kasutaja sisendiga see tegevus toimub. Vajuta lahtri `Listening for input...` peale ja vajuta paremat nooleklahvi, siis kliki `OK` nuppu, et kinnitada, et see tegevus juhtub sellise sisendi korral.
+Tegelase liikuma saamiseks on esiteks vaja tekitada võimalused mängijal sisendeid saata. Selleks ava tööriistaribalt projekti seaded (Project -> Project Settings...). Projekti seadete aknas vaheta ülevalt vaade `Input Map` peale. Siin saad deklareerida erinevaid tegevusi, mida mängija saab teha, näiteks vasakule liikumine, hüppamine jms. Lahtrisse `Add New Action` kirjuta `movement_right` ja lisa see kas `Add` nupust või `Enter` klahvile vajutades. Tahame, et tegelane liiguks nooleklahvidega. Leia tegevuste loetelust enda vast loodud tegevus ja vajuta paremal olevalt plussmärki. Avaneb aken, kus saad ära märkida, mis kasutaja sisendiga see tegevus toimub. Vajuta lahtri `Listening for input...` peale ja vajuta paremat nooleklahvi, siis kliki `OK` nuppu, et kinnitada, et see tegevus juhtub sellise sisendi korral.
 
 Kokku on vaja luua neli tegevust:
 
--   `liikumine_parem` parema nooleklahviga (selle lõime)
--   `liikumine_vasak` vasaku nooleklahviga
--   `hüpe` X klahviga
--   `ronimine` Z klahviga
+-   `movement_right` parema nooleklahviga (selle juba lõime)
+-   `movement_left` vasaku nooleklahviga
+-   `jump` X klahviga
+-   `climb` Z klahviga
 
 ![Kõik tegevused ja punasega tähistatud nupud, kuidas neid lisada.](./pildid/ronija/sisendite-loomine.png)
 
 Kõik tegevused, mis lõpuks peaksid olema.
 {: .text-center .fs-3}
 
-Nüüd võime lõpuks CharacterBody2D jaoks skripti luua. Kui salvestasid oma stseeni nimega `Tegelane.tscn`, siis peaks Godot skripti nimeks pakkuma `Tegelane.gd`, mis sobib. Algul paneme tegelase lihtsalt vasakule-paremale liikuma. Selleks kasutame funktsiooni `_physics_process`. See on ka sisseehitatud funktsioon ja sarnase põhimõttega nagu `_process`. Vahe on neil see, et `_physics_process` üritab käivituda maksimaalselt 60 korda sekundis, aga `_process` funktsioonil sellist piiri pole. 
+Nüüd võime lõpuks CharacterBody2D jaoks skripti luua. Kui salvestasid oma stseeni nimega `Player.tscn`, siis peaks Godot skripti nimeks pakkuma `Player.gd`, mis sobib. Algul paneme tegelase lihtsalt vasakule-paremale liikuma. Selleks kasutame funktsiooni `_physics_process`. See on ka sisseehitatud funktsioon ja sarnase põhimõttega nagu `_process`. Vahe on neil see, et `_physics_process` üritab käivituda maksimaalselt 60 korda sekundis, aga `_process` funktsioonil sellist piiri pole. 
 
 Võid algse koodi järgnevaga asendada:
 
@@ -82,9 +85,9 @@ Võid algse koodi järgnevaga asendada:
 extends CharacterBody2D
 
 func _physics_process(delta):
-	if (Input.is_action_pressed("liikumine_parem")):
+	if (Input.is_action_pressed("movement_right")):
 		velocity.x = 1
-	elif (Input.is_action_pressed("liikumine_vasak")):
+	elif (Input.is_action_pressed("movement_left")):
 		velocity.x = -1
 	move_and_slide()
 ```
@@ -97,7 +100,7 @@ Tahaks näha, kas kood töötab, aga ei taha tegelast ennast mängu põhistseeni
 
 Kui lähedalt vaadata, siis tegelane liigub küll, kui paremat ja vasakut nooleklahvi vajutad, aga kohutavalt aeglaselt. Selleks võiks luua tegelasele kiiruse redaktorisse eksporditud muutuja, mis on täisarv. Selleks sobib järgmine koodirida:
 
-`@export var kiirus: int = 100`
+`@export var speed: int = 100`
 
 See laseb meil aga panna tegelase kiiruseks ükskõik mis täisarvu. Kirjuta `@export` asemele hoopis `@export_range(100, 300, 10)`. Nüüd on inspektoris nupp kiiruse valimiseks, mida saad 100-300 vahel libistada 10 kaupa. Siin tähendab kiirus seda, mitu pikslit tegelane ühe sekundi jooksul vasakule-paremale liikuda saab.
 
@@ -105,8 +108,8 @@ Lisaks on lühem viis kontrollida, kas vajutatakse vasakut või paremat noolekla
 
 ```gdscript
 func _physics_process(delta: float):
-	var suund: float = Input.get_axis("liikumine_vasak", "liikumine_parem")
-	velocity.x = suund * kiirus
+	var direction: float = Input.get_axis("movement_left", "movement_right")
+	velocity.x = direction * speed
 	move_and_slide()
 ```
 
