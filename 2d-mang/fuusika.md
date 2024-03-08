@@ -38,7 +38,7 @@ Võiksid sarnase valmis kirjutada:
 ```gdscript
 @export_range(250, 750, 25) var jump_force: int = 500
 
-... (vahepealsed koodiread)
+... (muu kood)
 
 func vertical_movement() -> void:
 	velocity.y += GRAVITY
@@ -102,7 +102,7 @@ Järgnev rida saavutab seda:
 ```gdscript
 @export_range(1, 25) var mass: int = 1
 
-... (vahepealsed koodiread)
+... (muu kood)
 
 func vertical_movement() -> void:
 	velocity.y += GRAVITY * mass
@@ -110,7 +110,56 @@ func vertical_movement() -> void:
 
 ## Ronimine
 
-Lisame tegelasele lõpuks ronimise funktsionaalsuse. Tegelane saab ronida vajutades Z-klahvi, et seinast kinni hoida ja X-klahvi (hüppamise klahv), et üles ronida.
+Lisame tegelasele lõpuks ronimise funktsionaalsuse. Tegelane saab seina lähedal Z-klahvi vajutades üles ronida.
 
-{: .todo }
-ronimine, collision layer + mask
+### Ülesanne
+
+Loo eraldi funktsioon nimega `check_climbing`.
+`check_climbing` määrab väärtuse uuele *bool*-tüüpi muutujale `is_climbing`, mis on algul väär.
+Väärtust määrates pead kontrollima, kas toimub tegevus nimega `climb` ja kas tegelane on seinaga kontaktis.
+Mõtle ka välja, millisel real `check_climbing` peaks `_physics_process` funktsioonis olema.
+
+Lahendus näeb välja selline:
+
+```gdscript
+var is_climbing: bool = false
+
+func _physics_process(delta: float) -> void:
+	check_climbing()
+	... (muu kood)
+
+... (muu kood)
+
+func check_climbing() -> void:
+	is_climbing = Input.is_action_pressed("climb") and is_on_wall()
+```
+
+---
+
+Nüüd on uue muutuja kaudu võimalik teada saada, kas mängijal on ronimiseks kõik kriteeriumid täidetud või mitte. Võtame selle muutuja kasutusele.
+
+Ronimine on vertikaalne liikumine, seega ronimise loogika läheb vastavasse funktsiooni. Loo uus eksporditud muutuja nimega `climb_speed`, mis on täisarvuline väärtus vahemikus 100-300. Vaikimisi väärtuseks võid panna 150. Nüüd `vertical_movement` funktsioonis võid lihtsalt kirjutada algusesse, et kui tegelane ronib, siis muudad vastavalt `velocity.y` väärtust.
+
+```
+func vertical_movement() -> void:
+	if (is_climbing):
+		velocity.y = -climb_speed
+		return
+	... (muu kood)
+```
+
+Mängu stseenis on vaja tekitada sein, millest üles ronida saab. Loo koopia Ground sõlmest, valides see ja vajutades klahve `Ctrl + D` või parem-kliki menüüst valides `Duplicate`. See sein peab olema pööratud 90 kraadi läbi `rotation` omaduse. Lisaks liiguta see koordinaatidele x: 1132, y: 72. Kui nüüd mängu stseeni tööle paned ja liigutad tegelase akna paremasse äärde, peaksid saama temaga vaikselt üles ronida.
+
+## Füüsika kihid
+
+Üks viimane, oluline asi on veel füüsika kohta vaja välja tuua. Eksisteerivad füüsika kihid (*physics layers*), kus üks kiht esindab ühte liiki füüsilisi kehasid. Näiteks erinevad liikumatud maapinnad kasutavad ühte kihti, liikuvad olendid kasutavad teist kihti ja mängija hoopis kolmandat. Hetkel on nii mängija kui ka maapind esimesel kihil. Mäng töötab niimoodi, aga pole parim praktika see sedasi jätta.
+
+![Füüsika kihid inspektoris.](./pildid/fuusika/fuusika-kihid.png)
+
+Seega liigu tegelase stseeni, vali juursõlm ja leia inspektoris `CharacterBody2D -> Collision` sektsioon. Siin on meile olulised kaks muutujat: sõlme füüsiline kiht ehk *Layer* ja mis kihil olevaid sõlmi see sõlm ära tunneb ehk *Mask*. Määra maski väärtuseks 1. kihi asemel 2. kiht. Nüüd reageerib mängija füüsiline keha vaid 2. kihil olevatele sõlmedele.
+
+Selleks, et mängija nüüd uuesti mängu lahti tehes läbi maa ei kukuks, peame maapinna stseenis sama protsessi kordama, aga maapinna füüsiliseks kihiks 2. kihi määrama. 
+
+Kõik peaks jälle ilusti töötama ja oled õppinud ühe hea praktika juurde.
+
+Järgmises osas tegeleme rohkem visuaalidega: kasutame mängija animatsioone, mille lõime ja võtame kasutusele ka maapinna spraidid.

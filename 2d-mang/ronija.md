@@ -46,9 +46,6 @@ Saame oma animatsioonid luua päris lihtsalt - loome uue animatsiooni, paneme ta
 
 Kuna üks animatsioon nimega `default` on juba olemas, siis võid alustada sellega, et annad talle uue nime `idle`. Seda saad teha nime peale ühe korra hiirega vajutades ja siis kirjutades. Järgmisena otsi üles Animation Frames sektsioonis ruudukujuline 9 osaks jagatud nupp. Hiirt selle nupu peal hoides näidatakse vihjet "Add frames from sprite sheet (CTRL+Shift+O)". Vajuta sellele nupule.
 
-{: .todo }
-Vana pilt
-
 ![Pilt tähistamas kõiki nuppe, mida AnimatedSprite2D-ga animatsioonide loomiseks vaja on.](./pildid/ronija/animatsiooni-loomine.png)
 
 Avaneb uus aken, mis palub sul spraidi faili valida. Leia üles tegelase fail (nimega `platformerPack_character.png`) ja ava see. Järjekordne aken avaneb, kus on näha, kuidas spraidi fail ära tükeldatud on. Algul peaks ta olema 16 osaks tükeldatud - 4 horisontaalselt ja 4 vertikaalselt. See pole õige. Muuda akna paremas pooles muutuja `Vertical` väärtuseks 4 asemel 2. Seejärel vajuta hiirega **vasaku ülemise** kasti peale. All peaks olema nüüd nupp, kus on kirjas `Add 1 Frame(s)`. Vajuta sellele, et valitud kaadrid lisada. Seismise animatsioon on nüüd olemas! See koosneb lihtsalt ühest kaadrist, seega ei näe see väga muljetavaldav välja.
