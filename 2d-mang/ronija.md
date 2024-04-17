@@ -13,7 +13,8 @@ Hakkame siis ronija mängu looma. Suundu projektihaldurisse ja hakka uut projekt
 
 ![Projekti loomise detailid.](./pildid/ronija/2d-mangu-projekti-loomine.png)
 
-Animeeritud tegelase ja muude toredate visuaalide jaoks on meil vaja vastavaid pilte, mis neid sisaldavad. Kasutame Kenney loodud tasuta materjale. Kenney on loonud palju mängude jaoks materjale, mis on kaitstud Creative Commons Zero litsentsiga, mis tähendab, et neid võib kasutada ükskõik kuidas. Link materjalidele, mis selles projektis kasutame, on selle lõigu all.
+Animeeritud tegelase ja muude toredate visuaalide jaoks on meil vaja vastavaid pilte, mis neid sisaldavad. Kasutame Kenney loodud tasuta materjale. Kenney on loonud palju mängude jaoks materjale, mis on kaitstud Creative Commons Zero litsentsiga, mis tähendab, et neid võib kasutada ükskõik kuidas.
+Järgnevalt lingilt leiad spraidid, mida selles projektis kasutame.
 
 <https://www.kenney.nl/media/pages/assets/simplified-platformer-pack/80861da94b-1677693200/kenney_simplified-platformer-pack.zip>
 
@@ -52,9 +53,9 @@ Avaneb uus aken, mis palub sul spraidi faili valida. Leia üles tegelase fail (n
 
 ![Kaadrite valimine animatsiooni jaoks.](./pildid/ronija/kaadrite-valimine.png)
 
-Nüüd loome animatsiooni nimega `run`. Animatsiooni loomiseks leia mooduli Animations sektsioonis paberilehe disainiga nupp, kus on juures roheline plussmärk (see on märgitud ka üleeelmisel pildil punasega) ja vajuta sellele. Peaks ilmuma uus animatsioon nimega `new_animation`. Nüüd juba tead, mida teha: muuda ära nimi, leia spraidi fail ja märgi ära animatsiooni kaadrid. Kaadreid saab valida ka hiire vasakut nuppu all hoides ja seda kaadrite üle liigutades. Selle animatsiooni jaoks on tarvis **ülemise rea parempoolseid** kaadreid.
+Nüüd loome animatsiooni nimega `run`. Animatsiooni loomiseks leia mooduli Animations sektsioonis paberilehe disainiga nupp, kus on juures roheline plussmärk (see on märgitud ka üleeelmisel pildil punasega) ja vajuta sellele. Peaks ilmuma uus animatsioon nimega `new_animation`. Nüüd juba tead, mida teha: muuda ära nimi, leia spraidi fail ja märgi ära animatsiooni kaadrid. Kaadreid saab valida ka hiire vasakut nuppu all hoides ja seda kaadrite üle liigutades. Selle animatsiooni jaoks on tarvis **ülemise rea parempoolseid** kaadreid (ehk kaks parempoolset).
 
-Loo `jump` animatsioon, kasutades **ülemise rea vasakult teist** kaadrit ning `climb` animatsioon kasutab neid **alumise rea** kaadreid, kus tegelane on seljaga. Nüüd on tegelase animatsioonid valmis! Nüüd on aeg lahendada üks probleem, nimelt tegelase füüsiline kuju on liiga väike. Tegelane ise on ka enam-vähem ristküliku kujuline, aga füüsilist kujundit pole näha. Esmalt lohista hiirega stseeni dokis CollisionShape2D sõlm AnimatedSprite2D-st allapoole, et see tegelase ees ilmuks. Seejärel leia inspektoris taas `Shape` omadus ja vajuta väärtuse peale. Selle alla peaks ilmuma nüüd alamenüü, kuhu saad kujundi suurust kirjutada. X väärtus peaks olema 52 ja Y väärtus 66. Lisaks pead kujundi positsiooni natuke allapoole viima - pane seal Y väärtuseks 15.
+Loo `jump` animatsioon, kasutades **ülemise rea vasakult teist** kaadrit ning `climb` animatsioon kasutab neid **alumise rea** kaadreid, kus tegelane on seljaga. Nüüd on tegelase animatsioonid valmis! Nüüd on aeg lahendada üks probleem, nimelt tegelase füüsiline kuju on liiga väike. Tegelane ise on ka enam-vähem ristküliku kujuline, aga füüsilist kujundit pole näha. Esmalt lohista hiirega stseeni dokis CollisionShape2D sõlm AnimatedSprite2D-st allapoole, et see tegelase ees ilmuks. Seejärel leia inspektoris taas `Shape` omadus ja vajuta väärtuse peale. Selle alla peaks ilmuma nüüd alamenüü, kuhu saad kujundi suuruse kirjutada. `x` väärtus peaks olema 52 ja `y` väärtus 66. Lisaks pead kujundi positsiooni natuke allapoole viima - pane seal `y` väärtuseks 15. Nii on CollisionShape2D asetatud niimoodi, et ta sobib tegelase erinevate animatsioonidega kokku.
 
 ![Tegelase füüsilise kuju vajalikud parandused.](./pildid/ronija/fuusilise-kuju-parandamine.png)
 

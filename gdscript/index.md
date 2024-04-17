@@ -1,8 +1,8 @@
 ---
 title: GDScript
 layout: default
-parent: Esimene programm
 nav_order: 4
+has_children: false
 ---
 
 # GDScript
@@ -91,7 +91,7 @@ Lisaks toetab `match` veel sõnastik-tüüpi mustreid ka.
 
 ## Konteinerid
 
-GDScriptis on erinevad konteinerid mitme ühte andmetüüpi muutuja hoidmiseks.
+GDScriptis on erinevad konteinerid mitme ühte andmetüüpi väärtuste hoidmiseks.
 
 -   Array
     -   massiiv
@@ -132,10 +132,6 @@ Lisaks teistele siin lehel mainitud võtmesõnadele eksisteerivad veel:
 -   `breakpoint`
     -   peatab programmi seal real, kus see on kirjas
     -   pead redaktorist nupule vajutama, kui tahad programmi tööd jätkata
--   `preload`
-    -   laeb faile konstantidena
-    -   käivitub siis, kui skriptifaili laetakse
-    -   kasulik näiteks siis, kui tahad skriptist ühest valmis stseenist mitmeid koopiaid luua
 -   `await`
     -   peatab skripti töö kuni saab signaali või kaasrutiin lõpeb
 -   `assert`
@@ -161,60 +157,75 @@ On olemas võtmesõnad `not`, `and` ja `or`.
 ## Klassid
 
 On kaks võtmesõna klasside jaoks, `class` ja `class_name`.
+
 `class` on tavaline klass, mis on ligipääsetav ainult tema skriptiga ühendatud sõlme kaudu.
-`class_name` deklareerib uue klassi, mis on nähtav sõlmede loetelus. Seda kasutatakse siis, kui üht ja sama klassi soovid taaskasutada. Seda võtmesõna võib vaid kord ühes skriptifailis kasutada.
+
+`class_name` deklareerib uue klassi, mis on nähtav sõlmede loetelus, kui uut sõlme stseeni tahad lisada. Seda kasutatakse siis, kui üht ja sama klassi soovid taaskasutada.
+Seda võtmesõna võib vaid kord ühes skriptifailis kasutada, sest Godot niikuinii käsitleb skriptifaile kui omaette privaatseid klasse, `class_name` teeb nad lihtsalt avalikuks.
+
 Näiteks on siis järgnev võimalik:
 ```gdscript
 extends Node2D
 
-class_name MinuKlass
+class_name ShapeFactory
 
-var taisarv: int = 5
+class Circle:
+    var radius: float = 1
 
-class KlassMinuKlassis:
-    var komaarv: float = 0.5
+    func area() -> float:
+        return this.radius ** 2 * PI
 
-    func mis_on_komaarv() -> float:
-        return self.komaarv
+class Square:
+    var side: float = 1
+
+    func area() -> float:
+        return this.side ** 2
 ```
 
 Saad teises skriptifailis nendele klassidele niimoodi ligi:
 
 ```gdscript
-var minu_klass: MinuKlass = MinuKlass.new()
-var klass_minu_klassis: MinuKlass.KlassMinuKlassis = MinuKlass.KlassMinuKlassis.new()
+var factory: ShapeFactory = ShapeFactory.new()
+var circle: ShapeFactory.Circle = factory.Circle.new()
 ```
 
 Tegelikult, kui klassi instantsi alles lood, siis võid lasta kompilaatoril ka andmetüüpi lihtsalt järeldada. Sedasi kirjutad vähem koodi.
 
 ```
-var minu_klass:= MinuKlass.new()
-var klass_minu_klassis:= MinuKlass.KlassMinuKlassis.new()
+var factory:= ShapeFactory.new()
+var circle:= factory.Circle.new()
 ```
 
-Pane tähele, et on kasutatud nii : (koolon) kui ka = (võrdusmärk) kirjamärke.
+Pane tähele, et on ikka kasutatud nii koolonit (:) kui ka võrdusmärki (=).
 
 ### Enumeraator ehk loenditüüp
 
-Võtmesõnaga `enum` on võimalik deklareerida konstantsete väärtustega struktuur, kus konstantidel on automaatselt väärtused antud.  Vajadusel saad ka ise väärtuse lisada.
+Võtmesõnaga `enum` on võimalik deklareerida konstantsete väärtustega struktuur, kus konstantidel on automaatselt väärtused antud.  Vajadusel saad ka ise väärtuse määrata.
+
+Tegutseme veel edasi ShapeFactory klassis:
 
 ```gdscript
-# Nimetu enumeraator
+# Nimetu loenditüüp
 enum {
-    VAARTUS_1,
-    VAARTUS_2,
-    VAARTUS_3,
+    CIRCLE,
+    SQUARE,
+    RECTANGLE,
+    TRIANGLE
 }
 
-enum Nimega {
-    VAARTUS_4 = 4,
-    VAARTUS_5 = 5,
-    VAARTUS_MIINUS_1 = -1
+# Nimega loenditüüp
+enum Direction {
+    LEFT = -1,
+    RIGHT = 1,
 }
+```
 
+Muus skriptifailis saab nüüd nendele väärtustele nii ligi:
+
+```gdscript
 func _ready() -> void:
-    var vaartus_a = VAARTUS_2
-    var vaartus_b: Nimega = Nimega.VAARTUS_4
+    var shape = ShapeFactory.RECTANGLE
+    var direction:= ShapeFactory.Direction.RIGHT
 ```
 
 ## Staatilised muutujad ja funktsioonid
@@ -242,7 +253,7 @@ func _ready():
 
 Staatilise funktsiooni jaoks ei pea klassi instantsi looma, saad selle lihtsalt välja kutsuda.
 
-## Autoload
+## *Singleton* muster läbi *autoload*-skriptide
 
 Kui leiad, et skriptifail peaks olema teistest skriptifailidest globaalselt juurdepääsetav, aga ei taha luua eraldi klassi selleks, võid kasutada *autoload* funktsionaalsust. Sellega luuakse programmi avades *singleton*-tüüpi skripti instants, mis tähendab, et vaid üks globaalne koopia sellest eksisteerib.
 
