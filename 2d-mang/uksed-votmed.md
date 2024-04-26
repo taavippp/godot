@@ -84,3 +84,28 @@ func key_touched(by: Node2D) -> void:
 ```
 
 Võtme sõlm ja klass on nüüd valmis! Võime edasi liikuda ust looma.
+
+## Uks
+
+Ukse stseen on samamoodi üles ehitatud, nagu võtme oma:
+
+```mermaid
+%%{init: {'theme':'neutral'}}%%
+flowchart LR;
+    area["Area2D nimega 'Door'"];
+    collision["CollisionShape2D"];
+    sprite["Sprite2D"];
+
+    area --> collision;
+    area --> sprite;
+```
+
+CollisionShape2D suuruseks läheb seekord 64 x 128 pikslit, sest uks on tavalistest tekstuuridest 2 korda pikem.
+
+Ukse spraitide jaoks pead jälle regiooni määrama, aga seekord peavad kõik 5 ukse tekstuuri seal olema, sest uks läheb lahti, kui võti kätte saadakse.
+
+![Pildil on kujutatud spraidi regiooni redaktor ja see regioon, mille peaks valima.](./pildid/uksed-votmed/uste-spraitide-regioon.png)
+
+Horisontaalseid tekstuure on seekord 5, seega `hframes` väärtuseks läheb 5.
+
+Nüüd võime taas skripti hakata kirjutama, nimega `Door.gd`.
