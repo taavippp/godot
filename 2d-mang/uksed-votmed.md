@@ -27,3 +27,60 @@ Seejärel saad hiirt kasutades regiooni piirjooni (paks valge joon) liigutada. T
 ![Regiooni redaktor ning ala, mida Sprite2D peaks kasutama.](./pildid/uksed-votmed/regiooni-redaktor.png)
 
 Võid nüüd regiooni redaktori akna sulgeda ja inspektoris leida `Animation -> Hframes` omadus. Pane selle väärtuseks 4 (eri värvi võtmete arv). Nüüd saad samas sektsioonis `frame` omadust muutes võtme värvi vahetada.
+
+Loo uus skript nimega `Key.gd`, mis on ühendatud samanimelise sõlme külge.
+Selle skripti puhul on oluline, et märgistaksime ta uue klassina võtmesõnaga `class_name`. Sedasi kindlustame, et hiljem ukse skripti kirjutades on lihtsam ukse võtmega tegeleda.
+Lisaks loome signaali nimega `key_collected`, mida levitatakse siis, kui mängija saab võtme kätte.
+
+Skripti algus võiks siis selline olla:
+
+```gdscript
+class_name Key 
+extends Area2D
+
+signal key_collected
+```
+
+### Ülesanne
+
+Ühenda läbi koodi Area2D signaal `body_entered` skriptiga. Loo see ühendus Node klassi sisseehitatud funktsioonis `_enter_tree`. Signaalile reageerivas funktsioonis võiks edasi levitada `key_collected` signaali.
+
+Lahendus oleks selline:
+
+```gdscript
+func _enter_tree() -> void:
+	body_entered.connect(key_touched)
+
+func key_touched(by: Node2D) -> void:
+	key_collected.emit()
+```
+
+### Skriptis animatsiooni loomine
+
+Lisame veel meie loodud `key_touched` funktsioonile läbi koodi ühe animatsiooni. Teeme nii, et kui võti kätte saadakse, siis see vaikselt haihtub ehk muutub läbipaistvaks.
+Selleks for-tsüklit kasutada ei saa, kuna see toimuks kõik ühel kaadril. Oleks võimalik kasutada `_process` funktsiooni, aga kui mitut omadust on ühel sõlmel vaja animeerida, siis nende jaoks tingimuslauseid jm kirjutada läheb tülikaks.
+
+Saame hoopis kasutada *tween* funktsionaalsust. Godot 3. versioonis oli see eraldi sõlm, aga 4. versioonis saab neid otse läbi koodi luua.
+
+`var tween: Tween = create_tween()`
+
+Tweenil kasutame praegu kahte funktsiooni: `tween_property` ja `tween_callback`. `tween_property`'ga määradki, mis omadusi animeerida tahad ja kuidas. `tween_callback`'iga määratud funktsioon kutsutakse välja, kui kõik animatsioonid on lõppenud.
+
+Tahame muuta `modulate` omadust. See on põhimõtteliselt värvifilter, mis on sõlmele juurde lisatud. Kui muudame selle värvifiltri läbipaistvaks, siis sõlm haihtub.
+Peale haihtumist tahame kustutada võtme sõlme, kuna see on kõik oma ülesanded ära täitnud. Selleks kasutame `queue_free` funktsiooni.
+
+`key_touched` funktsioon on siis lõpuks selline:
+```gdscript
+func key_touched(by: Node2D) -> void:
+	key_collected.emit()
+	var tween: Tween = create_tween()
+	tween.tween_property(
+		self,               # mis objekti animeeritakse
+		"modulate",         # millist objekti omadust muudetakse
+		Color.TRANSPARENT,  # milline on selle omaduse lõppväärtus
+		0.5                 # kui kiiresti animatsioon toimub
+	)
+	tween.tween_callback(queue_free)
+```
+
+Võtme sõlm ja klass on nüüd valmis! Võime edasi liikuda ust looma.
