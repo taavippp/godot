@@ -1,5 +1,5 @@
 ---
-title: Ronija
+title: Uksed, võtmed
 layout: default
 parent: 2D mäng
 nav_order: 4
@@ -169,6 +169,7 @@ func door_entered(by: Node2D) -> void:
 		return
 	print("Järgmist taset pole")
 ```
+
 Nüüd liigu mängu stseeni ja lisa sinna nüüd uks ja võti. Uksel peab ära määrama tema eksport-muutujate väärtused. Uue taseme võid ka luua, kuhu pead taas lisama vähemalt mängija ja maapinna. Kui uus tase on loodud, siis saad selle eksport-muutuja väärtuseks määrata `Quick Load` nupust.
 
 ![Pildil on punasega ära märgitud, mis nuppe peab vajutama, et uus mängu stseen eksport-muutuja väärtuseks panna.](./pildid/uksed-votmed/kust-packedscene-valida.png)
