@@ -108,4 +108,72 @@ Ukse spraitide jaoks pead jälle regiooni määrama, aga seekord peavad kõik 5 
 
 Horisontaalseid tekstuure on seekord 5, seega `hframes` väärtuseks läheb 5.
 
-Nüüd võime taas skripti hakata kirjutama, nimega `Door.gd`.
+Nüüd on aeg ukse skript luua, loomulikult nimega `Door.gd`.
+
+### Ülesanne
+
+Loo samasugune klass, nagu võtmele lõid, nimega `Door`.
+Uksel on vaja teada järgnevaid asju:
+
+-	võtme sõlm (Key)
+-	spraidi sõlm (Sprite2D)
+-	kas uks on avatud
+
+Tee nii, et kui võti saadakse kätte, siis uks avaneb ka visuaalselt.
+
+Lahendus oleks selline:
+```gdscript
+class_name Door
+extends Area2D
+
+@export var key: Key
+@export var sprite: Sprite2D
+
+var is_open: bool = false
+
+func _enter_tree():
+	key.key_collected.connect(key_collected)
+
+func key_collected() -> void:
+	is_open = true
+	sprite.frame = 0
+```
+
+Lisaks on vaja reageerida sellele, kui mängu tegelane ust puutub. Kui võti on kätte saadud ja tegelane puutub ust, siis muudetakse stseen järgmise mängu taseme peale. Seda saab teha koodireaga `get_tree().change_scene_to_packed(scene)`, kus `scene` on `PackedScene`-tüüpi muutuja. Tee kindlaks ka, et järgmine tase on üldse olemas ja kui pole, kasuta juba tuttavat `print` käsku, et sellest teavitada.
+
+Lõplik ukse skript peaks selline välja nägema:
+```gdscript
+class_name Door
+extends Area2D
+
+@export var key: Key # meie loodud võtme klass
+@export var next_level: PackedScene # järgmine tase
+
+@export var sprite: Sprite2D
+
+var is_open: bool = false
+
+func _enter_tree(): # signaalide ühendamine
+	key.key_collected.connect(key_collected)
+	body_entered.connect(door_entered)
+
+func key_collected() -> void:
+	is_open = true
+	sprite.frame = 0 # uks avaneb
+
+func door_entered(by: Node2D) -> void:
+	if (not is_open): # uks pole avatud veel
+		return
+	if (next_level != null): # järgmine tase eksisteerib
+		get_tree().change_scene_to_packed(next_level)
+		return
+	print("Järgmist taset pole")
+```
+Nüüd liigu mängu stseeni ja lisa sinna nüüd uks ja võti. Uksel peab ära määrama tema eksport-muutujate väärtused. Uue taseme võid ka luua, kuhu pead taas lisama vähemalt mängija ja maapinna. Kui uus tase on loodud, siis saad selle eksport-muutuja väärtuseks määrata `Quick Load` nupust.
+
+![Pildil on punasega ära märgitud, mis nuppe peab vajutama, et uus mängu stseen eksport-muutuja väärtuseks panna.](./pildid/uksed-votmed/kust-packedscene-valida.png)
+
+Kui järgmine tase on valitud, peaks inspektoris umbes selline eelvaade ilmuma:
+![Kui oled PackedScene õigesti valinud, peaks sellest eelvaade inspektoris ilmuma.](./pildid/uksed-votmed/tase-valitud.png)
+
+See projekt on nüüd peaaegu valmis, aga teised inimesed ei taha ju sinu mängu käivitada läbi Godot redaktori. Järgmisena õpime Godot projekti eksportima, et (näiteks) Windowsi kasutaja saaks käivitada hoopis .exe failist mängu!
