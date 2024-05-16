@@ -94,7 +94,12 @@ On üpris lihtne ehitada järgmisel pildil olev tase:
 
 Nüüd saad tegelasega ilusas tasemes ringi liikuda! Välimus on mängule ikka väga oluline.
 
-Järgmises osas tekitame uksed, mis lasevad meil erinevate tasemete vahel liikuda ja võtmed, millega lukustatud uksed avada.
+Võisid mängu käivitades tähele panna, et kui tegelane ronib mööda seina üles, siis vahepeal tema sprait muutub, kuigi ta on ikka seina küljes. See juhtub, kuna mäng korraks arvab, et tegelane tegelikult ei puutu seina. See on vaid visuaalne viga ja ronimist ei tundu tegelikult segavat, aga kui see on häiriv, siis saad selle parandada järgnevalt:
 
-{: .todo }
-Tegelase kollisioon seinaga on *wonky*, kui näiteks safe margin 0.5px, siis enam pole.
+-	liigu mängija stseeni `Player.tscn`
+-	leia omadus `Collision -> Safe Margin`
+-	määra selle väärtuseks 0.5px
+
+Nüüd ei peaks mingeid visuaalseid probleeme tegelasega olema.
+
+Järgmises osas tekitame uksed, mis lasevad meil erinevate tasemete vahel liikuda ja võtmed, millega lukustatud uksed avada.
