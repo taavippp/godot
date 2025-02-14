@@ -16,7 +16,7 @@ Pilt videomängust Dome Keeper, mis on loodud Godot'ga.
 
 ## Mida pakub Godot?
 
-Godot programm/redaktor ja sellega loodud rakendused on saadaval enim kasutatud platvormidel.
+Godot redaktorit ja sellega loodud rakendusi on võimalik kasutada enamustel platvormidel:
 Nende hulka kuuluvad:
 
 -   Windows
@@ -24,23 +24,26 @@ Nende hulka kuuluvad:
 -   Linux
 -   Android
 -   veebibrauser
--   iOS (redaktorit ei saa kasutada)
--   mängukonsoolid (redaktorit ei saa kasutada)
+-   iOS*
+-   mängukonsoolid*
 
-Godot'ga saab luua nii 2D (kahemõõtmelisi) kui ka 3D (kolmemõõtmelisi) rakendusi.
+* Nendel platvormidel pole redaktor saadaval, aga Godot's loodud mänge on võimalik nende jaoks luua ikka.
+{: .fs-3}
+
+Godot'ga saab luua nii 2D kui ka 3D rakendusi.
 Saadaval on
 
--   animatsiooni loomise tööriistad,
--   valgustuse ja varjude süsteemid,
--   läbi koodi kujundite joonistamine,
--   2D spraitidega töötamine,
--   2D ja 3D füüsika mootorid,
--   varjutajad (ingl *shader*),
 -   koodi kirjutamine järgnevates programmeerimiskeeltes:
     -   GDScript
     -   C#
     -   GDExtension (laiendus muus keeles)
+-   2D ja 3D füüsika mootorid,
+-   2D spraitidega töötamine,
+-   animatsiooni loomise tööriistad,
+-   valgustuse ja varjude süsteemid,
+-   varjutajad (ingl *shader*),
+-   graafiline kasutajaliidese süsteem
+-   läbi koodi kujundite joonistamine,
 -   heli tööriistad,
 -   TCP, UDP ja HTTP protokollide kasutamine,
     -   on võimalik luua mitme mängijaga (*multiplayer*) videomänge
--   graafiline kasutajaliidese süsteem
