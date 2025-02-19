@@ -5,16 +5,17 @@ parent: Esimene programm
 nav_order: 2
 ---
 
-# Tere maailm
+{: .todo }
+See peatükk on töös!
 
-## Redaktoris ringi vaatamine
+-   Pilti vali-peastseen.png pole väga vaja, see menüü on küllaltki mõistlik
+-   Tee vahet NUPU ja KLAHVI vahel (nupp on redaktoris hiirega vajutatav, klahv on klaviatuuril)
+
+# Tere maailm
 
 Selles osas tutvume lähemalt sõlmede ja signaalide süsteemiga ning kirjutame esimesed GDScript'i (Godot enda programmeerimiskeel) koodiread.
 
-Kui oled vahepeal redaktori sulgenud, ava uuesti Godot programm. Avaneb taas projektide halduse leht ja nüüd peaksid sealt leidma lahtri, kus on sinu eelmises osas loodud "Tere Maailm" projekt.
-Kliki enda projekti peal ja vajuta paremal olevas menüüs nuppu `Edit`. Saad edaspidi sama asja teha projekti peal lihtsalt topelt klikkides.
-
-![Leia oma loodud projekt avalehelt ja vajuta nuppu `Edit`.](./pildid/tere-maailm/projektihalduris-projekti-leidmine.png)
+## Esimene sõlm
 
 Leia üles koht stseeni dokis, kus on kirjas *Create Root Node* ehk loo juursõlm. Selle all on 4 nuppu. Vajuta nupule `2D Scene`. See loob sinu stseeni Node2D sõlme, millel on algelised 2D funktsionaalsused ja mõned muud asjad olemas. Põhivaade lülitus ka automaatselt 2D režiimi. Heida pilk inspektori dokki.
 Näed, et see jaguneb kolmeks osaks:
@@ -23,7 +24,7 @@ Näed, et see jaguneb kolmeks osaks:
 2.  CanvasItem
 3.  Node
 
-Sellest struktuurist loed hiljem täpsemalt. Vajuta inspektoris Node2D all olevale `Transform` nupule, et näha Node2D unikaalseid omadusi. Näed, et sellel sõlmel on omadused nagu *position* ehk positsioon ja *rotation* ehk pööre.
+Sellest struktuurist loed hiljem täpsemalt. Vajuta inspektoris Node2D all olevale `Transform` nupule, et näha Node2D unikaalseid omadusi. Näed, et sellel sõlmel on omadused nagu *position* ehk positsioon teljestikus ja *rotation* ehk pööre.
 
 ![Node2D omadused, nähtavad inspektori dokist.](./pildid/tere-maailm/node2d-inspektoris.png)
 
@@ -31,7 +32,7 @@ Liigu tagasi stseeni dokki ja vajuta oma loodud Node2D sõlme peal. Tema kohale 
 
 ![Kuidas luua skriptifaili.](./pildid/tere-maailm/loo-voi-muuda-skripti.png)
 
-Avaneb uus aken. Programm küsib tähtsaid asju nagu mis keeles tahad oma skriptifaili kirjutada, mis **klassi** pärija see skriptifail on ja kuhu failisüsteemis Godot skriptifaili salvestab. Kasutame ikka GDScript keelt ja skriptifail on Node2D pärija. Võid skriptifaili nime muuta näiteks Tere.gd-ks. Vajuta `Create`, et see fail luua ja skripti kirjutamise vaatesse minna.
+Avaneb uus aken. Redaktor küsib, mis keeles tahad oma skriptifaili kirjutada, mis **klassi** pärija see skriptifail on ja kuhu failisüsteemis Godot skriptifaili salvestab. Kasutame ikka GDScript keelt ja skriptifail on Node2D pärija. Võid skriptifaili nime muuta näiteks `Tere.gd`-ks. Vajuta `Create`, et see fail luua ja skripti kirjutamise vaatesse minna.
 
 ![Skriptifaili loomise detailid.](./pildid/tere-maailm/loo-skript.png)
 
@@ -71,7 +72,7 @@ Käsk `pass` tähendab, et see koodirida ei tee mitte midagi.
 
 Funktsioon `_process` käivitub igal kaadril, mida mäng renderdab. Tal on argument `delta`, mis tähistab aega sekundites eelmise kaadri möödumisest.
 
-Kirjuta funktsioonis `_ready` käsu `pass` asemele `print("Tere maailm!")`. Vajuta klaviatuuril `CTRL + S`, et salvestada oma tehtud töö. Tuleb ette stseeni salvestamise aken. `Save` nupu kohal võid stseeni nimeks panna näiteks `Tere.tscn`. Vajuta siis `Save` nuppu, et stseen salvestada. Skriptifail on ka automaatselt salvestatud.
+Kirjuta funktsioonis `_ready` käsu `pass` asemele `print("Tere maailm!")`. Vajuta `CTRL + S` klahve, et salvestada oma tehtud töö. Tuleb ette stseeni salvestamise aken. `Save` nupu kohal võid stseeni nimeks panna näiteks `Tere.tscn`. Vajuta siis `Save` nuppu või `Enter` klahvi, et stseen salvestada. Skriptifail on ka automaatselt salvestatud.
 
 Nüüd käivitame oma projekti, sest tahame näha, kuidas "Tere maailm!" väljastatakse. Tööriistariba paremal pool on kolmnurga kujuline nupp `Run Project`. Sellele vajutades palub redaktor meil peastseen valida. Vajuta nupu `Select Current` peale.
 
@@ -85,7 +86,7 @@ Tahaks ikka oma rakenduse aknas sõnumit näha. Praeguseks sulge see.
 
 ## Label sõlm
 
-Selleks, et oma kirjutatud teksti projektis näha, peame ühte teist sõlme kasutama. Vajuta stseeni dokis Node2D peale ja kustuta see kas  klaviatuurilt `Delete` nupuga või parem-kliki menüüst leides `Delete Node(s)` valiku. Kinnita, et tahad seda kustutada `OK` nupule vajutades. Seekord vajuta plussmärgi-kujulisele nupule või klaviatuuril `CTRL + A`. Avaneb uus aken, mis pakub sulle kõiki sõlmi, mis saadaval on. Kirjuta ülemises osas `Search` otsingulahtrisse sõna "label". Pakutakse sõlme Label. Vajuta akna allosas olevat nuppu `Create`, et see luua.
+Selleks, et oma kirjutatud teksti projektis näha, peame ühte teist sõlme kasutama. Vajuta stseeni dokis Node2D peale ja kustuta see kas `Delete` klahviga või parem-kliki menüüst leides `Delete Node(s)` valiku. Kinnita, et tahad seda kustutada. Seekord vajuta plussmärgi-kujulisele nupule või klaviatuuril `CTRL + A`. Avaneb uus aken, mis pakub sulle kõiki sõlmi, mis saadaval on. Kirjuta ülemises osas `Search` otsingulahtrisse sõna "label". Pakutakse sõlme Label. Vajuta akna allosas olevat nuppu `Create`, et see luua.
 
 Vajuta tööriistaribal nupu 2D peale, et tagasi liikuda 2D vaatesse. Uuel Label sõlmel pole enam Tere.gd skriptifaili küljes. Seda teeme hiljem. Vali oma loodud sõlm stseeni dokis ja heida pilk taas inspektorisse ja näed kohe, et Label sõlmel on omadus Text, kuhu saad oma sõnumi kirjutada. Kirjuta tühja tekstikonteinerisse oma sõnum.
 

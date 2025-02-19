@@ -5,6 +5,12 @@ parent: Esimene programm
 nav_order: 1
 ---
 
+{: .todo }
+See peatükk on töös!
+
+-   "Projekti loomine" all pole vaja mainida Asset Library Projects
+-   Parem pilt redaktori tutvustuseks
+
 # Redaktor
 
 ## Projekti loomine
