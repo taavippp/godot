@@ -5,6 +5,13 @@ parent: Esimene programm
 nav_order: 3
 ---
 
+{: .todo }
+See alapeatükk on töös!
+
+-	Ankrute süsteemi pole vaja mainida algajale veel
+-	Tere.gd mainimised `tere.gd`-ks ümber
+-	Argument ja parameeter - tee neil vahet
+
 # Graafiline kasutajaliides
 
 ## Sõlmed
