@@ -8,15 +8,14 @@ nav_order: 3
 {: .todo }
 See alapeatükk on töös!
 
--	Ankrute süsteemi pole vaja mainida algajale veel
--	Tere.gd mainimised `tere.gd`-ks ümber
 -	Argument ja parameeter - tee neil vahet
 
 # Graafiline kasutajaliides
 
+Selles osas on eesmärk eelnevas osas tutvustatud Label sõlm panna tervitama kasutaja sisestatud nime. Selleks kasutame paari uut sõlme ja õpime veidi Godot graafilise kasutajaliidese süsteemi.
+
 ## Sõlmed
 
-Selles osas on eesmärk eelnevas osas tutvustatud Label sõlm panna tervitama kasutaja sisestatud nime. Selleks kasutame paari uut sõlme ja õpime veidi Godot graafilise kasutajaliidese süsteemi.
 Kustuta praegune Label sõlm ja määra juursõlmeks hoopis Control. Lisa Control laps-sõlmedeks Label, TextEdit ja Button.
 
 ![Stseeni struktuur.](./pildid/graafiline-kasutajaliides/stseeni-struktuur.png)
@@ -35,25 +34,24 @@ Tahame teha nii, et teksti sisestamise riba ja nupp oleksid programmi allpool ja
 
 Graafilise kasutajaliidese sõlmed arvestavad erinevate mängu akna suurustega kasutades ankrute süsteemi. On neli ankrut - ülemine, alumine, vasak, parem. Ankru väärtus on tavaliselt 0 ja 1 vahel. Kui vasaku ankru väärtus on 0, tähendab see, et sõlme vasak külg alustab ekraani vasakust küljest. Kui see oleks 0.5, algaks sõlme vasak külg ekraani keskelt. Kui see oleks 1, algaks sõlme vasak külg ekraani paremast küljest.
 
-Vali Control sõlm tema peale klikkides ja inspektoris pane Control -> Layout -> Anchors Preset muutuja väärtuseks mall `Full Rect`. See teeb Control sõlme mängu akna suuruseks ja sätib ankrute väärtused järgmiseks:
+Vali Control sõlm ja inspektoris pane Control -> Layout -> Anchors Preset muutuja väärtuseks mall `Full Rect`. See teeb Control sõlme mängu akna suuruseks ja sätib ankrute väärtused järgmiseks:
 
 -   vasak ankur: 0 (sõlm algab ekraani vasakust äärest)
 -   ülemine ankur: 0 (sõlm algab ekraani ülemisest äärest)
 -   parem ankur: 1 (sõlm lõpeb ekraani paremas ääres)
 -   alumine ankur: 1 (sõlm lõpeb ekraani alumises ääres)
 
+![Pilt, mis aitab kujutab visuaalselt ankrute süsteemi.](./pildid/graafiline-kasutajaliides/ankrute-selgitus.png)
+
 Kuna tahame tervet mängu akna ala kasutada, siis Control sõlmele see sobib. Tahtsime, et Label oleks ekraani keskel. Selleks otsi üles Control -> Layout -> Layout Mode muutuja ja tee kindlaks, et tema väärtus oleks `Anchors`. Seejärel ilmub Anchors Preset muutuja taas selle alla. Milline väärtus sealt sobiks Labeli ekraani keskele sobitamiseks?
 
-Vastus on loomulikult `Center` - see hoiab Label sõlme nii horisontaalselt kui ka versikaalselt keskel. Kontrollimiseks võid Labelile jälle teksti `Tere maailm!` kirjutada. Pane tähele, et teksti juurde kirjutades ja ära kustutades püsib sõlm ikka ilusti ekraani keskel, kuigi tema suurus muutub. Tee sama Button sõlmega, aga aseta see hoopis paremasse alumisse nurka (väärtus `Bottom Right`). Tee ka nii, et see kuvaks teksti "Tervita". Saad seda teha samamoodi, nagu Label sõlmega.
+Vastus on loomulikult `Center` - see hoiab Label sõlme nii horisontaalselt kui ka versikaalselt keskel. Kontrollimiseks võid Labelile jälle teksti `Tere maailm!` kirjutada. Pane tähele, et teksti juurde kirjutades ja ära kustutades püsib sõlm ikka ilusti ekraani keskel, kuigi tema suurus muutub.
 
-TextEdit sõlmel pane muutuja Placeholder Text väärtuseks `Keda tahad tervitada?`. Kui kasutaja teksti sinna kirjutanud pole, siis seda sõnumit kuvatakse. Seejärel tegeleme TextEditi ankrutega. Pane temal Anchors Preset väärtuseks `Custom`. See paljastab palju uusi muutujaid täpsemalt ankrutega tegelemiseks. Tahame, et TextEdit oleks alumises ääres ja läheks nupuni välja. Seda saad teha järgmiste väärtustega:
+TextEdit sõlmel pane muutuja Placeholder Text väärtuseks `Keda tahad tervitada?`. Kui kasutaja teksti sinna kirjutanud pole, siis seda sõnumit kuvatakse. Tegeleme TextEditi ankrutega. Pane temal Anchors Preset väärtuseks `Bottom Wide`. See sätib ta ekraani allaossa, kogu ekraani pikkuseks. Hetkel pole asendusteksti näha. Selleks pead Anchor Offsets -> Top ehk ülemise ankru nihke väärtuseks panema näiteks -35 pikslit.
 
--   Anchor Points -> Left: 0 (vasak ankur)
--   Anchor Points -> Top: 1 (ülemine ankur)
--   Anchor Points -> Right: 0.9 (parem ankur)
--   Anchor Points -> Bottom: 1 (alumine ankur)
+Määra Button sõlm TextEditi lapseks, lohistades teda stseeni dokis hiirega või paremkliki menüü -> Reparent kaudu. Buttoni tekst olgu "Tervita" ja tema Anchor Preset olgu `Center Right`. See asetab ta TextEditi paremasse äärde. See juhtus, sest nüüd Button on piiratud TextEditi väiksesse alasse. Nii on ka TextEditi ja Label sõlmega - nemad on piiratud Control sõlme alasse ja kuna Control sõlm on selle stseeni juursõlm, siis tema piirang on projekti akna suurus.
 
-Meie asendusteksti pole aga näha. Selleks pead Anchor Offsets -> Top ehk ülemise ankru nihke väärtuseks panema näiteks -35 pikslit. Põhivaade peaks nüüd selline välja nägema:
+Põhivaade peaks nüüd selline välja nägema:
 
 ![Stseeni lõplik välimus.](./pildid/graafiline-kasutajaliides/stseeni-visuaal.png)
 
@@ -61,7 +59,7 @@ Meie asendusteksti pole aga näha. Selleks pead Anchor Offsets -> Top ehk ülemi
 
 ### Muutujad
 
-Vali Control juursõlm ja ühenda talle taas Tere.gd külge. Skripti ühendamise aken peaks mainima, et fail juba eksisteerib ning et seda taaskasutatakse. Vajuta nupu `Load` peale.
+Vali Control juursõlm ja ühenda talle taas `tere.gd` külge. Skripti ühendamise aken peaks mainima, et fail juba eksisteerib ning et seda taaskasutatakse. Vajuta nupu `Load` peale.
 
 ![Skripti ühendamise aken kirjutab, et skriptifail on juba olemas.](./pildid/graafiline-kasutajaliides/fail-eksisteerib.png)
 
@@ -110,7 +108,7 @@ Parem praktika on kasutada `@export` annotatsiooni, kuna selleks ei pea kirjutam
 @export var button: Button
 ```
 
-Lisaks on inspektori dokis ilmunud sektsioon nimega Tere.gd, kus on skripti `@export` annotatsiooniga avalikustatud muutujad. Pane tähele, et kuigi kirjutasid koodis `text_edit`, kuvatakse seda inspektoris kui Text Edit. Redaktor üritab muutuja nimed inspektoris loetavamaks teha. Vajutades nupule `Assign...` avaneb uus aken, kus on kujutatud kõik sinu stseenis sobivad sõlmed, mis selle muutuja väärtuseks võivad sobida. Meil on sobivaid sõlmi iga muutuja jaoks vaid üks. Vali õige sõlm ja kas topelt-kliki selle peal või vajuta all olevat `OK` nuppu.
+Lisaks on inspektori dokis ilmunud sektsioon nimega `tere.gd`, kus on skripti `@export` annotatsiooniga avalikustatud muutujad. Pane tähele, et kuigi kirjutasid koodis `text_edit`, kuvatakse seda inspektoris kui Text Edit. Redaktor üritab muutuja nimed inspektoris loetavamaks teha. Vajutades nupule `Assign...` avaneb uus aken, kus on kujutatud kõik sinu stseenis sobivad sõlmed, mis selle muutuja väärtuseks võivad sobida. Meil on sobivaid sõlmi iga muutuja jaoks vaid üks. Vali õige sõlm ja kas topelt-kliki selle peal või vajuta all olevat `OK` nuppu.
 
 ![@export annotatsiooniga muutujad on inspektoris nähtavad.](./pildid/graafiline-kasutajaliides/eksport-muutujad.png)
 
@@ -134,10 +132,14 @@ Nüüd peame välja nuputama, kuidas skriptis teha nii, et Buttoni nupuvajutuse 
 
 Kohe peaks näha olema Button sõlme erinevad signaalid, mida ta välja saadab. Meid huvitab signaal `pressed`, mis reageeribki Buttoni vajutuse peale. Signaali mingi sõlme skriptiga ühendamiseks on ka kaks viisi:
 
-1.	kirjutad selle koodis välja
-2.	teed seda graafilise kasutajaliidesega
+1.	teed seda graafilise kasutajaliidesega
+2.	kirjutad selle koodis välja
 
-Kursuse autori isiklik eelistus on esimene variant, kuna niikuinii peab signaaliga toimetamiseks koodi kirjutama. Õpime mõlemat tegema, aga edaspidi koodinäidetes on esimest varianti kasutatud. Esimese meetodiga näeks `_ready` funktsioon välja selline:
+Kursuse autori isiklik eelistus on teine variant, kuna niikuinii peab signaaliga toimetamiseks koodi kirjutama. Õpime mõlemat tegema, aga edaspidi koodinäidetes on esimest varianti kasutatud kursuse kasutaja mugavuseks.
+
+Esimene viis on sealsamas sõlme dokis topelt-klikkida `pressed` signaali peale. Seejärel avaneb aken, mis küsib detaile signaali sõlmega ühendamise kohta. Oluline on, et ta ühendaks Control sõlmega. Kõik muu võid jätta samaks. Seejärel vajuta nupule `Connect`. Skriptis on nüüd genereeritud algne `_on_button_pressed` funktsioon, aga signaali ühendusest skriptis endas tõendit ei ole, kuid redaktoris on, nii sõlme dokis kui ka stseeni dokis selle sõlme juures.
+
+Teise meetodiga näeks `_ready` funktsioon välja selline:
 
 ```gdscript
 func _ready() -> void:
@@ -149,8 +151,6 @@ func _on_button_pressed() -> void:
 ```
 
 Godot kolmandas versioonis ei saanud signaalidele ligi sedasi ja pidi jälle stringe kasutama, aga neljandas versioonis on see mugavamaks ja kindlamaks tehtud. Signaalidel on funktsioon `connect`, mille argumendiks on koodinäite lõpus deklareeritud `_on_button_pressed` funktsioon. Nii funktsioonidele kui ka signaalidele saab sedasi viidata neljandas versioonis. `connect` funktsioon teeb nii, et kui Buttonit vajutatakse, see laseb välja `pressed` signaali, mis on eelnevalt juba Control sõlmega ühendatud ja signaali peale kutsub Control sõlm välja oma funktsiooni `_on_button_pressed`.
-
-Teine viis on sealsamas sõlme dokis topelt-klikkida `pressed` signaali peale. Seejärel avaneb aken, mis küsib detaile signaali sõlmega ühendamise kohta. Oluline on, et ta ühendaks Control sõlmega. Kõik muu võid jätta samaks. Seejärel vajuta nupule `Connect`. Skriptis on nüüd genereeritud algne `_on_button_pressed` funktsioon, aga signaali ühendusest skriptis endas tõendit ei ole.
 
 `_process` funktsiooni pole meil selles skriptis vaja, kuna ta ei tee igal kaadril midagi uut. Proovi nüüd `_on_button_pressed` funktsioon panna Outputi mingit sõnumit väljastama `print` käsuga, et kindlaks teha, et nupuvajutuse peale tõesti saab Control sõlm signaali kätte ja reageerib sellele.
 
@@ -175,7 +175,7 @@ func _on_button_pressed() -> void:
 	text_edit.text = ""
 ```
 
-Nüüd on esimene projekt valmis. Käivita see, sisesta teksti ja vajuta nupule. Kui akna keskel kuvatav sõnum muutub, oled hakkama saanud! Lisaks peaks akna suurust muutes kõik sõlmed ilusti kaasa liikuma. Button on TextEditi sõlmest eespool, aga nende alad kattuvad väga väikse aknaga, sest Buttoni teksti suurus ei muutu.
+Nüüd on esimene projekt valmis. Käivita see, sisesta teksti ja vajuta nupule. Kui akna keskel kuvatav sõnum muutub, oled hakkama saanud! Lisaks peaks akna suurust muutes kõik sõlmed ilusti kaasa liikuma.
 
 ![Akna suuruse muutmine töötab, kui ta selline saab välja näha.](./pildid/graafiline-kasutajaliides/akna-suuruse-muutmine-tootab.png)
 
