@@ -167,7 +167,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	button.pressed.connect(_on_button_pressed)
+	button.pressed.connect(_on_button_pressed) # kui kasutasid teist meetodit
 	label.text = "Tere Godot!"
 
 func _on_button_pressed() -> void:
