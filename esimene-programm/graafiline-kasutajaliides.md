@@ -5,11 +5,6 @@ parent: Esimene programm
 nav_order: 3
 ---
 
-{: .todo }
-See alapeatükk on töös!
-
--	Argument ja parameeter - tee neil vahet
-
 # Graafiline kasutajaliides
 
 Selles osas on eesmärk eelnevas osas tutvustatud Label sõlm panna tervitama kasutaja sisestatud nime. Selleks kasutame paari uut sõlme ja õpime veidi Godot graafilise kasutajaliidese süsteemi.
@@ -83,7 +78,9 @@ Kohe esimesel real on viga. Kuna nüüd on juursõlm Control tüüpi, siis peaks
 2.	`@onready` annotatsiooniga muutujad
 
 Esiteks tutvume sellega, kuidas deklareerida muutujaid.
-Üldine muutuja süntaks on järgmine: `var muutuja_nimi: muutuja_klass = väärtus`. Muutujatel ei pea klassi kirja panema, aga seda tehakse sellel kursusel, kuna see on hea praktika. Muutujatel ei pea ka väärtuseid kohe määrama. Lisaks on olemas võtmesõna `const` konstandi deklareerimiseks samal viisil. Konstantidel peab olema väärtus koodis kohe olemas. Funktsiooni tagastatava väärtuse andmetüüpi on ka mõistlik deklareerida järgneva süntaksiga: `func funktsiooni_nimi(argument: argumendi_klass) -> tagastatav_klass:`.
+Üldine muutuja süntaks on järgmine: `var muutuja_nimi: muutuja_klass = väärtus`. Muutujatel ei pea klassi kirja panema, aga seda tehakse sellel kursusel, kuna see on hea praktika. Muutujatel ei pea ka väärtuseid kohe määrama. Lisaks on olemas võtmesõna `const` konstandi deklareerimiseks samal viisil. Konstantidel peab olema väärtus koodis kohe olemas.
+
+Funktsiooni tagastatava väärtuse andmetüüpi on ka võimalik deklareerida järgneva süntaksiga: `func funktsiooni_nimi(parameeter: parameetri_klass) -> tagastatav_klass:`.
 
 Annotatsioonid on @-märgiga algavad märgistused. Need eelnevad muutuja deklaratsioonile ja annavad sellele muutujale erinevaid omadusi juurde. Näiteks `@export` annotatsioon teeb muutuja inspektoris nähtavaks ja saad sealt talle väärtuse määrata. `@onready` annotatsioon määrab muutujale väärtuse alles siis, kui skriptiga ühendatud sõlme `_ready` funktsioon on käivitunud ehk tema ja ta laps-sõlmed on stseenide puusse sisestatud.
 

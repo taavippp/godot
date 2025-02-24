@@ -30,26 +30,24 @@ Vaikimisi üritab Godot redaktor sulle õiget taanet pakkuda. Kui deklareerid n�
 
 Godot's on järgnevad andmetüübid:
 
--   null
-    -   tühi/puuduv väärtus
--   bool
-    -   true/false ehk tõene/väär või 1/0 väärtus
--   int
-    -   täisarv
--   float
-    -   ujuvkomaarv
--   string
-    -   tekst
+| Andmetüüp | Tähendus                    |
+|-----------|-----------------------------|
+| null      | tühi/puuduv väärtus         |
+| bool      | tõene või väär, ehk 1 või 0 |
+| int       | täisarv                     |
+| float     | ujukomaarv                  |
+| String    | tekst                       |
 
 Lisaks võtmesõna `void` kasutatakse, kui funktsioon ei peaks mingit väärtust tagastama.
 
 ## Funktsioonid, tsüklid, tingimuslaused
 
-Eelnevalt õppisime deklareerima funktsioone `func` võtmesõnaga.
+Funktsioone on võimalik deklareerida `func` võtmesõnaga.s
 GDScriptis on võimalik luua nii `while` kui ka `for` tsükleid.
 Tingimuslausete jaoks on võtmesõnad `if`, `elif`, `else` ja `match`.
-`match` on sarnane teistest keeltest `switch` võtmesõnale, aga väga paindlik.
+`match` on sarnane teistest keeltest `switch` võtmesõnale, aga paindlikum.
 Näiteks:
+
 ```gdscript
 func _ready() -> void:
     var num_1: int = 10
@@ -78,16 +76,8 @@ func _ready() -> void:
         7:
             print("kümme")
         [8, 9, 10]:
-            print("arv 8 ja 10 vahel")
-    
-    match typeof(num_2):
-        TYPE_STRING:
-            print("muutuja on string")
-        TYPE_INT:
-            print("muutuja on arv")
+            print("arv on kas 8, 9 või 10")
 ```
-
-Lisaks toetab `match` veel sõnastik-tüüpi mustreid ka.
 
 ## Konteinerid
 
@@ -95,7 +85,7 @@ GDScriptis on erinevad konteinerid mitme ühte andmetüüpi väärtuste hoidmise
 
 -   Array
     -   massiiv
-    -   Godot 4. versioonist alates on neile võimalik andmetüüpe määrata nii: `Array[tüüp]`, nt `Array[int]`
+    -   Godot 4. versioonist alates on neile võimalik andmetüüpe määrata nii: `Array[tüüp]`, nt `Array[int]` või `Array[Node2D]`
 -   Packed Array
     -   kuna tavaline massiiv on loodud igasuguseid andmetüüpe ja klasse sisaldama, siis suurte andmekogustega tegelemiseks on mõne andmetüübi jaoks olemas PackedArray, millega opereerimine on palju kiirem ja tõhusam
     -   PackedStringArray, PackedInt32Array jne
@@ -158,12 +148,13 @@ On olemas võtmesõnad `not`, `and` ja `or`.
 
 On kaks võtmesõna klasside jaoks, `class` ja `class_name`.
 
-`class` on tavaline klass, mis on ligipääsetav ainult tema skriptiga ühendatud sõlme kaudu.
+`class`iga deklareeritud klass on ligipääsetav vaid skriptifaili kaudu, mis tähendab, et ta on selle skripti alamklass.
 
-`class_name` deklareerib uue klassi, mis on nähtav sõlmede loetelus, kui uut sõlme stseeni tahad lisada. Seda kasutatakse siis, kui üht ja sama klassi soovid taaskasutada.
-Seda võtmesõna võib vaid kord ühes skriptifailis kasutada, sest Godot niikuinii käsitleb skriptifaile kui omaette privaatseid klasse, `class_name` teeb nad lihtsalt avalikuks.
+`class_name` deklareerib uue klassi, mis on nähtav sõlmede loetelus.
+Seda võtmesõna võib vaid kord ühes skriptifailis kasutada.
 
 Näiteks on siis järgnev võimalik:
+
 ```gdscript
 extends Node2D
 
@@ -192,11 +183,11 @@ var circle: ShapeFactory.Circle = factory.Circle.new()
 Tegelikult, kui klassi instantsi alles lood, siis võid lasta kompilaatoril ka andmetüüpi lihtsalt järeldada. Sedasi kirjutad vähem koodi.
 
 ```
-var factory:= ShapeFactory.new()
-var circle:= factory.Circle.new()
+var factory := ShapeFactory.new()
+var circle := factory.Circle.new()
 ```
 
-Pane tähele, et on ikka kasutatud nii koolonit (:) kui ka võrdusmärki (=).
+Pane tähele, et on kasutatud nii koolonit (:) kui ka võrdusmärki (=).
 
 ### Enumeraator ehk loenditüüp
 
@@ -249,6 +240,9 @@ func _ready():
     a.arv = 15
     print(a.arv) # 15
     print(b.arv) # 15
+    NaiteKlass.arv = 20
+    print(a.arv) # 20
+    print(b.arv) # 20
 ```
 
 Staatilise funktsiooni jaoks ei pea klassi instantsi looma, saad selle lihtsalt välja kutsuda.
@@ -257,8 +251,8 @@ Staatilise funktsiooni jaoks ei pea klassi instantsi looma, saad selle lihtsalt 
 
 Kui leiad, et skriptifail peaks olema teistest skriptifailidest globaalselt juurdepääsetav, aga ei taha luua eraldi klassi selleks, võid kasutada *autoload* funktsionaalsust. Sellega luuakse programmi avades *singleton*-tüüpi skripti instants, mis tähendab, et vaid üks globaalne koopia sellest eksisteerib.
 
-Autoloadi saab luua Godot redaktoris ülaribalt nupult Project -> Project Settings. Siis avaneb sinu projekti konfigureerimise aken, kus on vaheleht `Autoload`. Siin on võimalik teha olemasolev skript autoloadiks või luua uus, mis on koheselt autoload.
+Autoloadi saab luua Godot redaktoris ülaribalt nupult Project -> Project Settings. Siis avaneb sinu projekti konfigureerimise aken, kus on vaheleht `Globals`. Siin on võimalik teha olemasolev skript autoloadiks või luua uus, mis on koheselt autoload.
 
-![Autoloadi loomine](./pildid/gdscript/autoload.png)
+![Autoloadi loomine](./pildid/autoload.png)
 
 Järgmises osas alustame uue peatükiga, kus loome Godot 2D füüsika mootoriga mängu.
