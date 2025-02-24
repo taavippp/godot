@@ -39,11 +39,11 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+    pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+    pass
 ```
 
 Võtmesõna `extends` täpsustab, mis klassi pärija su skript on. Iga skript Godot's on uus klass. `tere.gd` fail tähendab siis, et lõid klassi nimega "tere", mis on kättesaadav ainult siis, kui selle skripti mingi sõlme külge ühendad. See tähendab, et eelnevalt mainitud Node ja CanvasItem on klassid, mille pärija on Node2D klass.

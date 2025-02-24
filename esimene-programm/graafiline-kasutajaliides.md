@@ -172,7 +172,7 @@ func _on_button_pressed() -> void:
 	text_edit.text = ""
 ```
 
-Nüüd on esimene projekt valmis. Käivita see, sisesta teksti ja vajuta nupule. Kui akna keskel kuvatav sõnum muutub, oled hakkama saanud! Lisaks peaks akna suurust muutes kõik sõlmed ilusti kaasa liikuma.
+Nüüd on esimene projekt valmis. Käivita see, sisesta teksti ja vajuta nupule. Kui akna keskel kuvatav sõnum muutub, oled hakkama saanud! Lisaks peaks akna suurust muutes kõik sõlmed ilusti mahtuma.
 
 ![Akna suuruse muutmine töötab, kui ta selline saab välja näha.](./pildid/graafiline-kasutajaliides/akna-suuruse-muutmine-tootab.png)
 

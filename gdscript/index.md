@@ -7,9 +7,9 @@ has_children: false
 
 # GDScript
 
-## Tühikud
+Selles osas tutvume lähemalt GDScripti erinevate osadega.
 
-Selles osas tutvume lähemalt GDScripti erinevate osadega. Selles peatükis oled juba natuke õppinud seda Godot'le loodud keelt, aga nüüd saad teada, mida täpsemalt GDScriptiga teha saab.
+## Tühikud
 
 GDScript on süntaksi poolest kohati sarnane Python keelele - mõlemal keelel on iga rea taane oluline.
 Esimene funktsioon siin koodiplokis annaks veateate, teine mitte.
@@ -21,7 +21,7 @@ print("tere")
 
 # Korrektselt taandatud kood
 func _process(delta: float) -> void:
-    print("Möödus " + delta + " sek")
+	print("Möödus " + delta + " sek")
 ```
 
 Vaikimisi üritab Godot redaktor sulle õiget taanet pakkuda. Kui deklareerid näiteks funktsiooni, tingimuslause või tsükli (*if*/*while*/*for*), siis järgnev rida algab automaatselt tabulaatoriga.
@@ -32,11 +32,11 @@ Godot's on järgnevad andmetüübid:
 
 | Andmetüüp | Tähendus                    |
 |-----------|-----------------------------|
-| null      | tühi/puuduv väärtus         |
-| bool      | tõene või väär, ehk 1 või 0 |
-| int       | täisarv                     |
-| float     | ujukomaarv                  |
-| String    | tekst                       |
+| null	    | tühi/puuduv väärtus	      |
+| bool	    | tõene või väär, ehk 1 või 0 |
+| int	    | täisarv	                  |
+| float	    | ujukomaarv	              |
+| String	| tekst	                      |
 
 Lisaks võtmesõna `void` kasutatakse, kui funktsioon ei peaks mingit väärtust tagastama.
 
@@ -50,33 +50,35 @@ Näiteks:
 
 ```gdscript
 func _ready() -> void:
-    var num_1: int = 10
-    var num_2: int = 5
-    
-    # muutuja i eksisteerib siin ainult for-tsükli ajal
-    for i in num_1:
-        print(i)
-    
-    # siin loodud muutuja i ei ole for-tsükli omaga seotud
-    var i: int = 0
-    while i < num_2:
-        print(i)
-        i += 1
-    
-    if i == 4:
-        print("neli")
-    elif i == 5:
-        print("viis")
-    else:
-        print("midagi muud")
-    
-    match num_1:
-        5:
-            print("viis")
-        7:
-            print("kümme")
-        [8, 9, 10]:
-            print("arv on kas 8, 9 või 10")
+	var num_1: int = 10
+	var num_2: int = 5
+
+	# muutuja i eksisteerib siin ainult for-tsükli ajal
+	for i in num_1:
+		print(i)
+
+	# siin loodud muutuja i ei ole for-tsükli omaga seotud
+	var i: int = 0
+	while i < num_2:
+		print(i)
+		i += 1
+
+	if i == 4:
+		print("neli")
+	elif i == 5:
+		print("viis")
+	else:
+		print("midagi muud")
+
+	match num_1:
+		5:
+			print("viis")
+		7:
+			print("kümme")
+		8, 9, 10:
+			print("arv on kas 8, 9 või 10")
+		_:
+			print("polnud 5, 7, 8, 9 ega 10, vau")
 ```
 
 ## Konteinerid
@@ -84,17 +86,17 @@ func _ready() -> void:
 GDScriptis on erinevad konteinerid mitme ühte andmetüüpi väärtuste hoidmiseks.
 
 -   Array
-    -   massiiv
-    -   Godot 4. versioonist alates on neile võimalik andmetüüpe määrata nii: `Array[tüüp]`, nt `Array[int]` või `Array[Node2D]`
+	-   massiiv
+	-   Godot 4. versioonist alates on neile võimalik andmetüüpe määrata nii: `Array[tüüp]`, nt `Array[int]` või `Array[Node2D]`
 -   Packed Array
-    -   kuna tavaline massiiv on loodud igasuguseid andmetüüpe ja klasse sisaldama, siis suurte andmekogustega tegelemiseks on mõne andmetüübi jaoks olemas PackedArray, millega opereerimine on palju kiirem ja tõhusam
-    -   PackedStringArray, PackedInt32Array jne
+	-   kuna tavaline massiiv on loodud igasuguseid andmetüüpe ja klasse sisaldama, siis suurte andmekogustega tegelemiseks on mõne andmetüübi jaoks olemas PackedArray, millega opereerimine on palju kiirem ja tõhusam
+	-   PackedStringArray, PackedInt32Array jne
 -   Dictionary
-    -   sõnastik-konteiner, kus väärtustel on indeksite asemel võtmed
+	-   sõnastik-konteiner, kus väärtustel on indeksite asemel võtmed
 -   Signal
-    -   ka signaali võib muutuja väärtuseks määrata (eelnevalt mainitud)
+	-   ka signaali võib muutuja väärtuseks määrata (eelnevalt mainitud)
 -   Callable
-    -   ka funktsiooni võib muutuja väärtuseks määrata (eelnevalt mainitud)
+	-   ka funktsiooni võib muutuja väärtuseks määrata (eelnevalt mainitud)
 
 ## Võtmesõnad ja operaatorid
 
@@ -103,36 +105,36 @@ GDScriptis on erinevad konteinerid mitme ühte andmetüüpi väärtuste hoidmise
 Lisaks teistele siin lehel mainitud võtmesõnadele eksisteerivad veel:
 
 -   `break` & `continue`
-    -   `break` on tsükli lõpetamiseks
-    -   `continue` on tsükli iteratsiooni vahele jätmiseks
+	-   `break` on tsükli lõpetamiseks
+	-   `continue` on tsükli iteratsiooni vahele jätmiseks
 -   `is`
-    -   tingimuslauses klassi kontrollimiseks
-    -   näide: `a is Label`
+	-   tingimuslauses klassi kontrollimiseks
+	-   näide: `a is Label`
 -   `in`
-    -   tingimuslauses kontrollimiseks, kas väärtus on stringis/massiivis/sõnastikus/sõlmes
+	-   tingimuslauses kontrollimiseks, kas väärtus on stringis/massiivis/sõnastikus/sõlmes
 -   `as`
-    -   määra tundmatule väärtusele andmetüüp
-    -   näide: `var tegelane := tegelase_stseen.instantiate() as CharacterBody2D`
-    -   kui tundmatule väärtusele see andmetüüp ei sobi, on väärtus null
+	-   määra tundmatule väärtusele andmetüüp
+	-   näide: `var tegelane := tegelase_stseen.instantiate() as CharacterBody2D`
+	-   kui tundmatule väärtusele see andmetüüp ei sobi, on väärtus null
 -   `self`
-    -   viide praegusele klassi instantsile
+	-   viide praegusele klassi instantsile
 -   `signal`
-    -   signaali deklareerimiseks
-    -   näide: `signal liikus_paremale`
+	-   signaali deklareerimiseks
+	-   näide: `signal liikus_paremale`
 -   `breakpoint`
-    -   peatab programmi seal real, kus see on kirjas
-    -   pead redaktorist nupule vajutama, kui tahad programmi tööd jätkata
+	-   peatab programmi seal real, kus see on kirjas
+	-   pead redaktorist nupule vajutama, kui tahad programmi tööd jätkata
 -   `await`
-    -   peatab skripti töö kuni saab signaali või kaasrutiin lõpeb
+	-   peatab skripti töö kuni saab signaali või kaasrutiin lõpeb
 -   `assert`
-    -   kui talle antud tingimus on vale, siis programm annab veateate
+	-   kui talle antud tingimus on vale, siis programm annab veateate
 -   konstandid
-    -   `PI`
-    -   `TAU`
-    -   `INF`
-        -   lõpmatus
-    -   `NAN`
-        -   võimatu number
+	-   `PI`
+	-   `TAU`
+	-   `INF`
+	-   lõpmatus
+	-   `NAN`
+	-   võimatu number
 
 ### Operaatorid
 
@@ -161,16 +163,16 @@ extends Node2D
 class_name ShapeFactory
 
 class Circle:
-    var radius: float = 1
+	var radius: float = 1
 
-    func area() -> float:
-        return this.radius ** 2 * PI
+	func area() -> float:
+	return this.radius ** 2 * PI
 
 class Square:
-    var side: float = 1
+	var side: float = 1
 
-    func area() -> float:
-        return this.side ** 2
+	func area() -> float:
+	return this.side ** 2
 ```
 
 Saad teises skriptifailis nendele klassidele niimoodi ligi:
@@ -198,16 +200,16 @@ Tegutseme veel edasi ShapeFactory klassis:
 ```gdscript
 # Nimetu loenditüüp
 enum {
-    CIRCLE,
-    SQUARE,
-    RECTANGLE,
-    TRIANGLE
+	CIRCLE,
+	SQUARE,
+	RECTANGLE,
+	TRIANGLE
 }
 
 # Nimega loenditüüp
 enum Direction {
-    LEFT = -1,
-    RIGHT = 1,
+	LEFT = -1,
+	RIGHT = 1,
 }
 ```
 
@@ -215,8 +217,8 @@ Muus skriptifailis saab nüüd nendele väärtustele nii ligi:
 
 ```gdscript
 func _ready() -> void:
-    var shape = ShapeFactory.RECTANGLE
-    var direction:= ShapeFactory.Direction.RIGHT
+	var shape = ShapeFactory.RECTANGLE
+	var direction:= ShapeFactory.Direction.RIGHT
 ```
 
 ## Staatilised muutujad ja funktsioonid
@@ -229,20 +231,20 @@ Näide:
 extends Node
 
 class NaiteKlass:
-    static var arv: int = 10
+	static var arv: int = 10
 
 var a: NaiteKlass = NaiteKlass.new()
 var b: NaiteKlass = NaiteKlass.new()
 
 func _ready():
-    print(a.arv) # 10
-    print(b.arv) # 10
-    a.arv = 15
-    print(a.arv) # 15
-    print(b.arv) # 15
-    NaiteKlass.arv = 20
-    print(a.arv) # 20
-    print(b.arv) # 20
+	print(a.arv) # 10
+	print(b.arv) # 10
+	a.arv = 15
+	print(a.arv) # 15
+	print(b.arv) # 15
+	NaiteKlass.arv = 20
+	print(a.arv) # 20
+	print(b.arv) # 20
 ```
 
 Staatilise funktsiooni jaoks ei pea klassi instantsi looma, saad selle lihtsalt välja kutsuda.
