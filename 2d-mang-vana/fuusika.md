@@ -1,7 +1,7 @@
 ---
 title: Füüsika
 layout: default
-parent: 2D mäng
+parent: 2D mäng (vana)
 nav_order: 2
 ---
 
