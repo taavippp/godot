@@ -85,18 +85,13 @@ func _ready() -> void:
 
 GDScriptis on erinevad konteinerid mitme ühte andmetüüpi väärtuste hoidmiseks.
 
--   Array
-	-   massiiv
-	-   Godot 4. versioonist alates on neile võimalik andmetüüpe määrata nii: `Array[tüüp]`, nt `Array[int]` või `Array[Node2D]`
--   Packed Array
-	-   kuna tavaline massiiv on loodud igasuguseid andmetüüpe ja klasse sisaldama, siis suurte andmekogustega tegelemiseks on mõne andmetüübi jaoks olemas PackedArray, millega opereerimine on palju kiirem ja tõhusam
-	-   PackedStringArray, PackedInt32Array jne
--   Dictionary
-	-   sõnastik-konteiner, kus väärtustel on indeksite asemel võtmed
--   Signal
-	-   ka signaali võib muutuja väärtuseks määrata (eelnevalt mainitud)
--   Callable
-	-   ka funktsiooni võib muutuja väärtuseks määrata (eelnevalt mainitud)
+| Konteiner    | Otstarve                                                                                                               |
+| ------------ | --------------------------------------------------------------------------------------------------------------------   |
+| Array        | tavaline massiiv, Godot 4. versioonis on neile võimalik andmetüüpe määrata süntaksiga `Array[tüüp]`                    |
+| Packed Array | kindla andmetüübiga massiiv, mis suudab hästi hallata suurt kogust andmeid (PackedStringArray, PackedInt32Array jne)   |
+| Dictionary   | sõnastik-konteiner, kus väärtustel on arvuliste indeksite asemel võtmed                                                |
+| Signal       | signaal - neid saab ka väärtusena/parameetrina kasutada                                                                |
+| Callable     | funktsioon - neid saab ka väärtusena/parameetrina kasutada                                                             |
 
 ## Võtmesõnad ja operaatorid
 
