@@ -26,9 +26,9 @@ func _process(delta: float) -> void:
 
 Vaikimisi üritab Godot redaktor sulle õiget taanet pakkuda. Kui deklareerid näiteks funktsiooni, tingimuslause või tsükli (*if*/*while*/*for*), siis järgnev rida algab automaatselt tabulaatoriga.
 
-## Andmetüübid
+## Põhilised andmetüübid
 
-Godot's on järgnevad andmetüübid:
+Godot's on järgnevad põhilised andmetüübid:
 
 | Andmetüüp | Tähendus                    |
 |-----------|-----------------------------|
@@ -38,7 +38,7 @@ Godot's on järgnevad andmetüübid:
 | float	    | ujukomaarv	              |
 | String	| tekst	                      |
 
-Lisaks võtmesõna `void` kasutatakse, kui funktsioon ei peaks mingit väärtust tagastama.
+Võtmesõna `void` kasutatakse, kui funktsioon ei peaks mingit väärtust tagastama.
 
 ## Funktsioonid, tsüklid, tingimuslaused
 
@@ -102,39 +102,29 @@ GDScriptis on erinevad konteinerid mitme ühte andmetüüpi väärtuste hoidmise
 
 ### Võtmesõnad
 
-Lisaks teistele siin lehel mainitud võtmesõnadele eksisteerivad veel:
+Lisaks teistele siin lehel juba mainitud võtmesõnadele eksisteerivad veel:
 
--   `break` & `continue`
-	-   `break` on tsükli lõpetamiseks
-	-   `continue` on tsükli iteratsiooni vahele jätmiseks
--   `is`
-	-   tingimuslauses klassi kontrollimiseks
-	-   näide: `a is Label`
--   `in`
-	-   tingimuslauses kontrollimiseks, kas väärtus on stringis/massiivis/sõnastikus/sõlmes
--   `as`
-	-   määra tundmatule väärtusele andmetüüp
-	-   näide: `var tegelane := tegelase_stseen.instantiate() as CharacterBody2D`
-	-   kui tundmatule väärtusele see andmetüüp ei sobi, on väärtus null
--   `self`
-	-   viide praegusele klassi instantsile
--   `signal`
-	-   signaali deklareerimiseks
-	-   näide: `signal liikus_paremale`
--   `breakpoint`
-	-   peatab programmi seal real, kus see on kirjas
-	-   pead redaktorist nupule vajutama, kui tahad programmi tööd jätkata
--   `await`
-	-   peatab skripti töö kuni saab signaali või kaasrutiin lõpeb
--   `assert`
-	-   kui talle antud tingimus on vale, siis programm annab veateate
--   konstandid
-	-   `PI`
-	-   `TAU`
-	-   `INF`
+| Võtmesõna  | Tähendus                                                                                       | Näide                                                                |
+| ---------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| break      | lõpetab tsükli                                                                                 |                                                                      |
+| continue   | tsüklis iteratsiooni/elemendi vahele jätmiseks                                                 |                                                                      |
+| is         | kontrollib klassi                                                                              | `unknown_node is Label`                                              |
+| in         | kontrollib kas väärtus on stringis/massiivis/sõnastikus/üks sõlme omadustest                   | `"h" in "hello"`                                                     |
+| as         | määrab tundmatu andmetüübiga väärtusele andmetüübi või muudab ta nulliks                       | `var tegelane := tundmatu_stseen.instantiate() as CharacterBody2D`   |
+| self       | viide klassi instantsile                                                                       |                                                                      |
+| signal     | signaali deklareerimiseks, vajadusel saab ka määrata parameetrid, mis signaaliga kaasas käivad | `signal changed_direction` või `signal jumped(height: int)`          |
+| breakpoint | peatab programmi seda sisaldaval real, et silumine (debugging) mugavam oleks                   |                                                                      |
+| await      | peatab skripti töö kuni saab signaali või kaasrutiin lõpeb                                     | `await timer.timeout`                                                |
+| assert     | kui antud tingimus on vale, siis programm annab veateate                                       | `assert unknown_node is Label`                                       |
+
+Konstandid:
+
+-   PI
+-   TAU
+-   INF
 	-   lõpmatus
-	-   `NAN`
-	-   võimatu number
+-   NAN
+	-   võimatu number (not a number)
 
 ### Operaatorid
 
