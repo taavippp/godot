@@ -1,7 +1,7 @@
 ---
-title: 2D mäng
+title: 2D mäng (vana)
 layout: default
-nav_order: 5
+nav_order: 99
 has_children: true
 ---
 
@@ -20,7 +20,7 @@ Peatükk 2
 
 Peatükk 3
 
--   _input, _unhandled_input
+-   \_input, \_unhandled_input
 -   Ühine entity klass, mitu vastast
 -   AnimationPlayer, Tween
 -   Menüüd, helid
@@ -34,17 +34,10 @@ Selles peatükis lood prototüübi 2D videomängu jaoks. Tegu on platvormimängu
 Kuna nüüd oskad natuke GDScripti kirjutada, siis nüüdsest on kood, failinimed jne sujuvamaks lugemiseks kirjutatud inglise keeles.
 
 Õpid järgnevaid asju:
+
 -   Godot 2D füüsikamootor
 -   Tegelase animeerimine
 -   Sprite2D, AnimatedSprite sõlmed
 -   CharacterBody2D, CollisionShape2D, Area2D, TileMapLayer sõlmed
-
-## Mänguvarad
-
-Mängu jaoks vajalikud spraidid, mis on loodud Kenney poolt, leiad aadressilt <https://www.kenney.nl/assets/pixel-line-platformer>. Vajuta seal lehel `Download` nupule, seejärel `Continue without donating`. Laed alla faili nimega `kenney_pixel-line-platformer.zip`. Meie projekti jaoks on vaja kausta `Tilemap`.
-
-Lõpuks võiks mäng välja näha sarnane järgnevale pildile:
-
-![Mängu lõplik välimus](./pildid/index/lopp-produkt.png)
 
 Jõudu tööle!
