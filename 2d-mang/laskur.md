@@ -9,7 +9,7 @@ nav_order: 1
 
 ## Uus projekt
 
-Loo uus projekt nimega `Laskur`, mis kasutab taaskord Compatibility renderdajat. Kasutame [peatüki sissejuhatuses](./index.md) allalaetud `tilemap.png` spraidifaili ning liiguta see projekti kausta. Godot peaks selle faili automaatselt importima.
+Loo uus projekt nimega `Laskur`, mis kasutab taaskord Compatibility renderdajat. Kasutame [peatüki sissejuhatuses](https://taavippp.github.io/godot/2d-mang/) allalaetud `tilemap.png` spraidifaili ning liiguta see projekti kausta. Godot peaks selle faili automaatselt importima.
 
 ## Peategelase stseen
 
@@ -88,4 +88,4 @@ Mina kasutan liikumiseks nooleklahve, hüppamiseks Z klahvi ja laskmiseks X klah
 
 Valides stseeni dokis juursõlm (CharacterBody2D) ja sellele topeltklikkides/`F2` vajutades/paremkliki menüüs `Rename` vajutades anna talle uus nimi `Peategelane`. Salvesta stseen, vajutades `CTRL + S`. Godot pakub faili salvestada nimega `peategelane.tscn`. See sobib meile.
 
-Järgmises alapeatükis õpime Godot füüsikamootorit paremini tundma, kirjutades tegelase liigutamiseks skripti.
+Järgmises alapeatükis õpime Godot füüsikamootorit tundma, kirjutades tegelase liigutamiseks skripti.
