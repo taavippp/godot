@@ -39,11 +39,11 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    pass # Replace with function body.
+	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-    pass
+	pass
 ```
 
 Võtmesõna `extends` täpsustab, mis klassi pärija su skript on. Iga skript Godot's on uus klass. `tere.gd` fail tähendab siis, et lõid klassi nimega "tere", mis on kättesaadav ainult siis, kui selle skripti mingi sõlme külge ühendad. See tähendab, et eelnevalt mainitud Node ja CanvasItem on klassid, mille pärija on Node2D klass.
@@ -51,13 +51,13 @@ Võtmesõna `extends` täpsustab, mis klassi pärija su skript on. Iga skript Go
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 flowchart TD;
-    node["Node klass"];
-    canvasitem["CanvasItem klass"];
-    node2d["Node2D klass"];
-    tere["Tere klass (tere.gd)"];
-    node --> canvasitem;
-    canvasitem --> node2d;
-    node2d --> tere;
+	node["Node klass"];
+	canvasitem["CanvasItem klass"];
+	node2d["Node2D klass"];
+	tere["Tere klass (tere.gd)"];
+	node --> canvasitem;
+	canvasitem --> node2d;
+	node2d --> tere;
 ```
 
 Sümboliga *#* algav rida tähistab kommentaari. See teeb terve rea kommentaariks, ehk seda ei loeta koodina, kuid arendaja saab siia kirjutada kasulikku informatsiooni koodi kohta.

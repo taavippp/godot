@@ -31,10 +31,10 @@ Graafilise kasutajaliidese sõlmed arvestavad erinevate mängu akna suurustega k
 
 Vali Control sõlm ja inspektoris pane Control -> Layout -> Anchors Preset muutuja väärtuseks mall `Full Rect`. See teeb Control sõlme mängu akna suuruseks ja sätib ankrute väärtused järgmiseks:
 
--   vasak ankur: 0 (sõlm algab ekraani vasakust äärest)
--   ülemine ankur: 0 (sõlm algab ekraani ülemisest äärest)
--   parem ankur: 1 (sõlm lõpeb ekraani paremas ääres)
--   alumine ankur: 1 (sõlm lõpeb ekraani alumises ääres)
+-	vasak ankur: 0 (sõlm algab ekraani vasakust äärest)
+-	ülemine ankur: 0 (sõlm algab ekraani ülemisest äärest)
+-	parem ankur: 1 (sõlm lõpeb ekraani paremas ääres)
+-	alumine ankur: 1 (sõlm lõpeb ekraani alumises ääres)
 
 ![Pilt, mis aitab kujutab visuaalselt ankrute süsteemi.](./pildid/graafiline-kasutajaliides/ankrute-selgitus.png)
 

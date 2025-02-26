@@ -18,12 +18,12 @@ Esimese asjana loome mängu peategelase stseeni. Peategelane suudab ringi joosta
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 flowchart LR;
-    root["CharacterBody2D (juursõlm)"];
-    sprite["AnimatedSprite2D"];
-    shape["CollisionShape2D"];
+	root["CharacterBody2D (juursõlm)"];
+	sprite["AnimatedSprite2D"];
+	shape["CollisionShape2D"];
 
-    root --> sprite;
-    root --> shape;
+	root --> sprite;
+	root --> shape;
 ```
 
 Uurime lähemalt neid 3 uut sõlme:
@@ -75,10 +75,10 @@ Paljud mängud pakuvad erinevaid skeeme tegelase liigutamiseks - klaviatuur, hii
 
 Tegevusi saab luua Project Settings menüüs Input Map saki alt. Lahtrisse `Add New Action` saad kirjutada oma tegevuse nime ja selle kõrval olevast `Add` nupust selle lisada. Meil on tarvis järgnevaid tegevusi:
 
--   move_right
--   move_left
--   jump
--   shoot
+-	move_right
+-	move_left
+-	jump
+-	shoot
 
 Peale tegevuste deklareerimist, saab määrata, mis sisend mängija poolt selle tegevuse käivitab **paremas ääres olevast risti** nupust. Saad lihtsalt vajutada sellele klahvile, mis sinu arust sobib ja siis `OK` vajutada.
 
