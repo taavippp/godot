@@ -41,7 +41,7 @@ Kuna nüüd oskad natuke GDScripti kirjutada, siis nüüdsest on kood, failinime
 
 ## Mänguvarad
 
-Mängu jaoks vajalikud spraidid, mis on loodud Kenney poolt, leiad aadressilt <https://www.kenney.nl/assets/pixel-line-platformer>. Vajuta seal lehel `Download` nupule, seejärel `Continue without donating`. Laed alla faili nimega `kenney_pixel-line-platformer.zip`. Meie projekti jaoks on vaja kausta `Tilemap`.
+Mängu jaoks vajalikud spraidid, mis on loodud Kenney poolt, leiad aadressilt <https://www.kenney.nl/assets/pixel-line-platformer>. Vajuta seal lehel `Download` nupule, seejärel `Continue without donating`. Laed alla faili nimega `kenney_pixel-line-platformer.zip`. Meie projekti jaoks on vaja kaustast `Tilemap` faili `tilemap.png`.
 
 Lõpuks võiks mäng välja näha sarnane järgnevale pildile:
 

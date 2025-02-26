@@ -5,6 +5,9 @@ nav_order: 1
 has_children: false
 ---
 
+Eraldi AVALIKUD repositooriumid projektide jaoks
+{: .todo }
+
 ![Godot algkursuse logo](./logo.png)
 
 Tere tulemast Godot algkursusele!

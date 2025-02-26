@@ -5,9 +5,6 @@ nav_order: 99
 has_children: true
 ---
 
-See peatükk on töös!
-{: .todo }
-
 Planeeritud struktuur:
 
 Peatükk 2

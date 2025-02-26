@@ -22,5 +22,8 @@ color_scheme: dark
 
 callouts:
   todo:
-    title: Incomplete content
+    title: Poolik sisu!
     color: red
+  tip:
+    title: Hea teada!
+    color: blue
