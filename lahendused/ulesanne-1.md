@@ -25,3 +25,5 @@ func _process(delta: float) -> void:
 	
 	move_and_slide()
 ```
+
+[Tagasi õpetuse lehele](../2d-mang/laskmine)

@@ -78,4 +78,6 @@ Kirjuta kuuli skripti siis järgnevad asjad:
 	-	`velocity.x` väärtuse määramine
 	-	kuuli liikuma panemine
 
-Kui kuuli stseeni käima panemisel kuul liigub ja kõik tundub töötavat, võrdle minu skriptiga: haha lol
+Kui kuuli stseeni käima panemisel kuul liigub ja kõik tundub töötavat, võrdle minu skriptiga järgneval lingil:
+
+[Ülesande lahendus](../lahendused/ulesanne-1)
