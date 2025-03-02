@@ -1,11 +1,11 @@
 ---
-title: Laskur
+title: Projekt Laskur
 layout: default
 parent: 2D mäng
 nav_order: 1
 ---
 
-# Laskur
+# Projekt Laskur
 
 ## Uus projekt
 
@@ -30,7 +30,7 @@ Uurime lähemalt neid 3 uut sõlme:
 
 ### CharacterBody2D
 
-Meie mäng kasutab Godot sisseehitatud füüsika süsteemi. See süsteem on arendaja jaoks lihtsustatud **füüsika keha sõlmedega**. CharacterBody2D on üks neist ning seda sõlme liigutatakse läbi koodi.
+Meie mäng kasutab Godot sisse ehitatud füüsika süsteemi. See süsteem on arendaja jaoks lihtsustatud **füüsika keha sõlmedega**. CharacterBody2D on üks neist ning seda sõlme liigutatakse läbi koodi.
 
 Lisaks on olemas ka **RigidBody2D** ja **StaticBody2D**. RigidBody2D liigub kasutades impulsside süsteemi (üks pidev impulss oleks näiteks gravitatsioon), seda sõlme kasutatakse veidi täpsema füüsika simulatsiooni loomisel. StaticBody2D ei liigu, seega seda sõlme kasutatakse näiteks maapinna või seina jaoks.
 
@@ -46,18 +46,18 @@ Selle sõlmega on lihtne oma spraidi animatsioonid kokku panna kaadrihaaval ja n
 
 Selleks, et teada, kui suur ja milline CollisionShape tulema peaks, paneme ennem paika spraidi. Loo inspektoris AnimatedSprite2D -> Animation -> Sprite Frames jaoks uus SpriteFrames resurss, vajutades nupule `<empty>`.
 
-![SpriteFrames loomine](./pildid/laskur/spriteframes-loomine.png)
+![SpriteFrames loomine](./pildid/projekt-laskur/spriteframes-loomine.png)
 
 Peale SpriteFrames loomist ava see. Alumisel ribal avaneb uus moodul. Vaikimisi on olemas animatsioon "default", aga me tahame juurde luua ka "run" ja "jump". Uue animatsiooni saad luua vasakus "Animations" menüüs, vajutades **rohelise ristiga paberi** ikooni peale. Loodud animatsiooni saad ümber nimetada
 selle peale klikkides.
 
 Peale animatsioonide loomist on vaja neile kaadrid juurde lisada. Vali animatsioon "default" ja leia parempoolses "Animation Frames" menüüs ruudustiku nupp `Add frames from sprite sheet`. Avaneb faili valimise aken, vali meie `tilemap.png`.
 
-![Animatsioonide loomine SpriteFrames kaudu](./pildid/laskur/animatsioonide-loomine.png)
+![Animatsioonide loomine SpriteFrames kaudu](./pildid/projekt-laskur/animatsioonide-loomine.png)
 
 Avaneb uus aken, kus saad valida, mis kaadritest animatsioon koosneb. Esiteks peame seda akent sätestama, kasutades paremal pool olevaid sätteid. Pilt jaotub 10 x 6 = 60 kaadriks ja kaadritel on ühe piksline vahe ehk _separation_.
 
-![Animatsiooni kaadrite valimine](./pildid/laskur/animatsiooni-kaadrid.png)
+![Animatsiooni kaadrite valimine](./pildid/projekt-laskur/animatsiooni-kaadrid.png)
 
 Meie peategelase animatsioonid koosnevad vaid kahest kaadrist viienda rea vasakul pool. "default" animatsioon kasutab vaid esimest neist, "run" kasutab mõlemat ja "jump" kasutab teist. Minu arvates tundus "run" animatsioon aeglane, seega määrasin, et see oleks `10 FPS` (_frames per second_ ehk kaadrit sekundis).
 
@@ -67,7 +67,7 @@ Meie tegelane tundub küll natuke hägune. Tegu on automaatse filtriga Godot poo
 
 Nüüd, kus animatsioonid loodud, võiks tegeleda CollisionShape2D sõlmega. Loo inspektoris CollisionShape2D -> Shape -> RectangleShape2D resurss. Määra selle suuruseks 10 x 16 pikslit.
 
-![Füüsika kuju detailid](./pildid/laskur/fyysika-kuju.png)
+![Füüsika kuju detailid](./pildid/projekt-laskur/fuusika-kuju.png)
 
 ## Tegevuste loomine
 
@@ -84,7 +84,7 @@ Peale tegevuste deklareerimist, saab määrata, mis sisend mängija poolt selle 
 
 Mina kasutan liikumiseks nooleklahve, hüppamiseks Z klahvi ja laskmiseks X klahvi.
 
-![Input map details](./pildid/laskur/input-map.png)
+![Input map details](./pildid/projekt-laskur/input-map.png)
 
 Valides stseeni dokis juursõlm (CharacterBody2D) ja sellele topeltklikkides/`F2` vajutades/paremkliki menüüs `Rename` vajutades anna talle uus nimi `Peategelane`. Salvesta stseen, vajutades `CTRL + S`. Godot pakub faili salvestada nimega `peategelane.tscn`. See sobib meile.
 
