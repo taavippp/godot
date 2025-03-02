@@ -78,24 +78,4 @@ Kirjuta kuuli skripti siis järgnevad asjad:
 	-	`velocity.x` väärtuse määramine
 	-	kuuli liikuma panemine
 
-Kui kuuli stseeni käima panemisel kuul liigub ja kõik tundub töötavat, võrdle minu skriptiga:
-
-<summary>Skript</summary>
-<details>
-```gdscript
-extends CharacterBody2D
-
-@export var speed: int = 100
-@export var sprite: Sprite2D
-
-var direction: float = 1.0
-
-func _ready() -> void:
-	sprite.flip_h = direction < 0.0
-
-func _process(delta: float) -> void:
-	velocity.x = speed * direction
-	
-	move_and_slide()
-```
-</details>
+Kui kuuli stseeni käima panemisel kuul liigub ja kõik tundub töötavat, võrdle minu skriptiga: haha lol
