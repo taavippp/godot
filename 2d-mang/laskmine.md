@@ -49,9 +49,53 @@ AtlasTexture regiooni muutmise aknas vali `Step` jaoks (16, 16) pikslit ja `Sepa
 
 Nüüd, kus oleme spraidi paika pannud, saame oma kuulile korrektse füüsika kuju anda. Kuuli CollisionShape2D (**mitte Area2D oma**) `Shape` väärtuseks saagu `RectangleShape2D` suurusega (12, 6) pikslit.
 
-Kohe anname ka Area2D'le füüsika kuju, kuid tal olgu see `CircleShape2D` raadiusega 6 pikslit.
+Kohe tee ka Area2D'le füüsika kuju, kuid tal olgu see `CircleShape2D` raadiusega 6 pikslit.
 
-Kirjuta selle pildi juurde tekst ka
-{: .todo }
+Veel peame nii CharacterBody2D'le kui ka Area2D'le määrama õiged füüsika kihid.
 
-![alt text](image.png)
+CharacterBody2D (juursõlm):
+-	pole ühelgi kihil (*collision layer*)
+-	tuvastab esimest kihti ehk *map*/taset (*collision mask*)
+
+Area2D (*hitbox*):
+-	on neljandal kihil ehk *projectile*/viskekeha
+-	tuvastab kolmandat kihti ehk *enemy*/vastane
+
+![Kollisiooni kihid](./pildid/laskmine/solmede-fuusika-kihid.png)
+
+## Skript
+
+On aeg luua meie kuulile skript nimega `kuul.gd`. Kuulil on sarnaselt peategelasele vaja kiiruse muutujat ja suuna muutujat, et teada, kuhu ta lendab. Lisaks on vaja eksportmuutujat Sprite2D jaoks, sest me plaanime spraiti pöörata `_ready` funktsioonis olenevalt kuuli suunast. Spraidi pööramiseks on olemas käepärane omadus `flip_h`, mis vaikimisi on **väär**.
+
+### Ülesanne 1
+
+Kirjuta kuuli skripti siis järgnevad asjad:
+
+-	muutujad kiiruse, suuna ja Sprite2D sõlme jaoks
+	-	suuna väärtus võiks vaikimisi 1.0 olla ehk paremale
+-	`_ready` funktsioon, kus Sprite2D pöörad
+-	`_process` funktsioon
+	-	`velocity.x` väärtuse määramine
+	-	kuuli liikuma panemine
+
+Kui kuuli stseeni käima panemisel kuul liigub ja kõik tundub töötavat, võrdle minu skriptiga:
+
+<summary>Skript</summary>
+<details>
+```gdscript
+extends CharacterBody2D
+
+@export var speed: int = 100
+@export var sprite: Sprite2D
+
+var direction: float = 1.0
+
+func _ready() -> void:
+	sprite.flip_h = direction < 0.0
+
+func _process(delta: float) -> void:
+	velocity.x = speed * direction
+	
+	move_and_slide()
+```
+</details>

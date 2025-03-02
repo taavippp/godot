@@ -33,10 +33,10 @@ Said eelmises alapeatükis teada, et füüsika kehad töötavad CollisionShape2D
 
 Meie projektis kasutame nelja erinevat füüsika kihti:
 
-1.	*map*
-2.	*player*
-3.	*enemy*
-4.	*projectile*
+1.	*map* (kaart / tase)
+2.	*player* (mängija)
+3.	*enemy* (vastane)
+4.	*projectile* (viskekeha)
 
 Füüsika kihtidele saame nimed anda Project Settings -> General -> Layer Names -> 2D Physics alt.
 
