@@ -25,8 +25,7 @@ Võid nüüd oma mängu tööle panna ülariba nupust `Run Current Scene (F6)` j
 
 Lisa peategelasele juurde kaamera sõlm `Camera2D` ja määra selle `Zoom` väärtuseks `(4, 4)`. Niimoodi näeme pikslikunsti paremini. Kui uuesti stseeni käivitad, ei näe tegelast liikumas enam, sest olles tema laps-sõlm kaamera püsib pidevalt tema peal.
 
-Pilt siia
-{: .todo }
+![Camera2D inspektori detailid](./pildid/liikumine/camera2d.png)
 
 ## Kollisioonide süsteem
 
@@ -41,26 +40,29 @@ Meie projektis kasutame nelja erinevat füüsika kihti:
 
 Füüsika kihtidele saame nimed anda Project Settings -> General -> Layer Names -> 2D Physics alt.
 
+![Füüsika kihtide nimetamine Project Settings aknas](./pildid/liikumine/fuusika-kihtide-nimetamine.png)
+
 Peategelane peaks olema siis *player* kihil ja tema mask peaks tuvastama *map* ja *projectile* kihte. Neid saad määrata CollisionObject2D -> Collision alt.
 
-Pilt või 2 siia
-{: .todo }
+![Peategelase füüsikakihtide info](./pildid/liikumine/peategelase-fuusika-kihid.png)
 
 ## Taseme loomine
 
 Selleks, et tegelane hüpata saaks, on tal vaja maapinda, mille pealt hüpata. Loo uus stseen, kus `TileMapLayer` on juursõlm. Tee sellele inspektori kaudu uus TileSet resurss ja TileSeti sätete all Physics Layers alamenüüs lisa talle füüsikakihid juurde. Kuna see on maapind, siis see on *map*-nimelisel kihil.
 
-Ava alumise riba kaudu TileSet moodul. Vajuta plussmärgiga nupule ja leia meie maapinna spraitide kogum `tilemap.png`. *Setup*-nimelises vahekaardis tee kindlaks, et `Separation` oleks (1, 1) pikslit ja `Texture Region` (16, 16) pikslit. Liigu edasi `Paint` vahekaardile ja seal vali `Paint Properties` jaoks `Physics Layer 0`. Nüüd, kui erinevatele spraidi lõikudele hiirega vajutad, lisatakse neile juurde füüsiline kuju. Kuna meie mängus on taevas ja maapind sama värvi, ole ettevaatlik, mis lõikudele kuju annad. Salvesta stseen näiteks nimega `tase.tscn`.
+Ava alumise riba kaudu TileSet moodul. Vajuta plussmärgiga nupule ja leia meie maapinna spraitide kogum `tilemap.png`. *Setup*-nimelises vahekaardis tee kindlaks, et `Separation` oleks (1, 1) pikslit ja `Texture Region` (16, 16) pikslit.
 
-Pilt siia
-{: .todo }
+![TileSet õigeks sättimine](./pildid/liikumine/tileset.png)
+
+Liigu edasi `Paint` vahekaardile ja seal vali `Paint Properties` jaoks `Physics Layer 0`. Nüüd, kui erinevatele spraidi lõikudele hiirega vajutad, lisatakse neile juurde füüsiline kuju. Kuna meie mängus on taevas ja maapind sama värvi, ole ettevaatlik, mis lõikudele kuju annad. Salvesta stseen näiteks nimega `tase.tscn`.
+
+![TileMapLayeriga taseme maalimise näide](./pildid/liikumine/taseme-maalimine.png)
 
 ## Peastseen
 
 Loo uus stseen, kus Node2D on juursõlm. Sellest stseenist saab meie mängu peastseen praeguseks. Lisa juurde meie vastselt loodud taseme stseen ja peategelase stseen, kas hiirega lohistades seda failisüsteemi dokist stseeni dokki või klaviatuuri otseteega `CTRL + SHIFT + A`. Nüüd, kui valid taseme sõlme stseeni dokis ja avad alumiselt ribalt TileMap mooduli, saad hiirega valida, milliseid maapinna ja taeva spraite tahad oma stseeni maalida. Maalida saad nüüd põhivaates oma hiirt vajutades ning lohistades. Vasaku klikiga saad juurde teha, paremaga kustutada.
 
-Pilt siia
-{: .todo }
+![Peastseeni seis hetkel](./pildid/liikumine/peastseen.png)
 
 ## Hüppamine
 
@@ -77,11 +79,9 @@ if (is_on_floor() and Input.is_action_just_pressed("jump")):
 
 Nüüd, kui meie uue peastseeni tööle paned, peaks tegelane maha kukkuma ning hüppamise nuppu vajutades peaks ta ajutiselt õhku tõusma ja siis taas maha kukkuma.
 
-Jätab siin pooleli? Peale seda on kuuli loomine 26:30.
-
 ---
 
-KASUTA SIIN KIRJUTATUT MUUS PEATÜKIS ja mõtle välja kas pöörata sprite scale kaudu või flip_h kaudu
+Kasuta siin kirjutatut järgmises-ülejärgmises alapeatükis ja mõtle välja kas pöörata sprite scale kaudu või flip_h kaudu
 {: .todo }
 
 ## Animatsioonid tööle
