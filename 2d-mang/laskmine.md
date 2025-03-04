@@ -91,6 +91,67 @@ Lisaks liikumisele peab see kuul hävinema, kui tasemega kokku puutub. Kui kuul 
 		queue_free() # kustutab sõlme
 ```
 
+Meie *hitbox* väljastab signaali, kui vastast puutub, aga midagi ei juhtu vastasega veel. Selleks vali stseeni dokis Area2D sõlm, liigu sõlme dokki (inspektori dokist parempoolse nupu kaudu). Leia signaal `body_entered(body: Node2D)` ja ühenda see kuuliga. Skripti tekib funktsioon `on_hitbox_body_entered`. Seal kontrollime, kas meie `body` argument on ikka `CharacterBody2D` tüüpi. Kui on tegu `CharacterBody2D`'ga, siis kustutatakse see tegelane, mille kuul tuvastas.
+
+Kuuli skripti lõppu läheks siis selline kood kirja:
+
+```gdscript
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	# eelnevates versioonides kasutati "not is", sest "is not" on üks võtmesõna, aga "not" ja "is" on eraldi
+	if (body is not CharacterBody2D):
+		return
+	# lisab selle sõlmede järjekorda, mis järgmisel kaadril kustutatakse
+	body.queue_free()
+```
+
 ## Vajutame päästikule
 
-31:00, paneme tegelase kuule spawnima
+Nüüd, kus kuuli stseen valmis, on vaja peategelasel seda lasta. Selleks peab tegelane signaaliga põhistseenile teada andma, et on aeg tulistada ja siis põhistseen loob kuuli stseenist instantsi ja lisab selle stseenide puusse.
+
+Peategelane peab teada andma põhistseenile, mis koordinaatidelt ja mis suunas kuuli lasta. Kasutame selleks abisõlme Marker2D, mis näitab redaktoris märki, millega on kergem asju paika sättida.
+
+Lisame siis peategelase stseeni Marker2D. Mina liigutasin selle enda stseenis positsioonile (12, 3).
+
+![Marker2D asend](./pildid/laskmine/marker2d.png)
+
+Skriptis loo eksportmuutuja markeri jaoks nimega `bullet_marker` ja enda signaal nimega `shot_projectile(spawn_position: Vector2, direction: float)`. Kui toimub laskmise tegevus, siis seda signaali saadetakse laiali koos vastavate argumentidega.
+
+`_process` funktsioonile lisatakse juurde siis järgnev kood enne `move_and_slide()` käsku:
+
+```gdscript
+if (Input.is_action_just_pressed("shoot")):
+	shot_projectile.emit(
+		bullet_marker.global_position,
+		direction
+	)
+```
+
+## Signaalile reageerimine
+
+Nagu varasemalt mainitud, meie `shot_projectile` signaalile peab põhistseen reageerima ja kuuli looma. See tähendab, et põhistseenil on vaja skripti `peastseen.gd`. Skript peab teadma, milline on kuuli stseen, aga me ei taha põhistseeni üht suvalist ringi lendavat kuuli lisada. Sel juhul laeme skripti kaudu kuuli stseeni. 
+
+Kõik stseenid on salvestatud PackedScene **resurssina**, mitte **sõlmena**. See tähendab, et PackedScene me otse stseeni juurde lisada ei saa, aga kui loome PackedScene'ist instantsi (mis on sõlm), siis see on võimalik. Kuuli stseeni saad konstandina kirja panna ja laadida funktsiooniga `preload`.
+
+```
+extends Node2D
+
+const PLAYER_BULLET_SCENE: PackedScene = preload("res://kuul.tscn")
+```
+
+Kui nüüd sõlme dokki liigud, siis seal peaks olema nähtav ka meie vastselt loodud signaal. Ühenda see peastseeniga ja peaks tekkima funktsioon nimega `_on_peategelane_shot_projectile`.
+
+Signaalile reageerivasse funktsiooni läheb järgnev kirja:
+
+```gdscript
+func _on_peategelane_shot_projectile(spawn_position: Vector2, direction: float) -> void:
+	var bullet = PLAYER_BULLET_SCENE.instantiate()
+	# tavaline position on oma vanem-stseeniga seotud
+	bullet.global_position = spawn_position
+	bullet.direction = direction
+	# lisab praeguse stseeni laps-sõlmena selle
+	add_child(bullet)
+```
+
+Kui nüüd mängu tööle paned, siis tegelane peaks suutma liikuda, hüpata ja lasta. Laskmine on aga veel katki, sest meie kuuli jaoks loodud Marker2D on ainult ühel meie tegelase poolel.
+
+Selle probleemi parandame järgmises alapeatükis, kus võtame tegelase animatsioonid lõpuks käiku ning loome ka lihtsa vastase, keda lasta lõpuks saame.

@@ -58,11 +58,11 @@ Liigu edasi `Paint` vahekaardile ja seal vali `Paint Properties` jaoks `Physics 
 
 ![TileMapLayeriga taseme maalimise näide](./pildid/liikumine/taseme-maalimine.png)
 
-## Peastseen
+## Põhistseen
 
-Loo uus stseen, kus Node2D on juursõlm. Sellest stseenist saab meie mängu peastseen praeguseks. Lisa juurde meie vastselt loodud taseme stseen ja peategelase stseen, kas hiirega lohistades seda failisüsteemi dokist stseeni dokki või klaviatuuri otseteega `CTRL + SHIFT + A`. Nüüd, kui valid taseme sõlme stseeni dokis ja avad alumiselt ribalt TileMap mooduli, saad hiirega valida, milliseid maapinna ja taeva spraite tahad oma stseeni maalida. Maalida saad nüüd põhivaates oma hiirt vajutades ning lohistades. Vasaku klikiga saad juurde teha, paremaga kustutada.
+Loo uus stseen, kus Node2D on juursõlm. Sellest stseenist saab meie mängu põhistseen praeguseks. Lisa juurde meie vastselt loodud taseme stseen ja peategelase stseen, kas hiirega lohistades seda failisüsteemi dokist stseeni dokki või klaviatuuri otseteega `CTRL + SHIFT + A`. Nüüd, kui valid taseme sõlme stseeni dokis ja avad alumiselt ribalt TileMap mooduli, saad hiirega valida, milliseid maapinna ja taeva spraite tahad oma stseeni maalida. Maalida saad nüüd põhivaates oma hiirt vajutades ning lohistades. Vasaku klikiga saad juurde teha, paremaga kustutada.
 
-![Peastseeni seis hetkel](./pildid/liikumine/peastseen.png)
+![Põhistseeni seis hetkel](./pildid/liikumine/pohistseen.png)
 
 ## Hüppamine
 
@@ -77,7 +77,7 @@ if (is_on_floor() and Input.is_action_just_pressed("jump")):
 	velocity.y = -jump_strength
 ```
 
-Nüüd, kui meie uue peastseeni tööle paned, peaks tegelane maha kukkuma ning hüppamise nuppu vajutades peaks ta ajutiselt õhku tõusma ja siis taas maha kukkuma.
+Nüüd, kui meie uue põhistseeni tööle paned, peaks tegelane maha kukkuma ning hüppamise nuppu vajutades peaks ta ajutiselt õhku tõusma ja siis taas maha kukkuma.
 
 ---
 

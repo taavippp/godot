@@ -70,7 +70,7 @@ Funktsioon `_process` käivitub igal kaadril, mida programm renderdab. Tal on pa
 
 Kirjuta funktsioonis `_ready` käsu `pass` asemele `print("Tere maailm!")`. Vajuta `CTRL + S` klahve, et salvestada oma tehtud töö. Tuleb ette stseeni salvestamise aken. `Save` nupu kohal võid stseeni nimeks panna näiteks `tere.tscn`. Vajuta siis `Save` nuppu või `Enter` klahvi, et stseen salvestada. Skriptifail on ka automaatselt salvestatud.
 
-Nüüd käivitame oma projekti, sest tahame näha, kuidas "Tere maailm!" väljastatakse. Tööriistariba paremal pool on kolmnurga kujuline nupp `Run Project`. Sellele vajutades palub redaktor meil peastseen valida. Vajuta nupu `Select Current` peale.
+Nüüd käivitame oma projekti, sest tahame näha, kuidas "Tere maailm!" väljastatakse. Tööriistariba paremal pool on kolmnurga kujuline nupp `Run Project`. Sellele vajutades palub redaktor meil põhistseen valida. Vajuta nupu `Select Current` peale.
 
 Avaneb uus aken halli taustaga. Maailma tervitust siin ei ole. Selle leiad hoopis redaktori alumiselt ribalt `Output` osast.
 
