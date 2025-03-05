@@ -16,7 +16,13 @@ Loo peategelase jaoks skript nimega `peategelane.gd`. Tegelasel on vaja liikumis
 var direction: float = 1.0
 ```
 
-`@export_range(minimum_value, maximum_value, step)` annotatsioon on sarnane tavalise `@export` annotatsiooniga, aga võimaldab muutujale piiride määramist. Kuna meil on kiirus ja liikumissuund eraldi muutujad, siis kiirus ei tohi alla 0 minna, sest tegelane hakkaks vastassuunas liikuma. Suund ei pea eksportmuutuja olema, kuna see muutub pidevalt tegelase liikudes. Lisaks jääb suuna väärtus -1 ja 1 vahele.
+`@export_range(minimum_value, maximum_value, step)` annotatsioon on sarnane tavalise `@export` annotatsiooniga, aga võimaldab muutujale piiride määramist. Kuna meil on kiirus ja liikumissuund eraldi muutujad, siis kiirus ei tohi alla 0 minna, sest tegelane hakkaks vastassuunas liikuma.
+
+Suund ei pea eksportmuutuja olema, kuna see muutub pidevalt tegelase liikudes. Suuna väärtus jääb -1 ja 1 vahele ning väärtustel on järgnev tähendus:
+
+-	-1: vasakule liikumine
+-	0: seismine
+-	1: paremale liikumine
 
 Kustuta `_ready` funktsioon. Kirjutame `_process` funktsiooni tegelase algelise liikumise loogika. Esiteks peame nüüd tegelase liikumissuuna määrama. Seda saame teha funktsiooniga `Input.get_axis(negative_action, positive_action)`. Kuna `action` tähendab tegevust, siis argumentideks saavad tegevuste nimed. Negatiivne tegevus tähendab siin seda, et tegelane liigub X-telje negatiivsel suunal ja positiivne tegevus vastupidist. Seega meie negatiivne tegevus olgu `move_left` ja positiivne olgu `move_right`. 
 
@@ -78,45 +84,3 @@ if (is_on_floor() and Input.is_action_just_pressed("jump")):
 ```
 
 Nüüd, kui meie uue põhistseeni tööle paned, peaks tegelane maha kukkuma ning hüppamise nuppu vajutades peaks ta ajutiselt õhku tõusma ja siis taas maha kukkuma.
-
----
-
-Kasuta siin kirjutatut järgmises-ülejärgmises alapeatükis ja mõtle välja kas pöörata sprite scale kaudu või flip_h kaudu
-{: .todo }
-
-## Animatsioonid tööle
-
-Meie AnimatedSprite2D sõlmel on 3 animatsiooni: "default", "run" ja "jump". Tead nüüd, et funktsioon `is_on_floor()` tagastab tõeväärtuse. On vaja ka kontrollida suuna muutuja abil, kas tegelane liigub. Kui tegelane ei liigu, on suund 0.
-
-Lisaks peame muutma tegelase spraidi suunda, et mängijal oleks visuaalne tagasiside oma liikumisest. `AnimatedSprite2D` sõlmel on selleks `flip_h` muutuja.
-
-```gdscript
-extends CharacterBody2D
-
-@export_range(0, 500, 10) var max_speed: float = 200.0
-@export_range(0, 1000, 10) var jump_strength: float = 400.0
-
-@export var sprite: AnimatedSprite2D
-
-var gravity: float = 25.0
-var direction: float = 0.0
-
-func _physics_process(delta: float) -> void:
-	direction = Input.get_axis("move_left", "move_right")
-	velocity.x = direction * max_speed
-	velocity.y += gravity
-	if (is_on_floor() and Input.is_action_just_pressed("jump")):
-		velocity.y = -jump_strength
-	
-	if (is_on_floor()): # kas tegelane on maas
-		if (is_zero_approx(direction)): # kas suund on 0
-			sprite.play("default")
-		else:
-			sprite.play("run")
-	else:
-		sprite.play("jump")
-	
-	move_and_slide()
-```
-
-Video pooleli 14:20 sprite flipimise juures

@@ -100,8 +100,9 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	# eelnevates versioonides kasutati "not is", sest "is not" on üks võtmesõna, aga "not" ja "is" on eraldi
 	if (body is not CharacterBody2D):
 		return
-	# lisab selle sõlmede järjekorda, mis järgmisel kaadril kustutatakse
+	# kustutab pihta saanud sõlme ja iseenda
 	body.queue_free()
+	queue_free()
 ```
 
 ## Vajutame päästikule
@@ -152,6 +153,6 @@ func _on_peategelane_shot_projectile(spawn_position: Vector2, direction: float) 
 	add_child(bullet)
 ```
 
-Kui nüüd mängu tööle paned, siis tegelane peaks suutma liikuda, hüpata ja lasta. Laskmine on aga veel katki, sest meie kuuli jaoks loodud Marker2D on ainult ühel meie tegelase poolel.
+Kui nüüd mängu tööle paned, siis tegelane peaks suutma liikuda, hüpata ja lasta. Laskmine on aga veel katki, sest kui lased, aga ei liigu, siis kuul ei liigu. Lisaks meie kuuli jaoks loodud Marker2D on ainult ühel meie tegelase poolel.
 
 Selle probleemi parandame järgmises alapeatükis, kus võtame tegelase animatsioonid lõpuks käiku ning loome ka lihtsa vastase, keda lasta lõpuks saame.
