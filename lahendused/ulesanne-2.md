@@ -4,6 +4,8 @@ layout: default
 nav_exclude: true
 ---
 
+# Ülesanne 2
+
 Ülesandeks oli spraidi sõlme AnimatedSprite2D animatsioonid lõpuks kasutusele võtta ning seda ka pöörata, olenevalt suuna muutujast. Selle jaoks on loodud uus funktsioon `_animate_sprite()`.
 
 ```gdscript

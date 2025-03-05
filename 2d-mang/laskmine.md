@@ -5,6 +5,9 @@ parent: 2D mäng
 nav_order: 3
 ---
 
+Selgita välja tõlge hitbox jaoks (löögiala?) või kasuta lihtsalt hitbox edasi, idk
+{: .todo}
+
 # Laskmine
 
 Selleks, et meie tegelane vastaseid lasta suudaks, peame looma talle eraldi stseeni sellest kuulist, mida ta pidevalt tulistama hakkab.

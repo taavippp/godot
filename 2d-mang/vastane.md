@@ -91,4 +91,59 @@ Võtame markeri praeguse asendi absoluutväärtuse ja korrutame selle suunaga.
 
 ## Roomav vastane
 
-Loome nüüd lõpuks vastase, keda võimalik lasta oleks.
+Loome nüüd lõpuks vastase, keda võimalik lasta oleks. Vastase nimi on `Roomaja`. Tema stseeni struktuur on sarnane teistele:
+
+```mermaid
+%%{init: {'theme':'neutral'}}%%
+flowchart LR;
+	root["CharacterBody2D (juursõlm)"];
+	sprite["AnimatedSprite2D"];
+	shape["CollisionShape2D"];
+
+	root --> shape;
+	root --> sprite;
+```
+
+Roomaja asub füüsika kihil 3 ehk `enemy` ja tuvastab füüsika kihti 1 ehk `map`.
+
+Roomajal on ainult üks animatsioon `default` ja selle saame kohe luua. Kasutame sõlme `AnimatedSprite2D`, nii et loo inspektoris `SpriteFrames` resurss ja leia `default` animatsioon alumise riba kaudu. Kasutame spraidilehe viimasel real olevat punast elukat roomaja animatsiooni jaoks.
+
+![Roomaja animatsiooni kaadrid](./pildid/vastane/roomaja-animatsioon.png)
+
+Kuna roomajal on vaid üks animatsioon, pole vaja koodis seda `AnimatedSprite2D.play` käsuga tööle pannagi. SpriteFrames mooduli Animations menüüs on nupp `Autoplay on Load`, mis paneb animatsiooni automaatselt mängima, kui sõlm stseenide puusse lisatakse. See nupp asub animatsiooni kustutamise (prügikasti ikooniga) nupu kõrval.
+
+![Autoplay on Load nupu asukoht](./pildid/vastane/autoplay.png)
+
+Nüüd saame CollisionShape2D'le kuju anda. Olgu see taas lihtne `RectangleShape2D` suurusega (10, 7). Pead selle sõlme asendit natuke muutma, et see samal tasandil spraidiga oleks. Mina liigutasin selle (0, 4.5) juurde.
+
+### Ülesanne 3
+
+Loome vastasele skripti `roomaja.gd`.
+
+Roomaja on sarnane meie peategelasele - ta liigub kahes suunas ning talle mõjub gravitatsioon. Kui ta on seinaga kontaktis, ta muudab suunda. Sprait muudab ka muidugi suunda.
+
+[Ülesande lahendus](../lahendused/ulesanne-3)
+
+Vastane ei suuda praeguses seisus peategelasele haiget teha. Kui soovid, et see võimalik ikka oleks, siis tuleks võtta kasutusele lahendus sarnane meie kuulile koos Area2D'ga.
+
+Lisa põhistseeni paar roomajat ja tee tase ilusaks!
+
+## Eksportimine
+
+Praeguseks on meie projekt valmis. Järgmises peatükis küll arendame seda edasi, aga mõne olulisema Godot osaga oleme nüüdseks tutvunud ning ehk tunned end juba mugavamalt selle mängumootoriga.
+
+Valminud projekti oleks tore ka teistele näidata. See ongi ju meie videomängude (ja muude rakenduste) eesmärk. Selleks peame oma projekti eksportima.
+
+Esiteks peame alla laadima eksportimismallid. Need ei ole vaikimisi kaasas Godot programmiga, et võimaldada kiirem allalaadimise kogemus. Leia ülaribalt `Editor -> Manage Export Templates...`. Vajuta nupule `Download and Install`, et need paigaldada. Kuna eksportimismallid on päris mahukad, läheb arvatavasti paar minutit. Kui allalaadimine on valmis, võid selle akna sulgeda.
+
+![Eksportimismallid](./pildid/vastane/eksportimismallid.png)
+
+Nüüd ava ülaribalt `Project -> Export...`. Nupust `Add...` saad valida, mis operatsioonisüsteemile sa eksportida tahad. Mina kasutan Windows 10 operatsioonisüsteemi, seega valisin Windows Desktop. Meie projekt pole väga keeruline, siis saad kohe vajutada `Export Project`.
+
+![Eksportimise aken](./pildid/vastane/eksportimine.png)
+
+Vali kataloog/kaust, kuhu eksporditud rakendus luuakse ja vajuta `Save`. Godot teeb selle ära, aga kaasneb paar hoiatusteadet, mis mainivad `rcedit` tööriista puudumist (Windowsile spetsiifiline tööriist .exe failide haldamiseks). Sulge see teadete aken ja nüüd peaks seal kaustas, kuhu mängu eksportisid, uus Laskur.exe fail olema!
+
+Saad selle avada ja sulgeda nagu tavalist Windowsi programmi. Kui käivitad mängu, avaneb see sinu määratud põhistseenis. Veidi lihvitumas mängus oleks põhistseeniks siis määratud näiteks selle avamenüü.
+
+Palju õnne! Oled loonud 2D mängu prototüübi ja isegi valmis meisterdanud .exe faili, mida saad teistega vabalt jagada!
