@@ -5,9 +5,12 @@ parent: 2D mäng
 nav_order: 4
 ---
 
+Lingi repositoorium
+{: .todo }
+
 # Vastane
 
-Lõpuks võtame kasutusele peategelase animatsioonid ning teeme talle ka mõned parandused. Pärast loome vastase, keda lasta saab.
+Lõpuks võtame kasutusele peategelase animatsioonid ning teeme talle ka mõned parandused. Pärast loome vastase, keda lasta saab. Lõpuks ekspordime oma projekti, et seda maailmaga jagada saaks.
 
 ## Peategelase lõpetamine
 
@@ -147,3 +150,5 @@ Vali kataloog/kaust, kuhu eksporditud rakendus luuakse ja vajuta `Save`. Godot t
 Saad selle avada ja sulgeda nagu tavalist Windowsi programmi. Kui käivitad mängu, avaneb see sinu määratud põhistseenis. Veidi lihvitumas mängus oleks põhistseeniks siis määratud näiteks selle avamenüü.
 
 Palju õnne! Oled loonud 2D mängu prototüübi ja isegi valmis meisterdanud .exe faili, mida saad teistega vabalt jagada!
+
+![Pilt valminud projektist](./pildid/vastane/valmis-projekt.png)

@@ -36,8 +36,9 @@ Kuna nüüd oskad natuke GDScripti kirjutada, siis nüüdsest on kood, failinime
 Õpid järgnevaid asju:
 -   Godot 2D füüsikamootor
 -   Tegelase animeerimine
--   Sprite2D, AnimatedSprite sõlmed
+-   Sprite2D, AnimatedSprite2D sõlmed
 -   CharacterBody2D, CollisionShape2D, Area2D, TileMapLayer sõlmed
+-   Eksportimine
 
 ## Mänguvarad
 
