@@ -10,22 +10,11 @@ See peatükk on töös!
 
 Planeeritud struktuur:
 
-Peatükk 2
-
 -   mängija tegelase loomine
 -   füüsika õppimine
 -   vastase loomine
 -   TileMapiga taseme loomine
 -   Eksportimine
-
-Peatükk 3
-
--   _input, _unhandled_input
--   Ühine entity klass, mitu vastast
--   AnimationPlayer, Tween
--   Menüüd, helid
--   Mitu taset
--   Skoor ja selle salvestamine
 
 # 2D mäng
 
