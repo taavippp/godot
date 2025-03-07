@@ -5,9 +5,6 @@ parent: 2D mäng
 nav_order: 3
 ---
 
-Selgita välja tõlge hitbox jaoks (löögiala?) või kasuta lihtsalt hitbox edasi, idk
-{: .todo}
-
 # Laskmine
 
 Selleks, et meie tegelane vastaseid lasta suudaks, peame looma talle eraldi stseeni sellest kuulist, mida ta pidevalt tulistama hakkab.
@@ -38,7 +35,7 @@ Sprite2D on sarnane AnimatedSprite2D sõlmele, aga ei sisalda sisse ehitatud võ
 
 ### Area2D
 
-Kaks füüsika keha põrkavad kokku. Üks neist on vastane ja teine on sinu lastud kuul, mis vastasel elusid peaks maha võtma. Kuid lisaks elude maha võtmisele kuul lükkab teda kontrollimatult eemale ning selle juhtumist me ei tahaks. Siin tulebki appi Area2D sõlm - see tuvastab füüsika kehasid (ja teisi Area2D sõlmi), kuid ei lükka neid. Kui oled videomängudes kuulnud mõistest *hitbox* (löögiala?), siis Area2D kasutataksegi Godot's *hitbox*ide loomiseks.
+Kaks füüsika keha põrkavad kokku. Üks neist on vastane ja teine on sinu lastud kuul, mis vastasel elusid peaks maha võtma. Kuid lisaks elude maha võtmisele kuul lükkab teda kontrollimatult eemale ning selle juhtumist me ei tahaks. Siin tulebki appi Area2D sõlm - see tuvastab füüsika kehasid (ja teisi Area2D sõlmi), kuid ei lükka neid. Kui oled videomängudes kuulnud mõistest *hitbox* ehk löögiala, siis Area2D kasutataksegi Godot's löögialade loomiseks.
 
 ## Kuuli stseen, jätk
 
@@ -60,7 +57,7 @@ CharacterBody2D (juursõlm):
 -	pole ühelgi kihil (*collision layer*)
 -	tuvastab esimest kihti ehk *map*/taset (*collision mask*)
 
-Area2D (*hitbox*):
+Area2D (*hitbox*/löögiala):
 -	on neljandal kihil ehk *projectile*/viskekeha
 -	tuvastab kolmandat kihti ehk *enemy*/vastane
 
@@ -94,13 +91,13 @@ Lisaks liikumisele peab see kuul hävinema, kui tasemega kokku puutub. Kui kuul 
 		queue_free() # kustutab sõlme
 ```
 
-Meie *hitbox* väljastab signaali, kui vastast puutub, aga midagi ei juhtu vastasega veel. Selleks vali stseeni dokis Area2D sõlm, liigu sõlme dokki (inspektori dokist parempoolse nupu kaudu). Leia signaal `body_entered(body: Node2D)` ja ühenda see kuuliga. Skripti tekib funktsioon `on_hitbox_body_entered`. Seal kontrollime, kas meie `body` argument on ikka `CharacterBody2D` tüüpi. Kui on tegu `CharacterBody2D`'ga, siis kustutatakse see tegelane, mille kuul tuvastas.
+Meie löögiala väljastab signaali, kui vastast puutub, aga midagi ei juhtu vastasega veel. Selleks vali stseeni dokis Area2D sõlm, liigu sõlme dokki (inspektori dokist parempoolse nupu kaudu). Leia signaal `body_entered(body: Node2D)` ja ühenda see kuuliga. Skripti tekib funktsioon `_on_area_2d_body_entered`. Seal kontrollime, kas meie `body` argument on ikka `CharacterBody2D` tüüpi. Kui on tegu `CharacterBody2D`'ga, siis kustutatakse see tegelane, mille kuul tuvastas.
 
 Kuuli skripti lõppu läheks siis selline kood kirja:
 
 ```gdscript
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	# eelnevates versioonides kasutati "not is", sest "is not" on üks võtmesõna, aga "not" ja "is" on eraldi
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	# eelnevates versioonides kasutati "not is", sest "is not" on üks uus võtmesõna, aga "not" ja "is" on eraldi
 	if (body is not CharacterBody2D):
 		return
 	# kustutab pihta saanud sõlme ja iseenda

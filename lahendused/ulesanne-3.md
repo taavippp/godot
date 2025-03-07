@@ -17,7 +17,7 @@ extends CharacterBody2D
 var direction: float = 1.0
 var gravity: int = 25
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if (is_on_wall()):
 		direction = direction * -1.0
 	velocity.x = speed * direction
@@ -27,4 +27,4 @@ func _physics_process(delta: float) -> void:
 ```
 
 
-[Tagasi õpetuse lehele](../2d-mang/vastane)
+[Tagasi õpetuse lehele](../2d-mang/vastane#ülesanne-3)

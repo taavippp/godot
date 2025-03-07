@@ -16,7 +16,7 @@ signal shot_projectile(
 	direction: float
 )
 
-@export_range(0, 500, 10) var max_speed: float = 200.0
+@export_range(0, 500, 10) var speed: float = 200.0
 @export_range(0, 1000, 10) var jump_strength: float = 400.0
 
 @export var bullet_marker: Marker2D
@@ -27,7 +27,7 @@ var direction: float = 1.0
 
 func _process(delta: float) -> void:
 	direction = Input.get_axis("move_left", "move_right")
-	velocity.x = direction * max_speed
+	velocity.x = direction * speed
 	velocity.y += gravity
 	
 	if (is_on_floor() and Input.is_action_just_pressed("jump")):
@@ -59,4 +59,4 @@ func _animate_sprite():
 		sprite.play("jump")
 ```
 
-[Tagasi õpetuse lehele](../2d-mang/vastane)
+[Tagasi õpetuse lehele](../2d-mang/vastane#ülesanne-2)
