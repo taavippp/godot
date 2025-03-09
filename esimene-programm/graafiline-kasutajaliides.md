@@ -44,7 +44,7 @@ Vastus on loomulikult `Center` - see hoiab Label sõlme nii horisontaalselt kui 
 
 TextEdit sõlmel pane muutuja Placeholder Text väärtuseks `Keda tahad tervitada?`. Kui kasutaja teksti sinna kirjutanud pole, siis seda sõnumit kuvatakse. Tegeleme TextEditi ankrutega. Pane temal Anchors Preset väärtuseks `Bottom Wide`. See sätib ta ekraani allaossa, kogu ekraani pikkuseks. Hetkel pole asendusteksti näha. Selleks pead Anchor Offsets -> Top ehk ülemise ankru nihke väärtuseks panema näiteks -35 pikslit.
 
-Määra Button sõlm TextEditi lapseks, lohistades teda stseeni dokis hiirega või paremkliki menüü -> Reparent kaudu. Buttoni tekst olgu "Tervita" ja tema Anchor Preset olgu `Center Right`. See asetab ta TextEditi paremasse äärde. See juhtus, sest nüüd Button on piiratud TextEditi väiksesse alasse. Nii on ka TextEditi ja Label sõlmega - nemad on piiratud Control sõlme alasse ja kuna Control sõlm on selle stseeni juursõlm, siis tema piirang on projekti akna suurus.
+Määra Button sõlm TextEditi lapseks, lohistades teda stseeni dokis hiirega või paremklõpsu menüü -> Reparent kaudu. Buttoni tekst olgu "Tervita" ja tema Anchor Preset olgu `Center Right`. See asetab ta TextEditi paremasse äärde. See juhtus, sest nüüd Button on piiratud TextEditi väiksesse alasse. Nii on ka TextEditi ja Label sõlmega - nemad on piiratud Control sõlme alasse ja kuna Control sõlm on selle stseeni juursõlm, siis tema piirang on projekti akna suurus.
 
 Põhivaade peaks nüüd selline välja nägema:
 
@@ -105,7 +105,7 @@ Parem praktika on kasutada `@export` annotatsiooni, kuna selleks ei pea kirjutam
 @export var button: Button
 ```
 
-Lisaks on inspektori dokis ilmunud sektsioon nimega `tere.gd`, kus on skripti `@export` annotatsiooniga avalikustatud muutujad. Pane tähele, et kuigi kirjutasid koodis `text_edit`, kuvatakse seda inspektoris kui Text Edit. Redaktor üritab muutuja nimed inspektoris loetavamaks teha. Vajutades nupule `Assign...` avaneb uus aken, kus on kujutatud kõik sinu stseenis sobivad sõlmed, mis selle muutuja väärtuseks võivad sobida. Meil on sobivaid sõlmi iga muutuja jaoks vaid üks. Vali õige sõlm ja kas topelt-kliki selle peal või vajuta all olevat `OK` nuppu.
+Lisaks on inspektori dokis ilmunud sektsioon nimega `tere.gd`, kus on skripti `@export` annotatsiooniga avalikustatud muutujad. Pane tähele, et kuigi kirjutasid koodis `text_edit`, kuvatakse seda inspektoris kui Text Edit. Redaktor üritab muutuja nimed inspektoris loetavamaks teha. Vajutades nupule `Assign...` avaneb uus aken, kus on kujutatud kõik sinu stseenis sobivad sõlmed, mis selle muutuja väärtuseks võivad sobida. Meil on sobivaid sõlmi iga muutuja jaoks vaid üks. Vali õige sõlm ja kas topelt-klõpsa selle peal või vajuta all olevat `OK` nuppu.
 
 ![@export annotatsiooniga muutujad on inspektoris nähtavad.](./pildid/graafiline-kasutajaliides/eksport-muutujad.png)
 
@@ -134,7 +134,7 @@ Kohe peaks näha olema Button sõlme erinevad signaalid, mida ta välja saadab. 
 
 Kursuse autori isiklik eelistus on teine variant, kuna niikuinii peab signaaliga toimetamiseks koodi kirjutama. Õpime mõlemat tegema, aga edaspidi koodinäidetes on esimest varianti kasutatud kursuse kasutaja mugavuseks.
 
-Esimene viis on sealsamas sõlme dokis topelt-klikkida `pressed` signaali peale. Seejärel avaneb aken, mis küsib detaile signaali sõlmega ühendamise kohta. Oluline on, et ta ühendaks Control sõlmega. Kõik muu võid jätta samaks. Seejärel vajuta nupule `Connect`. Skriptis on nüüd genereeritud algne `_on_button_pressed` funktsioon, aga signaali ühendusest skriptis endas tõendit ei ole, kuid redaktoris on, nii sõlme dokis kui ka stseeni dokis selle sõlme juures.
+Esimene viis on sealsamas sõlme dokis topelt-klõpsida `pressed` signaali peale. Seejärel avaneb aken, mis küsib detaile signaali sõlmega ühendamise kohta. Oluline on, et ta ühendaks Control sõlmega. Kõik muu võid jätta samaks. Seejärel vajuta nupule `Connect`. Skriptis on nüüd genereeritud algne `_on_button_pressed` funktsioon, aga signaali ühendusest skriptis endas tõendit ei ole, kuid redaktoris on, nii sõlme dokis kui ka stseeni dokis selle sõlme juures.
 
 Teise meetodiga näeks `_ready` funktsioon välja selline:
 

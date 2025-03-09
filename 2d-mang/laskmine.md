@@ -35,7 +35,7 @@ Sprite2D on sarnane AnimatedSprite2D sõlmele, aga ei sisalda sisse ehitatud võ
 
 ### Area2D
 
-Kaks füüsika keha põrkavad kokku. Üks neist on vastane ja teine on sinu lastud kuul, mis vastasel elusid peaks maha võtma. Kuid lisaks elude maha võtmisele kuul lükkab teda kontrollimatult eemale ning selle juhtumist me ei tahaks. Siin tulebki appi Area2D sõlm - see tuvastab füüsika kehasid (ja teisi Area2D sõlmi), kuid ei lükka neid. Kui oled videomängudes kuulnud mõistest *hitbox* ehk löögiala, siis Area2D kasutataksegi Godot's löögialade loomiseks.
+Kaks füüsikakeha põrkavad kokku. Üks neist on vastane ja teine on sinu lastud kuul, mis vastasel elusid peaks maha võtma. Kuid lisaks elude maha võtmisele kuul lükkab teda kontrollimatult eemale ning selle juhtumist me ei tahaks. Siin tulebki appi Area2D sõlm - see tuvastab füüsikakehasid (ja teisi Area2D sõlmi), kuid ei lükka neid. Kui oled videomängudes kuulnud mõistest *hitbox* ehk löögiala, siis Area2D kasutataksegi Godot's löögialade loomiseks.
 
 ## Kuuli stseen, jätk
 
@@ -139,12 +139,12 @@ extends Node2D
 const PLAYER_BULLET_SCENE: PackedScene = preload("res://bullet.tscn")
 ```
 
-Kui nüüd sõlme dokki liigud, siis seal peaks olema nähtav ka meie vastselt loodud signaal. Ühenda see peastseeniga ja peaks tekkima funktsioon nimega `_on_peategelane_shot_projectile`.
+Kui nüüd sõlme dokki liigud, siis seal peaks olema nähtav ka meie vastselt loodud signaal. Ühenda see peastseeniga ja peaks tekkima funktsioon nimega `_on_player_shot_projectile`.
 
 Signaalile reageerivasse funktsiooni läheb järgnev kirja:
 
 ```gdscript
-func _on_peategelane_shot_projectile(spawn_position: Vector2, direction: float) -> void:
+func _on_player_shot_projectile(spawn_position: Vector2, direction: float) -> void:
 	var bullet = PLAYER_BULLET_SCENE.instantiate()
 	# tavaline position on oma vanem-stseeniga seotud
 	bullet.global_position = spawn_position

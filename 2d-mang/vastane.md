@@ -94,7 +94,7 @@ Võtame markeri praeguse asendi absoluutväärtuse ja korrutame selle suunaga.
 
 ## Roomav vastane
 
-Loome nüüd lõpuks vastase, keda võimalik lasta oleks. Vastase nimi on `Roomaja`. Tema stseeni struktuur on sarnane teistele:
+Loome nüüd lõpuks vastase, keda võimalik lasta oleks. Vastase nimi on roomaja ehk `Crawler`. Tema stseeni struktuur on sarnane teistele:
 
 ```mermaid
 %%{init: {'theme':'neutral'}}%%

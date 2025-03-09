@@ -80,7 +80,7 @@ Tahaks ikka oma rakenduse aknas sõnumit näha. Praeguseks sulge see.
 
 ## Label sõlm
 
-Selleks, et oma kirjutatud teksti projektis näha, peame ühte teist sõlme kasutama. Vajuta stseeni dokis Node2D peale ja kustuta see kas `Delete` klahviga või parem-kliki menüüst leides `Delete Node(s)` valiku. Kinnita, et tahad seda kustutada.
+Selleks, et oma kirjutatud teksti projektis näha, peame ühte teist sõlme kasutama. Vajuta stseeni dokis Node2D peale ja kustuta see kas `Delete` klahviga või paremklõpsu menüüst leides `Delete Node(s)` valiku. Kinnita, et tahad seda kustutada.
 
 Seekord vajuta plussmärgi-kujulisele nupule või klaviatuuril `CTRL + A`. Avaneb uus aken, mis pakub sulle kõiki sõlmi, mis saadaval on. Kirjuta ülemises osas `Search` otsingulahtrisse sõna "label". Pakutakse sõlme Label. Vajuta akna allosas olevat nuppu `Create`, et see luua.
 

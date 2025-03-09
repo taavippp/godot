@@ -5,20 +5,9 @@ nav_order: 5
 has_children: true
 ---
 
-See peatükk on töös!
-{: .todo }
-
-Planeeritud struktuur:
-
--   mängija tegelase loomine
--   füüsika õppimine
--   vastase loomine
--   TileMapiga taseme loomine
--   Eksportimine
-
 # 2D mäng
 
-Selles peatükis lood prototüübi 2D videomängu jaoks. Tegu on platvormimänguga, kus tegelane saab ringi liikuda, hüpata ja oma relva lasta. Tegelase eesmärk on vastaseid hävitades punkte koguda.
+Selles peatükis lood prototüübi 2D videomängu jaoks. Tegu on platvormimänguga, kus tegelane saab ringi liikuda, hüpata ja oma relvast lasta. Tegelase eesmärk on vastaseid hävitades punkte koguda.
 
 Kuna nüüd oskad natuke GDScripti kirjutada, siis nüüdsest on kood, failinimed jne sujuvamaks lugemiseks kirjutatud inglise keeles.
 
@@ -27,7 +16,7 @@ Kuna nüüd oskad natuke GDScripti kirjutada, siis nüüdsest on kood, failinime
 -   Tegelase animeerimine
 -   Sprite2D, AnimatedSprite2D sõlmed
 -   CharacterBody2D, CollisionShape2D, Area2D, TileMapLayer sõlmed
--   Eksportimine
+-   Projekti eksportimine
 
 ## Mänguvarad
 

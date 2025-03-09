@@ -35,7 +35,7 @@ Lisa peategelasele juurde kaamera sõlm `Camera2D` ja määra selle `Zoom` vää
 
 ## Kollisioonide süsteem
 
-Said eelmises alapeatükis teada, et füüsika kehad töötavad CollisionShape2D sõlmede abil. Mäng kontrollib, kas kaks keha on kokku põrganud omavahel ja kohandab neid ringi, et nad enam ei põrkaks kokku. Füüsika kehad saavad olla erinevatel kihtidel, et nad üldse kokku ei põrkaks. Neil on muutujad `Collision Layer` ja `Collision Mask` - *layer*i alla saab märkida need kihid, kus füüsika keha on ja *mask*i alla need kihid, millega see füüsika keha peaks kokku põrgata suutma.
+Said eelmises alapeatükis teada, et füüsikakehad töötavad CollisionShape2D sõlmede abil. Mäng kontrollib, kas kaks keha on kokku põrganud omavahel ja kohandab neid ringi, et nad enam ei põrkaks kokku. Füüsikakehad saavad olla erinevatel kihtidel, et nad üldse kokku ei põrkaks. Neil on muutujad `Collision Layer` ja `Collision Mask` - *layer*i alla saab märkida need kihid, kus füüsikakeha on ja *mask*i alla need kihid, millega see füüsikakeha peaks kokku põrgata suutma.
 
 Meie projektis kasutame nelja erinevat füüsika kihti:
 
@@ -66,7 +66,7 @@ Liigu edasi `Paint` vahekaardile ja seal vali `Paint Properties` jaoks `Physics 
 
 ## Põhistseen
 
-Loo uus stseen, kus Node2D on juursõlm. Sellest stseenist saab meie mängu põhistseen praeguseks. Lisa juurde meie vastselt loodud taseme stseen ja peategelase stseen, kas hiirega lohistades seda failisüsteemi dokist stseeni dokki või klaviatuuri otseteega `CTRL + SHIFT + A`. Nüüd, kui valid taseme sõlme stseeni dokis ja avad alumiselt ribalt TileMap mooduli, saad hiirega valida, milliseid maapinna ja taeva spraite tahad oma stseeni maalida. Maalida saad nüüd põhivaates oma hiirt vajutades ning lohistades. Vasaku klikiga saad juurde teha, paremaga kustutada.
+Loo uus stseen, kus Node2D on juursõlm. Sellest stseenist saab meie mängu põhistseen praeguseks. Lisa juurde meie vastselt loodud taseme stseen ja peategelase stseen, kas hiirega lohistades seda failisüsteemi dokist stseeni dokki või klaviatuuri otseteega `CTRL + SHIFT + A`. Nüüd, kui valid taseme sõlme stseeni dokis ja avad alumiselt ribalt TileMap mooduli, saad hiirega valida, milliseid maapinna ja taeva spraite tahad oma stseeni maalida. Maalida saad nüüd põhivaates oma hiirt vajutades ning lohistades. Vasaku klõpsuga saad juurde teha, paremaga kustutada.
 
 ![Põhistseeni seis hetkel](./pildid/liikumine/pohistseen.png)
 

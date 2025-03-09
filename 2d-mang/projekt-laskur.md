@@ -9,7 +9,7 @@ nav_order: 1
 
 ## Uus projekt
 
-Loo uus projekt nimega `Laskur`, mis kasutab taaskord Compatibility renderdajat. Kasutame [peatüki sissejuhatuses](https://taavippp.github.io/godot/2d-mang/) allalaetud `tilemap.png` spraidifaili ning liiguta see projekti kausta. Godot peaks selle faili automaatselt importima.
+Loo uus projekt nimega `Laskur`, mis kasutab taaskord Compatibility renderdajat. Kasutame [peatüki sissejuhatuses](https://taavippp.github.io/godot/2d-mang/) allalaetud `tilemap.png` spraidifaili. Liiguta see projekti kausta. Godot peaks selle faili automaatselt importima, kui redaktorisse naased.
 
 ## Peategelase stseen
 
@@ -30,13 +30,13 @@ Uurime lähemalt neid 3 uut sõlme:
 
 ### CharacterBody2D
 
-Meie mäng kasutab Godot sisse ehitatud füüsika süsteemi. See süsteem on arendaja jaoks lihtsustatud **füüsika keha sõlmedega**. CharacterBody2D on üks neist ning seda sõlme liigutatakse läbi koodi.
+Meie mäng kasutab Godot sisse ehitatud füüsikamootorit. See süsteem on arendaja jaoks lihtsustatud **füüsikakeha sõlmedega**. CharacterBody2D on üks neist ning seda sõlme liigutatakse läbi koodi.
 
-Lisaks on olemas ka **RigidBody2D** ja **StaticBody2D**. RigidBody2D liigub kasutades impulsside süsteemi (üks pidev impulss oleks näiteks gravitatsioon), seda sõlme kasutatakse veidi täpsema füüsika simulatsiooni loomisel. StaticBody2D ei liigu, seega seda sõlme kasutatakse näiteks maapinna või seina jaoks.
+Lisaks on olemas ka **RigidBody2D** ja **StaticBody2D**. RigidBody2D liigub kasutades impulsside süsteemi (üks pidev impulss oleks näiteks gravitatsioon), seda sõlme kasutatakse veidi täpsema füüsika simulatsiooni loomisel. StaticBody2D ei liigu, seega seda sõlme kasutatakse näiteks maapinna jaoks.
 
 ### CollisionShape2D
 
-Füüsika kehadel on vaja kuju, et nad üksteist mõjutada saaksid. Siin tuleb appi CollisionShape2D sõlm, mis on ühine lahendus kõikidel 2D füüsika kehadel kuju loomiseks. Keha kuju saab olla ristkülik, ring jne.
+Füüsikakehadel on vaja kuju, et nad üksteist mõjutada saaksid. Siin tuleb appi CollisionShape2D sõlm, mis on ühine lahendus kõikidel 2D füüsikakehadel kuju loomiseks. Keha kuju saab olla ristkülik, ring jne.
 
 ### AnimatedSprite2D
 
@@ -48,18 +48,19 @@ Selleks, et teada, kui suur ja milline CollisionShape tulema peaks, paneme ennem
 
 ![SpriteFrames loomine](./pildid/projekt-laskur/spriteframes-loomine.png)
 
-Peale SpriteFrames loomist ava see. Alumisel ribal avaneb uus moodul. Vaikimisi on olemas animatsioon "default", aga me tahame juurde luua ka "run" ja "jump". Uue animatsiooni saad luua vasakus "Animations" menüüs, vajutades **rohelise ristiga paberi** ikooni peale. Loodud animatsiooni saad ümber nimetada
-selle peale klikkides.
+Peale SpriteFrames loomist ava see. Alumisel ribal avaneb uus moodul. Vaikimisi on olemas animatsioon "default", aga me tahame juurde luua ka "run" ja "jump". Uue animatsiooni saad luua vasakus "Animations" menüüs, vajutades **rohelise plussiga paberi** ikooni peale. Loodud animatsiooni saad ümber nimetada selle peale klõpsides.
 
 Peale animatsioonide loomist on vaja neile kaadrid juurde lisada. Vali animatsioon "default" ja leia parempoolses "Animation Frames" menüüs ruudustiku nupp `Add frames from sprite sheet`. Avaneb faili valimise aken, vali meie `tilemap.png`.
 
 ![Animatsioonide loomine SpriteFrames kaudu](./pildid/projekt-laskur/animatsioonide-loomine.png)
 
-Avaneb uus aken, kus saad valida, mis kaadritest animatsioon koosneb. Esiteks peame seda akent sätestama, kasutades paremal pool olevaid sätteid. Pilt jaotub 10 x 6 = 60 kaadriks ja kaadritel on ühe piksline vahe ehk _separation_.
+Avaneb uus aken, kus saad valida, mis kaadritest animatsioon koosneb. Esiteks peame seda akent konfigureerima, kasutades paremal pool olevaid sätteid. Pilt jaotub 10 horisontaalseks x 6 vertikaalseks = 60 kaadriks ja kaadritel on ühe piksline vahe ehk _separation_.
 
 ![Animatsiooni kaadrite valimine](./pildid/projekt-laskur/animatsiooni-kaadrid.png)
 
-Meie peategelase animatsioonid koosnevad vaid kahest kaadrist viienda rea vasakul pool. "default" animatsioon kasutab vaid esimest neist, "run" kasutab mõlemat ja "jump" kasutab teist. Minu arvates tundus "run" animatsioon aeglane, seega määrasin, et see oleks `10 FPS` (_frames per second_ ehk kaadrit sekundis).
+Meie peategelase animatsioonid koosnevad vaid kahest kaadrist viienda rea vasakul pool. "default" animatsioon kasutab vaid esimest neist, "run" kasutab mõlemat ja "jump" kasutab teist.
+
+Vaikimisi on nende animatsioonide kaadrisagedus 5 FPS (kaadrit sekundis/*frames per second*). See tähendab, et kui "run" animatsioonil on kaks kaadrit, siis sekundi jooksul jõuab see animatsioon korduda 5 / 2 = 2.5 korda. Minu arvates tundus "run" animatsioon sedasi aeglane, seega määrasin, et see oleks `10 FPS`.
 
 Meie tegelane tundub küll natuke hägune. Tegu on automaatse filtriga Godot poolt, kuid meie pikslikunsti jaoks see ei sobi. Paranda seda valides ülaribalt Project -> Project Settings. Seejärel kirjuta otsingusse `texture filter` ja väärtuse `Linear` asemel olgu `Nearest`. Nüüd peaks pikslikunst kenam välja nägema.
 
@@ -80,12 +81,12 @@ Tegevusi saab luua Project Settings menüüs Input Map saki alt. Lahtrisse `Add 
 -	jump
 -	shoot
 
-Peale tegevuste deklareerimist, saab määrata, mis sisend mängija poolt selle tegevuse käivitab **paremas ääres olevast risti** nupust. Saad lihtsalt vajutada sellele klahvile, mis sinu arust sobib ja siis `OK` vajutada.
+Peale tegevuste deklareerimist, saab määrata, mis sisend mängija poolt selle tegevuse käivitab **paremas ääres olevast plussi** nupust. Saad lihtsalt vajutada sellele klahvile, mis sinu arust sobib ja siis `OK` vajutada.
 
 Mina kasutan liikumiseks nooleklahve, hüppamiseks Z klahvi ja laskmiseks X klahvi.
 
 ![Input map details](./pildid/projekt-laskur/input-map.png)
 
-Valides stseeni dokis juursõlm (CharacterBody2D) ja sellele topeltklikkides/`F2` vajutades/paremkliki menüüs `Rename` vajutades anna talle uus nimi `Peategelane`. Salvesta stseen, vajutades `CTRL + S`. Godot pakub faili salvestada nimega `player.tscn`. See sobib meile.
+Nimeta juursõlme ümber `Player`iks. Seda saad teha, valides stseeni dokis juursõlme ning paremklõpsu menüüs `Rename` valikule vajutades. Salvesta stseen, vajutades `CTRL + S`. Godot pakub faili salvestada nimega `player.tscn`. See sobib meile.
 
 Järgmises alapeatükis õpime Godot füüsikamootorit tundma, kirjutades tegelase liigutamiseks skripti.

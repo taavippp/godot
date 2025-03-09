@@ -242,4 +242,4 @@ Autoloadi saab luua Godot redaktoris ülaribalt nupult Project -> Project Settin
 
 ![Autoloadi loomine](./pildid/autoload.png)
 
-Järgmises osas alustame uue peatükiga, kus loome Godot 2D füüsika mootoriga mängu.
+Järgmises osas alustame uue peatükiga, kus loome Godot 2D füüsikamootoriga mängu.

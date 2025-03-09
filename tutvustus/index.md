@@ -37,7 +37,7 @@ Saadaval on
     -   GDScript
     -   C#
     -   GDExtension (laiendus muus keeles)
--   2D ja 3D füüsika mootorid,
+-   2D ja 3D füüsikamootorid,
 -   2D spraitidega töötamine,
 -   animatsiooni loomise tööriistad,
 -   valgustuse ja varjude süsteemid,
