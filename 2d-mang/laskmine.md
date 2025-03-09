@@ -35,11 +35,11 @@ Sprite2D on sarnane AnimatedSprite2D sõlmele, aga ei sisalda sisse ehitatud võ
 
 ### Area2D
 
-Kaks füüsikakeha põrkavad kokku. Üks neist on vastane ja teine on sinu lastud kuul, mis vastasel elusid peaks maha võtma. Kuid lisaks elude maha võtmisele kuul lükkab teda kontrollimatult eemale ning selle juhtumist me ei tahaks. Siin tulebki appi Area2D sõlm - see tuvastab füüsikakehasid (ja teisi Area2D sõlmi), kuid ei lükka neid. Kui oled videomängudes kuulnud mõistest *hitbox* ehk löögiala, siis Area2D kasutataksegi Godot's löögialade loomiseks.
+Kaks füüsikakeha põrkavad kokku. Üks neist on vastane ja teine on sinu lastud kuul, mis vastasel elusid peaks maha võtma. Kuid lisaks elude maha võtmisele kuul lükkab teda kontrollimatult eemale ning selle juhtumist me ei tahaks. Siin tulebki appi Area2D sõlm - see tuvastab füüsikakehasid (ja teisi Area2D sõlmi), kuid ei ole ise füüsikakeha.
 
 ## Kuuli stseen, jätk
 
-Meie kuul on ikkagi CharacterBody2D, et ta seinaga kokku põrgates ära kustuks. Ta põrkabki vaid tasemega kokku, vastase ära tundmine jääb Area2D ülesandeks.
+Meie kuul on ikkagi CharacterBody2D, et ta seinaga kokku põrgates ära kustuks. Ta põrkabki vaid taseme füüsikakihiga kokku, vastase ära tundmine jääb Area2D ülesandeks.
 
 Selleks, et kindlaks teha, kui suur kuuli füüsika kuju tuleb, peame talle ennem spraidi andma. Vali stseeni dokis oma värskelt loodud Sprite2D, leia inspektoris Texture omadus ja loo sinna väärtuseks uus AtlasTexture. AtlasTexture võimaldab suuremalt spraidilehelt vajaliku tüki eraldamist, mis teeb spraidiga töötamise lihtsamaks. Ava AtlasTexture ja määra selle `Atlas` väärtuseks meie suur spraidileht `tilemap.png`. Seejärel vajuta `Edit Region` nuppu, et paika panna, kus meie kuuli sprait täpselt on.
 
@@ -51,13 +51,13 @@ Nüüd, kus oleme spraidi paika pannud, saame oma kuulile korrektse füüsika ku
 
 Kohe tee ka Area2D'le füüsika kuju, kuid tal olgu see `CircleShape2D` raadiusega 6 pikslit.
 
-Veel peame nii CharacterBody2D'le kui ka Area2D'le määrama õiged füüsika kihid.
+Veel peame nii CharacterBody2D'le kui ka Area2D'le määrama õiged füüsikakihid.
 
 CharacterBody2D (juursõlm):
 -	pole ühelgi kihil (*collision layer*)
 -	tuvastab esimest kihti ehk *level*/taset (*collision mask*)
 
-Area2D (*hitbox*/löögiala):
+Area2D (*hitbox*/tabamisala):
 -	on neljandal kihil ehk *projectile*/viskekeha
 -	tuvastab kolmandat kihti ehk *enemy*/vastane
 
@@ -84,14 +84,14 @@ Kui kuuli stseeni käima panemisel kuul liigub ja kõik tundub töötavat, kontr
 
 ## Skript, jätk
 
-Lisaks liikumisele peab see kuul hävinema, kui tasemega kokku puutub. Kui kuul lendab horisontaalses joones, siis ainus võimalus tal tasemega kokku puutuda on vastu seina lennates. Ennem kasutasime `is_on_floor()` funktsiooni, aga eksisteerib ka `is_on_wall()` seina kokkupõrke kontrolliks. Lisa oma `_process` funktsiooni enne `move_and_slide()` käsku järgmised read juurde:
+Lisaks liikumisele peab see kuul hävinema, kui tasemega kokku puutub. Kui kuul lendab horisontaalses joones, siis ainus võimalus tal tasemega kokku puutuda on vastu seina lennates. Ennem kasutasime `is_on_floor()` funktsiooni, aga eksisteerib ka `is_on_wall()` seinaga kokkupõrke kontrolliks. Lisa oma `_process` funktsiooni enne `move_and_slide()` käsku järgmised read juurde:
 
 ```gdscript
 	if (is_on_wall()):
 		queue_free() # kustutab sõlme
 ```
 
-Meie löögiala väljastab signaali, kui vastast puutub, aga midagi ei juhtu vastasega veel. Selleks vali stseeni dokis Area2D sõlm, liigu sõlme dokki (inspektori dokist parempoolse nupu kaudu). Leia signaal `body_entered(body: Node2D)` ja ühenda see kuuliga. Skripti tekib funktsioon `_on_area_2d_body_entered`. Seal kontrollime, kas meie `body` argument on ikka `CharacterBody2D` tüüpi. Kui on tegu `CharacterBody2D`'ga, siis kustutatakse see tegelane, mille kuul tuvastas.
+Meie tabamisala väljastab signaali, kui vastast puutub, aga midagi ei juhtu vastasega veel. Selleks vali stseeni dokis Area2D sõlm, liigu sõlme dokki (inspektori dokist parempoolse nupu kaudu). Leia signaal `body_entered(body: Node2D)` ja ühenda see kuuliga. Skripti tekib funktsioon `_on_area_2d_body_entered`. Seal kontrollime, kas meie `body` argument on ikka `CharacterBody2D` tüüpi. Kui on tegu `CharacterBody2D`'ga, siis kustutatakse see tegelane, mille Area2D tuvastas.
 
 Kuuli skripti lõppu läheks siis selline kood kirja:
 
@@ -107,7 +107,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 ## Vajutame päästikule
 
-Nüüd, kus kuuli stseen valmis, on vaja peategelasel seda lasta. Selleks peab tegelane signaaliga põhistseenile teada andma, et on aeg tulistada ja siis põhistseen loob kuuli stseenist instantsi ja lisab selle stseenide puusse.
+Nüüd, kus kuuli stseen valmis, on vaja peategelasel seda lasta. Selleks peab tegelane signaaliga põhistseenile teada andma, et on aeg tulistada ja siis põhistseen loob kuuli stseenist isendi ja lisab selle stseenide puusse.
 
 Peategelane peab teada andma põhistseenile, mis koordinaatidelt ja mis suunas kuuli lasta. Kasutame selleks abisõlme Marker2D, mis näitab redaktoris märki, millega on kergem asju paika sättida.
 
@@ -131,7 +131,7 @@ if (Input.is_action_just_pressed("shoot")):
 
 Nagu varasemalt mainitud, meie `shot_projectile` signaalile peab põhistseen reageerima ja kuuli looma. See tähendab, et põhistseenile on vaja juurde luua skript `main.gd`. Skript peab teadma, milline on kuuli stseen, aga me ei taha põhistseeni üht suvalist ringi lendavat kuuli lisada. Sel juhul laeme skripti kaudu kuuli stseeni. 
 
-Kõik stseenid on salvestatud PackedScene **resurssina**, mitte **sõlmena**. See tähendab, et PackedScene me otse stseeni juurde lisada ei saa, aga kui loome PackedScene'ist instantsi (mis on sõlm), siis see on võimalik. Kuuli stseeni saad konstandina kirja panna ja laadida funktsiooniga `preload`.
+Kõik stseenid on salvestatud PackedScene **resurssina**, mitte **sõlmena**. See tähendab, et PackedScene me otse stseeni juurde lisada ei saa, aga kui loome PackedScene'ist isendi (mis on sõlm), siis see on võimalik. Kuuli stseeni saad konstandina kirja panna ja laadida funktsiooniga `preload`.
 
 ```
 extends Node2D

@@ -29,24 +29,24 @@ Kustuta `_ready` funktsioon. Kirjutame `_process` funktsiooni tegelase algelise 
 Tegelase liikumine sõltub suunast ja kiirusest, seega nüüd määrame CharacterBody2D `velocity.x` väärtuseks `direction * speed`. Lisaks, et tegelane peale `velocity` määramist lõpuks liikuma hakkaks, peame `_process` lõppu lisama käsu `move_and_slide()`.
 Võid nüüd oma mängu tööle panna ülariba nupust `Run Current Scene (F6)` ja veenduda, et tegelase liikumist on akna ülaosas näha, kui nooleklahve vajutad.
 
-Lisa peategelasele juurde kaamera sõlm `Camera2D` ja määra selle `Zoom` väärtuseks `(4, 4)`. Niimoodi näeme pikslikunsti paremini. Kui uuesti stseeni käivitad, ei näe tegelast liikumas enam, sest olles tema laps-sõlm kaamera püsib pidevalt tema peal.
+Lisa peategelasele juurde kaamera sõlm `Camera2D` ja määra selle `Zoom` väärtuseks `(4, 4)`. Niimoodi näeme projekti käivitades mängus olevat pikslikunsti paremini. Kui uuesti stseeni käivitad, ei näe tegelast liikumas enam, sest olles tema laps-sõlm kaamera püsib pidevalt tema peal.
 
 ![Camera2D inspektori detailid](./pildid/liikumine/camera2d.png)
 
 ## Kollisioonide süsteem
 
-Said eelmises alapeatükis teada, et füüsikakehad töötavad CollisionShape2D sõlmede abil. Mäng kontrollib, kas kaks keha on kokku põrganud omavahel ja kohandab neid ringi, et nad enam ei põrkaks kokku. Füüsikakehad saavad olla erinevatel kihtidel, et nad üldse kokku ei põrkaks. Neil on muutujad `Collision Layer` ja `Collision Mask` - *layer*i alla saab märkida need kihid, kus füüsikakeha on ja *mask*i alla need kihid, millega see füüsikakeha peaks kokku põrgata suutma.
+Said eelmises alapeatükis teada, et füüsikakehad töötavad CollisionShape2D sõlmede abil. Mäng kontrollib, kas kaks keha on kokku põrganud omavahel ja liigutab neid üksteisest eemale nii, et nad enam ei oleks koos. Füüsikakehad saavad olla erinevatel kihtidel, et nad üldse kokku ei põrkaks. Neil on muutujad `Collision Layer` ja `Collision Mask` - *layer*i alla saab märkida need kihid, kus füüsikakeha on ja *mask*i alla need kihid, millega see füüsikakeha peaks kokku põrgata suutma.
 
-Meie projektis kasutame nelja erinevat füüsika kihti:
+Meie projektis kasutame nelja erinevat füüsikakihti:
 
 1.	*level* (tase)
 2.	*player* (mängija)
 3.	*enemy* (vastane)
 4.	*projectile* (viskekeha)
 
-Füüsika kihtidele saame nimed anda Project Settings -> General -> Layer Names -> 2D Physics alt.
+Füüsikakihtidele saame nimed anda Project Settings -> General -> Layer Names -> 2D Physics alt.
 
-![Füüsika kihtide nimetamine Project Settings aknas](./pildid/liikumine/fuusika-kihtide-nimetamine.png)
+![Füüsikakihtide nimetamine Project Settings aknas](./pildid/liikumine/fuusika-kihtide-nimetamine.png)
 
 Peategelane peaks olema siis *player* kihil ja tema mask peaks tuvastama *level* ja *projectile* kihte. Neid saad määrata CollisionObject2D -> Collision alt.
 
@@ -72,9 +72,9 @@ Loo uus stseen, kus Node2D on juursõlm. Sellest stseenist saab meie mängu põh
 
 ## Hüppamine
 
-Nüüd õpetame oma tegelase hüppama. Hüppamiseks peame talle algul gravitatsiooni tutvustama. Loo tegelase skriptis uus muutuja nimega `gravity`, mille väärtus on näiteks 25. Gravitatsioon on meie mängu maailmas kiirenev positiivne liikumine Y-teljel. Seega lisa enne `move_and_slide` käsku rida, kus määrad `velocity.y` väärtuse. Iga kaader lisatakse sellele gravitatsiooni jõud uuesti juurde, seega kirjutatav rida olgu `velocity.y += gravity`.
+Nüüd õpetame oma tegelase hüppama. Hüppamiseks peame talle algul gravitatsiooni tutvustama. Loo tegelase skriptis uus muutuja nimega `gravity`, mille väärtus on näiteks 25. Gravitatsioon on meie mängu maailmas kiirenev positiivne liikumine Y-teljel. Igal kaadril lisatakse `velocity`le gravitatsiooni jõud uuesti juurde, seega kirjutatav rida olgu `velocity.y += gravity`. Sedasi tekib efekt, et tegelane hakkab ühe kiiremini kukkuma.
 
-Hüppamiseks on vaja uut eksportmuutujat nimega `jump_strength`. See võiks olla näiteks 0 - 1000 vahemikus ja vaikimisi väärtuseks panin 400. Selleks, et tegelane hüppaks, peab ta puutuma maapinda ja hüppamise tegevus peab just olema toimunud. Hüppamine on gravitatsiooni vastand - ühekordne negatiivne Y-telje jõud.
+Hüppamiseks on vaja uut eksportmuutujat nimega `jump_strength`. See võiks olla näiteks 0 - 1000 vahemikus ja vaikimisi väärtuseks panin 400. Selleks, et tegelane hüppaks, peab ta puutuma maapinda ja hüppamise tegevus peab just olema toimunud. Hüppamine on gravitatsiooni vastand - ühekordne negatiivne Y-telje jõud. Gravitatsiooni pidev jõud vaikselt neutraliseerib hüppamise ühekordse jõu.
 
 Meie tegelane hüppab siis järgnevate koodiridadega:
 

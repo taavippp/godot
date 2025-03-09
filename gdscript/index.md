@@ -106,7 +106,7 @@ Lisaks teistele siin lehel juba mainitud võtmesõnadele eksisteerivad veel:
 | is         | kontrollib klassi                                                                              | `unknown_node is Label`                                              |
 | in         | kontrollib kas väärtus on stringis/massiivis/sõnastikus/üks sõlme omadustest                   | `"h" in "hello"`                                                     |
 | as         | määrab tundmatu andmetüübiga väärtusele andmetüübi või muudab ta nulliks                       | `var tegelane := tundmatu_stseen.instantiate() as CharacterBody2D`   |
-| self       | viide klassi instantsile                                                                       |                                                                      |
+| self       | viide klassi isendile                                                                       |                                                                      |
 | signal     | signaali deklareerimiseks, vajadusel saab ka määrata parameetrid, mis signaaliga kaasas käivad | `signal changed_direction` või `signal jumped(height: int)`          |
 | breakpoint | peatab programmi seda sisaldaval real, et silumine (debugging) mugavam oleks                   |                                                                      |
 | await      | peatab skripti töö kuni saab signaali või kaasrutiin lõpeb                                     | `await timer.timeout`                                                |
@@ -167,7 +167,7 @@ var factory: ShapeFactory = ShapeFactory.new()
 var circle: ShapeFactory.Circle = factory.Circle.new()
 ```
 
-Tegelikult, kui klassi instantsi alles lood, siis võid lasta kompilaatoril ka andmetüüpi lihtsalt järeldada. Sedasi kirjutad vähem koodi.
+Tegelikult, kui klassi isendi alles lood, siis võid lasta kompilaatoril ka andmetüüpi lihtsalt järeldada. Kui andmetüüpi pole võimalik järeldada, annab Godot sellest teada.
 
 ```
 var factory := ShapeFactory.new()
@@ -209,7 +209,7 @@ func _ready() -> void:
 ## Staatilised muutujad ja funktsioonid
 
 Võtmesõna `static` saab kasutada nii muutuja kui ka funktsiooni kirjutamisel.
-Staatiline muutuja hoiab oma väärtust läbi klassi erinevate instantside, kuid seda saab ikka muuta.
+Staatiline muutuja hoiab oma väärtust läbi klassi erinevate isendite, kuid seda saab ikka muuta.
 Näide:
 
 ```gdscript
@@ -232,11 +232,11 @@ func _ready():
 	print(b.arv) # 20
 ```
 
-Staatilise funktsiooni jaoks ei pea klassi instantsi looma, saad selle lihtsalt välja kutsuda.
+Staatilise funktsiooni jaoks ei pea klassi isendit looma, saad selle lihtsalt välja kutsuda.
 
 ## *Singleton* muster läbi *autoload*-skriptide
 
-Kui leiad, et skriptifail peaks olema teistest skriptifailidest globaalselt juurdepääsetav, aga ei taha luua eraldi klassi selleks, võid kasutada *autoload* funktsionaalsust. Sellega luuakse programmi avades *singleton*-tüüpi skripti instants, mis tähendab, et vaid üks globaalne koopia sellest eksisteerib.
+Kui leiad, et skriptifail peaks olema teistest skriptifailidest globaalselt juurdepääsetav, aga ei taha luua eraldi klassi selleks, võid kasutada *autoload* funktsionaalsust. Sellega luuakse programmi avades *singleton*-tüüpi skripti isend, mis tähendab, et vaid üks globaalne koopia sellest eksisteerib.
 
 Autoloadi saab luua Godot redaktoris ülaribalt nupult Project -> Project Settings. Siis avaneb sinu projekti konfigureerimise aken, kus on vaheleht `Globals`. Siin on võimalik teha olemasolev skript autoloadiks või luua uus, mis on koheselt autoload.
 

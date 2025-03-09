@@ -33,7 +33,7 @@ Nüüd parandame laskmisega seotud probleemid. Need olid järgnevad:
 1.	kui tegelane ei liigu kuuli lastes, siis ka kuul ei liigu
 2.	vasakule liikudes ja lastes luuakse kuul tegelase selja tagant
 
-Mõtleme, miks need bugid tekkida võivad.
+Mõtleme, miks need vead tekkida võivad.
 
 ### Probleem 1
 
@@ -44,7 +44,7 @@ Selgub, et probleem on meie suuna muutujas. Kindlasti eksisteerib ka teisi lahen
 -	üks neist on mängija sisend (-1 ja 1 vahel, saab 0 olla) nimega `direction_input`
 -	teine on tegelik suund (ei saa 0 olla) nimega `direction`
 
-Loo siis juurde `direction_input` muutuja. Kui kutsud välja `Input.get_axis` funktsiooni, siis selle väärtus antakse nüüd sellele muutujale. Peale seda peame kohe oma `direction` muutujale ka väärtuse andma, mis põhineb `direction_input` põhjal.
+Loo siis juurde `direction_input` muutuja. Kui kutsud välja `Input.get_axis` funktsiooni, siis selle väärtus antakse nüüd sellele muutujale. Peale seda peame kohe oma `direction` muutujale ka väärtuse andma `direction_input` põhjal.
 
 ```
 ... (muu kood)
@@ -78,9 +78,9 @@ Proovi aru saada igast juhust:
 
 ### Probleem 2
 
-Tegelane laseb vasakule liikudes kuuli oma selja tagant. Kuuli luuakse vastavalt tegelase Marker2D asendile. Marker2D ei muuda suunda, kui tegelane seda muudab.
+Tegelane laseb vasakule liikudes kuuli oma selja tagant. Kuuli luuakse vastavalt tegelase Marker2D asendile. Marker2D on asetatud peategelase stseenis temast paremale, tema relva juurde. See tähendab, et paremale liikudes tundub kõik õige, kuid Marker2D ei muuda asendit, kui tegelane vasakule liigub.
 
-Kui paneme Marker2D ka suunda muutma, siis see bugi on läinud. Saame selle probleemi tegelikult ühe koodireaga parandada:
+Kui paneme Marker2D asendit muutma vastavalt suunale, siis see viga on läinud. Saame selle probleemi tegelikult ühe koodireaga parandada:
 
 ```gdscript
 ... (muu kood)
@@ -94,7 +94,7 @@ Võtame markeri praeguse asendi absoluutväärtuse ja korrutame selle suunaga.
 
 ## Roomav vastane
 
-Loome nüüd lõpuks vastase, keda võimalik lasta oleks. Vastase nimi on roomaja ehk `Crawler`. Tema stseeni struktuur on sarnane teistele:
+Loome nüüd lõpuks vastase, keda võimalik lasta oleks. Vastase on roomaja ehk nimi olgu `Crawler`. Tema stseeni struktuur on sarnane teistele:
 
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
@@ -107,7 +107,7 @@ flowchart LR;
 	root --> sprite;
 ```
 
-Roomaja asub füüsika kihil nr 3 ehk `enemy` ja tuvastab füüsika kihti nr 1 ehk *level*.
+Roomaja asub füüsikakihil nr 3 ehk `enemy` ja tuvastab füüsikakihti nr 1 ehk *level*.
 
 Roomajal on ainult üks animatsioon `default` ja selle saame kohe luua. Kasutame sõlme `AnimatedSprite2D`, nii et loo inspektoris `SpriteFrames` resurss ja leia `default` animatsioon alumise riba kaudu. Kasutame spraidilehe viimasel real olevat punast elukat roomaja animatsiooni jaoks.
 
@@ -127,7 +127,7 @@ Roomaja on sarnane meie peategelasele - ta liigub kahes suunas ning talle mõjub
 
 [Ülesande lahendus](../lahendused/ulesanne-3)
 
-Vastane ei suuda praeguses seisus peategelasele haiget teha. Kui soovid, et see võimalik ikka oleks, siis tuleks võtta kasutusele lahendus sarnane meie kuulile koos Area2D'ga.
+Vastane ei suuda praeguses seisus peategelasele haiget teha nii, nagu kuul vastasesele teeb. Selle funktsionaalsuse loome järgmises peatükis [Laskur 2.0](../laskur-2.0/index).
 
 Lisa põhistseeni paar roomajat ja tee tase ilusaks!
 

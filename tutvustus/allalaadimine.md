@@ -11,7 +11,7 @@ On aeg Godot redaktor alla laadida. Järgnev link viib lehele, kus erinevad prog
 
 <https://godotengine.org/download/archive/>
 
-Sellel kursusel kasutatakse versiooni 4.3, sest see on kirjutamise ajal uusim stabiilne versioon. Sellele järgnevad versioonid võivad potentiaalselt sisaldada bugisid.
+Sellel kursusel kasutatakse versiooni 4.3, sest see on kirjutamise ajal uusim stabiilne versioon.
 Kui on uuemaid versioone olemas, siis otsi suurelt kirjutatud versiooni nimele kaasnevat teksti `Current state: stable`.
 Saad arvatavasti kursusega kaasa ikka töötada, kui kasutad ükskõik mis 4. versiooni.
 
