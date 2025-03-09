@@ -55,7 +55,7 @@ Veel peame nii CharacterBody2D'le kui ka Area2D'le määrama õiged füüsika ki
 
 CharacterBody2D (juursõlm):
 -	pole ühelgi kihil (*collision layer*)
--	tuvastab esimest kihti ehk *map*/taset (*collision mask*)
+-	tuvastab esimest kihti ehk *level*/taset (*collision mask*)
 
 Area2D (*hitbox*/löögiala):
 -	on neljandal kihil ehk *projectile*/viskekeha
@@ -65,7 +65,7 @@ Area2D (*hitbox*/löögiala):
 
 ## Skript
 
-On aeg luua meie kuulile skript nimega `kuul.gd`. Kuulil on sarnaselt peategelasele vaja kiiruse muutujat ja suuna muutujat, et teada, kuhu ta lendab. Lisaks on vaja eksportmuutujat Sprite2D jaoks, sest me plaanime spraiti pöörata `_ready` funktsioonis olenevalt kuuli suunast. Spraidi pööramiseks on olemas käepärane omadus `flip_h`, mis vaikimisi on **väär**.
+On aeg luua meie kuulile skript nimega `bullet.gd`. Kuulil on sarnaselt peategelasele vaja kiiruse muutujat ja suuna muutujat, et teada, kuhu ta lendab. Lisaks on vaja eksportmuutujat Sprite2D jaoks, sest me plaanime spraiti pöörata `_ready` funktsioonis olenevalt kuuli suunast. Spraidi pööramiseks on olemas käepärane omadus `flip_h`, mis vaikimisi on **väär**.
 
 ### Ülesanne 1
 
@@ -129,14 +129,14 @@ if (Input.is_action_just_pressed("shoot")):
 
 ## Signaalile reageerimine
 
-Nagu varasemalt mainitud, meie `shot_projectile` signaalile peab põhistseen reageerima ja kuuli looma. See tähendab, et põhistseenil on vaja skripti `peastseen.gd`. Skript peab teadma, milline on kuuli stseen, aga me ei taha põhistseeni üht suvalist ringi lendavat kuuli lisada. Sel juhul laeme skripti kaudu kuuli stseeni. 
+Nagu varasemalt mainitud, meie `shot_projectile` signaalile peab põhistseen reageerima ja kuuli looma. See tähendab, et põhistseenile on vaja juurde luua skript `main.gd`. Skript peab teadma, milline on kuuli stseen, aga me ei taha põhistseeni üht suvalist ringi lendavat kuuli lisada. Sel juhul laeme skripti kaudu kuuli stseeni. 
 
 Kõik stseenid on salvestatud PackedScene **resurssina**, mitte **sõlmena**. See tähendab, et PackedScene me otse stseeni juurde lisada ei saa, aga kui loome PackedScene'ist instantsi (mis on sõlm), siis see on võimalik. Kuuli stseeni saad konstandina kirja panna ja laadida funktsiooniga `preload`.
 
 ```
 extends Node2D
 
-const PLAYER_BULLET_SCENE: PackedScene = preload("res://kuul.tscn")
+const PLAYER_BULLET_SCENE: PackedScene = preload("res://bullet.tscn")
 ```
 
 Kui nüüd sõlme dokki liigud, siis seal peaks olema nähtav ka meie vastselt loodud signaal. Ühenda see peastseeniga ja peaks tekkima funktsioon nimega `_on_peategelane_shot_projectile`.

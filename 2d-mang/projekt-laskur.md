@@ -86,6 +86,6 @@ Mina kasutan liikumiseks nooleklahve, hüppamiseks Z klahvi ja laskmiseks X klah
 
 ![Input map details](./pildid/projekt-laskur/input-map.png)
 
-Valides stseeni dokis juursõlm (CharacterBody2D) ja sellele topeltklikkides/`F2` vajutades/paremkliki menüüs `Rename` vajutades anna talle uus nimi `Peategelane`. Salvesta stseen, vajutades `CTRL + S`. Godot pakub faili salvestada nimega `peategelane.tscn`. See sobib meile.
+Valides stseeni dokis juursõlm (CharacterBody2D) ja sellele topeltklikkides/`F2` vajutades/paremkliki menüüs `Rename` vajutades anna talle uus nimi `Peategelane`. Salvesta stseen, vajutades `CTRL + S`. Godot pakub faili salvestada nimega `player.tscn`. See sobib meile.
 
 Järgmises alapeatükis õpime Godot füüsikamootorit tundma, kirjutades tegelase liigutamiseks skripti.

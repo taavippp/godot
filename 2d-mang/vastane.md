@@ -107,7 +107,7 @@ flowchart LR;
 	root --> sprite;
 ```
 
-Roomaja asub füüsika kihil 3 ehk `enemy` ja tuvastab füüsika kihti 1 ehk `map`.
+Roomaja asub füüsika kihil nr 3 ehk `enemy` ja tuvastab füüsika kihti nr 1 ehk *level*.
 
 Roomajal on ainult üks animatsioon `default` ja selle saame kohe luua. Kasutame sõlme `AnimatedSprite2D`, nii et loo inspektoris `SpriteFrames` resurss ja leia `default` animatsioon alumise riba kaudu. Kasutame spraidilehe viimasel real olevat punast elukat roomaja animatsiooni jaoks.
 
@@ -121,7 +121,7 @@ Nüüd saame CollisionShape2D'le kuju anda. Olgu see taas lihtne `RectangleShape
 
 ### Ülesanne 3
 
-Loome vastasele skripti `roomaja.gd`.
+Loome vastasele skripti `crawler.gd`.
 
 Roomaja on sarnane meie peategelasele - ta liigub kahes suunas ning talle mõjub gravitatsioon. Kui ta on seinaga kontaktis, ta muudab suunda. Sprait muudab ka muidugi suunda.
 

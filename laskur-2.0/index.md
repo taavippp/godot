@@ -10,10 +10,19 @@ See peatükk on töös!
 
 Planeeritud struktuur:
 
+-   Projekti organiseerimine
 -   Ühine entity klass, mitu vastast
--   AnimationPlayer, Tween
--   Menüüd, helid
+    -   Entitytel on elusid, kui nad haiget saavad, lähevad nad läbipaistvaks
+    -   Üks entity juurde kes lendab ja üles-alla läheb
+    -   GameCamera skript, mis järgib mängijat selle asemel et see mängija laps-sõlm on
+-   Hitbox klass
+    -   Kõik entityd saavad nüüd haiget teha
+-   Tweenid, helid
+    -   Tween uue entity liigutamiseks
+    -   AnimationPlayer
 -   Skoor ja selle salvestamine
+    -   Sõlm, mis vastaseid haldab ja annab teada kui üks hävineb
+    -   Lihtne FileAccess
 
 # Laskur 2.0
 
