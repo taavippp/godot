@@ -136,7 +136,7 @@ Hitbox klassi eesmärk on peale olemusega kokkupõrkamist tema elupunkte vähend
 
 ## Hitbox klass, jätk
 
-Peale Hitbox klassi loomist pole enam kuuli stseenis Area2D ega sellega seotud loogikat vaja. Saad lihtsalt lisada stseeni juurde Hitbox sõlme ja sellele sobiva CollisionShape2D. Tee kindlaks, et Hitbox tuvastab *enemy* (kolmandat) füüsikakihti. Selleks, et taas saavutada kuuli hävinemise efekt kokkupuutel vastasega, saad nüüd ühendada Hitboxi `hit_entity` signaali juursõlme funktsiooniga, kus kasutad `queue_free()`.
+Peale Hitbox klassi loomist pole enam kuuli stseenis Area2D ega sellega seotud loogikat vaja. Saad lihtsalt lisada stseeni juurde Hitbox sõlme ja sellele sobiva CollisionShape2D. Tee kindlaks, et Hitbox tuvastab *enemy* (kolmandat) füüsikakihti. Selleks, et taas saavutada kuuli hävinemise efekt kokkupuutel vastasega, saad nüüd ühendada Hitboxi `hit_entity` signaali juursõlmega ja tulenevas funktsioonis kasutada `queue_free()`.
 
 Lisame ka Crawlerile juurde Hitboxi, mis tuvastab *player* (teist) füüsikakihti. Crawler ei kustuta end kokkupuutel peategelasega, seega `hit_entity` signaali ei ole siin vaja ühendada.
 
