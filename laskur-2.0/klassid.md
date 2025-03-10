@@ -15,7 +15,7 @@ See peatükk on töös!
 
 Kuna tegu on eelmise peatüki projekti edasiarendusega, võid juba loodud Laskuri projekti taas avada. Kui pole Laskuri projekti loodud, soovitan eelmise peatüki läbi võtta või GitHubi repositooriumist see alla laadida.
 
-Selle peatüki põhiosa on kirjutada oma klass nimega Entity (olemus), mis laiendab CharacterBody2D klassi. Selle klassi eesmärk on lihtsustada mängu erinevate tegelaste (Player, Crawler ning ühe teeme veel) loomist ning nendega töötamist. Lisaks on olemustel elupunktid (*health points*).
+Selle alapeatüki põhiline eesmärk on kirjutada oma klass nimega Entity (olemus) mängu erinevate tegelastega lihtsamini töötamiseks ja klass nimega Hitbox tegelaste vahelise võitluse standardiseerimiseks.
 
 ## Organiseerimine
 
@@ -63,6 +63,7 @@ Selle klassi loome selle eesmärgiga, et vältida koodis kordusi ja et kõik ole
 -	`speed` muutuja
 -	`gravity` muutuja
 -	`direction` muutuja
+-	teeme neile juurde ka elupunktide süsteemi
 
 Lisaks kirjutame juurde veel täisarvulise eksportmuutuja `max_health`, mille väärtus olgu vahemikus 1 - 10 ja tavalise täisarvulise muutuja `health`, mis `_ready()` funktsioonis saab väärtuseks `max_health`. Meie tegelased peavad siis suutma oma elusid ka kaotada. Loome funktsiooni `take_damage()`, mille kutsumisel elupunktid langevad ühe võrra ning kui nad on nullis (või alla selle), siis see sõlm kustutab end.
 
