@@ -11,7 +11,7 @@ nav_exclude: true
 ```gdscript
 extends CharacterBody2D
 
-@export var speed: int = 75
+@export var speed: int = 80
 @export var sprite: AnimatedSprite2D
 
 var direction: float = 1.0
@@ -25,6 +25,5 @@ func _process(delta: float) -> void:
 	sprite.flip_h = direction < 0.0
 	move_and_slide()
 ```
-
 
 [Tagasi õpetuse lehele](../2d-mang/vastane#ülesanne-3)

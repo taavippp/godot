@@ -10,16 +10,17 @@ See peatükk on töös!
 
 Planeeritud struktuur:
 
--   Projekti organiseerimine
--   Ühine entity klass, mitu vastast
-    -   Entitytel on elusid, kui nad haiget saavad, lähevad nad läbipaistvaks
+-   Projekti organiseerimine +
+-   Ühine entity klass, mitu vastast +
+    -   Entitytel on elusid, kui nad haiget saavad, lähevad nad läbipaistvaks +
     -   Üks entity juurde kes lendab ja üles-alla läheb
     -   GameCamera skript, mis järgib mängijat selle asemel et see mängija laps-sõlm on
--   Hitbox klass
-    -   Kõik entityd saavad nüüd haiget teha
+-   Hitbox klass +
+    -   Kõik entityd saavad nüüd haiget teha +
 -   Tweenid, helid
+    -   Tween viga saamise animeerimiseks +
     -   Tween uue entity liigutamiseks
-    -   AnimationPlayer
+    -   Helid mängijal
 -   Skoor ja selle salvestamine
     -   Sõlm, mis vastaseid haldab ja annab teada kui üks hävineb
     -   Lihtne FileAccess

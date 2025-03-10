@@ -97,7 +97,6 @@ Kuuli skripti lõppu läheks siis selline kood kirja:
 
 ```gdscript
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	# eelnevates versioonides kasutati "not is", sest "is not" on üks uus võtmesõna, aga "not" ja "is" on eraldi
 	if (body is not CharacterBody2D):
 		return
 	# kustutab pihta saanud sõlme ja iseenda

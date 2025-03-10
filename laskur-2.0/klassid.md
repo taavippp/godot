@@ -10,7 +10,6 @@ See peatükk on töös!
 
 -	Githubi repo link #klassid alla
 -	sounds peab olema vist juba eelnevalt lisatud, kui ma yhte zip faili koik varad panen
--	Entity klassi loomine ylesanne?
 
 # Klassid
 
@@ -95,20 +94,73 @@ Tahame, et kui olemus elupunkte kaotab, siis oleks seda visuaalselt korraks kuid
 
 Meie kasutame oma animatsiooni jaoks `modulate` muutujat, mis on värvifilter sõlmede peal. See on vaikimisi valget värvi, mis tähendab, et sõlmede värvid ei ole muudetud. Meie muudame animatsiooni alguses selle läbipaistvaks ning animatsiooni jooksul taas valgeks, mis tekitab korraks haihtumise efekti.
 
+Tegelikult saaks ka selleks animatsiooniks kasutada AnimationPlayer sõlme, aga see nõuaks rohkem tööd.
+{: .tip }
+
 Lisa `take_damage()` funktsiooni lõppu (peale elupunktide kontrolli) järgnevad koodiread:
 
 ```gdscript
 	... (muu kood)
 	var tween: Tween = create_tween() # loob Tweeni
 	tween.tween_property(
-		self, # stseeni juursõlm
-		"modulate", # modulate muutuja
+		self,
+		"modulate", # muutuja, mida animeerime
 		Color.WHITE, # lõpuks on modulate värv valge
-		0.5 # võtab pool sekundit
+		0.5 # animatsioon võtab pool sekundit
 	).from(Color.TRANSPARENT) # alustame läbipaistvast värvist
 ```
 
-Tegelikult saaks ka selleks animatsiooniks kasutada AnimationPlayer sõlme, aga see võtaks rohkem tööd ja selle kordamist.
-{: .tip }
+## Olemasolevate stseenide uuendamine
 
-Video jätkab 05:11, paneme praegused olemused kasutama Entity klassi
+Teeme failides `crawler.gd` ja `player.gd` paar muudatust ning võtame kasutusele oma Entity klassi.
+
+Alustame `crawler.gd` skriptiga. Vaheta esimene rida `extends Entity` vastu. Koodiredaktor teatab, et muutujad `speed`, `direction` ja `gravity` juba eksisteerivad Entity klassis, seega neid pole vaja uuesti deklareerida. Kui need read eemaldad, pole vaja rohkem muuta Crawleri skriptis. Liigu Playeri skripti ja korda seal tehtut.
+
+Nüüd, kus Player ja Crawler on Entity sõlmed, siis peame üle kontrollima nende eksportmuutujad. Crawleril on liikumiskiirus **80 px/s** ja **2 elupunkti**. Playeril on liikumiskiirus **200 px/s** ja tal on **5 elupunkti**.
+
+![Entity muutujate detailid](./pildid/klassid/entity-muutujad.png)
+
+Peame uuendama ka skriptis `main.gd` konstanti `PLAYER_BULLET_SCENE`, mis viitab kuuli stseenile. See fail asub nüüd `projectiles` kaustas, seega muuda viide vastavalt ümber: `preload("res://projectiles/bullet.tscn")`.
+
+Kui nüüd projekti käivitad, peaks kõik töötama samamoodi nagu varem. See on tegelikult probleem - meie mängu tegelastel on nüüd ju elupunktid olemas, aga roomajad ikka hävinevad kohe, kui kuuliga pihta saavad. Selle parandamiseks loome veel ühe klassi.
+
+## Hitbox klass
+
+Loome uue klassi nimega `Hitbox`, mis laiendab Area2D klassi.
+
+### Ülesanne 4
+
+Hitbox klassi eesmärk on peale olemusega kokkupõrkamist tema elupunkte vähendada. Pead ühendama `body_entered` signaali koodi kaudu näiteks funktsiooniga `_hitbox_body_entered()`. On vaja kontrollida, et füüsikakeha, mis signaali põhjustas, on ikka meie olemuse klassi isend. Peale seda vähendame selle olemuse elupunkte ja levitame uut signaali nimega `hit_entity`.
+
+[Ülesande lahendus](../lahendused/ulesanne-4)
+
+## Hitbox klass, jätk
+
+Peale Hitbox klassi loomist pole enam kuuli stseenis Area2D ega sellega seotud loogikat vaja. Saad lihtsalt lisada stseeni juurde Hitbox sõlme ja sellele sobiva CollisionShape2D. Tee kindlaks, et Hitbox tuvastab *enemy* (kolmandat) füüsikakihti. Selleks, et taas saavutada kuuli hävinemise efekt kokkupuutel vastasega, saad nüüd ühendada Hitboxi `hit_entity` signaali juursõlme funktsiooniga, kus kasutad `queue_free()`.
+
+Lisame ka Crawlerile juurde Hitboxi, mis tuvastab *player* (teist) füüsikakihti. Crawler ei kustuta end kokkupuutel peategelasega, seega `hit_entity` signaali ei ole siin vaja ühendada.
+
+Kui nüüd mängu käivitad, saad mitu korda vastaseid lasta ja vastased saavad ka sulle haiget teha. Meie Tweeniga lisatud animatsioon näitab ilusti, kui olemus viga sai.
+
+## Kaamera
+
+Võib-olla avastasid, et kui vastased sulle küllalt viga teevad ja peategelase sõlm kustutatakse, siis kustub ka tema Camera2D laps-sõlm. Kui see kaamera sõlm kustutatakse, siis kaob temaga kaasnenud suum ja korraga ei ole põhistseenis toimuvat üldse hästi näha. Selle parandamiseks eraldame kaamera peategelase stseenist. Eemalda Camera2D sõlm Playeri stseenist ning loo uus stseen, kus Camera2D on juursõlm. Nimeta juursõlm ümber `GameCamera`ks. Muutuja `zoom` väärtus olgu taas (4, 4), aga sellele kaamerale me lisame juurde ka skripti.
+
+Skript on tegelikult väga lihtne. Kuna see kaamera jälitab mingit sihtmärki, siis tal on eksportmuutuja `target`. Peame kontrollima, et `target`il oleks sobiv väärtus olemas, muidu tekib olematut sõlme jälitades viga. Seda kontrolli saame teha funktsiooniga `is_instance_valid(target)`. Kui sihtmärk ei eksisteeri, siis sihtmärgi jälitamist pole vaja jätkata.
+
+Kaamera skript oleks siis järgmine:
+
+```gdscript
+extends Camera2D
+
+@export var target: Node2D
+
+func _process(delta: float) -> void:
+	if (not is_instance_valid(target)):
+		return
+	global_position = target.global_position
+```
+
+Nüüd saad lisada põhistseeni juurde GameCamera stseeni ja `target` väärtuseks panna meie Playeri. Kui mängu käivitad ja Player sureb ehk tema sõlm kustutatakse, siis kaamera ikka püsib.
+
+Järgmises alapeatükis loome veel ühe vastase ja lisame peategelasele juurde hüppamise ja laskmise helid. Helid teevad mängu palju kaasahaaravamaks.
