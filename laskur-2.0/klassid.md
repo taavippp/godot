@@ -9,7 +9,6 @@ See peatükk on töös!
 {: .todo }
 
 -	Githubi repo link #klassid alla
--	sounds peab olema vist juba eelnevalt lisatud, kui ma yhte zip faili koik varad panen
 
 # Klassid
 

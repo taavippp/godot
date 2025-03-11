@@ -101,3 +101,5 @@ Kui sõlmed on ette valmistatud, siis peame viimast korda `player.gd` skripti mu
 Praegu tundub meie projekt ikka rohkem nagu prototüüp kui tõeline mäng. Seda saame parandada uue süsteemiga, mis vastaseid pidevalt põhistseenis juurde tekitama hakkab. Niimoodi on mängijal pidevalt vaja vastaseid hävitada ja mäng on kaasahaaravam.
 
 Loo uus stseen, kus tavaline Node2D on juursõlm ja tema ainus laps-sõlm on Timer. Timer sõlme me pole veel kasutanud, aga tema funktsionaalsus on päris ilmne - see võtab aega ja mingi aja möödudes lõpetab oma töö.
+
+Ülesanne siia?

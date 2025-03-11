@@ -9,7 +9,7 @@ nav_order: 1
 
 ## Uus projekt
 
-Loo uus projekt nimega `Laskur`, mis kasutab taaskord Compatibility renderdajat. Kasutame [peatüki sissejuhatuses](https://taavippp.github.io/godot/2d-mang/) allalaetud `tilemap.png` spraidifaili. Liiguta see projekti kausta. Godot peaks selle faili automaatselt importima, kui redaktorisse naased.
+Loo uus projekt nimega `Laskur`, mis kasutab taaskord Compatibility renderdajat. Kasutame [peatüki sissejuhatuses](https://taavippp.github.io/godot/2d-mang/) allalaetud mänguvaradest `sprites` kaustas asuvat `tilemap.png` spraidifaili. Liiguta need kaustad oma projekti kausta. Godot peaks need failid automaatselt importima, kui redaktorisse naased.
 
 ## Peategelase stseen
 

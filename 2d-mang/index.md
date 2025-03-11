@@ -20,7 +20,9 @@ Kuna nüüd oskad natuke GDScripti kirjutada, siis nüüdsest on kood, failinime
 
 ## Mänguvarad
 
-Mängu jaoks vajalikud spraidid, mis on loodud Kenney poolt, leiad aadressilt <https://www.kenney.nl/assets/pixel-line-platformer>. Vajuta seal lehel `Download` nupule, seejärel `Continue without donating`. Laed alla faili nimega `kenney_pixel-line-platformer.zip`. Meie projekti jaoks on vaja kaustast `Tilemap` faili `tilemap.png`.
+Mänguvarad on leitavad aadressilt <https://taavippp.github.io/godot/laskur-assets.zip>. Selles .zip failis on kaks kausta, `sprites` ja `sounds`. Muidu on mõlemat kausta projekti arendamisel vaja, aga kui ei plaani läbi teha peatükki "Laskur 2.0", siis `sounds` pole vaja.
+
+Spraidid on loodud [Kenney](https://www.kenney.nl/) poolt. Kenney on populaarne tasuta mänguvarade looja. Enamus tema loodud mänguvaradest on CC0 litsentsi all, mis tähendab, et neid võib ka kommertsprojektis kasutada.
 
 Lõpuks võiks mäng välja näha sarnane järgnevale pildile:
 
