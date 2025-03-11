@@ -100,8 +100,44 @@ Kui sõlmed on ette valmistatud, siis peame viimast korda `player.gd` skripti mu
 
 Praegu tundub meie projekt ikka rohkem nagu prototüüp kui tõeline mäng. Seda saame parandada uue süsteemiga, mis vastaseid pidevalt põhistseenis juurde tekitama hakkab. Niimoodi on mängijal pidevalt vaja vastaseid hävitada ja mäng on kaasahaaravam.
 
-Loo uus stseen, kus tavaline Node2D on juursõlm ja tema ainus laps-sõlm on Timer. Timer sõlme me pole veel kasutanud, aga tema funktsionaalsus on päris ilmne - see võtab aega ja mingi aja möödudes lõpetab oma töö.
+Loo uus stseen, kus tavaline Node2D on juursõlm ja tema ainus laps-sõlm on **Timer** (eesti keeles taimer). Timer sõlme me pole veel kasutanud, aga tema funktsionaalsus on päris ilmne - see võtab aega ja mingi aja möödudes lõpetab oma töö.
 
-?? Ülesanne siia ??
+Loo juursõlmele uus skript nimega `enemy_manager.gd`. Kohe ei pea sinna midagi kirjutama, kuid Timeri `timeout()` signaali kasutamiseks on vaja skripti, millega seda ühendada. Määra taimeri `Wait Time` väärtuseks inspektoris 2 sekundit ja ühenda siis tema `timeout()` signaal skriptiga.
 
-30:27
+EnemyManager stseen peab teadma, kuhu loodud vastaseid asetada. Teeme nii, et Marker2D sõlmed märgivad kohti, kuhu vastane saab tekkida. Teeme seda ilma eksportmuutujata - skript leiab kõik Marker2D sõlmed, mis on juursõlme all. Nii saaks vabalt markereid juurde lisada ilma, et inspektoris ka veel neid kuskile massiivi lisama peaks. Need Marker2D sõlmed peaks üles leidma `_ready()` funktsioonis.
+
+Skript tuleb siis selline välja praeguseks:
+
+```gdscript
+extends Node2D
+
+var spawn_markers: Array[Marker2D] = []
+
+func _ready() -> void:
+	# get_children tagastab massiivi kõigi laps-sõlmedega
+	for child in get_children():
+		if (child is not Marker2D):
+			continue
+		spawn_markers.append(child)
+
+func _on_spawn_timer_timeout() -> void:
+	pass # Replace with function body.
+```
+
+### Ülesanne 5
+
+Nüüd, kus skript kogub Marker2D sõlmed kõik massiivi, peame nendega midagi peale ka hakkama. Taimeri signaalile reageeriv funktsioon `_on_spawn_timer_timeout()` peab valima uuest **vastaste stseenide massiivist** ühe suvalise stseeni, sellest isendi looma ja siis valima suvalise Marker2D, mille kohta see vastane asetada. Massiivist suvalise elemendi valimiseks eksisteerib `Array.pick_random()` funktsioon.
+
+Lisaks vastase suremisel levitab EnemyManager uut `spawned_enemy_died` signaali.
+
+[Ülesande lahendus](../lahendused/ulesanne-5)
+
+Ära unusta inspektori kaudu `enemy_scenes` massiivi lisada oma kahte loodud vastast.
+
+## Vastaste haldur, jätk
+
+Kui nüüd põhistseeni lisad juurde EnemyManager stseeni ja selle laps-sõlmedeks paar Marker2D sõlme oma silma järgi sobivatesse kohtadesse. Minu põhistseen tuli lõpuks sellise välimusega:
+
+![Minu põhistseeni välimus koos markeritega](./pildid/helid/pohistseen-markeritega.png)
+
+Järgmises alapeatükis lõpetame oma Laskuri projekti. Hakkame pidama skoori hävitatud vastaste põhjal ja salvestame seda. Lisaks teeme minimaalse kasutajaliidese juurde.
