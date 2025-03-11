@@ -102,4 +102,6 @@ Praegu tundub meie projekt ikka rohkem nagu prototüüp kui tõeline mäng. Seda
 
 Loo uus stseen, kus tavaline Node2D on juursõlm ja tema ainus laps-sõlm on Timer. Timer sõlme me pole veel kasutanud, aga tema funktsionaalsus on päris ilmne - see võtab aega ja mingi aja möödudes lõpetab oma töö.
 
-Ülesanne siia?
+?? Ülesanne siia ??
+
+30:27
