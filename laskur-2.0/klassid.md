@@ -65,12 +65,14 @@ Selle klassi loome selle eesmärgiga, et vältida koodis kordusi ja et kõik ole
 -	`direction` muutuja
 -	teeme neile juurde ka elupunktide süsteemi
 
-Lisaks kirjutame juurde veel täisarvulise eksportmuutuja `max_health`, mille väärtus olgu vahemikus 1 - 10 ja tavalise täisarvulise muutuja `health`, mis `_ready()` funktsioonis saab väärtuseks `max_health`. Meie tegelased peavad siis suutma oma elusid ka kaotada. Loome funktsiooni `take_damage()`, mille kutsumisel elupunktid langevad ühe võrra ning kui nad on nullis (või alla selle), siis see sõlm kustutab end.
+Lisaks kirjutame juurde veel täisarvulise eksportmuutuja `max_health`, mille väärtus olgu vahemikus 1 - 10 ja tavalise täisarvulise muutuja `health`, mis `_ready()` funktsioonis saab väärtuseks `max_health`. Meie tegelased peavad siis suutma oma elusid ka kaotada. Loome funktsiooni `take_damage()`, mille kutsumisel elupunktid langevad ühe võrra ning kui nad on nullis (või alla selle), siis see sõlm kustutab end. Kui sõlm kustutab end (ehk olemus sureb), siis levitab see signaali `died`.
 
 Kood võiks umbes selline välja näha:
 
 ```gdscript
 class_name Entity extends CharacterBody2D
+
+signal died
 
 @export_range(0, 500, 10) var speed: float = 200.0
 @export_range(1, 10) var max_health: int = 1
@@ -85,6 +87,7 @@ func _ready() -> void:
 func take_damage() -> void:
 	health = health - 1
 	if (health <= 0):
+		died.emit()
 		queue_free()
 		return
 ```

@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 	
 	if (Input.is_action_just_pressed("shoot")):
 		shot_projectile.emit(
+			# kasutame global_position, sest position on suhteline juursõlmega
 			bullet_marker.global_position,
 			direction
 		)
