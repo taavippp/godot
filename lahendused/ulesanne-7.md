@@ -1,3 +1,9 @@
+---
+title: Ülesanne 7
+layout: default
+nav_exclude: true
+---
+
 # Ülesanne 7
 
 Ülesandeks oli põhistseeni kasutajaliidese sõlmed funktsionaalseks teha.
