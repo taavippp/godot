@@ -87,6 +87,4 @@ Nüüd, kus mäng suudab skoori pidada ja parimat lausa salvestada, võiks mäng
 
 Kui praegu põhistseeni lisad näiteks Label sõlme ja mängu käivitad, ei püsi see ekraanil ühe koha peal nagu loota võiks. See juhtub, sest Camera2D olemasolul ei tööta enam kasutajaliidese ankrute süsteem, millest peatükis "Esimene programm" õppisime. Me ei taha Camera2D kustutada ka, sest see on mängu jaoks oluline.
 
-Appi tuleb CanvasLayer sõlm. See sõlm renderdab enda laps-sõlmi eraldi stseenide puus olevast kaamerast. See tähendab, et kui lisame selle sõlme põhistseeni ja selle alla oma kasutajaliidese sõlmed, saame taas õigesti nende ankrute süsteemile toetuda.
-
-47:41
+Appi tuleb CanvasLayer sõlm. See sõlm renderdab enda laps-sõlmi eraldi kihil teistest 2D sõlmedest. See tähendab, et kui lisame selle sõlme põhistseeni ja selle alla oma kasutajaliidese sõlmed, saame taas nende ankrute süsteemile toetuda.
