@@ -5,9 +5,6 @@ nav_order: 1
 has_children: false
 ---
 
-Eraldi AVALIKUD repositooriumid projektide jaoks
-{: .todo }
-
 ![Godot algkursuse logo](./logo.png)
 
 Tere tulemast Godot algkursusele!
@@ -24,10 +21,7 @@ Kasutaja peaks oskama enne kursuse alustamist:
 	-   tead algteadmisi nagu mis on muutuja, konstant, funktsioon, tsükkel
 	-   tead objektorienteeritud programmeerimisest, mis on klassid ja pärimine
 
-Järgmisele lehele saad navigeerida teksti all olevale lingile vajutades.
-Kui soovid muus järjekorras navigeerida, saad seda teha küljeribalt, mis on arvutis vasakul või telefonis üleval peidus.
-
-Kursus koosneb 5 peatükist. Kolmes peatükis loome oma projekte, mis annab praktilist kogemust.
+Kursus koosneb 5 peatükist. Kolmes peatükis loome oma projekte, mis annab praktilist kogemust. Vajaduse korral saad omandada valminud projektide failid kas lehekülje üleval paremal asuvast nupust või lingilt <https://github.com/taavippp/godot-algkursuse-projektid>.
 
 -   [Godot tutvustus](./tutvustus/index)
 	-   mõistetega tutvumine

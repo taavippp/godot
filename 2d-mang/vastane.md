@@ -5,9 +5,6 @@ parent: 2D mäng
 nav_order: 4
 ---
 
-Lingi repositoorium
-{: .todo }
-
 # Vastane
 
 Lõpuks võtame kasutusele peategelase animatsioonid ning teeme talle ka mõned parandused. Pärast loome vastase, keda lasta saab. Lõpuks ekspordime oma projekti, et seda maailmaga jagada saaks.

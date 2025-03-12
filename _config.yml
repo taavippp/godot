@@ -5,10 +5,12 @@ theme: just-the-docs
 url: https://taavippp.github.io/godot
 
 aux_links:
-  Godot: https://godotengine.org/
-  Koduleht: https://taavippp.github.io/
-  Repositoorium: https://github.com/taavippp/godot
+  Godot: https://godotengine.org
+  Projektide repositoorium: https://github.com/taavippp/godot-algkursuse-projektid
 aux_links_new_tab: true
+
+search:
+  button: false
 
 markdown: kramdown
 search_enabled: true
