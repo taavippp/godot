@@ -169,7 +169,7 @@ var circle: ShapeFactory.Circle = factory.Circle.new()
 
 Tegelikult, kui klassi isendi alles lood, siis võid lasta kompilaatoril ka andmetüüpi lihtsalt järeldada. Kui andmetüüpi pole võimalik järeldada, annab Godot sellest teada.
 
-```
+```gdscript
 var factory := ShapeFactory.new()
 var circle := factory.Circle.new()
 ```

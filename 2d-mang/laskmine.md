@@ -133,7 +133,7 @@ Nagu varasemalt mainitud, meie `shot_projectile` signaalile peab põhistseen rea
 
 Kõik stseenid on salvestatud PackedScene **resurssina**, mitte **sõlmena**. See tähendab, et PackedScene me otse stseeni juurde lisada ei saa, aga kui loome PackedScene'ist isendi (mis on sõlm), siis see on võimalik. Kuuli stseeni saad konstandina kirja panna ja laadida funktsiooniga `preload`.
 
-```
+```gdscript
 extends Node2D
 
 const PLAYER_BULLET_SCENE: PackedScene = preload("res://bullet.tscn")

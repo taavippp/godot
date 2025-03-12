@@ -25,7 +25,7 @@ Me tahame, et skooripunktid tõuseks, kui vastane sureb ehk levitab `died()` sig
 
 Lisa põhistseeni skripti järgnevad read juurde:
 
-```
+```gdscript
 var score: int = 0
 
 ... (muu kood)

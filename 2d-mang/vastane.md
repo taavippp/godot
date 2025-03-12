@@ -46,7 +46,7 @@ Selgub, et probleem on meie suuna muutujas. Kindlasti eksisteerib ka teisi lahen
 
 Loo siis juurde `direction_input` muutuja. Kui kutsud välja `Input.get_axis` funktsiooni, siis selle väärtus antakse nüüd sellele muutujale. Peale seda peame kohe oma `direction` muutujale ka väärtuse andma `direction_input` põhjal.
 
-```
+```gdscript
 ... (muu kood)
 var direction_input: float = 0.0
 var direction: float = 1.0
