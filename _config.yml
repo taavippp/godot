@@ -10,7 +10,7 @@ aux_links:
 aux_links_new_tab: true
 
 search:
-  button: false
+  button: true
 
 markdown: kramdown
 search_enabled: true
