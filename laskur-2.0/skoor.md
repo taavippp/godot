@@ -138,4 +138,42 @@ DeathLabel peab samal ajal, kui DeathBackground taas ilmub, kirjutama `Press any
 
 ## Kasutajaliides, jätk
 
-_inputiga restart
+Viimase asjana peame nii tegema, et mängija suudab peale suremist mängu uuesti alustada. Nagu DeathLabel kirjutab, võib selleks ükskõik mis klahvi vajutada. Selle tegemiseks peame looma uue muutuja `is_player_dead`, mis mängija olemasolul silma peal hoiab. Vaikimisi on see väär, aga kui mängija sureb, siis läheb see tõeseks.
+
+Selleks, et ükskõik, mis klahvivajutusele mäng reageeriks, on vaja kasutada `_input(event: InputEvent)` funktsiooni. Godot kutsub seda funktsiooni igasuguste mängija sisendite peale. Näiteks:
+
+-	hiire liigutamine
+-	hiire klõpsamine
+-	klaviatuuril klahvi alla vajutamine
+-	klaviatuuril klahvi lahti laskmine
+
+Peame siis kindlaks tegema, et meie InputEvent on põhjustatud klahvivajutuse poolt.
+
+```gdscript
+func _input(event: InputEvent) -> void:
+	if (is_player_dead and # kas mängija on surnud
+		event is InputEventKey and # InputEventKey on klaviatuuri sisendite klass
+		event.is_pressed() and # kas klahvile vajutatakse
+		not event.is_echo()): # kas klahvile just vajutati
+			get_tree().reload_current_scene() # laeb põhistseeni uuesti
+```
+
+Kui nüüd mängu käivitad, siis peaks kõik töötama - saad korduvalt erinevaid vastaseid lasta, skoor tõuseb, rekordeid kirjutatakse faili ja kui sured, siis mäng teavitab, kuidas uuesti alustada.
+
+**Projekt Laskur on nüüd valmis!**
+
+![Pilt valmis mängust](./pildid/skoor/projekt-laskur.png)
+
+## Mida nüüd?
+
+Kuigi oled nüüd Godot'ga tuttav ja oskad nii mõndagi, on tegelikult palju viise, kuidas seda projekti edasi teha.
+
+-	leia vahe `_process(delta)` ja `_physics_process(delta)` funktsioonide vahel ning kasuta projektis mõlemat
+-	kasuta AnimationPlayer ja GPUParticles2D sõlmesid
+-	lisa veel helisid juurde
+	-	näiteks, kui olemus viga saab
+-	kasuta AutoLoad sõlmesid
+-	kasuta gruppide süsteemi (Node dokis Groups)
+-	loo veel üks vastane, kes mängijat taga ajab
+-	lae alla kasulikke pluginaid ülaribalt AssetLib alt
+	-	näiteks mängusisene arendaja menüü ehk *developer console*

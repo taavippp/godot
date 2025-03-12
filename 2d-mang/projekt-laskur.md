@@ -48,7 +48,7 @@ Selleks, et teada, kui suur ja milline CollisionShape tulema peaks, paneme ennem
 
 ![SpriteFrames loomine](./pildid/projekt-laskur/spriteframes-loomine.png)
 
-Peale SpriteFrames loomist ava see. Alumisel ribal avaneb uus moodul. Vaikimisi on olemas animatsioon "default", aga me tahame juurde luua ka "run" ja "jump". Uue animatsiooni saad luua vasakus "Animations" menüüs, vajutades **rohelise plussiga paberi** ikooni peale. Loodud animatsiooni saad ümber nimetada selle peale klõpsides.
+Peale SpriteFrames loomist ava see. Alumisel ribal avaneb uus moodul. Vaikimisi on olemas animatsioon "default", aga me tahame juurde luua ka "run" ja "jump". Uue animatsiooni saad luua vasakus "Animations" menüüs, vajutades **rohelise plussiga paberi** ikooni peale. Loodud animatsiooni saad ümber nimetada selle peale klõpsates.
 
 Peale animatsioonide loomist on vaja neile kaadrid juurde lisada. Vali animatsioon "default" ja leia parempoolses "Animation Frames" menüüs ruudustiku nupp `Add frames from sprite sheet`. Avaneb faili valimise aken, vali meie `tilemap.png`.
 

@@ -69,7 +69,7 @@ Meie mängus saab olema kaks erinevat heli ja mõlemad neist kuuluvad peategelas
 -	`jump.wav` - hüppamise heli
 -	`shoot.wav` - kuuli laskmise heli
 
-Ava taas peategelase stseen ja lisa kaks `AudioStreamPlayer` sõlme. Mina nimetasin nad vastavalt ümber `JumpAudioStreamPlayer`iks ja `ShootAudioStreamPlayer`iks. Kui uurid ühte neist sõlmedest inspektorist, näed et tal on `Stream` omadus. Selle väärtuseks peame määrama enda heli. Seda saab mugavalt teha klõpsates `<empty>` lahtri kõrval olevale noolele (saab ka lahtri peal parem-klõpsuga) ning avanenud menüüst `Quick Load...` valida.
+Ava taas peategelase stseen ja lisa kaks `AudioStreamPlayer` sõlme. Mina nimetasin nad vastavalt ümber `JumpAudioStreamPlayer`iks ja `ShootAudioStreamPlayer`iks. Kui uurid ühte neist sõlmedest inspektorist, näed et tal on `Stream` omadus. Selle väärtuseks peame määrama enda heli. Seda saab mugavalt teha klõpsates `<empty>` lahtri kõrval olevale noolele (saab ka lahtri peal paremklõpsuga) ning avanenud menüüst `Quick Load...` valida.
 
 ![Helifaili valimise instruktsioon](./pildid/helid/helifaili-valimine.png)
 
@@ -137,7 +137,7 @@ Lisaks vastase suremisel levitab EnemyManager uut `spawned_enemy_died` signaali.
 
 ## Vastaste haldur, jätk
 
-Kui nüüd põhistseeni lisad juurde EnemyManager stseeni ja selle laps-sõlmedeks paar Marker2D sõlme oma silma järgi, siis mängu käivitades peaksid vastased hakkama iga paari sekundi tagant tekkima. Sõlmi saad dubleerida stseeni dokis `CTRL + D` vajutades või parem-klõpsu menüüst `Duplicate` nuppu klõpsates. Minu põhistseen tuli lõpuks sellise välimusega:
+Kui nüüd põhistseeni lisad juurde EnemyManager stseeni ja selle laps-sõlmedeks paar Marker2D sõlme oma silma järgi, siis mängu käivitades peaksid vastased hakkama iga paari sekundi tagant tekkima. Sõlmi saad dubleerida stseeni dokis `CTRL + D` vajutades või paremklõpsu menüüst `Duplicate` nuppu klõpsates. Minu põhistseen tuli lõpuks sellise välimusega:
 
 ![Minu põhistseeni välimus koos markeritega](./pildid/helid/pohistseen-markeritega.png)
 
