@@ -104,6 +104,8 @@ Loo uus stseen, kus tavaline Node2D on juursõlm ja tema ainus laps-sõlm on **T
 
 Loo juursõlmele uus skript nimega `enemy_manager.gd`. Kohe ei pea sinna midagi kirjutama, kuid Timeri `timeout()` signaali kasutamiseks on vaja skripti, millega seda ühendada. Määra taimeri `Wait Time` väärtuseks inspektoris 2 sekundit, märgi tõeseks `Autostart` väärtus ja ühenda siis tema `timeout()` signaal skriptiga.
 
+![Timer sõlme detailid.](./pildid/helid/taimeri-detailid.png)
+
 EnemyManager stseen peab teadma, kuhu loodud vastaseid asetada. Teeme nii, et Marker2D sõlmed märgivad kohti, kuhu vastane saab tekkida. Teeme seda ilma eksportmuutujata - skript leiab kõik Marker2D sõlmed, mis on juursõlme all. Nii saaks vabalt markereid juurde lisada ilma, et inspektoris ka veel neid kuskile massiivi lisama peaks. Need Marker2D sõlmed peaks üles leidma `_ready()` funktsioonis.
 
 Skript tuleb siis selline välja praeguseks:
