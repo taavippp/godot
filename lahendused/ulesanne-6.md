@@ -23,7 +23,7 @@ func _on_player_died() -> void:
 		return
 	var file = FileAccess.open(HIGH_SCORE_FILE_PATH, FileAccess.WRITE)
 	if (is_instance_valid(file)): # kontrollib, et fail eksisteerib
-		file.store_string(String.num(score)) # kirjutab skoori faili
+		file.store_string(String.num(score)) # muudab skoori ümber stringiks ja kirjutab faili
 ```
 
 [Tagasi õpetuse lehele](../laskur-2.0/skoor#ülesanne-6)

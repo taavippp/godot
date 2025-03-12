@@ -14,7 +14,7 @@ Selles alapeatükis lõpetame töö Laskuri projekti kallal. Selleks on vaja kü
 	-	kui saad rekordi, salvestatakse see faili
 -	graafiline kasutajaliides
 	-	nii praegust skoori kui ka rekordit näidatakse
-	-	kui peategelane sureb, näidatakse sellest teavitavat sõnumit
+	-	kui peategelane sureb, näidatakse sõnumit
 		-	kui said rekordi, antakse sellest teada
 
 ## Skoori süsteem
@@ -66,6 +66,11 @@ Avanenud aknas kirjuta otsinguribasse, mis sõlme/resurssi/klassi kohta uurida t
 
 [Ülesande lahendus](../lahendused/ulesanne-6)
 
+Kui oled tähelepanelik, siis meie loodud faili asukoht algab `user://` kaustast, mitte `res://` nagu kuuli stseeniga. Neil kahel on tegelikult lihtne vahe:
+
+-	`res://` on projekti failide kaust (see, mida redaktoris failisüsteemi dokis näed). Eksporditud projektis on see kompileeritud ühte faili.
+-	`user://` on kasutaja andmete hoimiseks. Seda kausta saab näha ülaribalt `Project -> Open User Data Folder` kaudu.
+
 ## Failihaldus, jätk
 
 Nüüd, kus salvestame rekordskoori faili, võiks seda mängu käivitades failist ka lugeda. Teeme seda muidugi `_ready()` funktsioonis. Koodiread tulevad sarnased ülesande lahendusele, aga kasutame `FileAccess.WRITE` argumendi asemel `FileAccess.READ`. Kui fail eksisteerib, siis võtame kogu selle sisu, muudame ümber täisarvu andmetüübiks ja määrame selle `high_score` väärtuseks.
@@ -88,3 +93,49 @@ Nüüd, kus mäng suudab skoori pidada ja parimat lausa salvestada, võiks mäng
 Kui praegu põhistseeni lisad näiteks Label sõlme ja mängu käivitad, ei püsi see ekraanil ühe koha peal nagu loota võiks. See juhtub, sest Camera2D olemasolul ei tööta enam kasutajaliidese ankrute süsteem, millest peatükis "Esimene programm" õppisime. Me ei taha Camera2D kustutada ka, sest see on mängu jaoks oluline.
 
 Appi tuleb CanvasLayer sõlm. See sõlm renderdab enda laps-sõlmi eraldi kihil teistest 2D sõlmedest. See tähendab, et kui lisame selle sõlme põhistseeni ja selle alla oma kasutajaliidese sõlmed, saame taas nende ankrute süsteemile toetuda.
+
+Lisa siis põhistseeni juurde need sõlmed:
+
+-	CanvasLayer
+	-	Control
+		-	Label nimega `ScoreLabel`
+		-	ColorRect nimega `DeathBackground`
+			-	Label nimega `DeathLabel`
+
+Uus sõlm **ColorRect** ongi lihtsalt värviline kast (*color rectangle*).
+
+Tuletame meelde, et ankrute süsteem töötas projekti akna äärte põhjal. Nt valik `Full Rect` tähendas, et Control võtab enda alla terve akna (või kui ta on teise Controli laps-sõlm, siis nii palju ruumi, kui talle antud on).
+
+Ankrute malle saad määrata põhivaates rohelise ringi ja plussi ikooniga nupust. Kui üks neist mallidest aga ei sobi, pead ikka muutma ankrute väärtusi inspektori kaudu.
+
+![Ankrute mallide otsetee põhivaates](./pildid/skoor/ankrute-mallide-otsetee.png)
+
+Controli ankrud olgu `Full Rect` järgi, ScoreLabeli ankrud `Top Left` järgi, ColorRect ka `Full Rect` järgi ja DeathLabel `H Center Wide` (akna laiune, keskel) järgi.
+
+DeathBackground ja tema DeathLabel laps-sõlm moodustavad selle kuva, mida mängija näeb, kui ta sureb. Määra DeathBackgroundi värviks inspektoris mingi läbipaistev värv. Mina tegin ta näiteks mustaks.
+
+![ColorRecti värvi muutmine](./pildid/skoor/colorrect-varv.png)
+
+Kirjuta Labelitele juurde mingi näidistekst (see muutub niikuinii, kui stseeni käivitame). Anna ScoreLabelile inspektoris uus `Label Settings` väärtus. Font ise on okei, aga selle suuruseks võiks 32 px panna. Lisaks võiks olemas olla **must piirjoon** ehk *outline*, mis on 6 px suurune. Loo sama LabelSettings resurss ka DeathLabeli jaoks (võid kopeerida ümber). DeathLabeli tekst peaks keskel olema, seega määra `Horizontal Alignment` väärtuseks `Center`.
+
+Põhistseen näeb nüüd redaktoris päris kahtlane välja, aga kui mängu käivitad, siis ankrute süsteem hakkab õigesti tööle.
+
+![Põhistseeni lõplik välimus](./pildid/skoor/pohistseen.png)
+
+### Ülesanne 7
+
+Nüüd on vaja kasutajaliidesele funktsionaalsus juurde anda. Selleks on vaja **põhistseeni skriptis** eksportmuutujaid ScoreLabeli, DeathBackgroundi ja DeathLabeli jaoks.
+
+Stringis saad kuvada muutuja väärtust, kui stringi vormindad. Uuri välja, kuidas `String.format()` funktsioon töötab.
+
+ScoreLabeli tekst peab uuenema, kui skoor tõuseb ja kuvama ka failist sisse loetud rekordit eraldi real.
+
+DeathBackgroundi peab peitma `hide()` funktsiooniga, kui mäng tööle pannakse ja siis taas seda näitama, kui mängija sureb.
+
+DeathLabel peab samal ajal, kui DeathBackground taas ilmub, kirjutama `Press any key to restart` ja kui mängija püstitas rekordi, siis uuel real sellest teada andma.
+
+[Ülesande lahendus](../lahendused/ulesanne-7)
+
+## Kasutajaliides, jätk
+
+_inputiga restart

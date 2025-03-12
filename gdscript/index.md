@@ -9,7 +9,7 @@ has_children: false
 
 Selles osas tutvume lähemalt GDScripti erinevate osadega.
 
-## Tühikud
+## Taandamine
 
 GDScript on süntaksi poolest kohati sarnane Python keelele - mõlemal keelel on iga rea taane oluline.
 Esimene funktsioon siin koodiplokis annaks veateate, teine mitte.
@@ -176,7 +176,7 @@ var circle := factory.Circle.new()
 
 Pane tähele, et on kasutatud nii koolonit (:) kui ka võrdusmärki (=).
 
-### Enumeraator ehk loenditüüp
+## Enumeraator ehk loenditüüp
 
 Võtmesõnaga `enum` on võimalik deklareerida konstantsete väärtustega struktuur, kus konstantidel on automaatselt väärtused antud.  Vajadusel saad ka ise väärtuse määrata.
 
