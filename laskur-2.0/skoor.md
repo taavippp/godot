@@ -51,7 +51,7 @@ Nüüd, kus põhistseen skoori ja rekordeid suudab pidada, peaks parima skoori f
 
 ### Ülesanne 6
 
-Selleks, et iseseisvamalt Godot' õppida kasutama, pead oskama Godot' dokumentatsiooni sirvida. Õnneks on Godot ametlik dokumentatsioon **sisse ehitatud redaktorisse** ja kättesaadav ka **veebi kaudu** <https://docs.godotengine.org/en/stable/>. Redaktorisse sisse ehitatud dokumentatsioon on kättesaadav päris mitmel moel:
+Selleks, et iseseisvamalt Godot' õppida kasutama, pead oskama dokumentatsiooni enda kasuks sirvida. Õnneks on Godot ametlik dokumentatsioon **sisse ehitatud redaktorisse** ja kättesaadav ka **veebi kaudu** <https://docs.godotengine.org/en/stable/>. Redaktorisse sisse ehitatud dokumentatsioon on kättesaadav päris mitmel moel:
 
 -	`F1` klahv
 -	ülaribalt `Help -> Search Help...`
@@ -88,3 +88,5 @@ Nüüd, kus mäng suudab skoori pidada ja parimat lausa salvestada, võiks mäng
 Kui praegu põhistseeni lisad näiteks Label sõlme ja mängu käivitad, ei püsi see ekraanil ühe koha peal nagu loota võiks. See juhtub, sest Camera2D olemasolul ei tööta enam kasutajaliidese ankrute süsteem, millest peatükis "Esimene programm" õppisime. Me ei taha Camera2D kustutada ka, sest see on mängu jaoks oluline.
 
 Appi tuleb CanvasLayer sõlm. See sõlm renderdab enda laps-sõlmi eraldi stseenide puus olevast kaamerast. See tähendab, et kui lisame selle sõlme põhistseeni ja selle alla oma kasutajaliidese sõlmed, saame taas õigesti nende ankrute süsteemile toetuda.
+
+47:41

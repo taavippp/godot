@@ -20,7 +20,9 @@ Kuna nüüd oskad natuke GDScripti kirjutada, siis nüüdsest on kood, failinime
 
 ## Mänguvarad
 
-Mänguvarad on leitavad aadressilt <https://taavippp.github.io/godot/laskur-assets.zip>. Selles .zip failis on kaks kausta, `sprites` ja `sounds`. Muidu on mõlemat kausta projekti arendamisel vaja, aga kui ei plaani läbi teha peatükki "Laskur 2.0", siis `sounds` pole vaja.
+<https://taavippp.github.io/godot/laskur-assets.zip>
+
+Mänguvarad on leitavad aadressilt ülemisel real olevalt lingilt. Selles .zip failis on kaks kausta, `sprites` ja `sounds`. Muidu on mõlemat kausta projekti arendamisel vaja, aga kui ei plaani läbi teha peatükki "Laskur 2.0", siis `sounds` pole vaja.
 
 Spraidid on loodud [Kenney](https://www.kenney.nl/) poolt. Kenney on populaarne tasuta mänguvarade looja. Enamus tema loodud mänguvaradest on CC0 litsentsi all, mis tähendab, et neid võib ka kommertsprojektis kasutada.
 
