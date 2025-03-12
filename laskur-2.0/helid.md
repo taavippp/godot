@@ -102,7 +102,7 @@ Praegu tundub meie projekt ikka rohkem nagu prototüüp kui tõeline mäng. Seda
 
 Loo uus stseen, kus tavaline Node2D on juursõlm ja tema ainus laps-sõlm on **Timer** (eesti keeles taimer). Timer sõlme me pole veel kasutanud, aga tema funktsionaalsus on päris ilmne - see võtab aega ja mingi aja möödudes lõpetab oma töö.
 
-Loo juursõlmele uus skript nimega `enemy_manager.gd`. Kohe ei pea sinna midagi kirjutama, kuid Timeri `timeout()` signaali kasutamiseks on vaja skripti, millega seda ühendada. Määra taimeri `Wait Time` väärtuseks inspektoris 2 sekundit ja ühenda siis tema `timeout()` signaal skriptiga.
+Loo juursõlmele uus skript nimega `enemy_manager.gd`. Kohe ei pea sinna midagi kirjutama, kuid Timeri `timeout()` signaali kasutamiseks on vaja skripti, millega seda ühendada. Määra taimeri `Wait Time` väärtuseks inspektoris 2 sekundit, märgi tõeseks `Autostart` väärtus ja ühenda siis tema `timeout()` signaal skriptiga.
 
 EnemyManager stseen peab teadma, kuhu loodud vastaseid asetada. Teeme nii, et Marker2D sõlmed märgivad kohti, kuhu vastane saab tekkida. Teeme seda ilma eksportmuutujata - skript leiab kõik Marker2D sõlmed, mis on juursõlme all. Nii saaks vabalt markereid juurde lisada ilma, et inspektoris ka veel neid kuskile massiivi lisama peaks. Need Marker2D sõlmed peaks üles leidma `_ready()` funktsioonis.
 
