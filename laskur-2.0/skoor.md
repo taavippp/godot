@@ -56,11 +56,11 @@ Selleks, et iseseisvamalt Godot' õppida kasutama, pead oskama Godot' dokumentat
 -	`F1` klahv
 -	ülaribalt `Help -> Search Help...`
 -	kui oled skripti redaktoris, on selle ülaosas paremal `Search Help` nupp
--	inspektoris luubi ikooniga nupp
+-	inspektoris luubi ikooniga nupp (avab valitud sõlme dokumentatsiooni)
 
 ![Kollaaž erinevatest dokumentatsiooni avamise viisidest](./pildid/skoor/dokumentatsiooni-avamise-viisid.png)
 
-Avanenud aknas kirjuta otsinguribasse, mis sõlme/resurssi/klassi kohta uurida tahad ja vajuta `Open` või `Enter` klahvi.
+Avanenud aknas kirjuta otsinguribasse, mis sõlme/resurssi/klassi kohta uurida tahad ja vajuta `Open` nuppu või `Enter` klahvi.
 
 Ülesanne on avastada, kuidas FileAccess klassiga faili avada ja põhistseeni skriptiga rekordskoor faili salvestada. Võiks kontrollida ka, et fail ikka olemas on.
 
@@ -85,4 +85,6 @@ Kui nüüd mängu käivitad, siis `Output`is kirjutatakse, mis mängu rekordskoo
 
 Nüüd, kus mäng suudab skoori pidada ja parimat lausa salvestada, võiks mängijale ka näidata, mis tema tulemused on.
 
-Kui praegu põhistseeni lisad näiteks Label sõlme ja stseeni käivitad, ei püsi see ekraanil ühe koha peal.
+Kui praegu põhistseeni lisad näiteks Label sõlme ja mängu käivitad, ei püsi see ekraanil ühe koha peal nagu loota võiks. See juhtub, sest Camera2D olemasolul ei tööta enam kasutajaliidese ankrute süsteem, millest peatükis "Esimene programm" õppisime. Me ei taha Camera2D kustutada ka, sest see on mängu jaoks oluline.
+
+Appi tuleb CanvasLayer sõlm. See sõlm renderdab enda laps-sõlmi eraldi stseenide puus olevast kaamerast. See tähendab, et kui lisame selle sõlme põhistseeni ja selle alla oma kasutajaliidese sõlmed, saame taas õigesti nende ankrute süsteemile toetuda.
