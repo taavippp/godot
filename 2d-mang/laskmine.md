@@ -84,7 +84,7 @@ Kui kuuli stseeni käima panemisel kuul liigub ja kõik tundub töötavat, kontr
 
 ## Skript, jätk
 
-Lisaks liikumisele peab see kuul hävinema, kui tasemega kokku puutub. Kui kuul lendab horisontaalses joones, siis ainus võimalus tal tasemega kokku puutuda on vastu seina lennates. Ennem kasutasime `is_on_floor()` funktsiooni, aga eksisteerib ka `is_on_wall()` seinaga kokkupõrke kontrolliks. Lisa oma `_process` funktsiooni enne `move_and_slide()` käsku järgmised read juurde:
+Lisaks liikumisele peab see kuul hävinema, kui tasemega kokku puutub. Kui kuul lendab horisontaalses joones, siis ainus võimalus tal tasemega kokku puutuda on vastu seina lennates. Määra inspektoris juursõlme `Motion Mode` väärtuseks `Floating`, et kõik füüsikamootor kõiki kuuli kontakte võtaks kui seina kokkupõrkeid. Ennem kasutasime `is_on_floor()` funktsiooni, aga eksisteerib ka `is_on_wall()` seinaga kokkupõrke kontrolliks. Lisa oma `_process` funktsiooni enne `move_and_slide()` käsku järgmised read juurde:
 
 ```gdscript
 	if (is_on_wall()):

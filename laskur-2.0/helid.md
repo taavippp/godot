@@ -136,7 +136,7 @@ Lisaks vastase suremisel levitab EnemyManager uut `spawned_enemy_died` signaali.
 
 ## Vastaste haldur, jätk
 
-Kui nüüd põhistseeni lisad juurde EnemyManager stseeni ja selle laps-sõlmedeks paar Marker2D sõlme oma silma järgi sobivatesse kohtadesse. Minu põhistseen tuli lõpuks sellise välimusega:
+Kui nüüd põhistseeni lisad juurde EnemyManager stseeni ja selle laps-sõlmedeks paar Marker2D sõlme oma silma järgi, siis mängu käivitades peaksid vastased hakkama iga paari sekundi tagant tekkima. Sõlmi saad dubleerida stseeni dokis `CTRL + D` vajutades või parem-klõpsu menüüst `Duplicate` nuppu klõpsates. Minu põhistseen tuli lõpuks sellise välimusega:
 
 ![Minu põhistseeni välimus koos markeritega](./pildid/helid/pohistseen-markeritega.png)
 
