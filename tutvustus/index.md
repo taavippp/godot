@@ -27,8 +27,8 @@ Nende hulka kuuluvad:
 -   iOS*
 -   mängukonsoolid*
 
-* Nendel platvormidel pole redaktor saadaval, aga Godot's loodud mänge on võimalik nende jaoks luua ikka.
-{: .fs-3}
+Tärniga märgitud platvormidel pole redaktor saadaval, aga Godot's loodud mänge on võimalik nende jaoks luua ikka.
+{: .tip }
 
 Godot'ga saab luua nii 2D kui ka 3D rakendusi.
 Saadaval on
