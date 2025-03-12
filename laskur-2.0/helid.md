@@ -14,13 +14,15 @@ Selles alapeatükis loome juurde veel ühe vastase, kes liigub Tweeniga loodud a
 
 ## Lendaja
 
-Teeme juurde veel ühe vastase, kes lennata suudab. Loo uus stseen, kus juursõlmeks on Entity nimega `Flyer` (meie loodud klass). Järgime sama töövoogu, mis varem ja lisa juurde AnimatedSprite2D.
+Teeme juurde veel ühe vastase, kes lennata suudab. Loo uus stseen, kus juursõlmeks on Entity (meie loodud klass) nimega `Flyer`. Järgi sama töövoogu, mis varem ja lisa juurde AnimatedSprite2D.
 
 Sellel tegelasel on vaid **üks animatsioon**, mis **automaatselt** mängima hakkab. Kasutame ikka sama spraidilehte `tilemap.png`, millel oli **10 horisontaalset**, **6 vertikaalset** kaadrit ja **1-piksline kaadrite vahe**. Flyeri kaks kaadrit asuvad viimases reas, kollase putuka omade kõrval. Mina panin selle animatsiooni kaadrisageduseks 10 FPS.
 
 ![Flyeri animatsiooni detailid](./pildid/helid/flyer-animatsioon.png)
 
 Lisa juurde CollisionShape2D, mille kujuks on RectangleShape2D ja Hitbox, mille CollisionShape2D kujuks on CircleShape2D. Määra neile suurused ise. Salvesta stseen `entities` kausta nagu teistegi olemustega. **Ära unusta sõlmede füüsikakihid** - juursõlm on *enemy* kihil ja põrkab kokku *level*iga, Hitbox peab ainult *player* kihti tuvastama.
+
+Määra Flyerile ka mingi elupunktide arv. Mina panin näiteks talle `max_health` väärtuseks 3.
 
 Nüüd oleks vaja ta liikuma panna. Loo juurde skript `flyer.gd`. Lendaja on kogu aeg õhus ja lendab vaikselt üles-alla. Kuigi ta kutsub `_process(delta)` funktsioonis välja ikka `move_and_slide()`, siis tema liikumise loogika läheb tegelikult `_ready()` funktsiooni. Skript tuleb välja selline:
 
@@ -32,7 +34,7 @@ const MAX_Y_VELOCITY: float = 24.0
 @export var sprite: AnimatedSprite2D
 
 func _ready() -> void:
-	super() # Entity klassil on ka _ready funktsioon, super() kutsub seda
+	super() # kutsub oma ülemklassi (ehk Entity) _ready() funktsiooni
 	sprite.flip_h = direction < 0.0
 	var tween = create_tween()
 	# paneb Tweeni animatsiooni korduma
