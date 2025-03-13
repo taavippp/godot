@@ -56,7 +56,7 @@ func _on_player_died() -> void:
 	death_label.text = "Press any key to restart"
 	if (score <= high_score):
 		return
-	death_label.text += "You got a new high score!"
+	death_label.text += "\nYou got a new high score!" # sümbol \n alustab uue rea
 	var file = FileAccess.open(HIGH_SCORE_FILE_PATH, FileAccess.WRITE)
 	if (is_instance_valid(file)): # kontrollib, et fail eksisteerib
 		file.store_string(String.num(score)) # muudab skoori ümber stringiks ja kirjutab faili
