@@ -5,14 +5,9 @@ parent: Laskur 2.0
 nav_order: 1
 ---
 
-See peatükk on töös!
-{: .todo }
-
--	Githubi repo link #klassid alla
-
 # Klassid
 
-Kuna tegu on eelmise peatüki projekti edasiarendusega, võid juba loodud Laskuri projekti taas avada. Kui pole Laskuri projekti loodud, soovitan eelmise peatüki läbi võtta või GitHubi repositooriumist see alla laadida.
+Kuna tegu on eelmise peatüki projekti edasiarendusega, võid juba loodud Laskuri projekti taas avada. Kui pole Laskuri projekti loodud, soovitan eelmise peatüki läbi võtta või [GitHubi repositooriumist](https://github.com/taavippp/godot-algkursuse-projektid/) see alla laadida.
 
 Selle alapeatüki põhiline eesmärk on kirjutada oma klass nimega Entity (olemus) mängu erinevate tegelastega lihtsamini töötamiseks ja klass nimega Hitbox tegelaste vahelise võitluse standardiseerimiseks.
 
