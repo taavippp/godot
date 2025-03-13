@@ -37,8 +37,9 @@ res://
 │       ├── player.tscn
 │       └── player.gd
 ├── projectiles
-│   ├── bullet.tscn
-│   └── bullet.gd
+|   └── bullet
+│       ├── bullet.tscn
+│       └── bullet.gd
 ├── sounds
 │   ├── jump.wav
 │   └── shoot.wav
@@ -62,7 +63,6 @@ Selle klassi loome selle eesmärgiga, et vältida koodis kordusi ja et kõik ole
 -	`speed` muutuja
 -	`gravity` muutuja
 -	`direction` muutuja
--	teeme neile juurde ka elupunktide süsteemi
 
 Lisaks kirjutame juurde veel täisarvulise eksportmuutuja `max_health`, mille väärtus olgu vahemikus 1 - 10 ja tavalise täisarvulise muutuja `health`, mis `_ready()` funktsioonis saab väärtuseks `max_health`. Meie tegelased peavad siis suutma oma elusid ka kaotada. Loome funktsiooni `take_damage()`, mille kutsumisel elupunktid langevad ühe võrra ning kui nad on nullis (või alla selle), siis see sõlm kustutab end. Kui sõlm kustutab end (ehk olemus sureb), siis levitab see signaali `died`.
 
@@ -73,12 +73,12 @@ class_name Entity extends CharacterBody2D
 
 signal died
 
-@export_range(0, 500, 10) var speed: float = 200.0
-@export_range(1, 10) var max_health: int = 1
+@export_range(0.0, 1000.0) var speed: float = 200.0
+@export_range(1, 10) var max_health: int = 3
 
 var gravity: float = 25.0
 var direction: float = 1.0
-var health = 1
+var health: int
 
 func _ready() -> void:
 	health = max_health
@@ -88,7 +88,6 @@ func take_damage() -> void:
 	if (health <= 0):
 		died.emit()
 		queue_free()
-		return
 ```
 
 ## Koodi kaudu animeerimine
@@ -103,14 +102,18 @@ Tegelikult saaks ka selleks animatsiooniks kasutada AnimationPlayer sõlme, aga 
 Lisa `take_damage()` funktsiooni lõppu (peale elupunktide kontrolli) järgnevad koodiread:
 
 ```gdscript
+func take_damage() -> void:
+
 	... (muu kood)
-	var tween: Tween = create_tween() # loob Tweeni
+
+	modulate = Color.TRANSPARENT # muudame sõlme läbipaistvaks
+	var tween := create_tween() # loob Tweeni
 	tween.tween_property(
 		self,
 		"modulate", # muutuja, mida animeerime
-		Color.WHITE, # lõpuks on modulate värv valge
+		Color.WHITE, # animeeritava muutuja lõppväärtus
 		0.5 # animatsioon võtab pool sekundit
-	).from(Color.TRANSPARENT) # alustame läbipaistvast värvist
+	)
 ```
 
 ## Olemasolevate stseenide uuendamine
@@ -119,11 +122,11 @@ Teeme failides `crawler.gd` ja `player.gd` paar muudatust ning võtame kasutusel
 
 Alustame `crawler.gd` skriptiga. Vaheta esimene rida `extends Entity` vastu. Koodiredaktor teatab, et muutujad `speed`, `direction` ja `gravity` juba eksisteerivad Entity klassis, seega neid pole vaja uuesti deklareerida. Kui need read eemaldad, pole vaja rohkem muuta Crawleri skriptis. Liigu Playeri skripti ja korda seal tehtut.
 
-Nüüd, kus Player ja Crawler on Entity sõlmed, siis peame üle kontrollima nende eksportmuutujad. Crawleril on liikumiskiirus **80 px/s** ja **2 elupunkti**. Playeril on liikumiskiirus **200 px/s** ja tal on **5 elupunkti**.
+Nüüd, kus Player ja Crawler on Entity sõlmed, siis peame üle kontrollima nende eksportmuutujad. Crawleril on liikumiskiirus **75 px/s** ja **2 elupunkti**. Playeril on liikumiskiirus **200 px/s** ja tal on **5 elupunkti**.
 
 ![Entity muutujate detailid](./pildid/klassid/entity-muutujad.png)
 
-Peame uuendama ka skriptis `main.gd` konstanti `PLAYER_BULLET_SCENE`, mis viitab kuuli stseenile. See fail asub nüüd `projectiles` kaustas, seega muuda viide vastavalt ümber: `preload("res://projectiles/bullet.tscn")`.
+Peame uuendama ka skriptis `main.gd` konstanti `PLAYER_BULLET_SCENE`, mis viitab kuuli stseenile. See fail asub nüüd `projectiles` kaustas, seega muuda viide vastavalt ümber: `preload("res://projectiles/bullet/bullet.tscn")`.
 
 Kui nüüd projekti käivitad, peaks kõik töötama samamoodi nagu varem. See on tegelikult probleem - meie mängu tegelastel on nüüd ju elupunktid olemas, aga roomajad ikka hävinevad kohe, kui kuuliga pihta saavad. Selle parandamiseks loome veel ühe klassi.
 
@@ -133,13 +136,13 @@ Loome uue klassi nimega `Hitbox`, mis laiendab Area2D klassi.
 
 ### Ülesanne 4
 
-Hitbox klassi eesmärk on peale olemusega kokkupõrkamist tema elupunkte vähendada. Pead ühendama `body_entered` signaali koodi kaudu näiteks funktsiooniga `_hitbox_body_entered()`. On vaja kontrollida, et füüsikakeha, mis signaali põhjustas, on ikka meie olemuse klassi isend. Peale seda vähendame selle olemuse elupunkte ja levitame uut signaali nimega `hit_entity`.
+Hitbox klassi eesmärk on peale olemusega kokkupõrkamist tema elupunkte vähendada. Pead ühendama `body_entered` signaali **koodi kaudu** näiteks funktsiooniga `_hitbox_body_entered()`. On vaja kontrollida, et füüsikakeha, mis signaali põhjustas, on ikka meie olemuse klassi isend. Peale seda vähendame selle olemuse elupunkte ja levitame uut signaali nimega `hit_entity`.
 
 [Ülesande lahendus](../lahendused/ulesanne-4)
 
 ## Hitbox klass, jätk
 
-Peale Hitbox klassi loomist pole enam kuuli stseenis Area2D ega sellega seotud loogikat vaja. Saad lihtsalt lisada stseeni juurde Hitbox sõlme ja sellele sobiva CollisionShape2D. Tee kindlaks, et Hitbox tuvastab *enemy* (kolmandat) füüsikakihti. Selleks, et taas saavutada kuuli hävinemise efekt kokkupuutel vastasega, saad nüüd ühendada Hitboxi `hit_entity` signaali juursõlmega ja tulenevas funktsioonis kasutada `queue_free()`.
+Peale Hitbox klassi loomist pole enam kuuli stseenis Area2D ega skriptis selle loogikat vaja, seega kustuta need. Saad lihtsalt lisada stseeni juurde Hitbox sõlme ja sellele sobiva CollisionShape2D. Tee kindlaks, et Hitbox tuvastab *enemy* (kolmandat) füüsikakihti. Selleks, et taas saavutada kuuli hävinemise efekt kokkupuutel vastasega, saad nüüd ühendada Hitboxi `hit_entity` signaali juursõlme skriptiga ja tekkinud funktsioonis kasutada `queue_free()`.
 
 Lisame ka Crawlerile juurde Hitboxi, mis tuvastab *player* (teist) füüsikakihti. Crawler ei kustuta end kokkupuutel peategelasega, seega `hit_entity` signaali ei ole siin vaja ühendada.
 
@@ -166,4 +169,4 @@ func _process(delta: float) -> void:
 
 Nüüd saad lisada põhistseeni juurde GameCamera stseeni ja `target` väärtuseks panna meie Playeri. Kui mängu käivitad ja Player sureb ehk tema sõlm kustutatakse, siis kaamera ikka püsib.
 
-Järgmises alapeatükis loome veel ühe vastase ja lisame peategelasele juurde hüppamise ja laskmise helid. Helid teevad mängu palju kaasahaaravamaks.
+Järgmises alapeatükis loome veel ühe vastase, võtame kasutusele helid ja loome vastaste halduri. Kõik need asjad teevad meie mängu palju kaasahaaravamaks.
