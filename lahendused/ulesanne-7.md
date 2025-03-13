@@ -13,7 +13,7 @@ Kasutajaliides pidi kuvama nii praegust skoori kui ka failist sisse loetud rekor
 ```gdscript
 extends Node2D
 
-const PLAYER_BULLET_SCENE: PackedScene = preload("res://projectiles/bullet.tscn")
+const PLAYER_BULLET_SCENE: PackedScene = preload("res://projectiles/bullet/bullet.tscn")
 const HIGH_SCORE_FILE_PATH: String = "user://high_score.dat"
 
 @export var score_label: Label

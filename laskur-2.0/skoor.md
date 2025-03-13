@@ -21,7 +21,7 @@ Selles alapeatükis lõpetame töö Laskuri projekti kallal. Selleks on vaja kü
 
 Peame põhistseeni skriptile palju muudatusi tegema. Alustame skoori lugemise süsteemiga.
 
-Me tahame, et skooripunktid tõuseks, kui vastane sureb ehk levitab `died()` signaali. Eelmises alapeatükis lõime EnemyManager stseeni, mis levitab enda `spawned_enemy_died()` signaali, kui tema vastase surmast teada saab. Seega saame lihtsalt **EnemyManageri signaali põhistseeni skriptiga ühendada**, et skooripunkte juurde lisada.
+Me tahame, et skooripunktid tõuseks, kui vastane sureb ehk levitab `died` signaali. Eelmises alapeatükis lõime EnemyManager stseeni, mis levitab enda `spawned_enemy_died` signaali, kui tema vastase surmast teada saab. Seega saame lihtsalt **EnemyManageri signaali põhistseeni skriptiga ühendada**, et skooripunkte juurde lisada.
 
 Lisa põhistseeni skripti järgnevad read juurde:
 
@@ -40,7 +40,7 @@ Nüüd, kus lihtne skoori lugemine on olemas, võiks kuidagi meelde jätta, mis 
 ... (muu kood)
 
 func _on_player_died() -> void:
-	if (score <= high_score):
+	if (score <= high_score): # kui skoor ei ole rekord, siis kõik
 		return
 	print("Said rekordi! Oled tõeline mängur.")
 ```
@@ -68,8 +68,8 @@ Avanenud aknas kirjuta otsinguribasse, mis sõlme/resurssi/klassi kohta uurida t
 
 Kui oled tähelepanelik, siis meie loodud faili asukoht algab `user://` kaustast, mitte `res://` nagu kuuli stseeniga. Neil kahel on tegelikult lihtne vahe:
 
--	`res://` on projekti failide kaust (see, mida redaktoris failisüsteemi dokis näed). Eksporditud projektis on see kompileeritud ühte faili.
--	`user://` on kasutaja andmete hoimiseks. Seda kausta saab näha ülaribalt `Project -> Open User Data Folder` kaudu.
+-	`res://` on projekti failide kaust (see, mida redaktoris failisüsteemi dokis näed). Eksporditud projektis on see kaust kokku kompileeritud.
+-	`user://` on kasutaja andmete hoimiseks (nt erinevad saavutused, skoorid). Selle kausta saad avada ülaribalt `Project -> Open User Data Folder` kaudu.
 
 ## Failihaldus, jätk
 
@@ -116,7 +116,7 @@ DeathBackground ja tema DeathLabel laps-sõlm moodustavad selle kuva, mida mäng
 
 ![ColorRecti värvi muutmine](./pildid/skoor/colorrect-varv.png)
 
-Kirjuta Labelitele juurde mingi näidistekst (see muutub niikuinii, kui stseeni käivitame). Anna ScoreLabelile inspektoris uus `Label Settings` väärtus. Font ise on okei, aga selle suuruseks võiks 32 px panna. Lisaks võiks olemas olla **must piirjoon** ehk *outline*, mis on 6 px suurune. Loo sama LabelSettings resurss ka DeathLabeli jaoks (võid kopeerida ümber). DeathLabeli tekst peaks keskel olema, seega määra `Horizontal Alignment` väärtuseks `Center`.
+Kirjuta Labelitele juurde mingi näidistekst (muudame seda koodi kaudu niikuinii). Anna ScoreLabelile inspektoris uus `Label Settings` väärtus. Font ise on okei, aga selle suuruseks võiks 32 px panna. Lisaks võiks olemas olla **must piirjoon** ehk *outline*, mis on 6 px suurune. Loo sama LabelSettings resurss ka DeathLabeli jaoks (võid kopeerida ümber). DeathLabeli tekst peaks keskel olema, seega määra `Horizontal Alignment` väärtuseks `Center`.
 
 Põhistseen näeb nüüd redaktoris päris kahtlane välja, aga kui mängu käivitad, siis ankrute süsteem hakkab õigesti tööle.
 
@@ -138,7 +138,7 @@ DeathLabel peab samal ajal, kui DeathBackground taas ilmub, kirjutama `Press any
 
 ## Kasutajaliides, jätk
 
-Viimase asjana peame nii tegema, et mängija suudab peale suremist mängu uuesti alustada. Nagu DeathLabel kirjutab, võib selleks ükskõik mis klahvi vajutada. Selle tegemiseks peame looma uue muutuja `is_player_dead`, mis mängija olemasolul silma peal hoiab. Vaikimisi on see väär, aga kui mängija sureb, siis läheb see tõeseks.
+Viimase asjana peame nii tegema, et mängija suudab peale suremist mängu uuesti alustada. Nagu DeathLabel kirjutab, võib selleks ükskõik mis klahvi vajutada. Selle tegemiseks peame looma uue muutuja `is_player_dead`, mis mängija olemasolul silma peal hoiab. Vaikimisi on see väär, aga **kui mängija sureb, siis läheb see tõeseks**.
 
 Selleks, et ükskõik, mis klahvivajutusele mäng reageeriks, on vaja kasutada `_input(event: InputEvent)` funktsiooni. Godot kutsub seda funktsiooni igasuguste mängija sisendite peale. Näiteks:
 
@@ -172,6 +172,7 @@ Kuigi oled nüüd Godot'ga tuttav ja oskad nii mõndagi, on tegelikult palju vii
 -	kasuta AnimationPlayer ja GPUParticles2D sõlmesid
 -	lisa veel helisid juurde
 	-	näiteks, kui olemus viga saab
+-	mängu pausile panemine kasutades SceneTree `paused` omadust (ligipääsetav `get_tree()` funktsiooniga)
 -	kasuta AutoLoad sõlmesid
 -	kasuta gruppide süsteemi (Node dokis Groups)
 -	loo veel üks vastane, kes mängijat taga ajab
