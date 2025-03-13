@@ -9,9 +9,8 @@ has_children: true
 
 Godot mängumootor on vabavaraline programm, millega on võimalik mugavalt luua videomänge ja rakendusi.
 
-![Dome Keeper](./pildid/index/dome-keeper.png)
-
-Pilt videomängust Dome Keeper, mis on loodud Godot'ga.
+![Buckshot Roulette](./pildid/index/buckshot-roulette.jpg)
+Pilt videomängust Buckshot Roulette, mis on loodud Godot's eestlase poolt.
 {: .text-center .fs-3}
 
 ## Mida pakub Godot?
@@ -27,7 +26,7 @@ Nende hulka kuuluvad:
 -   iOS*
 -   mängukonsoolid*
 
-Tärniga märgitud platvormidel pole redaktor saadaval, aga Godot's loodud mänge on võimalik nende jaoks luua ikka.
+Tärniga märgitud platvormidel pole redaktor saadaval, aga Godot'ga on võimalik nende jaoks programme luua ikka.
 {: .tip }
 
 Godot'ga saab luua nii 2D kui ka 3D rakendusi.
