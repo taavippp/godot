@@ -154,7 +154,7 @@ func _input(event: InputEvent) -> void:
 	if (is_player_dead and # kas mängija on surnud
 		event is InputEventKey and # InputEventKey on klaviatuuri sisendite klass
 		event.is_pressed() and # kas klahvile vajutatakse
-		not event.is_echo()): # kas klahvile just vajutati
+		not event.is_echo()): # kas klahvile hakati just vajutama
 			get_tree().reload_current_scene() # laeb põhistseeni uuesti
 ```
 
