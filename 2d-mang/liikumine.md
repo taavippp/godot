@@ -24,11 +24,11 @@ Suund ei pea eksportmuutuja olema, kuna see muutub pidevalt tegelase liikudes. S
 -	0: seismine
 -	1: paremale liikumine
 
-Kustuta `_ready` funktsioon. Kirjutame `_process` funktsiooni tegelase algelise liikumise loogika. Esiteks peame nüüd tegelase liikumissuuna määrama. Seda saame teha funktsiooniga `Input.get_axis(negative_action, positive_action)`. Kuna `action` tähendab tegevust, siis argumentideks saavad tegevuste nimed. Negatiivne tegevus tähendab siin seda, et tegelane liigub X-telje negatiivsel suunal ja positiivne tegevus vastupidist. Seega meie negatiivne tegevus olgu `move_left` ja positiivne olgu `move_right`. 
+Kustuta `_ready()` funktsioon. Kirjutame `_process()` funktsiooni tegelase algelise liikumise loogika. Esiteks peame nüüd tegelase liikumissuuna määrama. Seda saame teha funktsiooniga `Input.get_axis(negative_action, positive_action)`. Kuna `action` tähendab tegevust, siis argumentideks saavad tegevuste nimed. Negatiivne tegevus tähendab siin seda, et tegelane liigub X-telje negatiivsel suunal ja positiivne tegevus vastupidist. Seega meie negatiivne tegevus olgu `move_left` ja positiivne olgu `move_right`. 
 
 CharacterBody2D liigub, kui muudad tema `velocity` muutujat ja kasutad `move_and_slide()` funktsiooni. `velocity` on Vector2 klassi isend, mis on 2-dimensiooniline vektor `x` ja `y` muutujaga. Näiteks on ka Node2D klassi muutuja `position` Vector2 klassi isend.
 
-Tegelase liikumine sõltub suunast ja kiirusest, seega nüüd määrame CharacterBody2D `velocity.x` väärtuseks `direction * speed`. Lisaks, et tegelane peale `velocity` määramist lõpuks liikuma hakkaks, peame `_process` lõppu lisama käsu `move_and_slide()`.
+Tegelase liikumine sõltub suunast ja kiirusest, seega nüüd määrame CharacterBody2D `velocity.x` väärtuseks `direction * speed`. Lisaks, et tegelane peale `velocity` määramist lõpuks liikuma hakkaks, peame `_process()` lõppu lisama käsu `move_and_slide()`.
 Võid nüüd oma mängu tööle panna ülariba nupust `Run Current Scene (F6)` ja veenduda, et tegelase liikumist on akna ülaosas näha, kui nooleklahve vajutad.
 
 Nii *velocity* kui ka *speed* tähendavad eesti keeles kiirust, aga *velocity* puhul on ka suund oluline. See tähendab, et meie tehe selle arvutamiseks `direction * speed = velocity` on õige.

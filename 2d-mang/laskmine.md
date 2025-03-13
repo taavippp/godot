@@ -65,7 +65,7 @@ Area2D (*hitbox*/tabamisala):
 
 ## Skript
 
-On aeg luua meie kuulile skript nimega `bullet.gd`. Kuulil on sarnaselt peategelasele vaja kiiruse muutujat ja suuna muutujat, et teada, kuhu ta lendab. Lisaks on vaja eksportmuutujat Sprite2D jaoks, sest me plaanime spraiti pöörata `_ready` funktsioonis olenevalt kuuli suunast. Spraidi pööramiseks on olemas käepärane omadus `flip_h`, mis vaikimisi on **väär**.
+On aeg luua meie kuulile skript nimega `bullet.gd`. Kuulil on sarnaselt peategelasele vaja kiiruse muutujat ja suuna muutujat, et teada, kuhu ta lendab. Lisaks on vaja eksportmuutujat Sprite2D jaoks, sest me plaanime spraiti pöörata `_ready()` funktsioonis olenevalt kuuli suunast. Spraidi pööramiseks on olemas käepärane omadus `flip_h`, mis vaikimisi on **väär**.
 
 ### Ülesanne 1
 
@@ -73,8 +73,8 @@ Kirjuta kuuli skripti siis järgnevad asjad:
 
 -	muutujad kiiruse, suuna ja Sprite2D sõlme jaoks
 	-	suuna väärtus võiks vaikimisi 1.0 olla ehk paremale
--	`_ready` funktsioon, kus Sprite2D pöörad
--	`_process` funktsioon
+-	`_ready()` funktsioon, kus Sprite2D pöörad
+-	`_process()` funktsioon
 	-	`velocity.x` väärtuse määramine
 	-	kuuli liikuma panemine
 
@@ -94,7 +94,7 @@ func _process(delta: float) -> void:
 	move_and_slide()
 ```
 
-Meie tabamisala Area2D väljastab signaali, kui vastast puutub, aga midagi ei juhtu vastasega veel. Selleks vali stseeni dokis Area2D sõlm, liigu sõlme dokki (inspektori dokist parempoolse nupu kaudu). Leia signaal `body_entered(body: Node2D)` ja ühenda see juursõlme skriptiga. Skripti tekib funktsioon `_on_area_2d_body_entered`. Seal kontrollime, kas meie `body` argument on ikka `CharacterBody2D` tüüpi. Kui on tegu `CharacterBody2D`'ga, siis kustutatakse see tegelane, mille Area2D tuvastas.
+Meie tabamisala Area2D väljastab signaali, kui vastast puutub, aga midagi ei juhtu vastasega veel. Selleks vali stseeni dokis Area2D sõlm, liigu sõlme dokki (inspektori dokist parempoolse nupu kaudu). Leia signaal `body_entered(body: Node2D)` ja ühenda see juursõlme skriptiga. Skripti tekib funktsioon `_on_area_2d_body_entered()`. Seal kontrollime, kas meie `body` argument on ikka `CharacterBody2D` tüüpi. Kui on tegu `CharacterBody2D`'ga, siis kustutatakse see tegelane, mille Area2D tuvastas.
 
 Kuuli skripti lõppu läheks siis selline kood kirja:
 
@@ -119,7 +119,7 @@ Lisame siis peategelase stseeni Marker2D. Mina liigutasin selle enda stseenis po
 
 Skriptis loo eksportmuutuja markeri jaoks nimega `bullet_marker` ja enda signaal nimega `shot_projectile(spawn_position: Vector2, direction: float)`. Kui toimub laskmise tegevus, siis seda signaali saadetakse laiali koos vastavate argumentidega.
 
-`_process` funktsioonile lisatakse juurde siis järgnev kood enne `move_and_slide()` käsku:
+`_process()` funktsioonile lisatakse juurde siis järgnev kood enne `move_and_slide()` käsku:
 
 ```gdscript
 	... (muu kood)

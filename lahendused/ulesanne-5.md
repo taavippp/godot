@@ -7,7 +7,7 @@ nav_exclude: true
 # Ülesanne 5
 
 Ülesanne oli vastaste halduri stseenis kirjutada välja funktsioon, mis reageerib Timer sõlme `timeout` signaalile.
-Funktsioon pidi valima suvalise vastase ja suvalise Marker2D sõlme. Vastane asetati Marker2D sõlme juurde. Lisaks pidi vastase surma korral edasi levitama uut signaali `enemy_died`.
+Funktsioon pidi valima suvalise vastase ja suvalise Marker2D sõlme. Vastane asetati Marker2D sõlme juurde. Lisaks pidi vastase surma korral edasi levitama uut signaali `spawned_enemy_died`.
 
 ```gdscript
 extends Node2D
@@ -25,11 +25,11 @@ func _ready() -> void:
 		spawn_markers.append(child)
 
 # loob suvalise vastase ja asetab ta suvalise markeri asukohta
-# vastase surma korral (died signaal) levitab enda enemy_died signaali
+# vastase surma korral (died signaal) levitab enda spawned_enemy_died signaali
 func _on_spawn_timer_timeout() -> void:
+	var marker: Marker2D = spawn_markers.pick_random()
 	var enemy_scene: PackedScene = enemy_scenes.pick_random()
 	var enemy: Entity = enemy_scene.instantiate()
-	var marker: Marker2D = spawn_markers.pick_random()
 	enemy.global_position = marker.global_position
 	enemy.died.connect(spawned_enemy_died.emit)
 	add_child(enemy)

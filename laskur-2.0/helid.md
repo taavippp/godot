@@ -7,7 +7,7 @@ nav_order: 2
 
 # Helid
 
-Selles alapeatükis loome juurde veel ühe vastase, kes liigub Tweeniga loodud animatsiooni abiga, õpime Godot's helisid kasutama ja loome vastaseid haldava stseeni, mis vastaseid pidevalt juurde tekitab.
+Selles alapeatükis loome juurde veel ühe vastase, kes liigub Tweeniga loodud animatsiooni abiga, õpime Godot's helisid kasutama ja loome vastaseid haldava stseeni, mis vastaseid pidevalt juurde tekitab ja hiljem aitab meil skoori süsteemi ehitada.
 
 ## Lendaja
 
@@ -17,16 +17,14 @@ Sellel tegelasel on vaid **üks animatsioon**, mis **automaatselt** mängima hak
 
 ![Flyeri animatsiooni detailid](./pildid/helid/flyer-animatsioon.png)
 
-Lisa juurde CollisionShape2D, mille kujuks on RectangleShape2D ja Hitbox, mille CollisionShape2D kujuks on CircleShape2D. Määra neile suurused ise. Salvesta stseen `entities` kausta nagu teistegi olemustega. **Ära unusta sõlmede füüsikakihid** - juursõlm on *enemy* kihil ja põrkab kokku *level*iga, Hitbox peab ainult *player* kihti tuvastama.
+Lisa juurde CollisionShape2D, mille kujuks on RectangleShape2D ja Hitbox, mille CollisionShape2D kujuks on CircleShape2D. Määra neile suurused ise. Salvesta stseen `entities` kaustas oma kausta nagu teistega tegime. **Ära unusta sõlmede füüsikakihid** - juursõlm on *enemy* kihil ja põrkab kokku *level*iga, Hitbox peab ainult *player* kihti tuvastama.
 
-Määra Flyerile ka mingi elupunktide arv. Mina panin näiteks talle `max_health` väärtuseks 3.
+Määra Flyerile ka mingi elupunktide arv ja kiirus. Mina panin näiteks talle `max_health` väärtuseks 3 ja `speed` väärtuseks 50.
 
-Nüüd oleks vaja ta liikuma panna. Loo juurde skript `flyer.gd`. Lendaja on kogu aeg õhus ja lendab vaikselt üles-alla. Kuigi ta kutsub `_process(delta)` funktsioonis välja ikka `move_and_slide()`, siis tema liikumise loogika läheb tegelikult `_ready()` funktsiooni. Skript tuleb välja selline:
+Nüüd oleks vaja ta liikuma panna. Loo juurde skript `flyer.gd` juursõlme paremklõpsu menüüst valikuga `Extend Script...`. Lendaja on kogu aeg õhus ja lendab vaikselt üles-alla. Kuigi ta kutsub `_process(delta)` funktsioonis välja ikka `move_and_slide()`, siis tema liikumise loogika läheb tegelikult `_ready()` funktsiooni. Skript tuleb välja selline:
 
 ```gdscript
 extends Entity
-
-const MAX_Y_VELOCITY: float = 24.0
 
 @export var sprite: AnimatedSprite2D
 
@@ -35,19 +33,19 @@ func _ready() -> void:
 	sprite.flip_h = direction < 0.0
 	var tween = create_tween()
 	# paneb Tweeni animatsiooni korduma
-	# vajaduse korral saab argumendiks arvu anda
+	# vajaduse korral saab ka korduste arvu kirjutada, aga tahame et ta jääkski korduma
 	tween.set_loops()
 	tween.tween_property(
 		self,
 		"velocity:y", # muudab velocity.y väärtust
-		MAX_Y_VELOCITY,
+		speed,
 		1.0 # võtab 1 sekund
 	)
 	# toimub peale eelmise tween_property lõppu
 	tween.tween_property(
 		self,
 		"velocity:y",
-		-(MAX_Y_VELOCITY),
+		-(speed),
 		1.0
 	)
 
@@ -73,9 +71,9 @@ Ava taas peategelase stseen ja lisa kaks `AudioStreamPlayer` sõlme. Mina nimeta
 
 ![Helifaili valimise instruktsioon](./pildid/helid/helifaili-valimine.png)
 
-Avaneb väike aken, mis kuvab kõiki selleks väärtuseks sobivaid helifaile. Mina tegelesin ennem JumpAudioStreamPlayeriga, seega valisin `sounds/jump.wav`. Enne, kui teise heli juurde liigud, kontrolli oma heli volüümi. Mina leidsin, et see on vaikimisi liiga vali, seega langetasin `Volume dB` -10 detsibelli peale. Tee sama protsess läbi ka laskmise heliga. Laskmise helil võiks muuta ka `Max Polyphony` väärtuse 5 peale - see tähendab, et 5 laskmise heli võib korraga mängida.
+Avaneb väike aken, mis kuvab kõiki selleks väärtuseks sobivaid helifaile. Mina tegelen ennem JumpAudioStreamPlayeriga, seega valisin `sounds/jump.wav`. Enne, kui teise heli juurde liigud, kontrolli oma heli volüümi. Mina leidsin, et see on niisama liiga vali, seega langetasin `Volume dB` -10 detsibelli peale. Tee sama protsess läbi ka laskmise heliga. Laskmise helil võiks muuta ka `Max Polyphony` väärtuse 5 peale - see tähendab, et 5 laskmise heli võib korraga mängida, kui mängija väga kiiresti relva laseb.
 
-Kui sõlmed on ette valmistatud, siis peame viimast korda `player.gd` skripti muutma. Meie heli sõlmede jaoks on vaja eksportmuutujaid ning on vaja leida õiged read, kus AudioStreamPlayeri `play()` funktsiooni kasutada.
+Kui sõlmed on ette valmistatud, siis peame viimast korda `player.gd` skripti muutma. Meie heli sõlmede jaoks on vaja **eksportmuutujaid** ning on vaja leida õiged read, kus AudioStreamPlayeri `play()` funktsiooni kasutada.
 
 ```gdscript
 	... (muu kood)
@@ -99,7 +97,7 @@ Kui sõlmed on ette valmistatud, siis peame viimast korda `player.gd` skripti mu
 
 Praegu tundub meie projekt ikka rohkem nagu prototüüp kui tõeline mäng. Seda saame parandada uue süsteemiga, mis vastaseid pidevalt põhistseenis juurde tekitama hakkab. Niimoodi on mängijal pidevalt vaja vastaseid hävitada ja mäng on kaasahaaravam.
 
-Loo uus stseen, kus tavaline Node2D on juursõlm ja tema ainus laps-sõlm on **Timer** (eesti keeles taimer). Timer sõlme me pole veel kasutanud, aga tema funktsionaalsus on päris ilmne - see võtab aega ja mingi aja möödudes lõpetab oma töö.
+Loo uus stseen, kus tavaline Node2D nimega `EnemyManager` on juursõlm ja tema ainus laps-sõlm on **Timer** (eesti keeles taimer). Timer sõlme me pole veel kasutanud, aga tema funktsionaalsus on päris ilmne - see võtab aega ja mingi aja möödudes lõpetab oma töö.
 
 Loo juursõlmele uus skript nimega `enemy_manager.gd`. Kohe ei pea sinna midagi kirjutama, kuid Timeri `timeout()` signaali kasutamiseks on vaja skripti, millega seda ühendada. Määra taimeri `Wait Time` väärtuseks inspektoris 2 sekundit, märgi tõeseks `Autostart` väärtus ja ühenda siis tema `timeout()` signaal skriptiga.
 
