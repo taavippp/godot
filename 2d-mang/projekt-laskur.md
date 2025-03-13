@@ -62,11 +62,11 @@ Meie peategelase animatsioonid koosnevad vaid kahest kaadrist viienda rea vasaku
 
 Vaikimisi on nende animatsioonide kaadrisagedus 5 FPS (kaadrit sekundis/*frames per second*). See tähendab, et kui "run" animatsioonil on kaks kaadrit, siis sekundi jooksul jõuab see animatsioon korduda 5 / 2 = 2.5 korda. Minu arvates tundus "run" animatsioon sedasi aeglane, seega määrasin, et see oleks `10 FPS`.
 
-Meie tegelane tundub küll natuke hägune. Tegu on automaatse filtriga Godot poolt, kuid meie pikslikunsti jaoks see ei sobi. Paranda seda valides ülaribalt Project -> Project Settings. Seejärel kirjuta otsingusse `texture filter` ja väärtuse `Linear` asemel olgu `Nearest`. Nüüd peaks pikslikunst kenam välja nägema.
+Meie tegelane tundub küll natuke hägune. Tegu on automaatse filtriga Godot poolt, kuid meie pikslikunsti jaoks see ei sobi. Paranda seda valides ülaribalt Project -> Project Settings. Seejärel kirjuta otsingusse `texture filter`, ava vasakust menüüst ainus otsingutulemus ja väärtuse `Linear` asemel olgu `Nearest`. Nüüd peaks pikslikunst kenam välja nägema.
 
 ## Füüsika kuju
 
-Nüüd, kus animatsioonid loodud, võiks tegeleda CollisionShape2D sõlmega. Loo inspektoris CollisionShape2D -> Shape -> RectangleShape2D resurss. Määra selle suuruseks 10 x 16 pikslit.
+Nüüd, kus animatsioonid loodud, võiks tegeleda CollisionShape2D sõlmega. Loo inspektoris CollisionShape2D -> Shape -> RectangleShape2D resurss. Määra selle suuruseks 10 x 16 pikslit ja muuda Node2D -> Transform -> Position väärtuseks (0, 1). Nüüd on peategelasel korrektne füüsika kuju.
 
 ![Füüsika kuju detailid](./pildid/projekt-laskur/fuusika-kuju.png)
 
@@ -74,7 +74,7 @@ Nüüd, kus animatsioonid loodud, võiks tegeleda CollisionShape2D sõlmega. Loo
 
 Paljud mängud pakuvad erinevaid skeeme tegelase liigutamiseks - klaviatuur, hiir, konsoolipult jne. Godot lihtsustab seda protsessi kasutades tegevuste süsteemi. Näiteks tegevuse "move_right" alla saab määrata klaviatuuri klahvi vajutuse ja konsoolipuldi liigutuse. Vaja on vaid kontrollida siis, kas tegevus "move_right" toimub.
 
-Tegevusi saab luua Project Settings menüüs Input Map saki alt. Lahtrisse `Add New Action` saad kirjutada oma tegevuse nime ja selle kõrval olevast `Add` nupust selle lisada. Meil on tarvis järgnevaid tegevusi:
+Tegevusi saab luua ülaribalt Project -> Project Settings menüüs Input Map saki alt. Lahtrisse `Add New Action` saad kirjutada oma tegevuse nime ja selle kõrval olevast `Add` nupust selle lisada. Meil on tarvis järgnevaid tegevusi:
 
 -	move_right
 -	move_left
@@ -87,6 +87,6 @@ Mina kasutan liikumiseks nooleklahve, hüppamiseks Z klahvi ja laskmiseks X klah
 
 ![Input map details](./pildid/projekt-laskur/input-map.png)
 
-Nimeta juursõlme ümber `Player`iks. Seda saad teha, valides stseeni dokis juursõlme ning paremklõpsu menüüs `Rename` valikule vajutades. Salvesta stseen, vajutades `CTRL + S`. Godot pakub faili salvestada nimega `player.tscn`. See sobib meile.
+Nimetame juursõlme ümber `Player`iks. Seda saad teha, valides stseeni dokis juursõlme ning paremklõpsu menüüs `Rename` valikule vajutades või sõlmele klõpsates. Salvesta stseen, vajutades `CTRL + S`. Godot pakub faili salvestada nimega `player.tscn`. See sobib meile.
 
 Järgmises alapeatükis õpime Godot füüsikamootorit tundma, kirjutades tegelase liigutamiseks skripti.

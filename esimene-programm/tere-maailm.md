@@ -62,15 +62,17 @@ flowchart TD;
 
 Sümboliga *#* algav rida tähistab kommentaari. See teeb terve rea kommentaariks, ehk seda ei loeta koodina, kuid arendaja saab siia kirjutada kasulikku informatsiooni koodi kohta.
 
-Võtmesõna `func` kuulutab funktsiooni algust. Funktsioon `_ready` on Node klassi sisse ehitatud funktsioon, mis käivitub siis, kui sõlm on valmis stseenis töötama. Tal on ees alakriips, et märgistada seda funktsiooni privaatsena. Muidu tegelikult GDScript-is **ei ole** võtmesõnu `private` ega `public`, ehk kõik funktsioonid on avalikud.
+Võtmesõna `func` kuulutab funktsiooni algust. Funktsioon `_ready()` on Node klassi sisse ehitatud funktsioon, mis käivitub siis, kui sõlm on valmis stseenis töötama. Tal on ees alakriips, et märgistada seda funktsiooni privaatsena. Muidu tegelikult GDScript-is **ei ole** võtmesõnu `private` ega `public`, ehk kõik funktsioonid on avalikud.
 
 Käsk `pass` tähendab, et see koodirida ei tee mitte midagi.
 
-Funktsioon `_process` käivitub igal kaadril, mida programm renderdab. Tal on parameeter `delta`, mis tähistab aega sekundites eelmise kaadri möödumisest.
+Funktsioon `_process()` käivitub igal kaadril, mida programm renderdab. Tal on parameeter `delta`, mis tähistab aega sekundites eelmise kaadri möödumisest.
 
-Kirjuta funktsioonis `_ready` käsu `pass` asemele `print("Tere maailm!")`. Vajuta `CTRL + S` klahve, et salvestada oma tehtud töö. Tuleb ette stseeni salvestamise aken. `Save` nupu kohal võid stseeni nimeks panna näiteks `tere.tscn`. Vajuta siis `Save` nuppu või `Enter` klahvi, et stseen salvestada. Skriptifail on ka automaatselt salvestatud.
+Kirjuta funktsioonis `_ready()` käsu `pass` asemele `print("Tere maailm!")`. Vajuta `CTRL + S` klahve, et salvestada oma tehtud töö. Tuleb ette stseeni salvestamise aken. `Save` nupu kohal võid stseeni nimeks panna näiteks `tere.tscn`. Vajuta siis `Save` nuppu või `Enter` klahvi, et stseen salvestada. Skriptifail on ka automaatselt salvestatud.
 
-Nüüd käivitame oma projekti, sest tahame näha, kuidas "Tere maailm!" väljastatakse. Tööriistariba paremal pool on kolmnurga kujuline nupp `Run Project`. Sellele vajutades palub redaktor meil põhistseen valida. Vajuta nupu `Select Current` peale.
+Nüüd käivitame oma projekti, sest tahame näha, kuidas "Tere maailm!" väljastatakse. Tööriistariba paremal pool on kolmnurga kujuline nupp `Run Project`. Sellele vajutades palub redaktor meil põhistseeni valida. Vajuta nupu `Select Current` peale.
+
+![Projekti käivitamise nupp](./pildid/tere-maailm/projekti-kaivitamine.png)
 
 Avaneb uus aken halli taustaga. Maailma tervitust siin ei ole. Selle leiad hoopis redaktori alumiselt ribalt `Output` osast.
 

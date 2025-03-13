@@ -13,11 +13,11 @@ Lõpuks võtame kasutusele peategelase animatsioonid ning teeme talle ka mõned 
 
 ### Ülesanne 2
 
-Meie peategelase AnimatedSprite2D sõlmel on 3 animatsiooni: "default", "run" ja "jump". AnimatedSprite2D väärtusega eksportmuutuja suudab animatsiooni mängida `play` funktsiooniga. Lisaks peab sprait vastavalt suunale end pöörama.
+Meie peategelase AnimatedSprite2D sõlmel on 3 animatsiooni: "default", "run" ja "jump". AnimatedSprite2D väärtusega eksportmuutuja suudab animatsiooni mängida `play()` funktsiooniga. Lisaks peab sprait vastavalt suunale end pöörama.
 
 Tead, et funktsioon `is_on_floor()` tagastab, kas tegelane on maapinnaga kontaktis. On vaja ka tuvastada suuna muutuja abil, kas tegelane liigub. Selleks, et kontrollida, kas ujukomaarv on null, on olemas funktsioon `is_zero_approx(x: float)`.
 
-Suuna muutmiseks on `AnimatedSprite2D` sõlmel selleks sarnaselt Sprite2D'le `flip_h` muutuja.
+Suuna muutmiseks on AnimatedSprite2D sõlmel selleks sarnaselt Sprite2D'le `flip_h` muutuja.
 
 Mina panin enda lahenduses animeerimisega seotud koodiread eraldi funktsiooni.
 
@@ -38,10 +38,10 @@ Kuul saab suuna peategelase käest. Suuna muutujat kasutatakse `velocity.x` arvu
 
 Selgub, et probleem on meie suuna muutujas. Kindlasti eksisteerib ka teisi lahendusi, aga minu valik on kasutada suuna jaoks kahte muutujat:
 
--	üks neist on mängija sisend (-1 ja 1 vahel, saab 0 olla) nimega `direction_input`
+-	üks neist on mängija toore sisend (-1 ja 1 vahel, saab 0 olla) nimega `direction_input`
 -	teine on tegelik suund (ei saa 0 olla) nimega `direction`
 
-Loo siis juurde `direction_input` muutuja. Kui kutsud välja `Input.get_axis` funktsiooni, siis selle väärtus antakse nüüd sellele muutujale. Peale seda peame kohe oma `direction` muutujale ka väärtuse andma `direction_input` põhjal.
+Loo siis juurde `direction_input` muutuja. Kui kutsud välja `Input.get_axis()` funktsiooni, siis selle väärtus antakse nüüd sellele muutujale. Peale seda peame kohe oma `direction` muutujale ka väärtuse andma `direction_input` põhjal.
 
 ```gdscript
 ... (muu kood)
@@ -104,13 +104,13 @@ flowchart LR;
 	root --> sprite;
 ```
 
-Roomaja asub füüsikakihil nr 3 ehk `enemy` ja tuvastab füüsikakihti nr 1 ehk *level*.
+Roomaja asub füüsikakihil nr 3 ehk *enemy* ja tuvastab füüsikakihti nr 1 ehk *level*.
 
 Roomajal on ainult üks animatsioon `default` ja selle saame kohe luua. Kasutame sõlme `AnimatedSprite2D`, nii et loo inspektoris `SpriteFrames` resurss ja leia `default` animatsioon alumise riba kaudu. Kasutame spraidilehe viimasel real olevat punast elukat roomaja animatsiooni jaoks.
 
 ![Roomaja animatsiooni kaadrid](./pildid/vastane/roomaja-animatsioon.png)
 
-Kuna roomajal on vaid üks animatsioon, pole vaja koodis seda `AnimatedSprite2D.play` käsuga tööle pannagi. SpriteFrames mooduli Animations menüüs on nupp `Autoplay on Load`, mis paneb animatsiooni automaatselt mängima, kui sõlm stseenide puusse lisatakse. See nupp asub animatsiooni kustutamise (prügikasti ikooniga) nupu kõrval.
+Kuna roomajal on vaid üks animatsioon, pole vaja koodis seda `AnimatedSprite2D.play()` käsuga tööle pannagi. SpriteFrames mooduli Animations menüüs on nupp `Autoplay on Load`, mis paneb animatsiooni automaatselt mängima, kui sõlm stseenide puusse lisatakse. See nupp asub animatsiooni kustutamise (prügikasti ikooniga) nupu kõrval.
 
 ![Autoplay on Load nupu asukoht](./pildid/vastane/autoplay.png)
 
