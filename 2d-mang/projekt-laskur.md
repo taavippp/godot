@@ -66,7 +66,7 @@ Meie tegelane tundub küll natuke hägune. Tegu on automaatse filtriga Godot poo
 
 ## Füüsika kuju
 
-Nüüd, kus animatsioonid loodud, võiks tegeleda CollisionShape2D sõlmega. Loo inspektoris CollisionShape2D -> Shape -> RectangleShape2D resurss. Määra selle suuruseks 10 x 16 pikslit ja muuda Node2D -> Transform -> Position väärtuseks (0, 1). Nüüd on peategelasel korrektne füüsika kuju.
+Nüüd, kus animatsioonid loodud, võiks tegeleda CollisionShape2D sõlmega. Loo inspektoris CollisionShape2D -> Shape -> RectangleShape2D resurss. Määra selle suuruseks (10, 14) pikslit ja muuda Node2D -> Transform -> Position väärtuseks (0, 1). Nüüd on peategelasel korrektne füüsika kuju.
 
 ![Füüsika kuju detailid](./pildid/projekt-laskur/fuusika-kuju.png)
 
