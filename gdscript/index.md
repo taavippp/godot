@@ -42,10 +42,8 @@ Võtmesõna `void` kasutatakse, kui funktsioon ei peaks mingit väärtust tagast
 
 ## Funktsioonid, tsüklid, tingimuslaused
 
-Funktsioone on võimalik deklareerida `func` võtmesõnaga.s
-GDScriptis on võimalik luua nii `while` kui ka `for` tsükleid.
-Tingimuslausete jaoks on võtmesõnad `if`, `elif`, `else` ja `match`.
-`match` on sarnane teistest keeltest `switch` võtmesõnale, aga paindlikum.
+Funktsioone on võimalik deklareerida `func` võtmesõnaga. GDScriptis on võimalik luua nii `while` kui ka `for` tsükleid. Tingimuslausete jaoks on võtmesõnad `if`, `elif`, `else` ja `match`. `match` on sarnane teistest keeltest `switch` võtmesõnale, aga paindlikum.
+
 Näiteks:
 
 ```gdscript
@@ -86,7 +84,7 @@ func _ready() -> void:
 GDScriptis on erinevad konteinerid mitme ühte andmetüüpi väärtuste hoidmiseks.
 
 | Konteiner    | Otstarve                                                                                                               |
-| ------------ | --------------------------------------------------------------------------------------------------------------------   |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------- |
 | Array        | tavaline massiiv, Godot 4. versioonis on neile võimalik andmetüüpe määrata süntaksiga `Array[tüüp]`                    |
 | Packed Array | kindla andmetüübiga massiiv, mis suudab hästi hallata suurt kogust andmeid (PackedStringArray, PackedInt32Array jne)   |
 | Dictionary   | sõnastik-konteiner, kus väärtustel on arvuliste indeksite asemel võtmed                                                |
@@ -106,7 +104,7 @@ Lisaks teistele siin lehel juba mainitud võtmesõnadele eksisteerivad veel:
 | is         | kontrollib klassi                                                                              | `unknown_node is Label`                                              |
 | in         | kontrollib kas väärtus on stringis/massiivis/sõnastikus/üks sõlme omadustest                   | `"h" in "hello"`                                                     |
 | as         | määrab tundmatu andmetüübiga väärtusele andmetüübi või muudab ta nulliks                       | `var tegelane := tundmatu_stseen.instantiate() as CharacterBody2D`   |
-| self       | viide klassi isendile                                                                       |                                                                      |
+| self       | viide klassi isendile                                                                          |                                                                      |
 | signal     | signaali deklareerimiseks, vajadusel saab ka määrata parameetrid, mis signaaliga kaasas käivad | `signal changed_direction` või `signal jumped(height: int)`          |
 | breakpoint | peatab programmi seda sisaldaval real, et silumine (debugging) mugavam oleks                   |                                                                      |
 | await      | peatab skripti töö kuni saab signaali või kaasrutiin lõpeb                                     | `await timer.timeout`                                                |
@@ -126,7 +124,16 @@ Konstandid:
 Tehete tegemiseks on saadaval operaatorid `+`, `-`, `*`, `/`, `%` ja `**`.
 `%` annab tulemuseks jagamise jäägi. `**` on astendamise operaator.
 
-Tehete operaatoritele saab lisada ette `=`, et määrata tehte tulemus muutuja väärtuseks.
+Vajadusel saad tehte ja muutujale väärtuse omistamise kokku panna:
+
+```gdscript
+var counter: int = 0
+
+func _ready() -> void:
+	counter = counter + 1
+	counter += 1 # teeb sama, mis ülemine rida
+	print(counter) # väljastab 2
+```
 
 Võrdluste tegemiseks on olemas `==`, `<`, `>`, `<=`, `>=` ja `!=` operaatorid.
 On olemas võtmesõnad `not`, `and` ja `or`.
