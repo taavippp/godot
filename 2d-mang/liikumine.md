@@ -59,7 +59,7 @@ Peategelane peaks olema siis *player* kihil ja tema mask peaks tuvastama *level*
 
 ## Taseme loomine
 
-Selleks, et tegelane hüpata saaks, on tal vaja maapinda, mille pealt hüpata. Loo uus stseen, kus `TileMapLayer` on juursõlm. Pane tema nimeks `Level`. Tee sellele inspektori kaudu uus TileSet resurss ja TileSeti konfiguratsioonis Physics Layers alamenüüs lisa talle füüsikakihid juurde. Kuna see on maapind, siis see on *level*-nimelisel kihil.
+Selleks, et tegelane hüpata saaks, on tal vaja maapinda, mille pealt hüpata. Loo uus stseen, kus `TileMapLayer` on juursõlm. Pane tema nimeks `Level`. Tee sellele inspektori kaudu uus TileSet ressurss ja TileSeti konfiguratsioonis Physics Layers alamenüüs lisa talle füüsikakihid juurde. Kuna see on maapind, siis see on *level*-nimelisel kihil.
 
 Ava alumise riba kaudu TileSet moodul. Vajuta plussmärgiga nupule ja leia meie maapinna spraitide kogum `tilemap.png`. *Setup*-nimelises vahekaardis tee kindlaks, et `Separation` oleks (1, 1) pikslit ja `Texture Region` (16, 16) pikslit.
 

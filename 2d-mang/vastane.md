@@ -106,7 +106,7 @@ flowchart LR;
 
 Roomaja asub füüsikakihil nr 3 ehk *enemy* ja tuvastab füüsikakihti nr 1 ehk *level*.
 
-Roomajal on ainult üks animatsioon `default` ja selle saame kohe luua. Kasutame sõlme `AnimatedSprite2D`, nii et loo inspektoris `SpriteFrames` resurss ja leia `default` animatsioon alumise riba kaudu. Kasutame spraidilehe viimasel real olevat punast elukat roomaja animatsiooni jaoks.
+Roomajal on ainult üks animatsioon `default` ja selle saame kohe luua. Kasutame sõlme `AnimatedSprite2D`, nii et loo inspektoris `SpriteFrames` ressurss ja leia `default` animatsioon alumise riba kaudu. Kasutame spraidilehe viimasel real olevat punast elukat roomaja animatsiooni jaoks.
 
 ![Roomaja animatsiooni kaadrid](./pildid/vastane/roomaja-animatsioon.png)
 

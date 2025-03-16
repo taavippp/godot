@@ -60,7 +60,7 @@ Selleks, et iseseisvamalt Godot' õppida kasutama, pead oskama dokumentatsiooni 
 
 ![Kollaaž erinevatest dokumentatsiooni avamise viisidest](./pildid/skoor/dokumentatsiooni-avamise-viisid.png)
 
-Avanenud aknas kirjuta otsinguribasse, mis sõlme/resurssi/klassi kohta uurida tahad ja vajuta `Open` nuppu või `Enter` klahvi.
+Avanenud aknas kirjuta otsinguribasse, mis sõlme/ressurssi/klassi kohta uurida tahad ja vajuta `Open` nuppu või `Enter` klahvi.
 
 Ülesanne on avastada, kuidas FileAccess klassiga faili avada ja põhistseeni skriptiga rekordskoor faili salvestada. Võiks kontrollida ka, et fail ikka olemas on.
 
@@ -116,7 +116,7 @@ DeathBackground ja tema DeathLabel laps-sõlm moodustavad selle kuva, mida mäng
 
 ![ColorRecti värvi muutmine](./pildid/skoor/colorrect-varv.png)
 
-Kirjuta Labelitele juurde mingi näidistekst (muudame seda koodi kaudu niikuinii). Anna ScoreLabelile inspektoris uus `Label Settings` väärtus. Font ise on okei, aga selle suuruseks võiks 32 px panna. Lisaks võiks olemas olla **must piirjoon** ehk *outline*, mis on 6 px suurune. Loo sama LabelSettings resurss ka DeathLabeli jaoks (võid kopeerida ümber). DeathLabeli tekst peaks keskel olema, seega määra `Horizontal Alignment` väärtuseks `Center`.
+Kirjuta Labelitele juurde mingi näidistekst (muudame seda koodi kaudu niikuinii). Anna ScoreLabelile inspektoris uus `Label Settings` väärtus. Font ise on okei, aga selle suuruseks võiks 32 px panna. Lisaks võiks olemas olla **must piirjoon** ehk *outline*, mis on 6 px suurune. Loo sama LabelSettings ressurss ka DeathLabeli jaoks (võid kopeerida ümber). DeathLabeli tekst peaks keskel olema, seega määra `Horizontal Alignment` väärtuseks `Center`.
 
 Põhistseen näeb nüüd redaktoris päris kahtlane välja, aga kui mängu käivitad, siis ankrute süsteem hakkab õigesti tööle.
 
@@ -174,6 +174,7 @@ Kuigi oled nüüd Godot'ga tuttav ja oskad nii mõndagi, on tegelikult palju vii
 	-	näiteks, kui olemus viga saab
 -	mängu pausile panemine kasutades SceneTree `paused` omadust (ligipääsetav `get_tree()` funktsiooniga)
 -	kasuta AutoLoad sõlmesid
+-	loo oma ressurssi klass
 -	kasuta gruppide süsteemi (Node dokis Groups)
 -	loo veel üks vastane, kes mängijat taga ajab
 -	lae alla kasulikke pluginaid ülaribalt AssetLib alt

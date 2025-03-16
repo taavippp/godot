@@ -44,11 +44,11 @@ Selle sõlmega on lihtne oma spraidi animatsioonid kokku panna kaadrihaaval ja n
 
 ## Animatsioon
 
-Selleks, et teada, kui suur ja milline CollisionShape tulema peaks, paneme ennem paika spraidi. Loo inspektoris AnimatedSprite2D -> Animation -> Sprite Frames jaoks uus SpriteFrames resurss, vajutades nupule `<empty>`.
+Selleks, et teada, kui suur ja milline CollisionShape tulema peaks, paneme ennem paika spraidi. Loo inspektoris AnimatedSprite2D -> Animation -> Sprite Frames jaoks uus SpriteFrames ressurss, vajutades `<empty>` tekstiga lahtrisse.
 
 ![SpriteFrames loomine](./pildid/projekt-laskur/spriteframes-loomine.png)
 
-Peale SpriteFrames loomist ava see. Alumisel ribal avaneb uus moodul. Vaikimisi on olemas animatsioon "default", aga me tahame juurde luua ka "run" ja "jump". Uue animatsiooni saad luua vasakus "Animations" menüüs, vajutades **rohelise plussiga paberi** ikooni peale. Loodud animatsiooni saad ümber nimetada selle peale klõpsates.
+Peale SpriteFrames ressurssi loomist ava see, klõpsates uuesti sama lahtri peale. Alumisel ribal avaneb uus moodul. Vaikimisi on olemas animatsioon "default", aga me tahame juurde luua ka "run" ja "jump". Uue animatsiooni saad luua vasakus "Animations" menüüs, vajutades **rohelise plussiga paberi** ikooni peale. Loodud animatsiooni saad ümber nimetada selle peale klõpsates.
 
 Peale animatsioonide loomist on vaja neile kaadrid juurde lisada. Vali animatsioon "default" ja leia parempoolses "Animation Frames" menüüs ruudustiku nupp `Add frames from sprite sheet`. Avaneb faili valimise aken, vali meie `tilemap.png`.
 
@@ -66,9 +66,20 @@ Meie tegelane tundub küll natuke hägune. Tegu on automaatse filtriga Godot poo
 
 ## Füüsika kuju
 
-Nüüd, kus animatsioonid loodud, võiks tegeleda CollisionShape2D sõlmega. Loo inspektoris CollisionShape2D -> Shape -> RectangleShape2D resurss. Määra selle suuruseks (10, 14) pikslit ja muuda Node2D -> Transform -> Position väärtuseks (0, 1). Nüüd on peategelasel korrektne füüsika kuju.
+Nüüd, kus animatsioonid loodud, võiks tegeleda CollisionShape2D sõlmega. Loo inspektoris CollisionShape2D -> Shape -> RectangleShape2D ressurss. Määra selle suuruseks (10, 14) pikslit ja muuda Node2D -> Transform -> Position väärtuseks (0, 1). Nüüd on peategelasel korrektne füüsika kuju.
 
 ![Füüsika kuju detailid](./pildid/projekt-laskur/fuusika-kuju.png)
+
+## Ressurssidest
+
+**Ressurssid** on Godot viis andmete mugavalt hoidmiseks. Just kasutasime **SpriteFrames** ja **RectangleShape2D** ressursse. Järgmises alapeatükis kasutame oma mängu tasemete seadistamisel **TileSet** ressurssi. Ka stseenid on salvestatud PackedScene ressurssidena. Ressurssid on tihti salvestatud stseeni osana, aga kui soovid näiteks ühte ressurssi mitmes kohas kasutada, saad selle ka eraldi `.tres` lõpuga faili salvestada. Saad ka luua enda ressursse, laiendades Resource klassi.
+
+Ressurssidega on ka **inspektoris** alati sama töövoog, ühe ja sama lahtri kaudu:
+
+1.	tunned ressurssi ära, kui selle puudumisel on muutuja väärtuseks lahter tekstiga `<empty>`
+2.	klõpsad selle lahtri peale ning valid sobiva ressurssi mida luua
+3.	kui uuesti lahtrile klõpsad, avaneb ressurssi menüü, kus selle andmeid muuta saad
+4.	paremklõpsu menüüst lahtri peal on võimalik seda ressurssi täpsemini hallata
 
 ## Tegevuste loomine
 

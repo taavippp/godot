@@ -136,7 +136,7 @@ Skriptis loo eksportmuutuja markeri jaoks nimega `bullet_marker` ja enda signaal
 
 Nagu varasemalt mainitud, meie `shot_projectile` signaalile peab põhistseen reageerima ja kuuli looma. See tähendab, et põhistseenile on vaja juurde luua skript `main.gd`. Skript peab teadma, milline on kuuli stseen, aga me ei lisa seda niisama põhistseeni, nagu peategelasega tegime. Sel juhul laeme skripti kaudu kuuli stseeni.
 
-Kõik stseenid on salvestatud PackedScene **resurssina**, mitte **sõlmena**. See tähendab, et PackedScene me otse stseeni juurde lisada ei saa, aga kui loome PackedScene'ist isendi (mis pakib selle stseeni sõlmedeks lahti), siis see on võimalik. Kuuli stseeni saad konstandina kirja panna ja laadida funktsiooniga `preload()`.
+Kõik stseenid on salvestatud PackedScene **ressurssina**, mitte **sõlmena**. See tähendab, et PackedScene me otse stseeni juurde lisada ei saa, aga kui loome PackedScene'ist isendi (mis pakib selle stseeni sõlmedeks lahti), siis see on võimalik. Kuuli stseeni saad konstandina kirja panna ja laadida funktsiooniga `preload()`.
 
 ```gdscript
 extends Node2D
