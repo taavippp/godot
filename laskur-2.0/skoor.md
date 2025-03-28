@@ -40,7 +40,7 @@ Nüüd, kus lihtne skoori lugemine on olemas, võiks kuidagi meelde jätta, mis 
 ... (muu kood)
 
 func _on_player_died() -> void:
-	if (score <= high_score): # kui skoor ei ole rekord, siis kõik
+	if score <= high_score: # kui skoor ei ole rekord, siis kõik
 		return
 	print("Said rekordi! Oled tõeline mängur.")
 ```
@@ -79,7 +79,7 @@ Nüüd, kus salvestame rekordskoori faili, võiks seda mängu käivitades failis
 # loe faili et high_score saada
 func _ready() -> void:
 	var file = FileAccess.open(HIGH_SCORE_FILE_PATH, FileAccess.READ)
-	if (is_instance_valid(file)):
+	if is_instance_valid(file):
 		high_score = int(file.get_as_text())
 	print("Rekord on ", high_score)
 ```
@@ -151,10 +151,10 @@ Peame siis kindlaks tegema, et meie InputEvent on põhjustatud klahvivajutuse po
 
 ```gdscript
 func _input(event: InputEvent) -> void:
-	if (is_player_dead and # kas mängija on surnud
+	if is_player_dead and # kas mängija on surnud
 		event is InputEventKey and # InputEventKey on klaviatuuri sisendite klass
 		event.is_pressed() and # kas klahvile vajutatakse
-		not event.is_echo()): # kas klahvile hakati just vajutama
+		not event.is_echo(): # kas klahvile hakati just vajutama
 			get_tree().reload_current_scene() # laeb põhistseeni uuesti
 ```
 

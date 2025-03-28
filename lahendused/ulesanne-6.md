@@ -19,10 +19,10 @@ const HIGH_SCORE_FILE_PATH: String = "user://high_score.dat"
 
 # kirjutame skoori faili, kui high_score ületatud
 func _on_player_died() -> void:
-	if (score <= high_score):
+	if score <= high_score:
 		return
 	var file = FileAccess.open(HIGH_SCORE_FILE_PATH, FileAccess.WRITE)
-	if (is_instance_valid(file)): # kontrollib, et fail eksisteerib
+	if is_instance_valid(file): # kontrollib, et fail eksisteerib
 		file.store_string(String.num(score)) # muudab skoori ümber stringiks ja kirjutab faili
 ```
 

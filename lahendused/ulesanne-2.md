@@ -30,10 +30,10 @@ func _process(delta: float) -> void:
 	velocity.x = direction * speed
 	velocity.y += gravity
 	
-	if (is_on_floor() and Input.is_action_just_pressed("jump")):
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = -jump_strength
 	
-	if (Input.is_action_just_pressed("shoot")):
+	if Input.is_action_just_pressed("shoot"):
 		shot_projectile.emit(
 			# kasutame global_position, sest position on suhteline juursõlmega
 			bullet_marker.global_position,
@@ -51,8 +51,8 @@ func _animate_sprite():
 	# kui tegelane on maas ja ei liigu, siis "default" animatsioon
 	# kui tegelane on maas ja liigub, siis "run" animatsioon
 	# kui tegelane ei ole maas (ehk õhus), siis "jump" animatsioon
-	if (is_on_floor()):
-		if (is_zero_approx(direction)):
+	if is_on_floor():
+		if is_zero_approx(direction):
 			sprite.play("default")
 		else:
 			sprite.play("run")

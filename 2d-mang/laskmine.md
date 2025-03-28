@@ -89,7 +89,7 @@ Lisaks liikumisele peab see kuul hävinema, kui tasemega kokku puutub. Kui kuul 
 ```gdscript
 func _process(delta: float) -> void:
 	velocity.x = speed * direction
-	if (is_on_wall()):
+	if is_on_wall():
 		queue_free() # kustutab sõlme
 	move_and_slide()
 ```
@@ -100,7 +100,7 @@ Kuuli skripti lõppu läheks siis selline kood kirja:
 
 ```gdscript
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if (body is not CharacterBody2D):
+	if body is not CharacterBody2D:
 		return
 	# kustutab pihta saanud sõlme ja iseenda
 	body.queue_free()
@@ -123,7 +123,7 @@ Skriptis loo eksportmuutuja markeri jaoks nimega `bullet_marker` ja enda signaal
 
 ```gdscript
 	... (muu kood)
-	if (Input.is_action_just_pressed("shoot")):
+	if Input.is_action_just_pressed("shoot"):
 		# annab põhistseenile teada, kuhu ja mis suunda kuul tekitada
 		# kasutame global_position, sest position on suhteline juursõlmega
 		shot_projectile.emit(

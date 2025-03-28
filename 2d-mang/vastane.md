@@ -51,7 +51,7 @@ var direction: float = 1.0
 func _process(delta: float) -> void:
 	direction_input = Input.get_axis("move_left", "move_right")
 	# kui toimub liikumine, võib tegelik suund muutuda
-	if (not is_zero_approx(direction_input)):
+	if not is_zero_approx(direction_input):
 		direction = sign(direction_input)
 	... (muu kood)
 ```
@@ -83,7 +83,7 @@ Kui paneme Marker2D asendit muutma vastavalt suunale, siis see viga on läinud. 
 ... (muu kood)
 	# sätib markeri asendi õigeks olenevalt suunast
 	bullet_marker.position.x = abs(bullet_marker.position.x) * direction
-	if (Input.is_action_just_pressed("shoot")):
+	if Input.is_action_just_pressed("shoot"):
 	... (muu kood)
 ```
 

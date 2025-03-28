@@ -77,13 +77,13 @@ Kui sõlmed on ette valmistatud, siis peame viimast korda `player.gd` skripti mu
 
 ```gdscript
 	... (muu kood)
-	if (is_on_floor() and Input.is_action_just_pressed("jump")):
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = -jump_strength
 		jump_audio.play() # hüppamise heli
 	
 	# sätib markeri asendi õigeks olenevalt suunast
 	bullet_marker.position.x = abs(bullet_marker.position.x) * direction
-	if (Input.is_action_just_pressed("shoot")):
+	if Input.is_action_just_pressed("shoot"):
 		shot_projectile.emit(
 			# kasutame global_position, sest position on suhteline juursõlmega
 			bullet_marker.global_position,
@@ -115,7 +115,7 @@ var spawn_markers: Array[Marker2D] = []
 func _ready() -> void:
 	# get_children tagastab massiivi kõigi laps-sõlmedega
 	for child in get_children():
-		if (child is not Marker2D):
+		if child is not Marker2D:
 			continue
 		spawn_markers.append(child)
 

@@ -80,7 +80,7 @@ func _ready() -> void:
 
 func take_damage() -> void:
 	health = health - 1
-	if (health <= 0):
+	if health <= 0:
 		died.emit()
 		queue_free()
 ```
@@ -157,7 +157,7 @@ extends Camera2D
 @export var target: Node2D
 
 func _process(delta: float) -> void:
-	if (not is_instance_valid(target)):
+	if not is_instance_valid(target):
 		return
 	global_position = target.global_position
 ```

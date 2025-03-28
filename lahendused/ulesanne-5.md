@@ -20,7 +20,7 @@ var spawn_markers: Array[Marker2D] = []
 
 func _ready() -> void:
 	for child in get_children():
-		if (child is not Marker2D):
+		if child is not Marker2D:
 			continue
 		spawn_markers.append(child)
 

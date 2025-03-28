@@ -84,7 +84,7 @@ Hüppamiseks on vaja uut eksportmuutujat nimega `jump_strength`. See võiks olla
 Meie tegelane hüppab siis järgnevate koodiridadega:
 
 ```gdscript
-if (is_on_floor() and Input.is_action_just_pressed("jump")):
+if is_on_floor() and Input.is_action_just_pressed("jump"):
 	velocity.y = -jump_strength
 ```
 

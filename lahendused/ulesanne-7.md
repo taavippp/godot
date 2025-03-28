@@ -27,7 +27,7 @@ var high_score: int = 0
 func _ready() -> void:
 	death_background.hide()
 	var file = FileAccess.open(HIGH_SCORE_FILE_PATH, FileAccess.READ)
-	if (is_instance_valid(file)):
+	if is_instance_valid(file):
 		high_score = int(file.get_as_text())
 		print("Rekord on ", high_score)
 	score_label.text = "Score: {cs}\nHigh score: {hs}".format({
@@ -54,11 +54,11 @@ func _on_enemy_manager_spawned_enemy_died() -> void:
 func _on_player_died() -> void:
 	death_background.show()
 	death_label.text = "Press any key to restart"
-	if (score <= high_score):
+	if score <= high_score:
 		return
 	death_label.text += "\nYou got a new high score!" # sümbol \n alustab uue rea
 	var file = FileAccess.open(HIGH_SCORE_FILE_PATH, FileAccess.WRITE)
-	if (is_instance_valid(file)): # kontrollib, et fail eksisteerib
+	if is_instance_valid(file): # kontrollib, et fail eksisteerib
 		file.store_string(String.num(score)) # muudab skoori ümber stringiks ja kirjutab faili
 ```
 

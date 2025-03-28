@@ -17,7 +17,7 @@ func _ready() -> void:
 	body_entered.connect(_hitbox_body_entered)
 
 func _hitbox_body_entered(body: Node2D) -> void:
-	if (body is not Entity):
+	if body is not Entity:
 		return
 	var entity := body as Entity
 	entity.take_damage()
