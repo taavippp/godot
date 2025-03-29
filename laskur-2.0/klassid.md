@@ -9,7 +9,7 @@ nav_order: 1
 
 Kuna tegu on eelmise peatüki projekti edasiarendusega, võid juba loodud Laskuri projekti taas avada. Kui pole Laskuri projekti loodud, soovitan eelmise peatüki läbi võtta või [GitHubi repositooriumist](https://github.com/taavippp/godot-algkursuse-projektid/) see alla laadida.
 
-Selle alapeatüki põhiline eesmärk on kirjutada oma klass nimega Entity (olemus) mängu erinevate tegelastega lihtsamini töötamiseks ja klass nimega Hitbox tegelaste vahelise võitluse standardiseerimiseks.
+Selle alapeatüki põhiline eesmärk on kirjutada oma klass nimega Entity (olend) mängu erinevate tegelastega lihtsamini töötamiseks ja klass nimega Hitbox tegelaste vahelise võitluse standardiseerimiseks.
 
 ## Organiseerimine
 
@@ -17,7 +17,7 @@ Praegu peaks failide dokis väikene segadus olema. Enne oma klassi loomist korra
 
 Uusi kaustasid/faile saad failide doki kaudu luua **parema hiire klõpsuga**.
 
-Stseeni fail ja vastav skripti fail võiksid samas kaustas olla. Olemuste jaoks võiks luua `entities` kausta, kus igal olemusel on veel oma kaust. Kuul ei ole olemus, sest kuulil ei tohi elupunkte olla. See tähendab, et kuul läheb oma eraldi kausta nimega `projectiles`. Loome veel ühe kausta nimega `classes`, kus hakkavad olema meie uute klasside skriptifailid.
+Stseeni fail ja vastav skripti fail võiksid samas kaustas olla. Olendite jaoks võiks luua `entities` kausta, kus igal olendil on veel oma kaust. Kuul ei ole olend, sest kuulil ei tohi elupunkte olla. See tähendab, et kuul läheb oma eraldi kausta nimega `projectiles`. Loome veel ühe kausta nimega `classes`, kus hakkavad olema meie uute klasside skriptifailid.
 
 Mina organiseerisin oma failid lõpuks niimoodi:
 
@@ -53,13 +53,13 @@ Fail `export_presets.cfg` tekkis, kui eelmises peatükis oma mängu eksportisime
 
 Loo siis `classes` kausta uus skriptifail nimega `entity.gd`. Deklareeri uus klass nimega Entity kirjutades skripti algusesse `class_name Entity extends CharacterBody2D`.
 
-Selle klassi loome selle eesmärgiga, et vältida koodis kordusi ja et kõik olemused järgiksid sama standardit. Meie Player olemusel ja Crawler olemusel on ühist järgmised omadused:
+Selle klassi loome selle eesmärgiga, et vältida koodis kordusi ja et kõik olendid järgiksid sama standardit. Meie Player olendil ja Crawler olendil on ühised järgmised omadused:
 
 -	`speed` muutuja
 -	`gravity` muutuja
 -	`direction` muutuja
 
-Lisaks kirjutame juurde veel täisarvulise eksportmuutuja `max_health`, mille väärtus olgu vahemikus 1 - 10 ja tavalise täisarvulise muutuja `health`, mis `_ready()` funktsioonis saab väärtuseks `max_health`. Meie tegelased peavad siis suutma oma elusid ka kaotada. Loome funktsiooni `take_damage()`, mille kutsumisel elupunktid langevad ühe võrra ning kui nad on nullis (või alla selle), siis see sõlm kustutab end. Kui sõlm kustutab end (ehk olemus sureb), siis levitab see signaali `died`.
+Lisaks kirjutame juurde veel täisarvulise eksportmuutuja `max_health`, mille väärtus olgu vahemikus 1 - 10 ja tavalise täisarvulise muutuja `health`, mis `_ready()` funktsioonis saab väärtuseks `max_health`. Meie tegelased peavad siis suutma oma elusid ka kaotada. Loome funktsiooni `take_damage()`, mille kutsumisel elupunktid langevad ühe võrra ning kui nad on nullis (või alla selle), siis see sõlm kustutab end. Kui sõlm kustutab end (ehk olend sureb), siis levitab see signaali `died`.
 
 Kood võiks umbes selline välja näha:
 
@@ -87,7 +87,7 @@ func take_damage() -> void:
 
 ## Koodi kaudu animeerimine
 
-Tahame, et kui olemus elupunkte kaotab, siis oleks seda visuaalselt korraks kuidagi näha. Selleks õpime animeerima kasutades Tween süsteemi. Tweenidega animeerimine töötab sujuvalt muutujate väärtuseid muutes. Tweenid hakkavad automaatselt tööle.
+Tahame, et kui olend elupunkte kaotab, siis oleks seda visuaalselt korraks kuidagi näha. Selleks õpime animeerima kasutades Tween süsteemi. Tweenidega animeerimine töötab sujuvalt muutujate väärtuseid muutes. Tweenid hakkavad automaatselt tööle.
 
 Meie kasutame oma animatsiooni jaoks `modulate` muutujat, mis on värvifilter sõlmede peal. See on vaikimisi valget värvi, mis tähendab, et sõlmede värvid ei ole muudetud. Meie muudame animatsiooni alguses selle läbipaistvaks ning animatsiooni jooksul taas valgeks, mis tekitab korraks haihtumise efekti.
 
@@ -131,7 +131,7 @@ Loome uue klassi nimega `Hitbox`, mis laiendab Area2D klassi.
 
 ### Ülesanne 4
 
-Hitbox klassi eesmärk on peale olemusega kokkupõrkamist tema elupunkte vähendada. Pead ühendama `body_entered` signaali **koodi kaudu** näiteks funktsiooniga `_hitbox_body_entered()`. On vaja kontrollida, et füüsikakeha, mis signaali põhjustas, on ikka meie olemuse klassi isend. Peale seda vähendame selle olemuse elupunkte ja levitame uut signaali nimega `hit_entity`.
+Hitbox klassi eesmärk on peale olendiga kokkupõrkamist tema elupunkte vähendada. Pead ühendama `body_entered` signaali **koodi kaudu** näiteks funktsiooniga `_hitbox_body_entered()`. On vaja kontrollida, et füüsikakeha, mis signaali põhjustas, on ikka meie olendi klassi isend. Peale seda vähendame selle olendi elupunkte ja levitame uut signaali nimega `hit_entity`.
 
 [Ülesande lahendus](../lahendused/ulesanne-4)
 
@@ -141,7 +141,7 @@ Peale Hitbox klassi loomist pole enam kuuli stseenis Area2D ega skriptis selle l
 
 Lisame ka Crawlerile juurde Hitboxi, mis tuvastab *player* (teist) füüsikakihti. Crawler ei kustuta end kokkupuutel peategelasega, seega `hit_entity` signaali ei ole siin vaja ühendada.
 
-Kui nüüd mängu käivitad, saad mitu korda vastaseid lasta ja vastased saavad ka sulle haiget teha. Meie Tweeniga lisatud animatsioon näitab ilusti, kui olemus viga sai.
+Kui nüüd mängu käivitad, saad mitu korda vastaseid lasta ja vastased saavad ka sulle haiget teha. Meie Tweeniga lisatud animatsioon näitab ilusti, kui olend viga sai.
 
 ## Kaamera
 

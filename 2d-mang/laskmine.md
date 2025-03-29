@@ -109,7 +109,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 ## Vajutame päästikule
 
-Nüüd, kus kuuli stseen valmis, on vaja peategelasel seda lasta. Selleks peab tegelane signaaliga põhistseenile teada andma, et on aeg tulistada ja siis põhistseen loob kuuli stseenist isendi ja lisab selle stseenide puusse.
+Nüüd, kus kuuli stseen valmis, on vaja peategelasel seda lasta. Selleks peab tegelane signaaliga põhistseenile teada andma, et on aeg tulistada, mille peale põhistseen loob kuuli stseenist isendi ja lisab selle stseenipuusse.
 
 Peategelane peab teada andma põhistseenile, mis koordinaatidelt ja mis suunas kuuli lasta. Kasutame selleks abisõlme Marker2D, mis näitab redaktoris märki, millega on kergem asju paika sättida.
 

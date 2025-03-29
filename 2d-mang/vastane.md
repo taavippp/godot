@@ -110,7 +110,7 @@ Roomajal on ainult üks animatsioon `default` ja selle saame kohe luua. Kasutame
 
 ![Roomaja animatsiooni kaadrid](./pildid/vastane/roomaja-animatsioon.png)
 
-Kuna roomajal on vaid üks animatsioon, pole vaja koodis seda `AnimatedSprite2D.play()` käsuga tööle pannagi. SpriteFrames mooduli Animations menüüs on nupp `Autoplay on Load`, mis paneb animatsiooni automaatselt mängima, kui sõlm stseenide puusse lisatakse. See nupp asub animatsiooni kustutamise (prügikasti ikooniga) nupu kõrval.
+Kuna roomajal on vaid üks animatsioon, pole vaja koodis seda `AnimatedSprite2D.play()` käsuga tööle pannagi. SpriteFrames mooduli Animations menüüs on nupp `Autoplay on Load`, mis paneb animatsiooni automaatselt mängima, kui sõlm stseenipuusse lisatakse. See nupp asub animatsiooni kustutamise (prügikasti ikooniga) nupu kõrval.
 
 ![Autoplay on Load nupu asukoht](./pildid/vastane/autoplay.png)
 

@@ -72,7 +72,7 @@ Nüüd, kus animatsioonid loodud, võiks tegeleda CollisionShape2D sõlmega. Loo
 
 ## Ressurssidest
 
-**Ressurssid** on Godot viis andmete mugavalt hoidmiseks. Just kasutasime **SpriteFrames** ja **RectangleShape2D** ressursse. Järgmises alapeatükis kasutame oma mängu tasemete seadistamisel **TileSet** ressurssi. Ka stseenid on salvestatud PackedScene ressurssidena. Ressurssid on tihti salvestatud stseeni osana, aga kui soovid näiteks ühte ressurssi mitmes kohas kasutada, saad selle ka eraldi `.tres` lõpuga faili salvestada. Saad ka luua enda ressursse, laiendades Resource klassi.
+**Ressurssid** on Godot viis andmete mugavalt hoidmiseks. Just kasutasime **SpriteFrames** ja **RectangleShape2D** ressursse. Järgmises alapeatükis kasutame oma mängu tasemete seadistamisel **TileSet** ressurssi. Ka stseenid on salvestatud PackedScene ressurssidena. Ressurssid on tihti salvestatud stseeni osana, aga kui soovid näiteks ühte ressurssi mitmes kohas kasutada, saad selle ka eraldi `.tres` lõpuga faili salvestada. Saad ka luua enda ressurssi klassi, laiendades Resource klassi, andes oma klassile nime `class_name` võtmesõnaga ja redaktori taaskäivitades.
 
 Ressurssidega on ka **inspektoris** alati sama töövoog, ühe ja sama lahtri kaudu:
 

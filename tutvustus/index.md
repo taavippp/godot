@@ -26,7 +26,7 @@ Nende hulka kuuluvad:
 -   iOS*
 -   mängukonsoolid*
 
-Tärniga märgitud platvormidel pole redaktor saadaval, aga Godot'ga on võimalik nende jaoks programme luua ikka.
+Tärniga märgitud platvormidel pole redaktor veel saadaval, aga Godot'ga on võimalik nende jaoks programme luua ikka. iOS jaoks eksisteerib mitteametlik SwiftGodot versioon.
 {: .tip }
 
 Godot'ga saab luua nii 2D kui ka 3D rakendusi.
@@ -40,7 +40,7 @@ Saadaval on
 -   2D spraitidega töötamine,
 -   animatsiooni loomise tööriistad,
 -   valgustuse ja varjude süsteemid,
--   varjutajad (ingl *shader*),
+-   varjundajad (ingl *shader*),
 -   graafiline kasutajaliidese süsteem
 -   läbi koodi kujundite joonistamine,
 -   heli tööriistad,

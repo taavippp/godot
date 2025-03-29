@@ -82,7 +82,7 @@ Esiteks tutvume sellega, kuidas deklareerida muutujaid.
 
 Funktsiooni tagastatava väärtuse andmetüüpi on ka võimalik deklareerida järgneva süntaksiga: `func funktsiooni_nimi(parameeter: parameetri_andmetüüp) -> tagastatav_andmetüüp:`.
 
-Annotatsioonid on @-märgiga algavad märgistused. Need eelnevad muutuja deklaratsioonile ja annavad sellele muutujale erinevaid omadusi juurde. Näiteks `@export` annotatsioon teeb muutuja inspektoris nähtavaks ja saad sealt talle väärtuse määrata. `@onready` annotatsioon määrab muutujale väärtuse alles siis, kui skriptiga ühendatud sõlme `_ready()` funktsioon on käivitunud ehk tema ja ta laps-sõlmed on stseenide puusse sisestatud.
+Annotatsioonid on @-märgiga algavad märgistused. Need eelnevad muutuja deklaratsioonile ja annavad sellele muutujale erinevaid omadusi juurde. Näiteks `@export` annotatsioon teeb muutuja inspektoris nähtavaks ja saad sealt talle väärtuse määrata. `@onready` annotatsioon määrab muutujale väärtuse alles siis, kui skriptiga ühendatud sõlme `_ready()` funktsioon on käivitunud ehk tema ja ta laps-sõlmed on stseenipuusse sisestatud.
 
 Label sõlmele saaks skriptist siis mõlemat viisi sedasi ligi:
 

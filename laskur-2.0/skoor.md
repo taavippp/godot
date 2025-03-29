@@ -151,10 +151,10 @@ Peame siis kindlaks tegema, et meie InputEvent on põhjustatud klahvivajutuse po
 
 ```gdscript
 func _input(event: InputEvent) -> void:
-	if is_player_dead and # kas mängija on surnud
+	if (is_player_dead and # kas mängija on surnud
 		event is InputEventKey and # InputEventKey on klaviatuuri sisendite klass
 		event.is_pressed() and # kas klahvile vajutatakse
-		not event.is_echo(): # kas klahvile hakati just vajutama
+		not event.is_echo()): # kas klahvile hakati just vajutama
 			get_tree().reload_current_scene() # laeb põhistseeni uuesti
 ```
 
@@ -171,7 +171,7 @@ Kuigi oled nüüd Godot'ga tuttav ja oskad nii mõndagi, on tegelikult palju vii
 -	leia vahe `_process(delta)` ja `_physics_process(delta)` funktsioonide vahel ning kasuta projektis mõlemat
 -	kasuta AnimationPlayer ja GPUParticles2D sõlmesid
 -	lisa veel helisid juurde
-	-	näiteks, kui olemus viga saab
+	-	näiteks, kui olend viga saab
 -	mängu pausile panemine kasutades SceneTree `paused` omadust (ligipääsetav `get_tree()` funktsiooniga)
 -	kasuta AutoLoad sõlmesid
 -	loo oma ressurssi klass
