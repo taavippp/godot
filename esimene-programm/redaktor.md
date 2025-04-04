@@ -5,10 +5,11 @@ parent: Esimene programm
 nav_order: 1
 ---
 
--	TOC
-{:toc}
 
 # Redaktor
+
+-	TOC
+{:toc}
 
 ## Projekti loomine
 

@@ -5,10 +5,11 @@ parent: 2D mäng
 nav_order: 3
 ---
 
--	TOC
-{:toc}
 
 # Laskmine
+
+-	TOC
+{:toc}
 
 Selleks, et meie tegelane vastaseid lasta suudaks, peame looma talle eraldi stseeni sellest kuulist, mida ta pidevalt tulistama hakkab.
 

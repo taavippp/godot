@@ -5,10 +5,11 @@ parent: Esimene programm
 nav_order: 2
 ---
 
--	TOC
-{:toc}
 
 # Tere maailm
+
+-	TOC
+{:toc}
 
 Selles osas tutvume lähemalt sõlmede ja signaalide süsteemiga ning kirjutame esimesed GDScripti (Godot enda programmeerimiskeel) koodiread.
 

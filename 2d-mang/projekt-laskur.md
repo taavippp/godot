@@ -5,10 +5,11 @@ parent: 2D mäng
 nav_order: 1
 ---
 
--	TOC
-{:toc}
 
 # Projekt Laskur
+
+-	TOC
+{:toc}
 
 ## Uus projekt
 

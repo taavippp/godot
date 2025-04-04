@@ -5,10 +5,11 @@ parent: Laskur 2.0
 nav_order: 1
 ---
 
--	TOC
-{:toc}
 
 # Klassid
+
+-	TOC
+{:toc}
 
 Kuna tegu on eelmise peatüki projekti edasiarendusega, võid juba loodud Laskuri projekti taas avada. Kui pole Laskuri projekti loodud, soovitan eelmise peatüki läbi võtta või [GitHubi repositooriumist](https://github.com/taavippp/godot-algkursuse-projektid/) see alla laadida.
 

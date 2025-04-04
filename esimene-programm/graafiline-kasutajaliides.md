@@ -5,10 +5,11 @@ parent: Esimene programm
 nav_order: 3
 ---
 
--	TOC
-{:toc}
 
 # Graafiline kasutajaliides
+
+-	TOC
+{:toc}
 
 Selles osas on eesmärk eelnevas osas tutvustatud Label sõlm panna tervitama kasutaja sisestatud nime. Selleks kasutame paari uut sõlme ja õpime veidi Godot graafilise kasutajaliidese süsteemi.
 

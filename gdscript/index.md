@@ -5,10 +5,11 @@ nav_order: 4
 has_children: false
 ---
 
--	TOC
-{:toc}
 
 # GDScript
+
+-	TOC
+{:toc}
 
 Selles osas tutvume lähemalt GDScripti erinevate osadega.
 

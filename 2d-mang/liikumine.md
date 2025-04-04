@@ -5,10 +5,11 @@ parent: 2D mäng
 nav_order: 2
 ---
 
--	TOC
-{:toc}
 
 # Liikumine
+
+-	TOC
+{:toc}
 
 ## Liikumise skript
 

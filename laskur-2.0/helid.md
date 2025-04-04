@@ -5,10 +5,11 @@ parent: Laskur 2.0
 nav_order: 2
 ---
 
--	TOC
-{:toc}
 
 # Helid
+
+-	TOC
+{:toc}
 
 Selles alapeatükis loome juurde veel ühe vastase, kes liigub Tweeniga loodud animatsiooni abiga, õpime Godot's helisid kasutama ja loome vastaseid haldava stseeni, mis vastaseid pidevalt juurde tekitab ja hiljem aitab meil skoori süsteemi ehitada.
 
