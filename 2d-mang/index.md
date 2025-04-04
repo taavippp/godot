@@ -20,7 +20,7 @@ Kuna nüüd oskad natuke GDScripti kirjutada, siis nüüdsest on kood, failinime
 
 ## Mänguvarad
 
-<https://taavippp.github.io/godot/laskur-assets.zip>
+<https://taavippp.github.io/godot/laskur-assets.zip>{:target = "_blank"}
 
 Mänguvarad on leitavad aadressilt ülemisel real olevalt lingilt. Selles .zip failis on kaks kausta, `sprites` ja `sounds`. Muidu on mõlemat kausta projekti arendamisel vaja, aga kui ei plaani läbi teha peatükki "Laskur 2.0", siis `sounds` pole vaja.
 
