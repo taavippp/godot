@@ -21,7 +21,7 @@ Kasutaja peaks oskama enne kursuse alustamist:
 	-   tead algteadmisi nagu mis on muutuja, konstant, funktsioon, tsükkel
 	-   tead objektorienteeritud programmeerimisest, mis on klassid ja pärimine
 
-Kursus koosneb 5 peatükist. Kolmes peatükis loome oma projekte, mis annab praktilist kogemust. Vajaduse korral saad alla laadida valmis projektide failid kas lehekülje üleval paremal asuvast nupust või [siit lingilt](https://github.com/taavippp/godot-algkursuse-projektid){:target="_blank"}.
+Kursus koosneb 5 peatükist. Kolmes peatükis loome oma projekte, mis annab praktilist kogemust. Vajaduse korral saad alla laadida valmis projektide failid kas lehekülje üleval paremal asuvast nupust või [siit lingilt](https://github.com/taavippp/godot-algkursuse-projektid){:target = "_blank"}.
 
 -   [Godot tutvustus](./tutvustus/index)
 	-   mõistetega tutvumine

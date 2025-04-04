@@ -19,6 +19,6 @@ Selles peatükis tegeleme järgnevaga:
 
 ## Mänguvarad
 
-Kuna tegu on eelmise peatüki projekti "Laskur" edasiarendusega, peaks kõik mänguvarad juba olemas olema. Kui pole, siis on need kättesaadavad järgnevalt lingilt: <https://taavippp.github.io/godot/laskur-assets.zip>. Mõlemad kaustad selles .zip failis on olulised meie projekti jaoks.
+Kuna tegu on eelmise peatüki projekti "Laskur" edasiarendusega, peaks kõik mänguvarad juba olemas olema. Kui pole, siis on need kättesaadavad [järgnevalt lingilt](https://taavippp.github.io/godot/laskur-assets.zip){:target = "_blank"}. Mõlemad kaustad selles .zip failis on olulised meie projekti jaoks.
 
 Jõudu tööle!

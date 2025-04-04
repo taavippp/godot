@@ -51,7 +51,7 @@ Nüüd, kus põhistseen skoori ja rekordeid suudab pidada, peaks parima skoori f
 
 ### Ülesanne 6
 
-Selleks, et iseseisvamalt Godot' õppida kasutama, pead oskama dokumentatsiooni enda kasuks sirvida. Õnneks on Godot ametlik dokumentatsioon **sisse ehitatud redaktorisse** ja kättesaadav ka **veebi kaudu** <https://docs.godotengine.org/en/stable/>. Redaktorisse sisse ehitatud dokumentatsioon on kättesaadav päris mitmel moel:
+Selleks, et iseseisvamalt Godot' õppida kasutama, pead oskama dokumentatsiooni enda kasuks sirvida. Õnneks on Godot ametlik dokumentatsioon **sisse ehitatud redaktorisse** ja kättesaadav ka **veebi kaudu** <https://docs.godotengine.org/en/stable/>{:target = "_blank"}. Redaktorisse sisse ehitatud dokumentatsioon on kättesaadav päris mitmel moel:
 
 -	`F1` klahv
 -	ülaribalt `Help -> Search Help...`
