@@ -5,6 +5,9 @@ parent: Esimene programm
 nav_order: 2
 ---
 
+-	TOC
+{:toc}
+
 # Tere maailm
 
 Selles osas tutvume lähemalt sõlmede ja signaalide süsteemiga ning kirjutame esimesed GDScripti (Godot enda programmeerimiskeel) koodiread.
@@ -93,3 +96,5 @@ Vajuta tööriistaribal nupu 2D peale, et tagasi liikuda 2D vaatesse. Uuel Label
 Kui nüüd projekti uuesti tööle paned, siis avanevas aknas ongi üleval vasakul nurgas näha sinu kirjutatud sõnum. Pane tähele, et kuna `tere.gd` pole Labeli külge ühendatud, siis Outputi ei saadetud enam sinu sõnum.
 
 Järgmises osas teeme nii, et kuvatavat teksti saab muuta teiste sõlmede abil ja õpime signaale kasutama.
+
+[Järgmine alapeatükk "Graafiline kasutajaliides"](./graafiline-kasutajaliides)

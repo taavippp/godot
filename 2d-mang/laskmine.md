@@ -5,6 +5,9 @@ parent: 2D mäng
 nav_order: 3
 ---
 
+-	TOC
+{:toc}
+
 # Laskmine
 
 Selleks, et meie tegelane vastaseid lasta suudaks, peame looma talle eraldi stseeni sellest kuulist, mida ta pidevalt tulistama hakkab.
@@ -161,3 +164,5 @@ func _on_player_shot_projectile(spawn_position: Vector2, direction: float) -> vo
 Kui nüüd mängu tööle paned, siis tegelane peaks suutma liikuda, hüpata ja lasta. Laskmine on aga veel katki, sest kui lased, aga ei liigu, siis kuul ei liigu. Lisaks meie kuuli jaoks loodud Marker2D on ainult ühel meie tegelase poolel.
 
 Selle probleemi parandame järgmises alapeatükis, kus võtame tegelase animatsioonid lõpuks käiku ning loome ka lihtsa vastase, keda lasta lõpuks saame.
+
+[Järgmine alapeatükk "Vastane"](./vastane)

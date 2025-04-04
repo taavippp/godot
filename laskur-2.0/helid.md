@@ -5,6 +5,9 @@ parent: Laskur 2.0
 nav_order: 2
 ---
 
+-	TOC
+{:toc}
+
 # Helid
 
 Selles alapeatükis loome juurde veel ühe vastase, kes liigub Tweeniga loodud animatsiooni abiga, õpime Godot's helisid kasutama ja loome vastaseid haldava stseeni, mis vastaseid pidevalt juurde tekitab ja hiljem aitab meil skoori süsteemi ehitada.
@@ -140,3 +143,5 @@ Kui nüüd põhistseeni lisad juurde EnemyManager stseeni ja selle laps-sõlmede
 ![Minu põhistseeni välimus koos markeritega](./pildid/helid/pohistseen-markeritega.png)
 
 Järgmises alapeatükis lõpetame oma Laskuri projekti. Hakkame pidama skoori hävitatud vastaste põhjal ja salvestame seda. Lisaks teeme minimaalse kasutajaliidese juurde.
+
+[Järgmine alapeatükk "Skoor"](./skoor)

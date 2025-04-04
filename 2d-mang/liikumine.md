@@ -5,6 +5,9 @@ parent: 2D mäng
 nav_order: 2
 ---
 
+-	TOC
+{:toc}
+
 # Liikumine
 
 ## Liikumise skript
@@ -89,3 +92,5 @@ if is_on_floor() and Input.is_action_just_pressed("jump"):
 ```
 
 Nüüd, kui meie uue põhistseeni tööle paned, peaks tegelane maha kukkuma ning hüppamise nuppu vajutades peaks ta ajutiselt õhku tõusma ja siis taas maha kukkuma.
+
+[Järgmine alapeatükk "Laskmine"](./laskmine)

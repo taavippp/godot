@@ -5,9 +5,6 @@ nav_order: 2
 has_children: true
 ---
 
-1. Table of Contents
-{:toc}
-
 # Godot tutvustus
 
 Godot mängumootor on vabavaraline programm, millega on võimalik mugavalt luua videomänge ja rakendusi.

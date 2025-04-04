@@ -5,6 +5,9 @@ parent: 2D mäng
 nav_order: 1
 ---
 
+-	TOC
+{:toc}
+
 # Projekt Laskur
 
 ## Uus projekt
@@ -101,3 +104,5 @@ Mina kasutan liikumiseks nooleklahve, hüppamiseks Z klahvi ja laskmiseks X klah
 Nimetame juursõlme ümber `Player`iks. Seda saad teha, valides stseeni dokis juursõlme ning paremklõpsu menüüs `Rename` valikule vajutades või sõlmele klõpsates. Salvesta stseen, vajutades `CTRL + S`. Godot pakub faili salvestada nimega `player.tscn`. See sobib meile.
 
 Järgmises alapeatükis õpime Godot füüsikamootorit tundma, kirjutades tegelase liigutamiseks skripti.
+
+[Järgmine alapeatükk "Liikumine"](./liikumine)

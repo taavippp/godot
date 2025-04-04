@@ -5,6 +5,9 @@ parent: Laskur 2.0
 nav_order: 1
 ---
 
+-	TOC
+{:toc}
+
 # Klassid
 
 Kuna tegu on eelmise peatüki projekti edasiarendusega, võid juba loodud Laskuri projekti taas avada. Kui pole Laskuri projekti loodud, soovitan eelmise peatüki läbi võtta või [GitHubi repositooriumist](https://github.com/taavippp/godot-algkursuse-projektid/) see alla laadida.
@@ -165,3 +168,5 @@ func _process(delta: float) -> void:
 Nüüd saad lisada põhistseeni juurde GameCamera stseeni ja `target` väärtuseks panna meie Playeri. Kui mängu käivitad ja Player sureb ehk tema sõlm kustutatakse, siis kaamera ikka püsib.
 
 Järgmises alapeatükis loome veel ühe vastase, võtame kasutusele helid ja loome vastaste halduri. Kõik need asjad teevad meie mängu palju kaasahaaravamaks.
+
+[Järgmine alapeatükk "Helid"](./helid)

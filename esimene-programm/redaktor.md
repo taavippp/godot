@@ -5,6 +5,9 @@ parent: Esimene programm
 nav_order: 1
 ---
 
+-	TOC
+{:toc}
+
 # Redaktor
 
 ## Projekti loomine
@@ -55,3 +58,5 @@ Külgedel leiduvaid dokkide asukohti saad ka muuta, vajutades doki üleval parem
 ![Doki asukoha muutmine](./pildid/redaktor/doki-asukoha-muutmine.png)
 
 Loodetavasti ei tundu redaktor nüüd nii hirmus ja saad tööle hakata!
+
+[Järgmine alapeatükk "Tere maailm"](./tere-maailm)

@@ -5,6 +5,9 @@ parent: Laskur 2.0
 nav_order: 3
 ---
 
+-	TOC
+{:toc}
+
 # Skoor
 
 Selles alapeatükis lõpetame töö Laskuri projekti kallal. Selleks on vaja küllalt tööd veel teha:
