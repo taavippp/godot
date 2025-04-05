@@ -45,7 +45,7 @@ Kaks füüsikakeha põrkavad kokku. Üks neist on vastane ja teine on sinu lastu
 
 Meie kuul on ikkagi CharacterBody2D, et ta seinaga kokku põrgates ära kustuks. Ta põrkabki vaid taseme füüsikakihiga kokku, vastase ära tundmine jääb Area2D ülesandeks.
 
-Selleks, et kindlaks teha, kui suur kuuli füüsika kuju tuleb, peame talle ennem spraidi andma. Vali stseeni dokis oma värskelt loodud Sprite2D, leia inspektoris Texture omadus ja loo sinna väärtuseks uus AtlasTexture. AtlasTexture võimaldab suuremalt spraidilehelt vajaliku tüki eraldamist, mis teeb spraidiga töötamise lihtsamaks. Ava AtlasTexture ja määra selle `Atlas` väärtuseks meie suur spraidileht `tilemap.png`. Seejärel vajuta `Edit Region` nuppu, et paika panna, kus meie kuuli sprait täpselt on.
+Selleks, et kindlaks teha, kui suur kuuli füüsika kuju tuleb, peame talle enne spraidi andma. Vali stseeni dokis oma värskelt loodud Sprite2D, leia inspektoris Texture omadus ja loo sinna väärtuseks uus AtlasTexture. AtlasTexture võimaldab suuremalt spraidilehelt vajaliku tüki eraldamist, mis teeb spraidiga töötamise lihtsamaks. Ava AtlasTexture ja määra selle `Atlas` väärtuseks meie suur spraidileht `tilemap.png`. Seejärel vajuta `Edit Region` nuppu, et paika panna, kus meie kuuli sprait täpselt on.
 
 AtlasTexture regiooni muutmise aknas vali `Snap Mode` jaoks `Grid Snap`, `Step` jaoks (16, 16) pikslit ja `Separation` jaoks (1, 1) pikslit. Kuuli sprait on viiendas reas, vasakult viies lõik.
 
@@ -69,7 +69,7 @@ Area2D (*hitbox*/tabamisala):
 
 ## Skript
 
-On aeg luua meie kuulile skript nimega `bullet.gd`. Kuulil on sarnaselt peategelasele vaja kiiruse muutujat ja suuna muutujat, et teada, kuhu ta lendab. Lisaks on vaja eksportmuutujat Sprite2D jaoks, sest me plaanime spraiti pöörata `_ready()` funktsioonis olenevalt kuuli suunast. Spraidi pööramiseks on olemas käepärane omadus `flip_h`, mis vaikimisi on **väär**.
+On aeg luua meie kuulile skript nimega `bullet.gd`. Kuulil on sarnaselt peategelasele vaja kiiruse muutujat ja suuna muutujat, et teada, kuhu ta lendab. Lisaks on vaja eksportmuutujat Sprite2D jaoks, sest me plaanime spraiti pöörata `_ready()` funktsioonis olenevalt kuuli suunast. Spraidi pööramiseks on olemas käepärane omadus `flip_h` (*flip horizontal* ehk horisontaalne pööramine), mis vaikimisi on **väär**.
 
 ### Ülesanne 1
 
@@ -88,7 +88,7 @@ Kui kuuli stseeni käima panemisel kuul liigub ja kõik tundub töötavat, kontr
 
 ## Skript, jätk
 
-Lisaks liikumisele peab see kuul hävinema, kui tasemega kokku puutub. Kui kuul lendab horisontaalses joones, siis ainus võimalus tal tasemega kokku puutuda on vastu seina lennates. Määra inspektoris juursõlme `Motion Mode` väärtuseks `Floating`, et füüsikamootor kõiki kuuli kontakte käsitleks kui seina kontakte. Ennem kasutasime `is_on_floor()` funktsiooni, aga eksisteerib ka `is_on_wall()` seinaga kokkupõrke kontrolliks. Muudame oma `_process()` funktsiooni, lisades paar rida enne `move_and_slide()` käsku:
+Lisaks liikumisele peab see kuul hävinema, kui tasemega kokku puutub. Kui kuul lendab horisontaalses joones, siis ainus võimalus tal tasemega kokku puutuda on vastu seina lennates. Määra inspektoris juursõlme `Motion Mode` väärtuseks `Floating`, et füüsikamootor kõiki kuuli kontakte käsitleks kui seina kontakte. Enne kasutasime `is_on_floor()` funktsiooni, aga eksisteerib ka `is_on_wall()` seinaga kokkupõrke kontrolliks. Muudame oma `_process()` funktsiooni, lisades paar rida enne `move_and_slide()` käsku:
 
 ```gdscript
 func _process(delta: float) -> void:
@@ -115,17 +115,26 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 Nüüd, kus kuuli stseen valmis, on vaja peategelasel seda lasta. Selleks peab tegelane signaaliga põhistseenile teada andma, et on aeg tulistada, mille peale põhistseen loob kuuli stseenist isendi ja lisab selle stseenipuusse.
 
-Peategelane peab teada andma põhistseenile, mis koordinaatidelt ja mis suunas kuuli lasta. Kasutame selleks abisõlme Marker2D, mis näitab redaktoris märki, millega on kergem asju paika sättida.
+Peategelane peab teada andma põhistseenile, mis koordinaatidelt ja mis suunas kuuli lasta. Kasutame selleks abistavat sõlme Marker2D, mis näitab redaktoris märki, millega on kergem asju paika sättida.
 
 Lisame siis peategelase stseeni Marker2D. Mina liigutasin selle enda stseenis positsioonile (12, 3).
 
 ![Marker2D asend](./pildid/laskmine/marker2d.png)
 
-Skriptis loo eksportmuutuja markeri jaoks nimega `bullet_marker` ja enda signaal nimega `shot_projectile(spawn_position: Vector2, direction: float)`. Kui toimub laskmise tegevus, siis seda signaali saadetakse laiali koos vastavate argumentidega.
+Skriptis loo eksportmuutuja markeri jaoks nimega `bullet_marker` ja enda signaal `signal` võtmesõnaga. Signaali nimi ja parameetrid olgu `shot_projectile(spawn_position: Vector2, direction: float)`. Kui toimub laskmise tegevus, siis seda signaali saadetakse laiali koos vastavate argumentidega.
 
 `_process()` funktsioonile lisatakse juurde siis järgnev kood enne `move_and_slide()` käsku:
 
 ```gdscript
+signal shot_projectile(
+	spawn_position: Vector2,
+	direction: float
+)
+
+... (muu kood)
+
+@export var bullet_marker: Marker2D
+
 	... (muu kood)
 	if Input.is_action_just_pressed("shoot"):
 		# annab põhistseenile teada, kuhu ja mis suunda kuul tekitada
@@ -162,8 +171,8 @@ func _on_player_shot_projectile(spawn_position: Vector2, direction: float) -> vo
 	add_child(bullet)
 ```
 
-Kui nüüd mängu tööle paned, siis tegelane peaks suutma liikuda, hüpata ja lasta. Laskmine on aga veel katki, sest kui lased, aga ei liigu, siis kuul ei liigu. Lisaks meie kuuli jaoks loodud Marker2D on ainult ühel meie tegelase poolel.
+Kui nüüd mängu tööle paned, siis tegelane peaks suutma liikuda, hüpata ja lasta. Kui kuuli marker on peategelasele liiga lähedal, põrkavad kuulid kohe temaga kokku ja haihtuvad.
 
-Selle probleemi parandame järgmises alapeatükis, kus võtame tegelase animatsioonid lõpuks käiku ning loome ka lihtsa vastase, keda lasta lõpuks saame.
+Laskmine on aga veel katki, sest kui lased, aga ei liigu, siis kuul ei liigu. Lisaks meie kuuli jaoks loodud Marker2D on ainult ühel meie tegelase poolel. Selle probleemi parandame järgmises alapeatükis, kus võtame tegelase animatsioonid lõpuks käiku ning loome ka lihtsa vastase, keda lasta lõpuks saame.
 
 [Järgmine alapeatükk "Vastane"](./vastane)

@@ -7,6 +7,8 @@ has_children: true
 
 # 2D mäng
 
+![Mängu lõplik välimus](./pildid/index/lopp-produkt.png)
+
 Selles peatükis lood prototüübi 2D videomängu jaoks. Tegu on platvormimänguga, kus tegelane saab ringi liikuda, hüpata ja oma relvast lasta. Tegelase eesmärk on vastaseid hävitades punkte koguda.
 
 Kuna nüüd oskad natuke GDScripti kirjutada, siis nüüdsest on kood, failinimed jne sujuvamaks lugemiseks kirjutatud inglise keeles.
@@ -25,9 +27,5 @@ Kuna nüüd oskad natuke GDScripti kirjutada, siis nüüdsest on kood, failinime
 Mänguvarad on leitavad aadressilt ülemisel real olevalt lingilt. Selles .zip failis on kaks kausta, `sprites` ja `sounds`. Muidu on mõlemat kausta projekti arendamisel vaja, aga kui ei plaani läbi teha peatükki "Laskur 2.0", siis `sounds` pole vaja.
 
 Spraidid on loodud [Kenney](https://www.kenney.nl/) poolt. Kenney on populaarne tasuta mänguvarade looja. Enamus tema loodud mänguvaradest on CC0 litsentsi all, mis tähendab, et neid võib ka kommertsprojektis kasutada.
-
-Lõpuks võiks mäng välja näha sarnane järgnevale pildile:
-
-![Mängu lõplik välimus](./pildid/index/lopp-produkt.png)
 
 Jõudu tööle!

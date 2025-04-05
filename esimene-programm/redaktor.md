@@ -51,7 +51,7 @@ Esimesel pilgul võib redaktor tunduda väga kirju. Sellepärast on ülemisel pi
     -   siin leiad `Output` kuva, mis näitab veateateid ja olulisi sõnumeid
         -   projekti jooksutamise ajal näitab redaktor seda automaatselt
     -   `Debugger` näitab rakenduse jooksutamise ajal tähtsat informatsiooni
-    -   muud valikud esindavad mooduleid, kus on tööriistad mingite sõlmedega töötamiseks
+    -   muud valikud esindavad mooduleid, kus on tööriistad teatud sõlmedega töötamiseks
         -   näiteks `Animation` kuvaga saad luua animatsioone kasutades *AnimationPlayer* sõlme
 
 Külgedel leiduvaid dokkide asukohti saad ka muuta, vajutades doki üleval paremal nurgas asuvale kolmele täpile. Selle kursuse piltidel on aga dokid oma vaikimisi paikades.

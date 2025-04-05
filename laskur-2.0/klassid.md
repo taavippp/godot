@@ -89,6 +89,8 @@ func take_damage() -> void:
 		queue_free()
 ```
 
+Entity on nüüd üks sõlmedest, mida saad oma stseenidesse lisada ja seda kuvatakse sõlme loomise loetelus.
+
 ## Koodi kaudu animeerimine
 
 Tahame, et kui olend elupunkte kaotab, siis oleks seda visuaalselt korraks kuidagi näha. Selleks õpime animeerima kasutades Tween süsteemi. Tweenidega animeerimine töötab sujuvalt muutujate väärtuseid muutes. Tweenid hakkavad automaatselt tööle.

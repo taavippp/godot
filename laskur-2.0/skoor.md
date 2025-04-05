@@ -51,7 +51,7 @@ func _on_player_died() -> void:
 
 ## Failihaldus
 
-Nüüd, kus põhistseen skoori ja rekordeid suudab pidada, peaks parima skoori faili salvestama. Selleks kasutame FileAccess klassi. Tegeleme ennem faili kirjutamisega ehk rekordskoori salvestamisega.
+Nüüd, kus põhistseen skoori ja rekordeid suudab pidada, peaks parima skoori faili salvestama. Selleks kasutame FileAccess klassi. Tegeleme enne faili kirjutamisega ehk rekordskoori salvestamisega.
 
 ### Ülesanne 6
 

@@ -66,9 +66,9 @@ flowchart TD;
 
 Sümboliga *#* algav rida tähistab kommentaari. See teeb terve rea kommentaariks, ehk seda ei loeta koodina, kuid arendaja saab siia kirjutada kasulikku informatsiooni koodi kohta.
 
-Võtmesõna `func` kuulutab funktsiooni algust. Funktsioon `_ready()` on Node klassi sisse ehitatud funktsioon, mis käivitub siis, kui sõlm on valmis stseenis töötama. Tal on ees alakriips, et märgistada seda funktsiooni privaatsena. Muidu tegelikult GDScript-is **ei ole** võtmesõnu `private` ega `public`, ehk kõik funktsioonid on avalikud.
+Võtmesõna `func` kuulutab funktsiooni algust. Funktsioon `_ready()` on Node klassi sisse ehitatud funktsioon, mis käivitub siis, kui sõlm (ja tema laps-sõlmed) on stseenis ära laadinud. Tal on ees alakriips, et märgistada seda funktsiooni privaatsena. Muidu tegelikult GDScript-is **ei ole** võtmesõnu `private` ega `public`, ehk kõik funktsioonid on avalikud.
 
-Käsk `pass` tähendab, et see koodirida ei tee mitte midagi.
+Käsk `pass` tähendab, et see koodirida ei tee mitte midagi. Tühi funktsioon annab muidu veateate ja tühjasid funktsioone on mõtekas kasutada näiteks liidesklasside loomisel.
 
 Funktsioon `_process()` käivitub igal kaadril, mida programm renderdab. Tal on parameeter `delta`, mis tähistab aega sekundites eelmise kaadri möödumisest.
 

@@ -23,9 +23,9 @@ Sellel tegelasel on vaid **üks animatsioon**, mis **automaatselt** mängima hak
 
 Lisa juurde CollisionShape2D, mille kujuks on RectangleShape2D ja Hitbox, mille CollisionShape2D kujuks on CircleShape2D. Määra neile suurused ise. Salvesta stseen `entities` kaustas oma kausta nagu teistega tegime. **Ära unusta sõlmede füüsikakihid** - juursõlm on *enemy* kihil ja põrkab kokku *level*iga, Hitbox peab ainult *player* kihti tuvastama.
 
-Määra Flyerile ka mingi elupunktide arv ja kiirus. Mina panin näiteks talle `max_health` väärtuseks 3 ja `speed` väärtuseks 50.
+Loo Flyerile juurde skript `flyer.gd` juursõlme paremklõpsu menüüst valikuga `Extend Script...`. Enne, kui skripti läheme kirjutama, määra talle ka mingi elupunktide arv ja kiirus. Mina panin näiteks talle `max_health` väärtuseks 3 ja `speed` väärtuseks 50.
 
-Nüüd oleks vaja ta liikuma panna. Loo juurde skript `flyer.gd` juursõlme paremklõpsu menüüst valikuga `Extend Script...`. Lendaja on kogu aeg õhus ja lendab vaikselt üles-alla. Kuigi ta kutsub `_process(delta)` funktsioonis välja ikka `move_and_slide()`, siis tema liikumise loogika läheb tegelikult `_ready()` funktsiooni. Skript tuleb välja selline:
+Nüüd oleks vaja ta liikuma panna. Ava uuesti skript. Lendaja on kogu aeg õhus ja lendab vaikselt üles-alla. Kuigi ta kutsub `_process(delta)` funktsioonis välja ikka `move_and_slide()`, siis tema liikumise loogika läheb tegelikult `_ready()` funktsiooni. Skript tuleb välja selline:
 
 ```gdscript
 extends Entity
@@ -75,7 +75,7 @@ Ava taas peategelase stseen ja lisa kaks `AudioStreamPlayer` sõlme. Mina nimeta
 
 ![Helifaili valimise instruktsioon](./pildid/helid/helifaili-valimine.png)
 
-Avaneb väike aken, mis kuvab kõiki selleks väärtuseks sobivaid helifaile. Mina tegelen ennem JumpAudioStreamPlayeriga, seega valisin `sounds/jump.wav`. Enne, kui teise heli juurde liigud, kontrolli oma heli volüümi. Mina leidsin, et see on niisama liiga vali, seega langetasin `Volume dB` -10 detsibelli peale. Tee sama protsess läbi ka laskmise heliga. Laskmise helil võiks muuta ka `Max Polyphony` väärtuse 5 peale - see tähendab, et 5 laskmise heli võib korraga mängida, kui mängija väga kiiresti relva laseb.
+Avaneb väike aken, mis kuvab kõiki selleks väärtuseks sobivaid helifaile. Mina tegelen enne JumpAudioStreamPlayeriga, seega valisin `sounds/jump.wav`. Enne, kui teise heli juurde liigud, kontrolli oma heli volüümi. Mina leidsin, et see on niisama liiga vali, seega langetasin `Volume dB` -10 detsibelli peale. Tee sama protsess läbi ka laskmise heliga. Laskmise helil võiks muuta ka `Max Polyphony` väärtuse 5 peale - see tähendab, et 5 laskmise heli võib korraga mängida, kui mängija väga kiiresti relva laseb.
 
 Kui sõlmed on ette valmistatud, siis peame viimast korda `player.gd` skripti muutma. Meie heli sõlmede jaoks on vaja **eksportmuutujaid** ning on vaja leida õiged read, kus AudioStreamPlayeri `play()` funktsiooni kasutada.
 
@@ -123,7 +123,7 @@ func _ready() -> void:
 			continue
 		spawn_markers.append(child)
 
-func _on_spawn_timer_timeout() -> void:
+func _on_timer_timeout() -> void:
 	pass # Replace with function body.
 ```
 

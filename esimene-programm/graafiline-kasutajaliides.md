@@ -27,11 +27,11 @@ Label sõlme eesmärk ongi teksti kuvamine. Leidub veel sõlm RichTextLabel, mis
 TextEdit sõlme otstarve on nimest tuletatav - kasutaja saab sinna sisse teksti kirjutada.
 Ka Button sõlme ülesanne on selge, see on lihtsalt nupp, mida saab hiirega vajutada.
 
-Tahame teha nii, et teksti sisestamise riba ja nupp oleksid programmi allpool ja tervitust kuvatakse keskel.
+Tahame teha nii, et teksti sisestamise riba ja nupp oleksid akna alumises ääres ja tervitust kuvatakse keskel.
 
 ## Ankrud
 
-Graafilise kasutajaliidese sõlmed arvestavad erinevate mängu akna suurustega kasutades ankrute süsteemi. On neli ankrut - ülemine, alumine, vasak, parem. Ankru väärtus on tavaliselt 0 ja 1 vahel. Kui vasaku ankru väärtus on 0, tähendab see, et sõlme vasak külg alustab ekraani vasakust küljest. Kui see oleks 0.5, algaks sõlme vasak külg ekraani keskelt. Kui see oleks 1, algaks sõlme vasak külg ekraani paremast küljest.
+Graafilise kasutajaliidese sõlmed arvestavad erinevate mängu akna suurustega, kasutades **ankrute süsteemi**. On neli ankrut - ülemine, alumine, vasak, parem. Ankru väärtus on tavaliselt 0 ja 1 vahel. Kui vasaku ankru väärtus on 0, tähendab see, et sõlme vasak külg alustab ekraani vasakust küljest. Kui see oleks 0.5, algaks sõlme vasak külg ekraani keskelt. Kui see oleks 1, algaks sõlme vasak külg ekraani paremast küljest.
 
 Vali Control sõlm ja inspektoris pane Control -> Layout -> Anchors Preset muutuja väärtuseks mall `Full Rect`. See teeb Control sõlme mängu akna suuruseks ja sätib ankrute väärtused järgmiseks:
 
@@ -58,7 +58,7 @@ Põhivaade peaks nüüd selline välja nägema:
 
 ### Muutujad
 
-Vali Control juursõlm ja ühenda talle taas `tere.gd` külge. Skripti ühendamise aken peaks mainima, et fail juba eksisteerib ning et seda taaskasutatakse. Vajuta nupu `Load` peale.
+Vali Control juursõlm ja ühenda talle taas `tere.gd` külge klõpsates paberilehe disainiga nupul. Skripti ühendamise aken peaks mainima, et fail juba eksisteerib ning et seda taaskasutatakse. Vajuta nupu `Load` peale.
 
 ![Skripti ühendamise aken kirjutab, et skriptifail on juba olemas.](./pildid/graafiline-kasutajaliides/fail-eksisteerib.png)
 
@@ -82,7 +82,7 @@ Kohe esimesel real on viga. Kuna nüüd on juursõlm Control tüüpi, siis peaks
 2.	`@onready` annotatsiooniga muutujad
 
 Esiteks tutvume sellega, kuidas deklareerida muutujaid.
-Üldine muutuja süntaks on järgmine: `var muutuja_nimi: muutuja_andmetüüp = väärtus`. Muutujatel ei pea klassi kirja panema, aga seda tehakse sellel kursusel, kuna see on hea praktika. Muutujatel ei pea ka väärtuseid kohe määrama. Lisaks on olemas võtmesõna `const` konstandi deklareerimiseks samal viisil. Konstantidel peab olema väärtus koodis kohe olemas.
+Üldine muutuja süntaks on järgmine: `var muutuja_nimi: muutuja_andmetüüp = väärtus`. Muutujatel ei pea andmetüüpi kirja panema, aga seda tehakse sellel kursusel, kuna see on hea praktika. Muutujatel ei pea ka väärtuseid kohe määrama. Lisaks on olemas võtmesõna `const` konstandi deklareerimiseks samal viisil. Konstantidel peab olema väärtus koodis kohe olemas.
 
 Funktsiooni tagastatava väärtuse andmetüüpi on ka võimalik deklareerida järgneva süntaksiga: `func funktsiooni_nimi(parameeter: parameetri_andmetüüp) -> tagastatav_andmetüüp:`.
 
@@ -128,7 +128,7 @@ Lisaks järgmises peatükis uurime täpsemalt GDScripti, tema andmetüübid ja m
 
 ### Signaalid
 
-Nüüd peame välja nuputama, kuidas skriptis teha nii, et Buttoni nupuvajutuse peale läheb TextEditisse kirjutatud tekst Label sõlme. Vali inspektoris Button sõlm ja seejärel liigu inspektori dokist sõlme/`Node` dokki.
+Nüüd peame välja nuputama, kuidas skriptis teha nii, et Buttoni nupuvajutuse peale läheb TextEditisse kirjutatud tekst Label sõlme. Vali stseeni dokis Button sõlm ja seejärel liigu inspektori dokist sõlme/`Node` dokki.
 
 ![Sõlme doki nupu asukoht.](./pildid/graafiline-kasutajaliides/solme-dokk.png)
 
@@ -139,13 +139,15 @@ Kohe peaks näha olema Button sõlme erinevad signaalid, mida ta välja saadab. 
 
 Kursuse autori isiklik eelistus on teine variant, kuna niikuinii peab signaaliga toimetamiseks koodi kirjutama. Õpime mõlemat tegema, aga edaspidi koodinäidetes on esimest varianti kasutatud kursuse kasutaja mugavuseks.
 
-Esimene viis on sealsamas sõlme dokis topeltklõpsida `pressed` signaali peale. Seejärel avaneb aken, mis küsib detaile signaali sõlmega ühendamise kohta. Oluline on, et ta ühendaks Control sõlmega. Kõik muu võid jätta samaks. Seejärel vajuta nupule `Connect`. Skriptis on nüüd genereeritud algne `_on_button_pressed()` funktsioon, aga signaali ühendusest skriptis endas tõendit ei ole, kuid redaktoris on, nii sõlme dokis kui ka stseeni dokis selle sõlme juures.
+Esimene viis on sealsamas sõlme dokis topeltklõpsida `pressed` signaali peale. Seejärel avaneb aken, mis küsib detaile signaali sõlmega ühendamise kohta. Oluline on, et ta ühendaks Control sõlmega. Kõik muu võid jätta samaks. Seejärel vajuta nupule `Connect`. Skriptis on nüüd genereeritud tühi `_on_button_pressed()` funktsioon. Signaali ühendust saad kontrollida funktsiooni nime järgi, redaktori kaudu ühendatud signaalid on alati nimetatud `on_[sõlm]_[signaal]()` tava järgi. Lisaks kuvatakse stseeni dokis sõlme juures uus signaali ikoon ja sellele klõpsates näidatakse sõlme dokki, kus nüüd on kirjas, mis funktsiooniga signaal ühendatud on.
 
-Teise meetodiga näeks `_ready()` funktsioon välja selline:
+![Signaali ühenduse ikoonid redaktoris](./pildid/graafiline-kasutajaliides/signaali-uhenduse-ikoonid.png)
+
+Koodi kaudu signaali ühendamine näeks `_ready()` funktsioonis välja selline:
 
 ```gdscript
 func _ready() -> void:
-	button.pressed.connect(_on_button_pressed) # uus rida
+	button.pressed.connect(_on_button_pressed) # signaali koodi kaudu ühendamine
 	label.text = "Tere Godot!"
 
 func _on_button_pressed() -> void:
@@ -177,7 +179,7 @@ func _on_button_pressed() -> void:
 	text_edit.text = ""
 ```
 
-Nüüd on esimene projekt valmis. Käivita see, sisesta teksti ja vajuta nupule. Kui akna keskel kuvatav sõnum muutub, oled hakkama saanud! Lisaks peaks akna suurust muutes kõik sõlmed ilusti mahtuma.
+Nüüd on esimene projekt valmis. Käivita see, kirjuta tekstilahtrisse teksti ja vajuta nupule. Kui akna keskel kuvatav sõnum muutub, oled hakkama saanud! Lisaks peaks akna suurust muutes kõik sõlmed ilusti mahtuma.
 
 ![Akna suuruse muutmine töötab, kui ta selline saab välja näha.](./pildid/graafiline-kasutajaliides/akna-suuruse-muutmine-tootab.png)
 

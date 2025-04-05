@@ -11,7 +11,7 @@ has_children: false
 -	TOC
 {:toc}
 
-Selles osas tutvume lähemalt GDScripti erinevate osadega.
+Selles peatükis tutvume lähemalt GDScripti erinevate osadega.
 
 ## Taandamine
 
@@ -92,8 +92,8 @@ GDScriptis on erinevad konteinerid mitme ühte andmetüüpi väärtuste hoidmise
 | Array        | tavaline massiiv, Godot 4. versioonis on neile võimalik andmetüüpe määrata süntaksiga `Array[tüüp]`                    |
 | Packed Array | kindla andmetüübiga massiiv, mis suudab hästi hallata suurt kogust andmeid (PackedStringArray, PackedInt32Array jne)   |
 | Dictionary   | sõnastik-konteiner, kus väärtustel on arvuliste indeksite asemel võtmed                                                |
-| Signal       | signaal - neid saab ka väärtusena/parameetrina kasutada                                                                |
-| Callable     | funktsioon - neid saab ka väärtusena/parameetrina kasutada                                                             |
+| Signal       | signaal - neid saab ka väärtustena kasutada                                                                            |
+| Callable     | funktsioon - neid saab ka väärtustena kasutada                                                                         |
 
 ## Võtmesõnad ja operaatorid
 
@@ -110,7 +110,7 @@ Lisaks teistele siin lehel juba mainitud võtmesõnadele eksisteerivad veel:
 | as         | määrab tundmatu andmetüübiga väärtusele andmetüübi või muudab ta nulliks                       | `var tegelane := tundmatu_stseen.instantiate() as CharacterBody2D`   |
 | self       | viide klassi isendile                                                                          |                                                                      |
 | signal     | signaali deklareerimiseks, vajadusel saab ka määrata parameetrid, mis signaaliga kaasas käivad | `signal changed_direction` või `signal jumped(height: int)`          |
-| breakpoint | peatab programmi seda sisaldaval real, et silumine (debugging) mugavam oleks                   |                                                                      |
+| breakpoint | peatab programmi seda sisaldaval real, et silumine (*debugging*) mugavam oleks                   |                                                                      |
 | await      | peatab skripti töö kuni saab signaali või kaasrutiin lõpeb                                     | `await timer.timeout`                                                |
 | assert     | kui antud tingimus on vale, siis programm annab veateate                                       | `assert unknown_node is Label`                                       |
 

@@ -36,7 +36,7 @@ Uurime lähemalt neid 3 uut sõlme:
 
 Meie mäng kasutab Godot sisse ehitatud füüsikamootorit. See süsteem on arendaja jaoks lihtsustatud **füüsikakeha sõlmedega**. CharacterBody2D on üks neist ning seda sõlme liigutatakse läbi koodi.
 
-Lisaks on olemas ka **RigidBody2D** ja **StaticBody2D**. RigidBody2D liigub kasutades impulsside süsteemi (üks pidev impulss oleks näiteks gravitatsioon), seda sõlme kasutatakse veidi täpsema füüsika simulatsiooni loomisel. StaticBody2D ei liigu, seega seda sõlme kasutatakse näiteks maapinna jaoks.
+Lisaks on olemas ka **RigidBody2D** ja **StaticBody2D**. RigidBody2D liigub kasutades impulsside süsteemi (üks pidev impulss on näiteks gravitatsioon), seda sõlme kasutatakse veidi täpsema füüsika simulatsiooni loomisel. StaticBody2D ei liigu, seega seda sõlme kasutatakse näiteks maapinna jaoks.
 
 ### CollisionShape2D
 
@@ -48,7 +48,7 @@ Selle sõlmega on lihtne oma spraidi animatsioonid kokku panna kaadrihaaval ja n
 
 ## Animatsioon
 
-Selleks, et teada, kui suur ja milline CollisionShape tulema peaks, paneme ennem paika spraidi. Loo inspektoris AnimatedSprite2D -> Animation -> Sprite Frames jaoks uus SpriteFrames ressurss, vajutades `<empty>` tekstiga lahtrisse.
+Selleks, et teada, kui suur ja milline CollisionShape tulema peaks, paneme enne paika spraidi. Loo inspektoris AnimatedSprite2D -> Animation -> Sprite Frames jaoks uus SpriteFrames ressurss, vajutades `<empty>` tekstiga lahtrisse.
 
 ![SpriteFrames loomine](./pildid/projekt-laskur/spriteframes-loomine.png)
 
@@ -66,7 +66,7 @@ Meie peategelase animatsioonid koosnevad vaid kahest kaadrist viienda rea vasaku
 
 Vaikimisi on nende animatsioonide kaadrisagedus 5 FPS (kaadrit sekundis/*frames per second*). See tähendab, et kui "run" animatsioonil on kaks kaadrit, siis sekundi jooksul jõuab see animatsioon korduda 5 / 2 = 2.5 korda. Minu arvates tundus "run" animatsioon sedasi aeglane, seega määrasin, et see oleks `10 FPS`.
 
-Meie tegelane tundub küll natuke hägune. Tegu on automaatse filtriga Godot poolt, kuid meie pikslikunsti jaoks see ei sobi. Paranda seda valides ülaribalt Project -> Project Settings. Seejärel kirjuta otsingusse `texture filter`, ava vasakust menüüst ainus otsingutulemus ja väärtuse `Linear` asemel olgu `Nearest`. Nüüd peaks pikslikunst kenam välja nägema.
+Meie tegelane tundub küll natuke hägune. Tegu on automaatse filtriga Godot poolt, kuid meie pikslikunsti jaoks see ei sobi. Paranda seda valides ülaribalt Project -> Project Settings. Seejärel kirjuta otsingusse `texture filter`, ava vasakust menüüst ainus otsingutulemus ja väärtuse `Linear` asemel olgu `Nearest`. Nüüd peaks pikslikunst kena ja terav välja nägema.
 
 ## Füüsika kuju
 
@@ -98,7 +98,7 @@ Tegevusi saab luua ülaribalt Project -> Project Settings menüüs Input Map sak
 
 Peale tegevuste deklareerimist, saab määrata, mis sisend mängija poolt selle tegevuse käivitab **paremas ääres olevast plussi** nupust. Saad lihtsalt vajutada sellele klahvile, mis sinu arust sobib ja siis `OK` vajutada.
 
-Mina kasutan liikumiseks nooleklahve, hüppamiseks Z klahvi ja laskmiseks X klahvi.
+Mina kasutan liikumiseks nooleklahve, hüppamiseks Z klahvi ja laskmiseks X klahvi. Peale nende määramist võid sätete akna sulgeda.
 
 ![Input map details](./pildid/projekt-laskur/input-map.png)
 

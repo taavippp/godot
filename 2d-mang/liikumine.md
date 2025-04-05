@@ -20,7 +20,7 @@ Loo peategelase jaoks skript nimega `player.gd`. Tegelasel on vaja liikumiseks t
 var direction: float = 1.0
 ```
 
-`@export_range(minimum_value, maximum_value, step)` annotatsioon on sarnane tavalise `@export` annotatsiooniga, aga võimaldab muutujale piiride määramist. Kuna meil on kiirus ja liikumissuund eraldi muutujad, siis kiirus ei tohi alla 0 minna, sest tegelane hakkaks vastassuunas liikuma.
+`@export_range(minimum_value, maximum_value, step)` annotatsioon on sarnane tavalise `@export` annotatsiooniga, aga võimaldab muutujale piiride määramist (valikuline `step` tähistab sammu, mis arvu kaupa väärtust muuta saab). Kuna meil on kiirus ja liikumissuund eraldi muutujad, siis kiirus ei tohi alla 0 minna, sest tegelane hakkaks vastassuunas liikuma.
 
 Suund ei pea eksportmuutuja olema, kuna see muutub pidevalt tegelase liikudes. Suuna väärtus jääb -1 ja 1 vahele ning väärtustel on järgnev tähendus:
 
@@ -57,7 +57,7 @@ Füüsikakihtidele saame nimed anda Project Settings -> General -> Layer Names -
 
 ![Füüsikakihtide nimetamine Project Settings aknas](./pildid/liikumine/fuusika-kihtide-nimetamine.png)
 
-Peategelane peaks olema siis *player* kihil ja tema mask peaks tuvastama *level* kihti. Neid saad määrata CollisionObject2D -> Collision alt.
+Peategelane peaks olema siis *player* kihil ja tema mask peaks tuvastama *level* kihti. Neid saad määrata inspektoris CollisionObject2D -> Collision alt.
 
 ![Peategelase füüsikakihtide info](./pildid/liikumine/peategelase-fuusika-kihid.png)
 
