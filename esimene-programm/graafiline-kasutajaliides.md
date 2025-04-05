@@ -139,7 +139,7 @@ Kohe peaks näha olema Button sõlme erinevad signaalid, mida ta välja saadab. 
 
 Kursuse autori isiklik eelistus on teine variant, kuna niikuinii peab signaaliga toimetamiseks koodi kirjutama. Õpime mõlemat tegema, aga edaspidi koodinäidetes on esimest varianti kasutatud kursuse kasutaja mugavuseks.
 
-Esimene viis on sealsamas sõlme dokis topeltklõpsida `pressed` signaali peale. Seejärel avaneb aken, mis küsib detaile signaali sõlmega ühendamise kohta. Oluline on, et ta ühendaks Control sõlmega. Kõik muu võid jätta samaks. Seejärel vajuta nupule `Connect`. Skriptis on nüüd genereeritud tühi `_on_button_pressed()` funktsioon. Signaali ühendust saad kontrollida funktsiooni nime järgi, redaktori kaudu ühendatud signaalid on alati nimetatud `on_[sõlm]_[signaal]()` tava järgi. Lisaks kuvatakse stseeni dokis sõlme juures uus signaali ikoon ja sellele klõpsates näidatakse sõlme dokki, kus nüüd on kirjas, mis funktsiooniga signaal ühendatud on.
+Esimene viis on sealsamas sõlme dokis topeltklõpsida `pressed` signaali peale. Seejärel avaneb aken, mis küsib detaile signaali sõlmega ühendamise kohta. Oluline on, et ta ühendaks Control sõlmega. Kõik muu võid jätta samaks. Seejärel vajuta nupule `Connect`. Skriptis on nüüd genereeritud tühi `_on_button_pressed()` funktsioon. Signaali ühendust saad kontrollida funktsiooni nime järgi, redaktori kaudu ühendatud signaalide funktsioonid on alati nimetatud `on_[sõlm]_[signaal]()` tava järgi. Lisaks kuvatakse stseeni dokis sõlme juures uus signaali ikoon ja sellele klõpsates näidatakse sõlme dokki, kus nüüd on kirjas, mis funktsiooniga signaal ühendatud on.
 
 ![Signaali ühenduse ikoonid redaktoris](./pildid/graafiline-kasutajaliides/signaali-uhenduse-ikoonid.png)
 
