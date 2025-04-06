@@ -142,7 +142,7 @@ Esiteks peame alla laadima eksportimismallid. Need ei ole vaikimisi kaasas Godot
 
 ![Eksportimismallid](./pildid/vastane/eksportimismallid.png)
 
-Nüüd ava ülaribalt `Project -> Export...`. Nupust `Add...` saad valida, mis operatsioonisüsteemile sa eksportida tahad. Mina kasutan Windows 10 operatsioonisüsteemi, seega valisin Windows Desktop. Meie projekt pole väga keeruline, siis saad kohe vajutada `Export Project`.
+Nüüd ava ülaribalt `Project -> Export...`. Nupust `Add...` saad valida, mis operatsioonisüsteemile sa eksportida tahad. Mina kasutan Windows 10 operatsioonisüsteemi, seega valisin Windows Desktop. Meie projekt pole väga keeruline ja ei vaja siin konfigureerimist ehk saad kohe vajutada `Export Project`.
 
 ![Eksportimise aken](./pildid/vastane/eksportimine.png)
 

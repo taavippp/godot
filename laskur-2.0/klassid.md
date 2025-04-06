@@ -97,7 +97,7 @@ Tahame, et kui olend elupunkte kaotab, siis oleks seda visuaalselt korraks kuida
 
 Meie kasutame oma animatsiooni jaoks `modulate` muutujat, mis on värvifilter sõlmede peal. See on vaikimisi valget värvi, mis tähendab, et sõlmede värvid ei ole muudetud. Meie muudame animatsiooni alguses selle läbipaistvaks ning animatsiooni jooksul taas valgeks, mis tekitab korraks haihtumise efekti.
 
-Tegelikult saaks ka selleks animatsiooniks kasutada AnimationPlayer sõlme, aga see nõuaks rohkem tööd.
+Tegelikult saaks ka selleks animatsiooniks kasutada AnimationPlayer sõlme, aga see nõuaks praeguses olukorras rohkem tööd.
 {: .tip }
 
 Lisa `take_damage()` funktsiooni lõppu (peale elupunktide kontrolli) järgnevad koodiread:
